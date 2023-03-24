@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'screen/sign_up.dart';
 
-void main()async {
+void main()
+  async {
 WidgetsFlutterBinding.ensureInitialized();
 
  await firstTime.init();
