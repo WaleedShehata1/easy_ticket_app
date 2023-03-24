@@ -1,8 +1,16 @@
+
+import 'package:easy_ticket_app/screen/onBoard.dart';
+import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/screen/splash.dart';
-import 'package:easy_ticket_app/widget/ticket.dart';
+import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'screen/sign_up.dart';
+
+void main()async {
+WidgetsFlutterBinding.ensureInitialized();
+
+ await firstTime.init();
   runApp(const MyApp());
 }
 
@@ -14,37 +22,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
  
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
       ),
-      home: const SplashSceen(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
- 
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-       ticket,
-      ],),
-      )
+     // home: SignUp(),
+    // home: Sign_In(),
+        routes: {
+              // splash.routeName: (context)=>  const splash(),
+              '/': (context)=>  const splash(),
+                onBoard.routeName : (context)=>  const onBoard(),
+                Sign_In.routeName:(context) =>   Sign_In(),
+                SignUp.routeName:(context)=> SignUp(),
+            },
+           
     );
   }
 }

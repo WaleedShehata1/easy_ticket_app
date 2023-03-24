@@ -1,13 +1,19 @@
 // ignore: implementation_imports
-import 'package:flutter/src/widgets/container.dart';
-// ignore: implementation_imports
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return  Scaffold(
+      body: Container(
+        foregroundDecoration: const BoxDecoration(),
+        decoration: const BoxDecoration(
+          
+        ),
+      ),
+
+    );
   }
 }
