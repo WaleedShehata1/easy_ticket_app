@@ -1,13 +1,12 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, must_be_immutable, camel_case_types
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// ignore: non_constant_identifier_names
 Color PrimaryColour =const Color(0xffFE8668);
 
 
-// ignore: camel_case_types
+
 class firstTime {
 
 static SharedPreferences? sharedPreferences;

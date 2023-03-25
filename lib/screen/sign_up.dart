@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names
+// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable
 
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +44,7 @@ var ConfirmPasswordController=TextEditingController();
                          Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            children: [
-                             Container(
+                             SizedBox(
                               width:150 ,
                                child: DefaultFormField
                                (
@@ -57,7 +57,7 @@ var ConfirmPasswordController=TextEditingController();
                                              
                                ),
                              ),
-                              Container(
+                              SizedBox(
                           width:150 ,
                            child:  DefaultFormField
                          (
@@ -90,7 +90,7 @@ var ConfirmPasswordController=TextEditingController();
                          Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            children: [
-                             Container(
+                             SizedBox(
                               width:150 ,
                                child:  DefaultFormField
                          (
@@ -104,7 +104,7 @@ var ConfirmPasswordController=TextEditingController();
                          ),
                              ),
                             
-                              Container(
+                              SizedBox(
                           width:150 ,
                            child:DefaultFormField
                          (
@@ -134,7 +134,7 @@ var ConfirmPasswordController=TextEditingController();
                          Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            children: [
-                             Container(
+                             SizedBox(
                               width:150 ,
                                child: DefaultFormField
                          (
@@ -148,7 +148,7 @@ var ConfirmPasswordController=TextEditingController();
                          ),
                              ),
                               const SizedBox(width: 20,),
-                              Container(
+                              SizedBox(
                           width:150 ,
                            child:  DefaultFormField
                          (
