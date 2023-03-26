@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './edit_profile.dart';
 
 class UserSettingsScreen extends StatefulWidget {
   @override
@@ -40,7 +41,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
           ],
         ),
-        backgroundColor: isDarkMode ? Colors.black : Colors.deepOrangeAccent,
+        backgroundColor: isDarkMode ? Colors.black : Color(0xffF48265),
         elevation: 0,
         toolbarHeight: 200,
         actions: [
@@ -51,7 +52,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 Stack(
                   children: [
                     CircleAvatar(
-                      backgroundColor: Colors.deepOrangeAccent,
+                      backgroundColor: Color(0xffF48265),
                       radius: 48,
                       child: Icon(Icons.account_circle,
                           size: 90, color: Colors.white),
@@ -62,11 +63,10 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       right: 0,
                       child: IconButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => EditProfileScreen(),
-                            ),
-                          );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EditProfileScreen()));
                         },
                         icon: Container(
                           decoration: BoxDecoration(
@@ -181,22 +181,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class EditProfileScreen extends StatelessWidget {
-  const EditProfileScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Edit Profile'),
-      ),
-      body: Center(
-        child: Text('Edit your profile here'),
       ),
     );
   }

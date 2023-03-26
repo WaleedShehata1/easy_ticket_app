@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class EditAccountScreen extends StatefulWidget {
+class EditProfileScreen extends StatefulWidget {
   @override
-  _EditAccountScreenState createState() => _EditAccountScreenState();
+  _EditProfileScreenState createState() => _EditProfileScreenState();
 }
 
-class _EditAccountScreenState extends State<EditAccountScreen> {
+class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController nationalIdController = TextEditingController();
@@ -20,6 +20,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xffF48265),
         title: Text('Edit Account'),
       ),
       body: Center(
@@ -128,6 +129,9 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                   // TODO: implement
                 },
                 child: Text('Change Password'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xffF48265),
+                ),
               ),
               SizedBox(height: 50.0),
               SizedBox(
@@ -141,6 +145,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                     child: Text('Save'),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 12.0),
+                      backgroundColor: Color(0xffF48265),
                     ),
                   ),
                 ),
