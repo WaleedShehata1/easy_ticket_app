@@ -1,10 +1,12 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable
 
+import 'package:easy_ticket_app/screen/bottom_bar.dart';
 import 'package:easy_ticket_app/screen/sign_up.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/components.dart';
+import 'home.dart';
 
 class Sign_In extends StatelessWidget {
     Sign_In({super.key});
@@ -67,6 +69,7 @@ static const String routeName = 'Sign_im';
                             ],
                           ),
               DefaultButtom(
+                OnTap: ()=> Navigator.pushNamed(context, BottomBar.routeName),
                 Child: const Text(
                 'Log In',
                 style: TextStyle(
@@ -75,14 +78,14 @@ static const String routeName = 'Sign_im';
                    fontWeight: FontWeight.w600,
                    ), ),
                     Height: 65,
-                     Width: double.infinity, MarginHorizontal: 30, MarginVertical: 0,
+                     Width: double.infinity, PaddingHorizontal: 30, PaddingVertical: 0,
                      ),
                      Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                        children: [
                         const SizedBox(width: 15,),
                          const Text('Don’t have an account?' , style: TextStyle(
-                   fontSize: 16,
+                   fontSize: 12,
                    fontWeight: FontWeight.w500,
                    ),),
                    TextButton(
@@ -92,7 +95,7 @@ static const String routeName = 'Sign_im';
                     child: Text(
                       'Sign up.',
                    style: TextStyle(
-                   fontSize: 16,
+                   fontSize: 14,
                    color: PrimaryColour,
                    fontWeight: FontWeight.w600,
                    ),))

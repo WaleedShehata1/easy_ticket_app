@@ -210,7 +210,8 @@ var ConfirmPasswordController=TextEditingController();
                    fontWeight: FontWeight.w600,
                    ), ),
                     Height: 65,
-                     Width: double.infinity, MarginHorizontal: 30, MarginVertical: 0,
+                     Width: double.infinity,
+                     PaddingHorizontal: 30, PaddingVertical: 0,
                      ),
                      Row(
                       mainAxisAlignment: MainAxisAlignment.center,

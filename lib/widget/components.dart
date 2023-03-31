@@ -39,6 +39,7 @@ class DefaultFormField extends StatelessWidget {
   String label;
   Widget? prefixIcon;
   String? Function(String?) validate;
+ 
 
    DefaultFormField({
     Key? key,
@@ -49,6 +50,7 @@ class DefaultFormField extends StatelessWidget {
     required this.label,
     this.prefixIcon,
     required this.validate,
+    
   }) : super(key: key);
 
   @override
@@ -96,40 +98,51 @@ class DefaultButtom extends StatelessWidget {
  Widget Child;
  double Height;
  double Width;
- double MarginHorizontal;
- double MarginVertical;
- DefaultButtom({
+ double? radius;
+ double PaddingHorizontal;
+ double PaddingVertical;
+ Color? color ;
+ AlignmentGeometry? alignment;
+
+   DefaultButtom({
     Key? key,
     this.OnTap,
     required this.Child,
     required this.Height,
     required this.Width,
-    required this.MarginHorizontal,
-    required this.MarginVertical,
+    this.radius,
+    required this.PaddingHorizontal,
+    required this.PaddingVertical,
+    this.alignment,
+   this.color,
   }) : super(key: key);
-
- 
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-          onTap:OnTap,
-          splashColor: const Color.fromARGB(255, 0, 0, 0),
-            borderRadius: const BorderRadius.all(Radius.circular(30)) ,
-           
-             child: Container(
-               margin:  EdgeInsets.symmetric(vertical: MarginVertical,horizontal: MarginHorizontal),
-               alignment: Alignment.center,
-               padding: const EdgeInsets.all(10),
-               width: Width,
-               height: Height,
-               decoration:  BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
-                color: PrimaryColour,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: PaddingVertical,horizontal:PaddingHorizontal ),
+      child: Container(
+        child: ElevatedButton(
+          onPressed: OnTap,
+          style: ElevatedButton.styleFrom(
+            shadowColor: Colors.black,
+            primary: color ?? PrimaryColour,
+            shape:RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(radius ?? 30)),
               ),
-               child: Child,
-             ),
-           );
+              ),
+          child: Container(
+            alignment: alignment ?? Alignment.center,
+            width: Width,
+            height: Height,
+            decoration:  BoxDecoration(
+                    borderRadius:  BorderRadius.all(Radius.circular(radius ?? 30)),
+                  ),
+            child: Child,
+          ),
+        ),
+      ),
+    );
        
   }
 

@@ -21,21 +21,23 @@ static const String routeName = 'onBoard';
                 children: [
                   getStartShape,
                    const SizedBox(
-                height: 70,
+                height: 50,
               ),
-              const Text('Welcome to Easy Ticket',style: 
+              const Text(
+                'Welcome to Easy Ticket',
+                textAlign:TextAlign.center,style: 
               TextStyle(
                 fontFamily: "Roboto",
-                fontSize: 32,
+                fontSize: 28,
                 fontWeight: FontWeight.w600),),
               const SizedBox(height: 10,),
               const SizedBox(
-                width: 290,
+                width: 320,
                 child: Text(
                   "Quick & Easy to Travel anywhere & anytime"
-                  ,style: TextStyle(
+                  ,textAlign:TextAlign.center,style: TextStyle(
                     fontFamily: "Roboto",
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     ),
                     maxLines: 2,
@@ -75,30 +77,29 @@ static const String routeName = 'onBoard';
             },
             Child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
-                    'get started'.toUpperCase(),
-                    style: const TextStyle(
+                    'Get Started',
+                    style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
-                      fontSize: 30,
+                      fontSize: 28,
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 10,
                   ),
-                  const Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    size: 30,
-                    weight: 50,
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 28,
                     color: Colors.white,
                   )
                 ],
               ),
              Height: 60,
               Width:  double.infinity,
-               MarginHorizontal: 30,
-                MarginVertical: 30,
+               PaddingHorizontal: 30,
+                PaddingVertical: 30, 
                 ),
           //  InkWell(
 

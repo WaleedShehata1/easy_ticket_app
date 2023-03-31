@@ -1,10 +1,11 @@
 
+import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/onBoard.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/screen/splash.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
-
+import 'screen/bottom_bar.dart';
 import 'screen/sign_up.dart';
 
 void main()
@@ -25,14 +26,16 @@ class MyApp extends StatelessWidget {
  
         primarySwatch: Colors.deepOrange,
       ),
-     // home: SignUp(),
-    // home: Sign_In(),
+      home:const BottomBar() ,
+    
         routes: {
-              // splash.routeName: (context)=>  const splash(),
-              '/': (context)=>  const splash(),
+               splash.routeName: (context)=>  const splash(),
                 onBoard.routeName : (context)=>  const onBoard(),
                 Sign_In.routeName:(context) =>   Sign_In(),
                 SignUp.routeName:(context)=> SignUp(),
+                BottomBar.routeName:(context) => const BottomBar(),
+               HomeScreen.routeName: (context)=>  HomeScreen(),
+
             },
            
     );

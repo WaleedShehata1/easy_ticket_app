@@ -59,7 +59,7 @@ body: Column(
             'EasyTicket',
           style: TextStyle(
             fontFamily: 'Jomhuria',
-            fontSize: 50,
+            fontSize: 45,
             fontWeight: FontWeight.w900,
             ),
             ),
