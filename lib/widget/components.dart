@@ -122,11 +122,22 @@ class DefaultButtom extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: PaddingVertical,horizontal:PaddingHorizontal ),
       child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0,0 ),
+              blurRadius: 15,
+              spreadRadius: -5,
+              color: Colors.white.withOpacity(0.5)
+            )
+          ]
+        ),
         child: ElevatedButton(
           onPressed: OnTap,
           style: ElevatedButton.styleFrom(
-            shadowColor: Colors.black,
-            primary: color ?? PrimaryColour,
+            shadowColor: Colors.black, 
+          // disabledBackgroundColor:color ??PrimaryColour ,
+           primary:color ??PrimaryColour ,
             shape:RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(radius ?? 30)),
               ),

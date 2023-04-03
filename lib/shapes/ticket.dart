@@ -219,6 +219,16 @@ BoxShadow(
     ),
    ],
    ),
+
+   Row(
+    children: [
+      Column(children: [
+
+      ],),
+      SizedBox(height: 90,width: 0.5,),
+      Column(),
+    ],
+   )
   ],
 );
 }

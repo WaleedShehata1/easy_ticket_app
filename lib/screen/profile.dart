@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './edit_profile.dart';
 
 class UserSettingsScreen extends StatefulWidget {
+  static const String routeName = 'profile';
   @override
   _UserSettingsScreenState createState() => _UserSettingsScreenState();
 }

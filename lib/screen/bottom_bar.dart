@@ -1,7 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/my_ticket.dart';
-import 'package:easy_ticket_app/screen/user_profile.dart';
+import 'package:easy_ticket_app/screen/profile.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class _BottomBarState extends State<BottomBar> {
   final List<Widget> bottomBarPages = [
     const myTicket(),
      HomeScreen(),
-    const userProfile(),
+    UserSettingsScreen(),
   ];
 
   @override

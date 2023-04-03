@@ -1,6 +1,8 @@
 
 import 'package:easy_ticket_app/screen/home.dart';
+import 'package:easy_ticket_app/screen/map.dart';
 import 'package:easy_ticket_app/screen/onBoard.dart';
+import 'package:easy_ticket_app/screen/profile.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/screen/splash.dart';
 import 'package:easy_ticket_app/widget/components.dart';
@@ -35,6 +37,8 @@ class MyApp extends StatelessWidget {
                 SignUp.routeName:(context)=> SignUp(),
                 BottomBar.routeName:(context) => const BottomBar(),
                HomeScreen.routeName: (context)=>  HomeScreen(),
+               MapScreen.routeName:(context) => const MapScreen(),
+               UserSettingsScreen.routeName:(context) => UserSettingsScreen()
 
             },
            
