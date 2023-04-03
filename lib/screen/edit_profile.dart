@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './change_password.dart';
 
 class EditProfileScreen extends StatefulWidget {
   @override
@@ -27,7 +28,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,28 +124,47 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ),
               ),
               SizedBox(height: 40.0),
-              ElevatedButton(
-                onPressed: () {
-                  // TODO: implement
-                },
-                child: Text('Change Password'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffF48265),
-                ),
-              ),
-              SizedBox(height: 50.0),
-              SizedBox(
-                width: double.infinity,
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 200.0),
+              Container(
+                child: SizedBox(
+                  width: 200,
+                  height: 40,
                   child: ElevatedButton(
                     onPressed: () {
-                      print('Saved');
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            child: ChangePasswordScreen(),
+                          );
+                        },
+                      );
                     },
-                    child: Text('Save'),
+                    child: Text('Change Password'),
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 12.0),
-                      backgroundColor: Color(0xffF48265),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(23.0),
+                        ),
+                        backgroundColor: Color(0xffF48265)),
+                  ),
+                ),
+              ),
+              SizedBox(height: 40.0),
+              Container(
+                child: SizedBox(
+                  width: 300,
+                  height: 40,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 200.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        print('Saved');
+                      },
+                      child: Text('Save Changes'),
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(23.0),
+                          ),
+                          backgroundColor: Color(0xffF48265)),
                     ),
                   ),
                 ),
