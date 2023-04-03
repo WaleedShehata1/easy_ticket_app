@@ -128,7 +128,7 @@ class DefaultButtom extends StatelessWidget {
               offset: Offset(0,0 ),
               blurRadius: 15,
               spreadRadius: -5,
-              color: Colors.white.withOpacity(0.5)
+              color: Colors.grey.withOpacity(0.5)
             )
           ]
         ),
@@ -159,3 +159,4 @@ class DefaultButtom extends StatelessWidget {
 
 
 }
+

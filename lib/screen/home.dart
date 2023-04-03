@@ -5,6 +5,7 @@ import 'package:easy_ticket_app/screen/map.dart';
 import 'package:flutter/material.dart';
 import '../shapes/ticket.dart';
 import '../widget/components.dart';
+import '../widget/list_build_home.dart';
 
 class HomeScreen extends StatefulWidget {
    HomeScreen({super.key});
@@ -59,11 +60,12 @@ ClipRRect(
             ),),
            SizedBox(height: 15,),
             DefaultButtom(
-              Child:Text('Where do you want to go ?',
+              alignment: Alignment.centerLeft,
+              Child:Text('Where do you want to go ?' ,
               style:TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               wordSpacing: 1,
-              letterSpacing: 1,
+              letterSpacing: 0.5,
               fontWeight: FontWeight.bold,
               color: Colors.white
             ) ,) ,
@@ -87,36 +89,44 @@ Row(
   children: [
     
     DefaultButtom(
-      Child: Icon(Icons.directions_train_sharp,color: Colors.white,size: 30,),
+      Child: Icon(
+        Icons.directions_train_sharp,
+        color:Colors.white,
+        size: 30,),
         Height: 50,
         Width: 35,
         radius: 12,
          PaddingHorizontal: 0,
-          PaddingVertical: 20,
-          OnTap: (){},),
+          PaddingVertical: 15,
+          OnTap: (){
+            setState(() {
+              selectBottom =false;
+            });
+          },
+          color:selectBottom ?Colors.grey:PrimaryColour ,
+          ),
     DefaultButtom(
-      Child: Icon(Icons.directions_bus_filled_rounded,color: Colors.white,size: 30,),
+      Child: Icon(
+        Icons.directions_bus_filled_rounded,
+        color:Colors.white,
+        size: 30,),
        Height: 50,
         Width: 35,
         radius: 12,
          PaddingHorizontal: 0,
-          PaddingVertical: 20,
-          OnTap: (){},
+          PaddingVertical: 15,
+          color: selectBottom ? PrimaryColour:Colors.grey,
+          OnTap: (){
+             setState(() {
+              selectBottom =true;
+            });
+          },
           ),
   ],
-),
-      Expanded(
-        child: ListView.separated(
-          itemCount: 10,
-          itemBuilder: (ctx,index){
-            return busTicket();
-          },
-           separatorBuilder: (BuildContext context, int index)
-            { return SizedBox(
-            height: 20,
-          ); },
-          ) 
-          ) 
+), Expanded(
+
+       child:listBuild(switshBus: selectBottom,switshTicket: selectBottom)! ,
+      ) 
         ]
       ),
 
