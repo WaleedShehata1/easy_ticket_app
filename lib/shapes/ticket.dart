@@ -1,6 +1,7 @@
 
 // ignore_for_file: camel_case_types
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/components.dart';
@@ -219,6 +220,103 @@ BoxShadow(
     ),
    ],
    ),
+
+   Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Column(crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+      Text("Bus 12",style: TextStyle(
+        color:Color(0xff3E548D),
+        fontSize:18,fontWeight: FontWeight.bold  ),),
+      SizedBox(height: 10,),
+      Row(
+        children: [
+          Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              color: PrimaryColour,
+              borderRadius: BorderRadius.circular(10)),
+            child: Icon(Icons.near_me_outlined,color: Colors.white,),
+          ),
+          SizedBox(width: 10,),
+          Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Cairo",style: TextStyle(color: Colors.black,
+              fontSize: 14),),
+              SizedBox(height: 2,),
+              Text("15-Dec-2022",style: TextStyle(color: Colors.grey,
+              fontSize: 13),)
+            ],
+          )
+        ],
+      ),
+      SizedBox(height: 5,),
+      Row(children: [
+        Container(
+          child: Icon(Icons.location_pin,color: Colors.white, ),
+             width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              color: PrimaryColour,
+              borderRadius: BorderRadius.circular(10)),
+        ),
+        SizedBox(width: 10,),
+          Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Qena",style: TextStyle(color: Colors.black,
+              fontSize: 14),),
+              SizedBox(height: 2,),
+              Text("15-Dec-2022",style: TextStyle(color: Colors.grey,
+              fontSize: 13),)
+            ],
+          )
+      ],)
+      ],),
+      SizedBox(width: 40,),
+      DottedBorder(
+        padding: EdgeInsets.all(0),
+dashPattern: [5,10],
+        child: SizedBox(height: 90,)),
+        SizedBox(width: 10,),
+      Column(
+        children: [
+          DefaultButtom(
+            OnTap: (){},
+            Child: Text(
+              'Detiles',
+                style: TextStyle(
+                color: Colors.white,
+                fontSize: 16),
+                ),
+                 Height: 20,
+                  Width: 50,
+                   PaddingHorizontal: 0,
+                    PaddingVertical: 0,
+                    radius: 10,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Text("Price: ",style: TextStyle(
+                          color: Colors.grey,fontWeight: FontWeight.bold
+                        ),),
+                        Text("\$70",style: TextStyle(
+                          color: PrimaryColour,fontWeight: FontWeight.bold
+                        ),
+                        ),
+                      ],
+                    )
+        ],
+      ),
+    ],
+   )
   ],
 );
 }
