@@ -1,6 +1,3 @@
-
-// ignore_for_file: camel_case_types
-
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +5,7 @@ import '../widget/components.dart';
 
 
 
- class busTicket extends StatelessWidget{
+ class metroDate extends StatelessWidget{
 
    Widget build(BuildContext context) {
   return Stack(
@@ -19,8 +16,8 @@ import '../widget/components.dart';
                       children: [
                         Container(
                              
-                            height: 120,
-                            width: 151,
+                            height: 90,
+                            width: 161,
                             decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(10),
@@ -67,15 +64,15 @@ import '../widget/components.dart';
                                           ),
 
                             ]),
-                            height: 120,
-                            width: 93,
+                            height: 90,
+                            width: 83,
 
                             ),
                       ],
                     ),
                         Container(
                           width: 270,
-                          height: 122,
+                          height: 92,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10)),
@@ -143,10 +140,10 @@ offset: const Offset(0, -1.5),
 )
 ],
 ),
-const SizedBox(width: 150,)
+const SizedBox(width: 140,)
 ],
 ),
-const SizedBox(height: 92,),
+const SizedBox(height: 62,),
 Row(
 mainAxisAlignment: MainAxisAlignment.end,
 children: [
@@ -215,7 +212,7 @@ BoxShadow(
     )
    ],
   ),
-    const SizedBox(width: 150,),
+    const SizedBox(width: 140,),
      ],
     ),
    ],
@@ -224,97 +221,56 @@ BoxShadow(
    Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Column(crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-      Text("Bus 12",style: TextStyle(
-        color:Color(0xff3E548D),
-        fontSize:18,fontWeight: FontWeight.bold  ),),
-      SizedBox(height: 10,),
-      Row(
-        children: [
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: PrimaryColour,
-              borderRadius: BorderRadius.circular(10)),
-            child: Icon(Icons.near_me_outlined,color: Colors.white,),
-          ),
-          SizedBox(width: 10,),
-          Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Cairo",style: TextStyle(color: Colors.black,
-              fontSize: 14),),
-              SizedBox(height: 2,),
-              Text("15-Dec-2022",style: TextStyle(color: Colors.grey,
-              fontSize: 13),)
-            ],
-          )
-        ],
-      ),
-      SizedBox(height: 5,),
-      Row(children: [
-        Container(
-          child: Icon(Icons.location_pin,color: Colors.white, ),
-             width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: PrimaryColour,
-              borderRadius: BorderRadius.circular(10)),
+      Container(
+        child: Center(
+          child: Text(
+            textAlign:TextAlign.center,
+            'First Line',
+            maxLines: 2,
+            style: TextStyle(
+              fontSize: 32,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              ),
+              ),
         ),
-        SizedBox(width: 10,),
-          Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Qena",style: TextStyle(color: Colors.black,
-              fontSize: 14),),
-              SizedBox(height: 2,),
-              Text("15-Dec-2022",style: TextStyle(color: Colors.grey,
-              fontSize: 13),)
-            ],
-          )
-      ],)
-      ],),
-      SizedBox(width: 40,),
+            height: 92,
+            width: 133,
+            decoration: BoxDecoration(
+              color: PrimaryColour,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                bottomLeft: Radius.circular(10),
+                ),
+            ),
+      ),
+      SizedBox(width: 44,),
       DottedBorder(
         padding: EdgeInsets.all(0),
-dashPattern: [5,10],
-        child: SizedBox(height: 90,)),
-        SizedBox(width: 10,),
-      Column(
-        children: [
-          DefaultButtom(
-            OnTap: (){},
-            Child: Text(
-              'Detiles',
-                style: TextStyle(
-                color: Colors.white,
-                fontSize: 16),
+dashPattern: [5,9],
+        child: SizedBox(height: 60,)),
+        SizedBox(width: 2,),
+      DefaultButtom(
+        OnTap: (){},
+        Child: Text(
+          'S',
+          maxLines: 1,
+            style: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w900
+            ),
+            ),
+             Height: 30,
+              Width: 40,
+              radius: 10,
+               PaddingHorizontal:10,
+                PaddingVertical: 0,
+                
                 ),
-                 Height: 20,
-                  Width: 50,
-                   PaddingHorizontal: 0,
-                    PaddingVertical: 0,
-                    radius: 10,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Text("Price: ",style: TextStyle(
-                          color: Colors.grey,fontWeight: FontWeight.bold
-                        ),),
-                        Text("\$70",style: TextStyle(
-                          color: PrimaryColour,fontWeight: FontWeight.bold
-                        ),
-                        ),
-                      ],
-                    )
-        ],
-      ),
+                SizedBox(
+                  height: 10,
+                ),
     ],
    )
   ],

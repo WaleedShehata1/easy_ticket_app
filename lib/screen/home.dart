@@ -3,9 +3,10 @@
 import 'dart:ui';
 import 'package:easy_ticket_app/screen/map.dart';
 import 'package:flutter/material.dart';
-import '../shapes/ticket.dart';
+import '../shapes/ticket_bus.dart';
+import '../shapes/ticket_dates.dart';
+import '../shapes/ticket_metro.dart';
 import '../widget/components.dart';
-import '../widget/list_build_home.dart';
 
 class HomeScreen extends StatefulWidget {
    HomeScreen({super.key});
@@ -18,6 +19,9 @@ static const String routeName = 'home';
 class _HomeScreenState extends State<HomeScreen> {
  bool selectBottom =true;
  int i =10;
+ late Widget list;
+ 
+  bool switshTicket = false;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -93,8 +97,8 @@ Row(
         Icons.directions_train_sharp,
         color:Colors.white,
         size: 30,),
-        Height: 50,
-        Width: 35,
+       Height: 50,
+        Width: 45,
         radius: 12,
          PaddingHorizontal: 0,
           PaddingVertical: 15,
@@ -111,7 +115,7 @@ Row(
         color:Colors.white,
         size: 30,),
        Height: 50,
-        Width: 35,
+        Width: 45,
         radius: 12,
          PaddingHorizontal: 0,
           PaddingVertical: 15,
@@ -125,7 +129,78 @@ Row(
   ],
 ), Expanded(
 
-       child:listBuild(switshBus: selectBottom,switshTicket: selectBottom)! ,
+       child: list =selectBottom?
+           ListView.separated(
+         itemCount: 10,
+         itemBuilder: (ctx,index){
+           return busTicket();
+         },
+          separatorBuilder: (BuildContext context, int index)
+           { return const SizedBox(
+           height: 20,
+         ); },
+         )
+         :
+  Column(
+        children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      DefaultButtom(
+                        Child: Transform.rotate(
+                                  angle: -44.75,
+                                  child: 
+                                  const Icon(
+                      Icons.confirmation_num_outlined,
+                      color: Colors.white,
+                      size: 30,),),
+                         Height: 35,
+                          Width: 60,
+                          OnTap: () {
+                            setState(() {
+                              switshTicket = true;
+                            });
+                          },
+                          color: switshTicket ? PrimaryColour:Colors.grey, 
+                          radius: 15,
+                           PaddingHorizontal: 5,
+                            PaddingVertical: 5,),
+                      DefaultButtom(
+                        Child: Text('Dates'),
+                         Height: 35,
+                          Width: 60,
+                          radius: 15,
+                          color:switshTicket ?Colors.grey:PrimaryColour,
+                          OnTap: () {
+                            setState(() {
+                              switshTicket = false;
+                            });
+                          },
+                           PaddingHorizontal: 5,
+                            PaddingVertical: 5,),
+                    ],
+                  ),
+                   Expanded(
+                     child: ListView.separated(
+                            itemCount: 10,
+                            itemBuilder: (ctx,index){
+                              if(switshTicket == false){
+                                
+                              return metroDate();
+                              }else{
+                                
+                               return metroTicket();
+                              }
+                            },
+                             separatorBuilder: (BuildContext context, int index)
+                              { return const SizedBox(
+                              height: 20,
+                            ); },
+                            ),
+                   ),
+                ],
+              ),
       ) 
         ]
       ),
