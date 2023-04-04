@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './change_password.dart';
+import '../Pop Up/change_password.dart';
 
 class EditProfileScreen extends StatefulWidget {
   @override
