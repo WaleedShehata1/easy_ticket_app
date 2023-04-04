@@ -286,13 +286,15 @@ dashPattern: [5,10],
             OnTap: (){},
             Child: Text(
               'Detiles',
+             
                 style: TextStyle(
+                  height: 1,
                 color: Colors.white,
-                fontSize: 16),
+                fontWeight: FontWeight.bold,
+                fontSize: 20),
                 ),
-                
                  Height: 30,
-                  Width: 50,
+                  Width: 70,
                    PaddingHorizontal: 0,
                     PaddingVertical: 0,
                     radius: 10,

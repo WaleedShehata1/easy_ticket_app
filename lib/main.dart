@@ -1,4 +1,5 @@
 
+import 'package:easy_ticket_app/screen/edit_profile.dart';
 import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/map.dart';
 import 'package:easy_ticket_app/screen/onBoard.dart';
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
                 BottomBar.routeName:(context) => const BottomBar(),
                HomeScreen.routeName: (context)=>  HomeScreen(),
                MapScreen.routeName:(context) => const MapScreen(),
-               UserSettingsScreen.routeName:(context) => UserSettingsScreen()
+               UserSettingsScreen.routeName:(context) => UserSettingsScreen(),
+               EditProfileScreen.routeName: (context) =>  EditProfileScreen()
 
             },
            

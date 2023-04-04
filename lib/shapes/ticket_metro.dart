@@ -221,84 +221,89 @@ BoxShadow(
    Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Column(crossAxisAlignment: CrossAxisAlignment.start,
+       SizedBox(width: 5,),
+      Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-      Text("Bus 12",style: TextStyle(
-        color:Color(0xff3E548D),
-        fontSize:18,fontWeight: FontWeight.bold  ),),
-      SizedBox(height: 10,),
-      Row(
-        children: [
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: PrimaryColour,
-              borderRadius: BorderRadius.circular(10)),
-            child: Icon(Icons.near_me_outlined,color: Colors.white,),
-          ),
-          SizedBox(width: 10,),
-          Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Cairo",style: TextStyle(color: Colors.black,
-              fontSize: 14),),
-              SizedBox(height: 2,),
-              Text("15-Dec-2022",style: TextStyle(color: Colors.grey,
-              fontSize: 13),)
-            ],
-          )
-        ],
-      ),
       SizedBox(height: 5,),
-      Row(children: [
+        Text("Number",style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        fontSize: 20),),
+        SizedBox(height: 5,),
+        Text("Of Stations",style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        fontSize: 20),),
+        SizedBox(height: 10,),
         Container(
-          child: Icon(Icons.location_pin,color: Colors.white, ),
-             width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: PrimaryColour,
-              borderRadius: BorderRadius.circular(10)),
-        ),
-        SizedBox(width: 10,),
-          Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Qena",style: TextStyle(color: Colors.black,
-              fontSize: 14),),
-              SizedBox(height: 2,),
-              Text("15-Dec-2022",style: TextStyle(color: Colors.grey,
-              fontSize: 13),)
-            ],
-          )
-      ],)
+          alignment: Alignment.center,
+        child: Text("7",style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w900,
+        fontSize: 26),),
+           width: 65,
+          height: 40,
+          decoration: BoxDecoration(
+            color: PrimaryColour,
+            borderRadius: BorderRadius.circular(15)),
+      ),
       ],),
-      SizedBox(width: 40,),
+      SizedBox(width: 15,),
+    Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(7),
+        color: PrimaryColour
+      ),
+      width: 22,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 3,left: 1,bottom:2,top: 2 ),
+        child: Text('Me t r o',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          height: 1,
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          ),
+          ),
+      ),
+    ),
+      SizedBox(width: 15,),
+
       DottedBorder(
         padding: EdgeInsets.all(0),
 dashPattern: [5,10],
         child: SizedBox(height: 90,)),
-        SizedBox(width: 10,),
+        SizedBox(width: 7,),
       Column(
         children: [
+
+          Text('Ticket 4' ,style: TextStyle(
+               color:Color(0xff3E548D),
+               fontWeight: FontWeight.bold,
+                fontSize: 18),
+                ),
+                SizedBox(height:15 ,),
           DefaultButtom(
             OnTap: (){},
             Child: Text(
-              'Detiles',
+              'Buy Ticket',
+              maxLines: 1,
+              softWrap: false,
                 style: TextStyle(
                 color: Colors.white,
                 fontSize: 16),
                 ),
-                
+                PaddingVerticalText: 6,
                  Height: 30,
-                  Width: 50,
+                  Width: 75,
                    PaddingHorizontal: 0,
                     PaddingVertical: 0,
                     radius: 10,
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 15,
                     ),
                     Row(
                       children: [

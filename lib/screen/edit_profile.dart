@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../Pop Up/change_password.dart';
 
 class EditProfileScreen extends StatefulWidget {
+    static const String routeName = 'Edite profile';
+
   @override
   _EditProfileScreenState createState() => _EditProfileScreenState();
 }

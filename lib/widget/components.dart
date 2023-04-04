@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Color PrimaryColour =const Color(0xffFE8668);
+Color PrimaryColour =const Color(0xffF48265);
 
 
 
@@ -101,7 +101,9 @@ class DefaultButtom extends StatelessWidget {
  double? radius;
  double PaddingHorizontal;
  double PaddingVertical;
+ double? PaddingVerticalText;
  Color? color ;
+ Color? colorShadow ;
  AlignmentGeometry? alignment;
 
    DefaultButtom({
@@ -113,8 +115,10 @@ class DefaultButtom extends StatelessWidget {
     this.radius,
     required this.PaddingHorizontal,
     required this.PaddingVertical,
-    this.alignment,
+   this.PaddingVerticalText,
    this.color,
+   this.colorShadow,
+    this.alignment,
   }) : super(key: key);
 
   @override
@@ -122,7 +126,6 @@ class DefaultButtom extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: PaddingVertical,horizontal:PaddingHorizontal ),
       child: Container(
-       
             height: Height,
         decoration: BoxDecoration(
           boxShadow: [
@@ -130,7 +133,7 @@ class DefaultButtom extends StatelessWidget {
               offset: Offset(0,0 ),
               blurRadius: 15,
               spreadRadius: -5,
-              color: Colors.grey.withOpacity(0.5)
+              color: colorShadow?? Colors.grey.withOpacity(0.5)
             )
           ]
         ),
@@ -138,13 +141,15 @@ class DefaultButtom extends StatelessWidget {
           onPressed: OnTap,
           style: ElevatedButton.styleFrom(
             shadowColor: Colors.black, 
-          // disabledBackgroundColor:color ??PrimaryColour ,
            primary:color ??PrimaryColour ,
+           padding: EdgeInsets.all(PaddingVerticalText??5),
+          
             shape:RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(radius ?? 30)),
               ),
               ),
           child: Container(
+            margin: EdgeInsets.all(0),
             alignment: alignment ?? Alignment.center,
             width: Width,
             height: Height,

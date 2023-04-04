@@ -1,3 +1,4 @@
+import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import './edit_profile.dart';
 
@@ -14,81 +15,100 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: isDarkMode ? Colors.black : Colors.white,
-      appBar: AppBar(
-        title: Column(
+        body: Column(
           children: [
-            Text(
-              'Abdulhamed',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            ListTile(
-              trailing: Container(
+          Stack(
+            alignment: Alignment.center,
+            children:[
+              Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: Text(
-                  '\$100.00',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                  color: PrimaryColour,
+                  borderRadius: BorderRadius.only
+                  (bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))),
+                
+                height: 150,
+                width: double.infinity,
               ),
-            ),
-          ],
-        ),
-        backgroundColor: isDarkMode ? Colors.black : Color(0xffF48265),
-        elevation: 0,
-        toolbarHeight: 200,
-        actions: [
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Column(
+               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Stack(
+                Column(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Color(0xffF48265),
-                      radius: 48,
-                      child: Icon(Icons.account_circle,
-                          size: 90, color: Colors.white),
+                    SizedBox(height:55,),
+                  Text(
+                    'Waleed Mohamed',
+                    style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
                     ),
-                    SizedBox(height: 16),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => EditProfileScreen()));
-                        },
-                        icon: Container(
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      children: [
+                        SizedBox(width: 140,),
+                        Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.black),
-                          width: 50,
-                          height: 50,
-                          child: Icon(Icons.edit, color: Colors.white),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: [
+                              BoxShadow(
+                                offset: Offset(0, 0),
+                                color: Colors.black,
+                                blurRadius: 7,
+                                spreadRadius: 0,
+                              )
+                            ]),
+                            width: 65,
+                            child: Text('\$70',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w900,
+                              ),
+                              ),
                         ),
-                        color: isDarkMode ? Colors.white : Colors.black,
-                      ),
+                      ],
                     ),
                   ],
                 ),
+             SizedBox(width: 20,),
+             InkWell(
+              onTap: () {
+                Navigator.pushNamed(context,  EditProfileScreen.routeName);
+              },
+               child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                     Container(
+                      margin: EdgeInsets.all(10),
+                      child: Icon(Icons.account_circle,color: Colors.white,size: 110,),
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(45),
+                       border: Border.all(width: 5,color: PrimaryColour)
+                      ),
+                  ),
+                  Container(
+                   width: 35,
+                   height: 35,
+                    child: Icon(Icons.edit,size: 25,),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(width: 1.5,color: Colors.black)
+                     ),
+                  )
+                  
+                ],
+               ),
+             )
               ],
-            ),
+            ),]
           ),
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
+           Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 16),
@@ -182,7 +202,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
           ],
         ),
-      ),
+        ]),
     );
   }
 }

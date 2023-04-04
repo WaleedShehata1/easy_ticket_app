@@ -17,7 +17,7 @@ import '../widget/components.dart';
                         Container(
                              
                             height: 90,
-                            width: 161,
+                            width: 167,
                             decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(10),
@@ -65,7 +65,7 @@ import '../widget/components.dart';
 
                             ]),
                             height: 90,
-                            width: 83,
+                            width: 77,
 
                             ),
                       ],
@@ -140,7 +140,7 @@ offset: const Offset(0, -1.5),
 )
 ],
 ),
-const SizedBox(width: 140,)
+const SizedBox(width: 135,)
 ],
 ),
 const SizedBox(height: 62,),
@@ -212,7 +212,7 @@ BoxShadow(
     )
    ],
   ),
-    const SizedBox(width: 140,),
+    const SizedBox(width: 135,),
      ],
     ),
    ],
@@ -235,7 +235,7 @@ BoxShadow(
               ),
         ),
             height: 92,
-            width: 133,
+            width: 147,
             decoration: BoxDecoration(
               color: PrimaryColour,
               borderRadius: BorderRadius.only(
@@ -244,25 +244,26 @@ BoxShadow(
                 ),
             ),
       ),
-      SizedBox(width: 44,),
+      SizedBox(width: 35,),
       DottedBorder(
         padding: EdgeInsets.all(0),
 dashPattern: [5,9],
         child: SizedBox(height: 60,)),
-        SizedBox(width: 2,),
+        SizedBox(width:5,),
       DefaultButtom(
         OnTap: (){},
         Child: Text(
-          'S',
+          'Show',
           maxLines: 1,
             style: TextStyle(
             color: Colors.white,
-            fontSize: 16,
+            fontSize: 20,
+            height: 1,
             fontWeight: FontWeight.w900
             ),
             ),
-             Height: 30,
-              Width: 40,
+             Height: 35,
+              Width: 50,
               radius: 10,
                PaddingHorizontal:10,
                 PaddingVertical: 0,
