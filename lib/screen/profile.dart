@@ -15,42 +15,45 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: isDarkMode ? Colors.black : Colors.white,
-        body: Column(
-          children: [
-          Stack(
-            alignment: Alignment.center,
-            children:[
-              Container(
-                decoration: BoxDecoration(
-                  color: PrimaryColour,
-                  borderRadius: BorderRadius.only
-                  (bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))),
-                
-                height: 150,
-                width: double.infinity,
-              ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    SizedBox(height:55,),
+      body: Column(children: [
+        Stack(alignment: Alignment.center, children: [
+          Container(
+            decoration: BoxDecoration(
+                color: PrimaryColour,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20))),
+            height: 150,
+            width: double.infinity,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    height: 55,
+                  ),
                   Text(
-                    'Waleed Mohamed',
+                    'Abdulhamed Ashry',
                     style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700,
                     ),
-                    ),
-                    SizedBox(height: 10,),
-                    Row(
-                      children: [
-                        SizedBox(width: 140,),
-                        Container(
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 140,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             boxShadow: [
@@ -61,54 +64,61 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                 spreadRadius: 0,
                               )
                             ]),
-                            width: 65,
-                            child: Text('\$70',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w900,
-                              ),
-                              ),
+                        width: 65,
+                        child: Text(
+                          '\$70',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-             SizedBox(width: 20,),
-             InkWell(
-              onTap: () {
-                Navigator.pushNamed(context,  EditProfileScreen.routeName);
-              },
-               child: Stack(
-                alignment: Alignment.bottomRight,
-                children: [
-                     Container(
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, EditProfileScreen.routeName);
+                },
+                child: Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    Container(
                       margin: EdgeInsets.all(10),
-                      child: Icon(Icons.account_circle,color: Colors.white,size: 110,),
+                      child: Icon(
+                        Icons.account_circle,
+                        color: Colors.white,
+                        size: 110,
+                      ),
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(45),
-                       border: Border.all(width: 5,color: PrimaryColour)
+                          borderRadius: BorderRadius.circular(45),
+                          border: Border.all(width: 5, color: PrimaryColour)),
+                    ),
+                    Container(
+                      width: 35,
+                      height: 35,
+                      child: Icon(
+                        Icons.edit,
+                        size: 25,
                       ),
-                  ),
-                  Container(
-                   width: 35,
-                   height: 35,
-                    child: Icon(Icons.edit,size: 25,),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(width: 1.5,color: Colors.black)
-                     ),
-                  )
-                  
-                ],
-               ),
-             )
-              ],
-            ),]
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(width: 1.5, color: Colors.black)),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
-           Column(
+        ]),
+        Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 16),
@@ -122,7 +132,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               },
               leading: Icon(
                 Icons.notifications,
-                color: Colors.blue,
+                color: isDarkMode ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Notifications',
@@ -142,7 +152,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               },
               leading: Icon(
                 Icons.credit_card,
-                color: Colors.blue,
+                color: isDarkMode ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Credit Card',
@@ -162,7 +172,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               },
               leading: Icon(
                 Icons.account_balance_wallet,
-                color: Colors.blue,
+                color: isDarkMode ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Wallet',
@@ -174,15 +184,9 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               ),
             ),
             ListTile(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => WalletScreen()),
-                );
-              },
               leading: Icon(
                 Icons.dark_mode,
-                color: Colors.blue,
+                color: isDarkMode ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Dark Mode',
@@ -192,7 +196,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               ),
               trailing: Switch(
                 value: isDarkMode,
-                activeColor: Colors.blue,
+                activeColor: Colors.green,
                 onChanged: (value) {
                   setState(() {
                     isDarkMode = value;
@@ -200,9 +204,64 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 },
               ),
             ),
+            ListTile(
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => AboutusScreen()),
+                // );
+              },
+              leading: Icon(
+                Icons.contact_support_rounded,
+                color: isDarkMode ? Colors.white : Colors.black,
+              ),
+              title: Text(
+                'About us',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => TeamMembersScreen()),
+                // );
+              },
+              leading: Icon(
+                Icons.person_3_rounded,
+                color: isDarkMode ? Colors.white : Colors.black,
+              ),
+              title: Text(
+                'Team Members',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(
+                Icons.logout,
+                color: isDarkMode ? Colors.white : Colors.black,
+              ),
+              title: Text(
+                'Logout',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+            ),
           ],
         ),
-        ]),
+      ]),
     );
   }
 }
