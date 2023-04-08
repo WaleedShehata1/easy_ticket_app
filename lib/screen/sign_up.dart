@@ -178,7 +178,7 @@ var ConfirmPasswordController=TextEditingController();
                                ),
                                 const SizedBox(width: 15,),
                                 Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 0,vertical: 0),
+                                  padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 0),
                                   width: 160,
                                   height: 56,
                                   
@@ -196,8 +196,8 @@ var ConfirmPasswordController=TextEditingController();
                                    value: _SelectedLetter,
                                    borderRadius: BorderRadius.circular(10),
                                     items: const [
-                                     DropdownMenuItem(child: Text('Male'),value: Text('Male'),),
-                                     DropdownMenuItem(child: Text('Female'),value: Text('Female'),),
+                                     DropdownMenuItem(value: Text('Male'),child: Text('Male'),),
+                                     DropdownMenuItem(value: Text('Female'),child: Text('Female'),),
                                     ],
                                      onChanged: (value) { 
                                   setState(() {
