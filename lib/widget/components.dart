@@ -38,6 +38,7 @@ class DefaultFormField extends StatelessWidget {
   TextInputType? keyboardType;
   String label;
   Widget? prefixIcon;
+  Widget? suffixIcon;
   String? Function(String?) validate;
  
 
@@ -49,6 +50,7 @@ class DefaultFormField extends StatelessWidget {
     this.keyboardType,
     required this.label,
     this.prefixIcon,
+    this.suffixIcon,
     required this.validate,
     
   }) : super(key: key);
@@ -70,6 +72,8 @@ class DefaultFormField extends StatelessWidget {
        
         // ignore: unnecessary_null_in_if_null_operators
         prefixIcon: prefixIcon ?? null,
+        suffixIcon: suffixIcon ?? null,
+        
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
               color: Colors.blue, width: 2),

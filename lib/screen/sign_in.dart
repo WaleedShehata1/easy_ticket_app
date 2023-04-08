@@ -27,81 +27,91 @@ static const String routeName = 'Sign_im';
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: SingleChildScrollView(
-                child: Column(
-                  children: 
-                  [
-                         Transform.rotate(
-                angle: 44.75,
-                child: logoTicket,
-                ),
-                         const SizedBox(height: 80,),
-                         DefaultFormField
-                         (
-                          label:'National ID',
-                          keyboardType: TextInputType.number,
-                          validate: (String? value){
-                            return null;
-                          },
-                           controller: NationalIDController,
-                  
-                         ),
-                        const SizedBox(height: 20,),
-                         DefaultFormField
-                         (
-                          label:'Password',
-                          keyboardType: TextInputType.number,
-                          validate: (String? value){
-                            return null;
-                          },
-                           controller: PasswordController,
-                  
-                         ),
-              Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child:  Text(
-                                  'Forget Password?',
-                                  style: TextStyle(fontSize: 15,color: PrimaryColour,),
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: 
+                    [
+                           Transform.rotate(
+                  angle: 44.75,
+                  child: logoTicket,
+                  ),
+                           const SizedBox(height: 80,),
+                           DefaultFormField
+                           (
+                            prefixIcon: Icon(Icons.account_circle),
+                            label:'National ID',
+                            keyboardType: TextInputType.number,
+                            validate: (String? value){
+                              return null;
+                            },
+                             controller: NationalIDController,
+                    
+                           ),
+                          const SizedBox(height: 20,),
+                           DefaultFormField
+                           (
+                            prefixIcon: Icon(Icons.lock_outline),
+                            suffixIcon: IconButton(
+                                icon: Icon(Icons.visibility_off),
+                                 onPressed: () {
+                                
+                              },),
+                            label:'Password',
+                            keyboardType: TextInputType.number,
+                            validate: (String? value){
+                              return null;
+                            },
+                             controller: PasswordController,
+                    
+                           ),
+                              Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextButton(
+                                  onPressed: () {},
+                                  child:  Text(
+                                    'Forget Password?',
+                                    style: TextStyle(fontSize: 15,color: PrimaryColour,),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-              DefaultButtom(
-                OnTap: ()=> Navigator.pushNamed(context, BottomBar.routeName),
-                Child: const Text(
-                'Log In',
-                style: TextStyle(
-                   fontSize: 28,
-                   color: Colors.white,
-                   fontWeight: FontWeight.w600,
-                   ), ),
-                    Height: 65,
-                     Width: double.infinity, PaddingHorizontal: 30, PaddingVertical: 0,
-                     ),
-                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                        const SizedBox(width: 15,),
-                         const Text('Don’t have an account?' , style: TextStyle(
-                   fontSize: 12,
-                   fontWeight: FontWeight.w500,
-                   ),),
-                   TextButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context,SignUp.routeName );
-                    }, 
-                    child: Text(
-                      'Sign up.',
-                   style: TextStyle(
-                   fontSize: 14,
-                   color: PrimaryColour,
-                   fontWeight: FontWeight.w600,
-                   ),))
-                       ],
-                     )
-                  ]),
+                              ],
+                            ),
+                              DefaultButtom(
+                  OnTap: ()=> Navigator.pushNamed(context, BottomBar.routeName),
+                  Child: const Text(
+                  'Log In',
+                  style: TextStyle(
+                     fontSize: 28,
+                     color: Colors.white,
+                     fontWeight: FontWeight.w600,
+                     ), ),
+                      Height: 65,
+                       Width: double.infinity, PaddingHorizontal: 30, PaddingVertical: 0,
+                       ),
+                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                          const SizedBox(width: 15,),
+                           const Text('Don’t have an account?' , style: TextStyle(
+                     fontSize: 12,
+                     fontWeight: FontWeight.w500,
+                     ),),
+                     TextButton(
+                      onPressed: (){
+                        Navigator.pushNamed(context,SignUp.routeName );
+                      }, 
+                      child: Text(
+                        'Sign up.',
+                     style: TextStyle(
+                     fontSize: 14,
+                     color: PrimaryColour,
+                     fontWeight: FontWeight.w600,
+                     ),))
+                         ],
+                       )
+                    ]),
+                ),
               ),
             ),
           ),

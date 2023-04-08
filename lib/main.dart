@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
  
         primarySwatch: Colors.deepOrange,
       ),
-      home:const BottomBar() ,
+      home:const splash() ,
     
         routes: {
                splash.routeName: (context)=>  const splash(),
