@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +8,11 @@ import '../widget/components.dart';
 
 
  class metroTicket extends StatelessWidget{
+  const metroTicket({super.key});
 
-   Widget build(BuildContext context) {
+
+   @override
+     Widget build(BuildContext context) {
   return Stack(
                      alignment: Alignment.center,
                       children: [
@@ -221,43 +226,43 @@ BoxShadow(
    Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-       SizedBox(width: 5,),
+       const SizedBox(width: 5,),
       Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-      SizedBox(height: 5,),
-        Text("Number",style: TextStyle(
+      const SizedBox(height: 5,),
+        const Text("Number",style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
         fontSize: 20),),
-        SizedBox(height: 5,),
-        Text("Of Stations",style: TextStyle(
+        const SizedBox(height: 5,),
+        const Text("Of Stations",style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
         fontSize: 20),),
-        SizedBox(height: 10,),
+        const SizedBox(height: 10,),
         Container(
           alignment: Alignment.center,
-        child: Text("7",style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w900,
-        fontSize: 26),),
            width: 65,
           height: 40,
           decoration: BoxDecoration(
             color: PrimaryColour,
             borderRadius: BorderRadius.circular(15)),
+        child: const Text("7",style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w900,
+        fontSize: 26),),
       ),
       ],),
-      SizedBox(width: 15,),
+      const SizedBox(width: 15,),
     Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7),
         color: PrimaryColour
       ),
       width: 22,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 3,left: 1,bottom:2,top: 2 ),
+      child: const Padding(
+        padding: EdgeInsets.only(right: 3,left: 1,bottom:2,top: 2 ),
         child: Text('Me t r o',
         textAlign: TextAlign.center,
         style: TextStyle(
@@ -269,25 +274,25 @@ BoxShadow(
           ),
       ),
     ),
-      SizedBox(width: 15,),
+      const SizedBox(width: 15,),
 
       DottedBorder(
-        padding: EdgeInsets.all(0),
-dashPattern: [5,10],
-        child: SizedBox(height: 90,)),
-        SizedBox(width: 7,),
+        padding: const EdgeInsets.all(0),
+dashPattern: const [5,10],
+        child: const SizedBox(height: 90,)),
+        const SizedBox(width: 7,),
       Column(
         children: [
 
-          Text('Ticket 4' ,style: TextStyle(
+          const Text('Ticket 4' ,style: TextStyle(
                color:Color(0xff3E548D),
                fontWeight: FontWeight.bold,
                 fontSize: 18),
                 ),
-                SizedBox(height:15 ,),
+                const SizedBox(height:15 ,),
           DefaultButtom(
             OnTap: (){},
-            Child: Text(
+            Child: const Text(
               'Buy Ticket',
               maxLines: 1,
               softWrap: false,
@@ -302,12 +307,12 @@ dashPattern: [5,10],
                     PaddingVertical: 0,
                     radius: 10,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Row(
                       children: [
-                        Text("Price: ",style: TextStyle(
+                        const Text("Price: ",style: TextStyle(
                           color: Colors.grey,fontWeight: FontWeight.bold
                         ),),
                         Text("\$70",style: TextStyle(

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field, avoid_unnecessary_containers
+
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/my_ticket.dart';
@@ -22,8 +24,8 @@ class _BottomBarState extends State<BottomBar> {
   /// widget list
   final List<Widget> bottomBarPages = [
     const myTicket(),
-     HomeScreen(),
-    UserSettingsScreen(),
+     const HomeScreen(),
+    const UserSettingsScreen(),
   ];
 
   @override

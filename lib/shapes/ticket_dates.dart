@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +8,11 @@ import '../widget/components.dart';
 
 
  class metroDate extends StatelessWidget{
+  const metroDate({super.key});
 
-   Widget build(BuildContext context) {
+
+   @override
+     Widget build(BuildContext context) {
   return Stack(
                      alignment: Alignment.center,
                       children: [
@@ -222,7 +227,16 @@ BoxShadow(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        child: Center(
+        height: 92,
+            width: 147,
+            decoration: BoxDecoration(
+              color: PrimaryColour,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                bottomLeft: Radius.circular(10),
+                ),
+            ),
+        child: const Center(
           child: Text(
             textAlign:TextAlign.center,
             'First Line',
@@ -234,25 +248,16 @@ BoxShadow(
               ),
               ),
         ),
-            height: 92,
-            width: 147,
-            decoration: BoxDecoration(
-              color: PrimaryColour,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-                ),
-            ),
       ),
-      SizedBox(width: 35,),
+      const SizedBox(width: 35,),
       DottedBorder(
-        padding: EdgeInsets.all(0),
-dashPattern: [5,9],
-        child: SizedBox(height: 60,)),
-        SizedBox(width:5,),
+        padding: const EdgeInsets.all(0),
+dashPattern: const [5,9],
+        child: const SizedBox(height: 60,)),
+        const SizedBox(width:5,),
       DefaultButtom(
         OnTap: (){},
-        Child: Text(
+        Child: const Text(
           'Show',
           maxLines: 1,
             style: TextStyle(
@@ -269,7 +274,7 @@ dashPattern: [5,9],
                 PaddingVertical: 0,
                 
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
     ],

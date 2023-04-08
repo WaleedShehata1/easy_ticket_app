@@ -37,10 +37,10 @@ class MyApp extends StatelessWidget {
                 Sign_In.routeName:(context) =>   Sign_In(),
                 SignUp.routeName:(context)=> SignUp(),
                 BottomBar.routeName:(context) => const BottomBar(),
-               HomeScreen.routeName: (context)=>  HomeScreen(),
+               HomeScreen.routeName: (context)=>  const HomeScreen(),
                MapScreen.routeName:(context) => const MapScreen(),
-               UserSettingsScreen.routeName:(context) => UserSettingsScreen(),
-               EditProfileScreen.routeName: (context) =>  EditProfileScreen()
+               UserSettingsScreen.routeName:(context) => const UserSettingsScreen(),
+               EditProfileScreen.routeName: (context) =>  const EditProfileScreen()
 
             },
            

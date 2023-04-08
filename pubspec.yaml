@@ -42,7 +42,7 @@ flutter_icons:
   android: true
   ios: true
   image_path: "asset/images/jam_ticket-f.png"
-  min_sdk_android: 16
+  min_sdk_android: 21
   web:
     generate: true
     image_path: "asset/images/jam_ticket-f.png"

@@ -1,6 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable
-
-import 'dart:js';
+// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable, prefer_typing_uninitialized_variables
 
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -8,21 +6,40 @@ import 'package:flutter/material.dart';
 import '../shapes/ticket_logo.dart';
 import '../widget/components.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
 static const String routeName = 'Sign_Up';
 
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
 var NationalIDController=TextEditingController();
+
 var FirstNameController=TextEditingController();
+
 var LastNameController=TextEditingController();
+
 var DateOfBirthController=TextEditingController();
+
 var ProfessionController=TextEditingController();
+
 var PhoneController=TextEditingController();
+
 var HealthStatusController=TextEditingController();
+
 var GenderController=TextEditingController();
+
 var EmailController=TextEditingController();
+
 var PasswordController=TextEditingController();
+
 var ConfirmPasswordController=TextEditingController();
+
  var formKey = GlobalKey<FormState>();
+
+ var _SelectedLetter;
+
   @override
 
   Widget build(BuildContext context) { 
@@ -104,7 +121,7 @@ var ConfirmPasswordController=TextEditingController();
                                 width:155 ,
                                  child:  DefaultFormField
                            (
-                            prefixIcon: Icon(Icons.date_range),
+                            prefixIcon: const Icon(Icons.date_range),
                             label:'Date Of Birth',
                             keyboardType: TextInputType.number,
                             validate: (String? value){
@@ -133,7 +150,7 @@ var ConfirmPasswordController=TextEditingController();
                           const SizedBox(height: 20,),
                            DefaultFormField
                            (
-                            prefixIcon: Icon(Icons.phone),
+                            prefixIcon: const Icon(Icons.phone),
                             label:'Phone',
                             keyboardType: TextInputType.number,
                             validate: (String? value){
@@ -159,20 +176,36 @@ var ConfirmPasswordController=TextEditingController();
                     
                            ),
                                ),
-                                const SizedBox(width: 20,),
-                                SizedBox(
-                            width:150 ,
-                             child:  DefaultFormField
-                           (
-                            label:'Gender',
-                            keyboardType: TextInputType.number,
-                            validate: (String? value){
-                              return null;
-                            },
-                             controller: GenderController,
-                    
-                           ), 
-                           ),
+                                const SizedBox(width: 15,),
+                                Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 0,vertical: 0),
+                                  width: 160,
+                                  height: 56,
+                                  
+                                  child: DropdownButtonFormField(
+                                    decoration: InputDecoration(
+                                      enabled: false,
+                                     disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(
+            20,
+          ),
+          borderSide: BorderSide(
+              color: PrimaryColour, width: 2),
+                                    ),),
+                                   hint: const Text('Gendar'),
+                                   value: _SelectedLetter,
+                                   borderRadius: BorderRadius.circular(10),
+                                    items: const [
+                                     DropdownMenuItem(child: Text('Male'),value: Text('Male'),),
+                                     DropdownMenuItem(child: Text('Female'),value: Text('Female'),),
+                                    ],
+                                     onChanged: (value) { 
+                                  setState(() {
+                                    _SelectedLetter =value;
+                                  });
+                                      },
+                                  ),
+                                ),
                              ],
                            ),
                           
@@ -181,7 +214,7 @@ var ConfirmPasswordController=TextEditingController();
                           const SizedBox(height: 20,),
                            DefaultFormField
                            (
-                            prefixIcon: Icon(Icons.email_outlined),
+                            prefixIcon: const Icon(Icons.email_outlined),
                             label:'Email',
                             keyboardType: TextInputType.number,
                             validate: (String? value){
@@ -194,9 +227,9 @@ var ConfirmPasswordController=TextEditingController();
                          
                            DefaultFormField
                            (
-                            prefixIcon: Icon(Icons.lock_outline),
+                            prefixIcon: const Icon(Icons.lock_outline),
                             suffixIcon: IconButton(
-                              icon: Icon(Icons.visibility_off),
+                              icon: const Icon(Icons.visibility_off),
                                onPressed: () {
                               
                             },),
@@ -212,7 +245,7 @@ var ConfirmPasswordController=TextEditingController();
                            DefaultFormField
                            (
                             suffixIcon: IconButton(
-                              icon: Icon(Icons.visibility_off),
+                              icon: const Icon(Icons.visibility_off),
                                onPressed: () {
                               
                             },),

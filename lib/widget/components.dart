@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, must_be_immutable, camel_case_types
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, must_be_immutable, camel_case_types, unnecessary_null_in_if_null_operators, duplicate_ignore, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -134,7 +134,7 @@ class DefaultButtom extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              offset: Offset(0,0 ),
+              offset: const Offset(0,0 ),
               blurRadius: 15,
               spreadRadius: -5,
               color: colorShadow?? Colors.grey.withOpacity(0.5)
@@ -153,7 +153,7 @@ class DefaultButtom extends StatelessWidget {
               ),
               ),
           child: Container(
-            margin: EdgeInsets.all(0),
+            margin: const EdgeInsets.all(0),
             alignment: alignment ?? Alignment.center,
             width: Width,
             height: Height,

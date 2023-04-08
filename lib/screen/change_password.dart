@@ -1,6 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
+  const ChangePasswordScreen({super.key});
+
   @override
   _ChangePasswordScreenState createState() => _ChangePasswordScreenState();
 }
@@ -14,13 +18,13 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xffF48265),
-      padding: EdgeInsets.all(16.0),
+      color: const Color(0xffF48265),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Column(
-            children: [
+            children: const [
               Text(
                 'Change Password',
                 style: TextStyle(
@@ -30,8 +34,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               ),
             ],
           ),
-          SizedBox(height: 20.0),
-          Padding(
+          const SizedBox(height: 20.0),
+          const Padding(
             padding: EdgeInsets.only(
               right: 190.0,
             ),
@@ -42,7 +46,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               ),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(23.0),
@@ -50,17 +54,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               border: Border.all(color: Colors.grey),
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TextField(
                 controller: oldPasswordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
               ),
             ),
           ),
-          SizedBox(height: 20.0),
-          Padding(
+          const SizedBox(height: 20.0),
+          const Padding(
             padding: EdgeInsets.only(
               right: 180.0,
             ),
@@ -71,7 +75,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               ),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(23.0),
@@ -79,17 +83,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               border: Border.all(color: Colors.grey),
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TextField(
                 controller: newPasswordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
               ),
             ),
           ),
-          SizedBox(height: 20.0),
-          Padding(
+          const SizedBox(height: 20.0),
+          const Padding(
             padding: EdgeInsets.only(
               right: 160.0,
             ),
@@ -100,7 +104,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               ),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(23.0),
@@ -108,35 +112,33 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               border: Border.all(color: Colors.grey),
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TextField(
                 controller: confirmPasswordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
               ),
             ),
           ),
-          SizedBox(height: 32.0),
+          const SizedBox(height: 32.0),
           Container(
             child: SizedBox(
               width: 150.0,
               height: 35.0,
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: implement password change functionality
-                  print('Saved!');
                 },
-                child: Text('Save',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 17.0,
-                        fontWeight: FontWeight.bold)),
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(23.0),
                     ),
                     backgroundColor: Colors.white),
+                child: const Text('Save',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.bold)),
               ),
             ),
           ),

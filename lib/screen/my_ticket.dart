@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, implementation_imports
+
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 

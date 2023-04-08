@@ -6,7 +6,6 @@ import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/components.dart';
-import 'home.dart';
 
 class Sign_In extends StatelessWidget {
     Sign_In({super.key});
@@ -39,7 +38,7 @@ static const String routeName = 'Sign_im';
                            const SizedBox(height: 80,),
                            DefaultFormField
                            (
-                            prefixIcon: Icon(Icons.account_circle),
+                            prefixIcon: const Icon(Icons.account_circle),
                             label:'National ID',
                             keyboardType: TextInputType.number,
                             validate: (String? value){
@@ -51,9 +50,9 @@ static const String routeName = 'Sign_im';
                           const SizedBox(height: 20,),
                            DefaultFormField
                            (
-                            prefixIcon: Icon(Icons.lock_outline),
+                            prefixIcon: const Icon(Icons.lock_outline),
                             suffixIcon: IconButton(
-                                icon: Icon(Icons.visibility_off),
+                                icon: const Icon(Icons.visibility_off),
                                  onPressed: () {
                                 
                               },),

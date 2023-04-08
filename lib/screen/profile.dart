@@ -1,9 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import './edit_profile.dart';
 
 class UserSettingsScreen extends StatefulWidget {
   static const String routeName = 'profile';
+
+  const UserSettingsScreen({super.key});
   @override
   _UserSettingsScreenState createState() => _UserSettingsScreenState();
 }
@@ -20,7 +24,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
           Container(
             decoration: BoxDecoration(
                 color: PrimaryColour,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20))),
             height: 150,
@@ -31,10 +35,10 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             children: [
               Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 55,
                   ),
-                  Text(
+                  const Text(
                     'Abdulhamed Ashry',
                     style: TextStyle(
                       color: Colors.white,
@@ -42,21 +46,21 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 140,
                       ),
                       Container(
                         alignment: Alignment.center,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 offset: Offset(0, 0),
                                 color: Colors.black,
@@ -65,7 +69,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                               )
                             ]),
                         width: 65,
-                        child: Text(
+                        child: const Text(
                           '\$70',
                           style: TextStyle(
                             fontSize: 24,
@@ -77,7 +81,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               InkWell(
@@ -88,29 +92,29 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                   alignment: Alignment.bottomRight,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.account_circle,
-                        color: Colors.white,
-                        size: 110,
-                      ),
+                      margin: const EdgeInsets.all(10),
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(45),
                           border: Border.all(width: 5, color: PrimaryColour)),
+                      child: const Icon(
+                        Icons.account_circle,
+                        color: Colors.white,
+                        size: 110,
+                      ),
                     ),
                     Container(
                       width: 35,
                       height: 35,
-                      child: Icon(
-                        Icons.edit,
-                        size: 25,
-                      ),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(50),
                           border: Border.all(width: 1.5, color: Colors.black)),
+                      child: const Icon(
+                        Icons.edit,
+                        size: 25,
+                      ),
                     )
                   ],
                 ),
@@ -121,13 +125,13 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 16),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
+            const SizedBox(height: 16),
             ListTile(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NotificationScreen()),
+                  MaterialPageRoute(builder: (context) => const NotificationScreen()),
                 );
               },
               leading: Icon(
@@ -147,7 +151,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CreditCardScreen()),
+                  MaterialPageRoute(builder: (context) => const CreditCardScreen()),
                 );
               },
               leading: Icon(
@@ -167,7 +171,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => WalletScreen()),
+                  MaterialPageRoute(builder: (context) => const WalletScreen()),
                 );
               },
               leading: Icon(
@@ -273,9 +277,9 @@ class CreditCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Credit Card'),
+        title: const Text('Credit Card'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('View and edit your credit card information here'),
       ),
     );
@@ -289,9 +293,9 @@ class WalletScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Wallet'),
+        title: const Text('Wallet'),
       ),
-      body: Center(
+      body: const Center(
         child:
             Text('View and manage your wallet balance and transactions here'),
       ),
@@ -306,9 +310,9 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifications'),
+        title: const Text('Notifications'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('No notifications'),
       ),
     );

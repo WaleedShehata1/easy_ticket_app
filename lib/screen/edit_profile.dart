@@ -1,8 +1,12 @@
+// ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import '../Pop Up/change_password.dart';
 
 class EditProfileScreen extends StatefulWidget {
     static const String routeName = 'Edite profile';
+
+  const EditProfileScreen({super.key});
 
   @override
   _EditProfileScreenState createState() => _EditProfileScreenState();
@@ -23,12 +27,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffF48265),
-        title: Text('Edit Account'),
+        backgroundColor: const Color(0xffF48265),
+        title: const Text('Edit Account'),
       ),
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Row(
@@ -37,32 +41,32 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   Expanded(
                     child: TextField(
                       controller: firstNameController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'First Name',
                       ),
                     ),
                   ),
-                  SizedBox(width: 16.0),
+                  const SizedBox(width: 16.0),
                   Expanded(
                     child: TextField(
                       controller: lastNameController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Last Name',
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextField(
                 maxLength: 14,
                 keyboardType: TextInputType.number,
                 controller: nationalIdController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'National ID',
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -70,62 +74,62 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: TextField(
                       keyboardType: TextInputType.datetime,
                       controller: birthDateController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Birth Date',
                       ),
                     ),
                   ),
-                  SizedBox(width: 16.0),
+                  const SizedBox(width: 16.0),
                   Expanded(
                     child: TextField(
                       controller: professionController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Profession',
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextField(
                 keyboardType: TextInputType.phone,
                 controller: phoneController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Phone',
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     child: TextField(
                       controller: healthStatusController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Health Status',
                       ),
                     ),
                   ),
-                  SizedBox(width: 16.0),
+                  const SizedBox(width: 16.0),
                   Expanded(
                     child: TextField(
                       controller: genderController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Gender',
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextField(
                 keyboardType: TextInputType.emailAddress,
                 controller: emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Email',
                 ),
               ),
-              SizedBox(height: 40.0),
+              const SizedBox(height: 40.0),
               Container(
                 child: SizedBox(
                   width: 200,
@@ -135,38 +139,37 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return Dialog(
+                          return const Dialog(
                             child: ChangePasswordScreen(),
                           );
                         },
                       );
                     },
-                    child: Text('Change Password'),
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(23.0),
                         ),
-                        backgroundColor: Color(0xffF48265)),
+                        backgroundColor: const Color(0xffF48265)),
+                    child: const Text('Change Password'),
                   ),
                 ),
               ),
-              SizedBox(height: 40.0),
+              const SizedBox(height: 40.0),
               Container(
                 child: SizedBox(
                   width: 300,
                   height: 40,
                   child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 200.0),
+                    constraints: const BoxConstraints(maxWidth: 200.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        print('Saved');
                       },
-                      child: Text('Save Changes'),
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(23.0),
                           ),
-                          backgroundColor: Color(0xffF48265)),
+                          backgroundColor: const Color(0xffF48265)),
+                      child: const Text('Save Changes'),
                     ),
                   ),
                 ),

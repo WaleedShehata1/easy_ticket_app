@@ -9,7 +9,7 @@ import '../shapes/ticket_metro.dart';
 import '../widget/components.dart';
 
 class HomeScreen extends StatefulWidget {
-   HomeScreen({super.key});
+   const HomeScreen({super.key});
 static const String routeName = 'home';
 
   @override
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: 
         [
 ClipRRect(
-  borderRadius: BorderRadius.only(
+  borderRadius: const BorderRadius.only(
     bottomLeft: Radius.circular(20),
     bottomRight: Radius.circular(20)
   ),
@@ -53,19 +53,19 @@ ClipRRect(
       Column(
         mainAxisAlignment: MainAxisAlignment.start,
            children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Text("Easy Ticket",
+            const Text("Easy Ticket",
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
               color: Colors.white
             ),),
-           SizedBox(height: 15,),
+           const SizedBox(height: 15,),
             DefaultButtom(
               alignment: Alignment.centerLeft,
-              Child:Text('Where do you want to go ?' ,
+              Child:const Text('Where do you want to go ?' ,
               style:TextStyle(
               fontSize: 16,
               wordSpacing: 1,
@@ -93,7 +93,7 @@ Row(
   children: [
     
     DefaultButtom(
-      Child: Icon(
+      Child: const Icon(
         Icons.directions_train_sharp,
         color:Colors.white,
         size: 30,),
@@ -110,7 +110,7 @@ Row(
           color:selectBottom ?Colors.grey:PrimaryColour ,
           ),
     DefaultButtom(
-      Child: Icon(
+      Child: const Icon(
         Icons.directions_bus_filled_rounded,
         color:Colors.white,
         size: 30,),
@@ -133,7 +133,7 @@ Row(
            ListView.separated(
          itemCount: 10,
          itemBuilder: (ctx,index){
-           return busTicket();
+           return const busTicket();
          },
           separatorBuilder: (BuildContext context, int index)
            { return const SizedBox(
@@ -167,7 +167,7 @@ Row(
                            PaddingHorizontal: 5,
                             PaddingVertical: 5,),
                       DefaultButtom(
-                        Child: Text('Dates'),
+                        Child: const Text('Dates'),
                          Height: 35,
                           Width: 60,
                           radius: 15,
@@ -187,10 +187,10 @@ Row(
                             itemBuilder: (ctx,index){
                               if(switshTicket == false){
                                 
-                              return metroDate();
+                              return const metroDate();
                               }else{
                                 
-                               return metroTicket();
+                               return const metroTicket();
                               }
                             },
                              separatorBuilder: (BuildContext context, int index)

@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, sort_child_properties_last
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +8,11 @@ import '../widget/components.dart';
 
 
  class busTicket extends StatelessWidget{
+  const busTicket({super.key});
 
-   Widget build(BuildContext context) {
+
+   @override
+     Widget build(BuildContext context) {
   return Stack(
                      alignment: Alignment.center,
                       children: [
@@ -224,10 +229,10 @@ BoxShadow(
       Column(crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-      Text("Bus 12",style: TextStyle(
+      const Text("Bus 12",style: TextStyle(
         color:Color(0xff3E548D),
         fontSize:18,fontWeight: FontWeight.bold  ),),
-      SizedBox(height: 10,),
+      const SizedBox(height: 10,),
       Row(
         children: [
           Container(
@@ -236,12 +241,12 @@ BoxShadow(
             decoration: BoxDecoration(
               color: PrimaryColour,
               borderRadius: BorderRadius.circular(10)),
-            child: Icon(Icons.near_me_outlined,color: Colors.white,),
+            child: const Icon(Icons.near_me_outlined,color: Colors.white,),
           ),
-          SizedBox(width: 10,),
+          const SizedBox(width: 10,),
           Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text("Cairo",style: TextStyle(color: Colors.black,
               fontSize: 14),),
               SizedBox(height: 2,),
@@ -251,20 +256,20 @@ BoxShadow(
           )
         ],
       ),
-      SizedBox(height: 5,),
+      const SizedBox(height: 5,),
       Row(children: [
         Container(
-          child: Icon(Icons.location_pin,color: Colors.white, ),
+          child: const Icon(Icons.location_pin,color: Colors.white, ),
              width: 30,
             height: 30,
             decoration: BoxDecoration(
               color: PrimaryColour,
               borderRadius: BorderRadius.circular(10)),
         ),
-        SizedBox(width: 10,),
+        const SizedBox(width: 10,),
           Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text("Qena",style: TextStyle(color: Colors.black,
               fontSize: 14),),
               SizedBox(height: 2,),
@@ -274,17 +279,17 @@ BoxShadow(
           )
       ],)
       ],),
-      SizedBox(width: 40,),
+      const SizedBox(width: 40,),
       DottedBorder(
-        padding: EdgeInsets.all(0),
-dashPattern: [5,10],
-        child: SizedBox(height: 90,)),
-        SizedBox(width: 10,),
+        padding: const EdgeInsets.all(0),
+dashPattern: const [5,10],
+        child: const SizedBox(height: 90,)),
+        const SizedBox(width: 10,),
       Column(
         children: [
           DefaultButtom(
             OnTap: (){},
-            Child: Text(
+            Child: const Text(
               'Detiles',
              
                 style: TextStyle(
@@ -299,12 +304,12 @@ dashPattern: [5,10],
                     PaddingVertical: 0,
                     radius: 10,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
                       children: [
-                        Text("Price: ",style: TextStyle(
+                        const Text("Price: ",style: TextStyle(
                           color: Colors.grey,fontWeight: FontWeight.bold
                         ),),
                         Text("\$70",style: TextStyle(
