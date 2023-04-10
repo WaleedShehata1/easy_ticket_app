@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import '../Pop Up/change_password.dart';
+import '../Pop_Up/change_password.dart';
 
 class EditProfileScreen extends StatefulWidget {
     static const String routeName = 'Edite profile';
@@ -139,7 +139,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return const Dialog(
+                          return Dialog(
                             child: ChangePasswordScreen(),
                           );
                         },

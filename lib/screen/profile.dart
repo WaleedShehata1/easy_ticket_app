@@ -27,7 +27,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20))),
-            height: 150,
+            height: 170,
             width: double.infinity,
           ),
           Row(

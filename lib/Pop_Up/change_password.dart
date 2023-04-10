@@ -2,18 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class ChangePasswordScreen extends StatefulWidget {
-  const ChangePasswordScreen({super.key});
-
-  @override
-  _ChangePasswordScreenState createState() => _ChangePasswordScreenState();
-}
-
-class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+class ChangePasswordScreen extends StatelessWidget {
   final TextEditingController oldPasswordController = TextEditingController();
+
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+
+  final TextEditingController confirmPasswordController = TextEditingController();
+
+  ChangePasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

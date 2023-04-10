@@ -154,9 +154,10 @@ Row(
                                   const Icon(
                       Icons.confirmation_num_outlined,
                       color: Colors.white,
-                      size: 30,),),
+                      size: 28,),),
                          Height: 35,
                           Width: 60,
+                         
                           OnTap: () {
                             setState(() {
                               switshTicket = true;
@@ -167,7 +168,7 @@ Row(
                            PaddingHorizontal: 5,
                             PaddingVertical: 5,),
                       DefaultButtom(
-                        Child: const Text('Dates'),
+                        Child: const Text('Dates',style:TextStyle(color: Colors.white),),
                          Height: 35,
                           Width: 60,
                           radius: 15,

@@ -1,5 +1,6 @@
 
 import 'package:easy_ticket_app/screen/edit_profile.dart';
+import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
 import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/map.dart';
 import 'package:easy_ticket_app/screen/onBoard.dart';
@@ -24,12 +25,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
- 
+      //  useMaterial3:true ,
         primarySwatch: Colors.deepOrange,
+       
       ),
-      home:const splash() ,
+      home: Sign_In() ,
     
         routes: {
                splash.routeName: (context)=>  const splash(),
@@ -40,7 +43,8 @@ class MyApp extends StatelessWidget {
                HomeScreen.routeName: (context)=>  const HomeScreen(),
                MapScreen.routeName:(context) => const MapScreen(),
                UserSettingsScreen.routeName:(context) => const UserSettingsScreen(),
-               EditProfileScreen.routeName: (context) =>  const EditProfileScreen()
+               EditProfileScreen.routeName: (context) =>  const EditProfileScreen(),
+               GetPasswordResetCode.routeName :(context) =>const GetPasswordResetCode(),
 
             },
            

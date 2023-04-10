@@ -36,7 +36,7 @@ class DefaultFormField extends StatelessWidget {
   double? fontSize;
   TextEditingController controller;
   TextInputType? keyboardType;
-  String label;
+  String? label;
   Widget? prefixIcon;
   Widget? suffixIcon;
   String? Function(String?) validate;
@@ -171,3 +171,42 @@ class DefaultButtom extends StatelessWidget {
 
 }
 
+
+class DefaultDialog extends StatelessWidget {
+  Widget Child;
+  double? paddingVerrtical;
+  double? radius;
+  double? paddingHorizontal;
+  DefaultDialog({
+    Key? key,
+    required this.Child,
+    this.paddingVerrtical,
+    this.radius,
+    this.paddingHorizontal,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Dialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(radius ?? 25)),
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: paddingVerrtical ?? 15,
+                horizontal: paddingHorizontal ?? 20),
+            child: Child,
+          ),
+        ));
+  }
+
+}
+/* 
+RadioListTile buildRadioListTile (){
+
+  return RadioListTile(
+    value: value,
+     groupValue: groupValue,
+      onChanged: onChanged)
+} */

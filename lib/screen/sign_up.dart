@@ -15,27 +15,15 @@ static const String routeName = 'Sign_Up';
 
 class _SignUpState extends State<SignUp> {
 var NationalIDController=TextEditingController();
-
 var FirstNameController=TextEditingController();
-
 var LastNameController=TextEditingController();
-
 var DateOfBirthController=TextEditingController();
-
 var ProfessionController=TextEditingController();
-
 var PhoneController=TextEditingController();
-
 var HealthStatusController=TextEditingController();
-
-var GenderController=TextEditingController();
-
 var EmailController=TextEditingController();
-
 var PasswordController=TextEditingController();
-
 var ConfirmPasswordController=TextEditingController();
-
  var formKey = GlobalKey<FormState>();
 
  var _SelectedLetter;
@@ -183,14 +171,15 @@ var ConfirmPasswordController=TextEditingController();
                                   height: 56,
                                   
                                   child: DropdownButtonFormField(
+                                    
                                     decoration: InputDecoration(
                                       enabled: false,
                                      disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            20,
-          ),
-          borderSide: BorderSide(
-              color: PrimaryColour, width: 2),
+                                        borderRadius: BorderRadius.circular(
+                                          20,
+                                        ),
+                                        borderSide: BorderSide(
+                                            color: PrimaryColour, width: 2),
                                     ),),
                                    hint: const Text('Gendar'),
                                    value: _SelectedLetter,
