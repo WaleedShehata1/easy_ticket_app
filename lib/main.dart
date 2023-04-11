@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
        
       ),
-      home: Sign_In() ,
+      home: const GetPasswordResetCode() ,
     
         routes: {
                splash.routeName: (context)=>  const splash(),
