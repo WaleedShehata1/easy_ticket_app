@@ -1,7 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, avoid_unnecessary_containers
 
 import 'package:easy_ticket_app/screen/sign_in.dart';
-import 'package:easy_ticket_app/screen/sign_up.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 
@@ -21,10 +20,10 @@ class ChangePasswordScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.close,size: 30,))
+                IconButton(onPressed: (){}, icon: const Icon(Icons.close,size: 30,))
               ],
             ),
-            Text(
+            const Text(
               'Change Password',
               style: TextStyle(
                 fontSize: 26.0,
@@ -34,21 +33,27 @@ class ChangePasswordScreen extends StatelessWidget {
             const SizedBox(height: 35.0),
             DefaultFormField(controller:  oldPasswordController,
              label:  'Old Password', validate:(p0) {
+               return null;
+             
                
              },),
              const SizedBox(height: 15.0),
             DefaultFormField(controller:  oldPasswordController,
              label: 'New Password', validate:(p0) {
+               return null;
+             
                
              },),
              const SizedBox(height: 15.0),
             DefaultFormField(controller:  oldPasswordController,
              label: 'Confirm Password', validate:(p0) {
+               return null;
+             
                
              },),
             const SizedBox(height: 35.0), 
             DefaultButtom(
-              Child:Text('Save',
+              Child:const Text('Save',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 22.0,

@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 // ignore_for_file: camel_case_types, sort_child_properties_last
 
 import 'package:dotted_border/dotted_border.dart';
@@ -231,7 +231,7 @@ class busTicket extends StatelessWidget {
                  padding: const EdgeInsets.symmetric(vertical: 3),
                  child: Row(
                    children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 15,
                     ),
                      DottedBorder(

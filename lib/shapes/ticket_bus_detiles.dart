@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 // ignore_for_file: camel_case_types, sort_child_properties_last
 
 import 'package:dotted_border/dotted_border.dart';
@@ -11,7 +11,7 @@ class busTicketDetiles extends StatelessWidget {
    busTicketDetiles({
     Key? key,
     this.ontap,
-  }) : super(key: key);
+  }) : super(key: key) ;
 
   @override
   Widget build(BuildContext context) {
@@ -231,7 +231,7 @@ class busTicketDetiles extends StatelessWidget {
                  padding: const EdgeInsets.symmetric(vertical: 3),
                  child: Row(
                    children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 15,
                     ),
                      DottedBorder(
@@ -321,7 +321,7 @@ class busTicketDetiles extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('8:50 AM',
+                  const Text('8:50 AM',
                       style: TextStyle(
                           height: 1,
                           color: Color(0xff3E548D),

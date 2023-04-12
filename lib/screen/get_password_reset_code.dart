@@ -1,5 +1,4 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:easy_ticket_app/Pop_Up/change_password.dart';
 import 'package:easy_ticket_app/Pop_Up/enter_4_digit.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:easy_ticket_app/widget/components.dart';
