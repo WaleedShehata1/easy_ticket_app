@@ -5,6 +5,8 @@ import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 
+import '../Pop_Up/change_passwword_login.dart';
+
 class GetPasswordResetCode extends StatefulWidget {
   static const String routeName = 'Get Password Reset Code';
   const GetPasswordResetCode({super.key});
@@ -219,7 +221,7 @@ class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
                                               Navigator.pop(context);
                                              showDialog(context: context, builder: (BuildContext context){
                                               return DefaultDialog(
-                                                Child: ChangePasswordScreen()
+                                                Child: ChangePasswordLoginScreen()
                                                 );});
                                             });
                                             

@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 import 'package:easy_ticket_app/screen/map.dart';
+import 'package:easy_ticket_app/shapes/ticket_bus_detiles.dart';
 import 'package:flutter/material.dart';
 import '../shapes/ticket_bus.dart';
 import '../shapes/ticket_dates.dart';
@@ -133,7 +134,53 @@ Row(
            ListView.separated(
          itemCount: 10,
          itemBuilder: (ctx,index){
-           return const busTicket();
+           return  busTicket(
+            ontap: () {
+              showDialog(
+                context: context,
+                 builder:(context) {
+                   return DefaultDialog(
+                    Child:  Column(
+                     
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(
+                                          Icons.close_outlined,
+                                          size: 35,
+                                        ))
+                                  ],
+                                ),
+                               
+                                Expanded(
+                                  child: ListView.separated(
+                                    itemCount: 10,
+                                    itemBuilder: (ctx, index) {
+                                      return busTicketDetiles(
+                                        ontap: () {},
+                                      );
+                                    },
+                                    separatorBuilder:
+                                        (BuildContext context, int index) {
+                                      return const SizedBox(
+                                        height: 20,
+                                      );
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: 5,),
+                              ],
+                            )
+                    );
+
+                 },);
+            },
+           );
          },
           separatorBuilder: (BuildContext context, int index)
            { return const SizedBox(

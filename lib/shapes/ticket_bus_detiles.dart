@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 
 import '../widget/components.dart';
 
-class busTicket extends StatelessWidget {
+class busTicketDetiles extends StatelessWidget {
  Function()? ontap;
-   busTicket({
+   busTicketDetiles({
     Key? key,
     this.ontap,
   }) : super(key: key);
@@ -321,6 +321,15 @@ class busTicket extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text('8:50 AM',
+                      style: TextStyle(
+                          height: 1,
+                          color: Color(0xff3E548D),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16),),
+ const SizedBox(
+                    height: 15,
+                  ),
                   DefaultButtom(
                     OnTap: ontap,
                     Child: const Text(
@@ -338,7 +347,7 @@ class busTicket extends StatelessWidget {
                     radius: 10,
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   Row(
                     children: [
