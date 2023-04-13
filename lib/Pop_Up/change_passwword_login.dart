@@ -4,11 +4,11 @@ import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 
-class ChangePasswordScreen extends StatelessWidget {
+class ChangePasswordLoginScreen extends StatelessWidget {
   final TextEditingController oldPasswordController = TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
-  ChangePasswordScreen({super.key});
+  ChangePasswordLoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,13 +31,7 @@ class ChangePasswordScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 35.0),
-            DefaultFormField(controller:  oldPasswordController,
-             label:  'Old Password', validate:(p0) {
-               return null;
-             
-               
-             },),
-             const SizedBox(height: 15.0),
+           
             DefaultFormField(controller:  oldPasswordController,
              label: 'New Password', validate:(p0) {
                return null;

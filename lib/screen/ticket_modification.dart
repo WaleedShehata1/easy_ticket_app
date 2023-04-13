@@ -1,8 +1,13 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, avoid_unnecessary_containers, avoid_print
+
 import 'package:flutter/material.dart';
 // import '';
 
 class TicketModificationScreen extends StatefulWidget {
+  const TicketModificationScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _TicketModificationScreenState createState() =>
       _TicketModificationScreenState();
 }
@@ -19,15 +24,15 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xffF48265),
-      padding: EdgeInsets.all(16.0),
+      color: const Color(0xffF48265),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 border: Border(bottom: BorderSide(style: BorderStyle.solid))),
-            child: Text(
+            child: const Text(
               'Ticket Modification',
               style: TextStyle(
                   fontSize: 20.0,
@@ -35,7 +40,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                   color: Colors.white),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
           Row(
@@ -61,7 +66,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                                 disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20),
                                   borderSide:
-                                      BorderSide(width: 2, color: Colors.white),
+                                      const BorderSide(width: 2, color: Colors.white),
                                 ),
                               ),
                               hint: const Text('Select options'),
@@ -94,8 +99,8 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                       },
                     )),
               ),
-              SizedBox(width: 25.0),
-              Text(
+              const SizedBox(width: 25.0),
+              const Text(
                 ':معاد الباص',
                 style: TextStyle(
                   fontSize: 16.0,
@@ -105,7 +110,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
               ),
             ],
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Row(
             children: [
               Expanded(
@@ -117,14 +122,14 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                     color: Colors.white,
                     border: Border.all(color: Colors.grey),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Data',
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
-              SizedBox(width: 10.0),
-              Text(
+              const SizedBox(width: 10.0),
+              const Text(
                 ':خط السير',
                 style: TextStyle(
                   fontSize: 16.0,
@@ -133,7 +138,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
               ),
             ],
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -146,14 +151,14 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                     color: Colors.white,
                     border: Border.all(color: Colors.grey),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Data',
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
-              SizedBox(width: 10.0),
-              Text(
+              const SizedBox(width: 10.0),
+              const Text(
                 ':رقم الباص',
                 style: TextStyle(
                   fontSize: 16.0,
@@ -162,26 +167,26 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
               ),
             ],
           ),
-          SizedBox(height: 32.0),
+          const SizedBox(height: 32.0),
           Container(
             child: SizedBox(
               width: 100.0,
               height: 30.0,
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: implement Save functionality
+                  
                   print('Saved!');
                 },
-                child: Text('Save',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 17.0,
-                        fontWeight: FontWeight.bold)),
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(23.0),
                     ),
                     backgroundColor: Colors.white),
+                child: const Text('Save',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.bold)),
               ),
             ),
           ),
