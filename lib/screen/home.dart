@@ -1,6 +1,8 @@
 // ignore: implementation_imports
 
 import 'dart:ui';
+import 'package:easy_ticket_app/Pop_Up/bus_detiles.dart';
+import 'package:easy_ticket_app/Pop_Up/buy_bus_ticket.dart';
 import 'package:easy_ticket_app/screen/map.dart';
 import 'package:easy_ticket_app/shapes/ticket_bus_detiles.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
  bool selectBottom =true;
  int i =10;
  late Widget list;
+ late bool buyTicket ;
  
   bool switshTicket = false;
   @override
@@ -139,43 +142,8 @@ Row(
               showDialog(
                 context: context,
                  builder:(context) {
-                   return DefaultDialog(
-                    Child:  Column(
-                     
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    IconButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        icon: const Icon(
-                                          Icons.close_outlined,
-                                          size: 35,
-                                        ))
-                                  ],
-                                ),
-                               
-                                Expanded(
-                                  child: ListView.separated(
-                                    itemCount: 10,
-                                    itemBuilder: (ctx, index) {
-                                      return busTicketDetiles(
-                                        ontap: () {},
-                                      );
-                                    },
-                                    separatorBuilder:
-                                        (BuildContext context, int index) {
-                                      return const SizedBox(
-                                        height: 20,
-                                      );
-                                    },
-                                  ),
-                                ),
-                                const SizedBox(height: 5,),
-                              ],
-                            )
+                   return  DefaultDialog(
+                    Child:DetilesbusTicket()
                     );
 
                  },);
@@ -235,10 +203,20 @@ Row(
                             itemBuilder: (ctx,index){
                               if(switshTicket == false){
                                 
-                              return const metroDate();
+                              return const metroDate(
+
+                              );
                               }else{
                                 
-                               return const metroTicket();
+                               return metroTicket(
+                                onTap: () {
+                                  return showDialog(context: context, builder: (context){
+                                    return DefaultDialog(
+                                      Child:BuyBusTicket(isBusTicket: false,)
+                                      );
+                                  });
+                                },
+                               );
                               }
                             },
                              separatorBuilder: (BuildContext context, int index)

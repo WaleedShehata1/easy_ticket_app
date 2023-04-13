@@ -316,7 +316,7 @@ class busTicketDetiles extends StatelessWidget {
                   ),
              
               const SizedBox(
-                width: 5,
+                width: 0,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -333,15 +333,17 @@ class busTicketDetiles extends StatelessWidget {
                   DefaultButtom(
                     OnTap: ontap,
                     Child: const Text(
-                      'Detiles',
-                      style: TextStyle(
-                          height: 1,
+                      'Buy Ticket',
+                      style: TextStyle
+                      (
+                          height: 0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                          fontSize: 16,
+                          ),
                     ),
                     Height: 30,
-                    Width: 70,
+                    Width: 80,
                     PaddingHorizontal: 0,
                     PaddingVertical: 0,
                     radius: 10,
