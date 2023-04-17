@@ -44,6 +44,7 @@ var ConfirmPasswordController=TextEditingController();
       child: Center(
         child: SafeArea(
           child: Scaffold(
+            backgroundColor: Colors.white,
             body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),

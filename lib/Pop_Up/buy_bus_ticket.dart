@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sized_box_for_whitespace
 
 
 import 'package:flutter/material.dart';
@@ -9,9 +9,9 @@ import 'package:easy_ticket_app/widget/components.dart';
 class BuyBusTicket extends StatelessWidget {
  
   late bool isBusTicket ;
-   BuyBusTicket({
+ BuyBusTicket({
     Key? key,
-     required this.isBusTicket,
+    required this.isBusTicket,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class BuyBusTicket extends StatelessWidget {
                                             onPressed: () { 
                                               Navigator.pop(context);
                                             showDialog(context: context, builder: (context){
-                                              return DefaultDialog(Child: DetilesbusTicket());
+                                              return DefaultDialog(Child: const DetilesbusTicket());
                                             });
                                             },
                                             icon: const Icon(
@@ -107,17 +107,17 @@ class BuyBusTicket extends StatelessWidget {
                   Row(children: [
                      Container(
                       alignment: Alignment.center,
-                        child: const Text('Now'),
                         width: 35,
                         height: 35,
                         decoration: BoxDecoration(
                             color: PrimaryColour,
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Text('Now'),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      Text('girls school')
+                      const Text('girls school')
                   ],),
                   const SizedBox(
                     height: 5,
@@ -125,15 +125,15 @@ class BuyBusTicket extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        child: const Icon(
-                          Icons.location_pin,
-                          color: Colors.white,
-                        ),
-                         width: 35,
+                        width: 35,
                         height: 35,
                         decoration: BoxDecoration(
                             color: PrimaryColour,
                             borderRadius: BorderRadius.circular(10)),
+                        child: const Icon(
+                          Icons.location_pin,
+                          color: Colors.white,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -162,11 +162,11 @@ class BuyBusTicket extends StatelessWidget {
                                           width: double.infinity,
                                           child: Column(mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
-                                              Text('Metro'),
-                                              SizedBox(height: 10,),
-                                              Text('number'),
-                                              Text('of stations'),
-                                              SizedBox(height: 5,),
+                                              const Text('Metro'),
+                                              const SizedBox(height: 10,),
+                                              const Text('number'),
+                                              const Text('of stations'),
+                                              const SizedBox(height: 5,),
                                               Container(
                                                 alignment: Alignment.center,
                                                   width: 70,
@@ -174,13 +174,13 @@ class BuyBusTicket extends StatelessWidget {
                                                                 decoration: BoxDecoration(
                                                                     color: PrimaryColour,
                                                                     borderRadius: BorderRadius.circular(10)),
-                                              child: Text('7'),
+                                              child: const Text('7'),
                                               )
                                             ],
                                           ),
                                         ),
                                     ),
-                          Divider(height: 2, color: Colors.grey,endIndent: 10,indent: 10,),
+                          const Divider(height: 2, color: Colors.grey,endIndent: 10,indent: 10,),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 15),
                             child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -188,14 +188,14 @@ class BuyBusTicket extends StatelessWidget {
                               children: [
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+                                  children: const [
                                     Text('9:00 AM'),
                                     Text('9:00 AM'),
                                   ],
                                 ),
                                 Row(
                                   
-                                  children: [
+                                  children: const [
                                     Text('Price: '),
                                     Text('\$23'),
                                   ],

@@ -10,7 +10,6 @@ import 'package:easy_ticket_app/screen/splash.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'Pop_Up/bus_detiles.dart';
-import 'Pop_Up/buy_bus_ticket.dart';
 import 'screen/bottom_bar.dart';
 import 'screen/sign_up.dart';
 
@@ -47,9 +46,10 @@ class MyApp extends StatelessWidget {
                UserSettingsScreen.routeName:(context) => const UserSettingsScreen(),
                EditProfileScreen.routeName: (context) =>  const EditProfileScreen(),
                GetPasswordResetCode.routeName :(context) =>const GetPasswordResetCode(),
-                DetilesbusTicket.routeName :(context) => DetilesbusTicket(),
+                DetilesbusTicket.routeName :(context) => const DetilesbusTicket(),
 
             },
+            
            
     );
   }

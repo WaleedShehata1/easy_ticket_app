@@ -1,11 +1,13 @@
 // ignore: implementation_imports
 
 import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
 import 'package:easy_ticket_app/Pop_Up/bus_detiles.dart';
 import 'package:easy_ticket_app/Pop_Up/buy_bus_ticket.dart';
 import 'package:easy_ticket_app/screen/map.dart';
-import 'package:easy_ticket_app/shapes/ticket_bus_detiles.dart';
-import 'package:flutter/material.dart';
+
 import '../shapes/ticket_bus.dart';
 import '../shapes/ticket_dates.dart';
 import '../shapes/ticket_metro.dart';
@@ -143,7 +145,7 @@ Row(
                 context: context,
                  builder:(context) {
                    return  DefaultDialog(
-                    Child:DetilesbusTicket()
+                    Child:const DetilesbusTicket()
                     );
 
                  },);

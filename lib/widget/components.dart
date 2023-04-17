@@ -58,6 +58,7 @@ class DefaultFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+    
       style: TextStyle(
         color: textColor ?? Colors.black,
         fontSize: fontSize ?? 14,
@@ -67,6 +68,7 @@ class DefaultFormField extends StatelessWidget {
       keyboardType: keyboardType ?? TextInputType.text,
       validator: validate,
       decoration: InputDecoration(
+        
        // hintText: hint,
         labelText: label,
        
@@ -210,3 +212,43 @@ RadioListTile buildRadioListTile (){
      groupValue: groupValue,
       onChanged: onChanged)
 } */
+
+
+class DefaultDropdown extends StatelessWidget{
+  var _SelectedLetter;
+
+
+                                  
+                                    @override
+                                    Widget build(BuildContext context) {
+                                      return Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 0),
+                                  width: 160,
+                                  height: 56,
+                                  
+                                  child: DropdownButtonFormField(
+                                    
+                                    decoration: InputDecoration(
+                                      enabled: false,
+                                     disabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          20,
+                                        ),
+                                        borderSide: BorderSide(
+                                            color: PrimaryColour, width: 2),
+                                    ),),
+                                   hint: const Text('Gendar'),
+                                   value: _SelectedLetter,
+                                   borderRadius: BorderRadius.circular(10),
+                                    items: const [
+                                     DropdownMenuItem(value: Text('Male'),child: Text('Male'),),
+                                     DropdownMenuItem(value: Text('Female'),child: Text('Female'),),
+                                    ],
+                                     onChanged: (value) { 
+                                  
+                                    _SelectedLetter =value;
+                                  
+                                      },
+                                  ));
+                                    }
+                                  }
