@@ -77,10 +77,10 @@ class busTicket extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const Text(
+                   Text(
                     "Bus 12",
                     style: TextStyle(
-                        color: Color(0xff3E548D),
+                        color: textColour,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),

@@ -1,11 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, must_be_immutable
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
+// ignore_for_file: camel_case_types
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/components.dart';
-@override
+
 class myTicketBus extends StatelessWidget {
   Function()? onTap;
     Function()? onTapDelete;
