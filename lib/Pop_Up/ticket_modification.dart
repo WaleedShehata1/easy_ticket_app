@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, avoid_unnecessary_containers, avoid_print
 
 import 'package:flutter/material.dart';
-// import '';
 
 class TicketModificationScreen extends StatefulWidget {
   const TicketModificationScreen({super.key});
@@ -65,8 +64,8 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                                 enabled: false,
                                 disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20),
-                                  borderSide:
-                                      const BorderSide(width: 2, color: Colors.white),
+                                  borderSide: const BorderSide(
+                                      width: 2, color: Colors.white),
                                 ),
                               ),
                               hint: const Text('Select options'),
@@ -174,7 +173,6 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
               height: 30.0,
               child: ElevatedButton(
                 onPressed: () {
-                  
                   print('Saved!');
                 },
                 style: ElevatedButton.styleFrom(

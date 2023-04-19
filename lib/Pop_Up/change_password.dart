@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 class ChangePasswordScreen extends StatelessWidget {
   final TextEditingController oldPasswordController = TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   ChangePasswordScreen({super.key});
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,12 @@ class ChangePasswordScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(onPressed: (){}, icon: const Icon(Icons.close,size: 30,))
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.close,
+                      size: 30,
+                    ))
               ],
             ),
             const Text(
@@ -31,39 +37,44 @@ class ChangePasswordScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 35.0),
-            DefaultFormField(controller:  oldPasswordController,
-             label:  'Old Password', validate:(p0) {
-               return null;
-             
-               
-             },),
-             const SizedBox(height: 15.0),
-            DefaultFormField(controller:  oldPasswordController,
-             label: 'New Password', validate:(p0) {
-               return null;
-             
-               
-             },),
-             const SizedBox(height: 15.0),
-            DefaultFormField(controller:  oldPasswordController,
-             label: 'Confirm Password', validate:(p0) {
-               return null;
-             
-               
-             },),
-            const SizedBox(height: 35.0), 
+            DefaultFormField(
+              controller: oldPasswordController,
+              label: 'Current Password',
+              validate: (p0) {
+                return null;
+              },
+            ),
+            const SizedBox(height: 15.0),
+            DefaultFormField(
+              controller: oldPasswordController,
+              label: 'New Password',
+              validate: (p0) {
+                return null;
+              },
+            ),
+            const SizedBox(height: 15.0),
+            DefaultFormField(
+              controller: oldPasswordController,
+              label: 'Confirm Password',
+              validate: (p0) {
+                return null;
+              },
+            ),
+            const SizedBox(height: 35.0),
             DefaultButtom(
-              Child:const Text('Save',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.bold))
-                          , Height:35, Width:150 , 
-                          PaddingHorizontal: 0, PaddingVertical: 0,
-                          OnTap: () {
-                            Navigator.pushReplacementNamed(context,Sign_In.routeName);
-                          },)
-           
+              Child: const Text('Save',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.bold)),
+              Height: 35,
+              Width: 150,
+              PaddingHorizontal: 0,
+              PaddingVertical: 0,
+              OnTap: () {
+                Navigator.pushReplacementNamed(context, Sign_In.routeName);
+              },
+            )
           ],
         ),
       ),
