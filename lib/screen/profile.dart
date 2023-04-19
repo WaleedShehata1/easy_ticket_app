@@ -3,6 +3,7 @@
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import './edit_profile.dart';
+import './notifications.dart';
 
 class UserSettingsScreen extends StatefulWidget {
   static const String routeName = 'profile';
@@ -128,8 +129,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             const SizedBox(height: 16),
             const SizedBox(height: 16),
             ListTile(
-              onTap: () {
-              },
+              onTap: () {},
               leading: Icon(
                 Icons.notifications,
                 color: isDarkMode ? Colors.white : Colors.black,
@@ -145,6 +145,11 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
             ListTile(
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationsScreen()),
+                );
               },
               leading: Icon(
                 Icons.credit_card,
@@ -160,8 +165,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               ),
             ),
             ListTile(
-              onTap: () {
-              },
+              onTap: () {},
               leading: Icon(
                 Icons.account_balance_wallet,
                 color: isDarkMode ? Colors.white : Colors.black,
@@ -191,12 +195,12 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 value: isDarkMode,
                 activeTrackColor: Colors.white,
                 activeColor: PrimaryColour,
-                inactiveThumbColor:PrimaryColour ,
-                inactiveTrackColor:Colors.black ,
+                inactiveThumbColor: PrimaryColour,
+                inactiveTrackColor: Colors.black,
                 onChanged: (value) {
                   setState(() {
                     isDarkMode = value;
-                     firstTime.putData(key: 'isDarkMode', valu:value);
+                    firstTime.putData(key: 'isDarkMode', valu: value);
                   });
                 },
               ),
@@ -262,7 +266,3 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
     );
   }
 }
-
-
-
-

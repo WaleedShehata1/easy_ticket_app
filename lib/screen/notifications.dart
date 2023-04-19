@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NotificationScreen extends StatelessWidget {
+class NotificationsScreen extends StatelessWidget {
   DateTime date = DateTime.now();
   int RemainingTime = 15;
   int BusNumber = 200;
