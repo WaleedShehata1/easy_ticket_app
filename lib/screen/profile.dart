@@ -129,10 +129,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             const SizedBox(height: 16),
             ListTile(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const NotificationScreen()),
-                );
               },
               leading: Icon(
                 Icons.notifications,
@@ -149,10 +145,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
             ListTile(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CreditCardScreen()),
-                );
               },
               leading: Icon(
                 Icons.credit_card,
@@ -169,10 +161,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
             ListTile(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const WalletScreen()),
-                );
               },
               leading: Icon(
                 Icons.account_balance_wallet,
@@ -195,15 +183,20 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               title: Text(
                 'Dark Mode',
                 style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   color: isDarkMode ? Colors.white : Colors.black,
                 ),
               ),
               trailing: Switch(
                 value: isDarkMode,
-                activeColor: Colors.green,
+                activeTrackColor: Colors.white,
+                activeColor: PrimaryColour,
+                inactiveThumbColor:PrimaryColour ,
+                inactiveTrackColor:Colors.black ,
                 onChanged: (value) {
                   setState(() {
                     isDarkMode = value;
+                     firstTime.putData(key: 'isDarkMode', valu:value);
                   });
                 },
               ),
@@ -270,51 +263,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
   }
 }
 
-class CreditCardScreen extends StatelessWidget {
-  const CreditCardScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Credit Card'),
-      ),
-      body: const Center(
-        child: Text('View and edit your credit card information here'),
-      ),
-    );
-  }
-}
 
-class WalletScreen extends StatelessWidget {
-  const WalletScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Wallet'),
-      ),
-      body: const Center(
-        child:
-            Text('View and manage your wallet balance and transactions here'),
-      ),
-    );
-  }
-}
-
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Notifications'),
-      ),
-      body: const Center(
-        child: Text('No notifications'),
-      ),
-    );
-  }
-}
