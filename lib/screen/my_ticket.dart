@@ -1,4 +1,3 @@
-
 // ignore_for_file: camel_case_types
 
 import 'dart:ui';
@@ -6,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../shapes/my_ticket_bus.dart';
 import '../shapes/my_ticket_metro.dart';
 import '../widget/components.dart';
-import 'ticket_modification.dart';
+import '../Pop_Up/ticket_modification.dart';
 
 class myTicket extends StatefulWidget {
   const myTicket({super.key});
@@ -50,7 +49,7 @@ class _myTicketState extends State<myTicket> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: const [
-                   SizedBox(
+                  SizedBox(
                     height: 30,
                   ),
                   Text(
@@ -63,7 +62,6 @@ class _myTicketState extends State<myTicket> {
                   SizedBox(
                     height: 15,
                   ),
-                 
                 ],
               )
             ],
@@ -117,56 +115,61 @@ class _myTicketState extends State<myTicket> {
                   itemBuilder: (ctx, index) {
                     return myTicketBus(
                       onTap: () {},
-                        onTapDelete: () {},
+                      onTapDelete: () {},
                       onTapEdit: () {
                         return showDialog(
-                          context: context,
-                           builder: (context){
-                            return DefaultDialog(Child: Column(mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.close_outlined,
-                        size: 35,
-                      ))
-                ],
-              ),
-            const TicketModificationScreen(),
-                              ],
-                            ));
-                           });
+                            context: context,
+                            builder: (context) {
+                              return DefaultDialog(
+                                  Child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: const Icon(
+                                            Icons.close_outlined,
+                                            size: 35,
+                                          ))
+                                    ],
+                                  ),
+                                  const TicketModificationScreen(),
+                                ],
+                              ));
+                            });
                       },
                       onTapQR: () {
                         return showDialog(
-                          context: context,
-                           builder: (context){
-                            return DefaultDialog(Child: Column(mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.close_outlined,
-                        size: 35,
-                      ))
-                ],
-              ),
-            const Icon(Icons.qr_code_2_outlined,size: 200,),
-                              ],
-                            )
-                            );
-                           }
-                           );
+                            context: context,
+                            builder: (context) {
+                              return DefaultDialog(
+                                  Child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: const Icon(
+                                            Icons.close_outlined,
+                                            size: 35,
+                                          ))
+                                    ],
+                                  ),
+                                  const Icon(
+                                    Icons.qr_code_2_outlined,
+                                    size: 200,
+                                  ),
+                                ],
+                              ));
+                            });
                       },
                     );
                   },
@@ -177,46 +180,48 @@ class _myTicketState extends State<myTicket> {
                   },
                 )
               : ListView.separated(
-                itemCount: 10,
-                itemBuilder: (ctx, index) {
-                    return  myTicketMetro( 
+                  itemCount: 10,
+                  itemBuilder: (ctx, index) {
+                    return myTicketMetro(
                       onTap: () {},
-                        onTapDelete: () {},
+                      onTapDelete: () {},
                       onTapQR: () {
                         return showDialog(
-                          context: context,
-                           builder: (context){
-                            return DefaultDialog(Child: Column(mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
+                            context: context,
+                            builder: (context) {
+                              return DefaultDialog(
+                                  Child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: const Icon(
+                                            Icons.close_outlined,
+                                            size: 35,
+                                          ))
+                                    ],
+                                  ),
+                                  const Icon(
+                                    Icons.qr_code_2_outlined,
+                                    size: 200,
+                                  ),
+                                ],
+                              ));
+                            });
                       },
-                      icon: const Icon(
-                        Icons.close_outlined,
-                        size: 35,
-                      ))
-                ],
-              ),
-            const Icon(Icons.qr_code_2_outlined,size: 200,),
-                              ],
-                            )
-                            );
-                           }
-                           );
-                      },
-                      );
-                  
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 20,
-                  );
-                },
-              ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const SizedBox(
+                      height: 20,
+                    );
+                  },
+                ),
         )
       ]),
     );
