@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './ticket_modification.dart';
 
 class NotificationsScreen extends StatelessWidget {
   DateTime date = DateTime.now();
@@ -73,10 +74,14 @@ class NotificationsScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    //  TODO: Implementaion
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => TicketModificationScreen()),
+                    );
                   },
                   child: Text(
-                    'هل تريد تعديل التذكرة؟',
+                    'تعديل التذكرة؟',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
