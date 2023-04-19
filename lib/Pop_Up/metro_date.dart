@@ -26,7 +26,7 @@ class MetroDateTicket extends StatelessWidget {
                                   child: ListView.separated(
                                     itemCount: 10,
                                     itemBuilder: (ctx, index) {
-                                      return dateMetroTicket();
+                                      return const dateMetroTicket();
                                     },
                                     separatorBuilder:
                                         (BuildContext context, int index) {
