@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:easy_ticket_app/Pop_Up/bus_detiles.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 
+import '../screen/payment_method.dart';
+
 class BuyBusTicket extends StatelessWidget {
   late bool isBusTicket;
   Function()? ontapMinus;
@@ -134,7 +136,8 @@ class BuyBusTicket extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: PrimaryColour,
                               borderRadius: BorderRadius.circular(13)),
-                          child: const Text('Now',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                          child: const Text('Now',
+                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
                         ),
                         const SizedBox(
                           width: 10,
@@ -272,7 +275,18 @@ class BuyBusTicket extends StatelessWidget {
                Height: 40, radius: 13,Width: 30, PaddingHorizontal: 20, PaddingVertical: 0,
                OnTap: ontapAdd,)
           ],
-        )
+        ),
+        const SizedBox(height: 25,),
+        DefaultButtom(
+          OnTap: () {
+            Navigator.pushNamed(context, PaymentMethodScreen.routeName);
+          },
+          Child: const Text("Buy", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 26),),
+           Height: 40,
+            Width: 200, 
+            radius: 15,
+            PaddingHorizontal:40,
+             PaddingVertical: 0),
       ],
     );
   }

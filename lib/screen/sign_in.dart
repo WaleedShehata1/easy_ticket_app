@@ -23,6 +23,7 @@ class Sign_In extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
           body: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

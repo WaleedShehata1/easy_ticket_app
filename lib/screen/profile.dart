@@ -126,10 +126,11 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 16),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, NotificationsScreen.routeName);
+              },
               leading: Icon(
                 Icons.notifications,
                 color: isDarkMode ? Colors.white : Colors.black,
@@ -145,11 +146,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
             ListTile(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => NotificationsScreen()),
-                );
               },
               leading: Icon(
                 Icons.credit_card,

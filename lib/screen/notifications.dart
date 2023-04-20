@@ -1,36 +1,46 @@
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
+
+import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import '../Pop_Up/ticket_modification.dart';
 
 class NotificationsScreen extends StatelessWidget {
+    static const String routeName = 'Notifications';
+
   DateTime date = DateTime.now();
   int RemainingTime = 15;
   int BusNumber = 200;
 
+  NotificationsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color(0xffF48265),
+        backgroundColor: PrimaryColour,
         title: const Text('Notifications'),
         leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back_ios_new),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
       body: ListView.separated(
         scrollDirection: Axis.vertical,
-        padding: EdgeInsets.all(10.0),
-        physics: ClampingScrollPhysics(),
+        padding: const EdgeInsets.all(10.0),
+        physics: const ClampingScrollPhysics(),
         itemCount: 1,
         itemBuilder: (context, index) {
           return Container(
             decoration: BoxDecoration(
-              color: Color(0xffF48265),
+              color: PrimaryColour,
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: ExpansionTile(
               textColor: Colors.black,
-              tilePadding: EdgeInsets.symmetric(horizontal: 10.0),
+              tilePadding: const EdgeInsets.symmetric(horizontal: 10.0),
               title: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -38,7 +48,7 @@ class NotificationsScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: Text(
                       '${date.day}/ ${date.month}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -47,12 +57,12 @@ class NotificationsScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: Text(
                       '${date.hour}:${date.minute}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  Align(
+                  const Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       'Trip details',
@@ -69,7 +79,7 @@ class NotificationsScreen extends StatelessWidget {
               ),
               subtitle: Text(
                 'باقي$RemainingTime دقيقة علي وصول باص رقم $BusNumber الي المحطة المختارة برجاء الانتظار في المحطه',
-                style: TextStyle(fontSize: 16.0),
+                style: const TextStyle(fontSize: 16.0),
               ),
               children: [
                 ElevatedButton(
@@ -77,30 +87,30 @@ class NotificationsScreen extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return Dialog(
+                        return const Dialog(
                           child: TicketModificationScreen(),
                         );
                       },
                     );
                   },
-                  child: Text(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                  child: const Text(
                     'تعديل التذكرة؟',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20))),
                 ),
               ],
             ),
           );
         },
         separatorBuilder: (context, index) {
-          return SizedBox(height: 10.0);
+          return const SizedBox(height: 10.0);
         },
       ),
     );

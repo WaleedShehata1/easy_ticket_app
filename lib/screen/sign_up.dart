@@ -18,27 +18,19 @@ var NationalIDController=TextEditingController();
 var FirstNameController=TextEditingController();
 var LastNameController=TextEditingController();
 var DateOfBirthController=TextEditingController();
-var ProfessionController=TextEditingController();
 var PhoneController=TextEditingController();
-var HealthStatusController=TextEditingController();
 var EmailController=TextEditingController();
 var PasswordController=TextEditingController();
 var ConfirmPasswordController=TextEditingController();
  var formKey = GlobalKey<FormState>();
 
- var _SelectedLetter;
+ var _Gendar;
+ var _HealthStatus;
+ var _Profession;
 
   @override
 
   Widget build(BuildContext context) { 
-/*    MyDialog(){
-  var ad =AlertDialog(
-        content: , 
-   );
-   showDialog(context: context, builder:(context) {
-     
-   },);
-} */
     return GestureDetector(
       onTap: ()=> FocusScope.of(context).unfocus(),
       child: Center(
@@ -100,9 +92,9 @@ var ConfirmPasswordController=TextEditingController();
                               return null;
                             },
                              controller: NationalIDController,
-                    
+                    MaxLength: 14,
                            ),
-                          const SizedBox(height: 20,),
+                          const SizedBox(height: 5,),
                            Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                              children: [
@@ -121,19 +113,21 @@ var ConfirmPasswordController=TextEditingController();
                            ),
                                ),
                               
-                                SizedBox(
-                            width:150 ,
-                             child:DefaultFormField
-                           (
-                            label:'Profession',
-                            keyboardType: TextInputType.number,
-                            validate: (String? value){
-                              return null;
-                            },
-                             controller: ProfessionController,
-                    
-                           ), 
-                           ),
+                                DefaultDropdown(
+                                  hint:const Text('Profession') ,
+                                  height: 56,
+                                  width: 160,
+                                  value: _Profession,
+                                  onChanged: (value) { 
+                                  setState(() {
+                                    _Profession =value;
+                                  }); 
+                                      },
+                                      items: const [
+                                     DropdownMenuItem(value: Text('Male'),child: Text('Male'),),
+                                     DropdownMenuItem(value: Text('Female'),child: Text('Female'),),
+                                    ],
+                                ),
                              ],
                            ),
                           const SizedBox(height: 20,),
@@ -145,56 +139,44 @@ var ConfirmPasswordController=TextEditingController();
                             validate: (String? value){
                               return null;
                             },
+                            MaxLength: 11,
                              controller: PhoneController,
                     
                            ),
-                          const SizedBox(height: 20,),
+                          const SizedBox(height: 5,),
                            Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                              children: [
-                               SizedBox(
-                                width:150 ,
-                                 child: DefaultFormField
-                           (
-                            label:'Health Status',
-                            keyboardType: TextInputType.number,
-                            validate: (String? value){
-                              return null;
-                            },
-                             controller: HealthStatusController,
-                    
-                           ),
-                               ),
-                                const SizedBox(width: 15,),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 0),
-                                  width: 160,
+                               DefaultDropdown(
+                                  hint:const Text('Health Status') ,
                                   height: 56,
-                                  
-                                  child: DropdownButtonFormField(
-                                    
-                                    decoration: InputDecoration(
-                                      enabled: false,
-                                     disabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        borderSide: BorderSide(
-                                            color: PrimaryColour, width: 2),
-                                    ),),
-                                   hint: const Text('Gendar'),
-                                   value: _SelectedLetter,
-                                   borderRadius: BorderRadius.circular(10),
-                                    items: const [
+                                  width: 160,
+                                  value: _HealthStatus,
+                                  onChanged: (value) { 
+                                  setState(() {
+                                    _HealthStatus =value;
+                                  }); 
+                                      },
+                                      items: const [
                                      DropdownMenuItem(value: Text('Male'),child: Text('Male'),),
                                      DropdownMenuItem(value: Text('Female'),child: Text('Female'),),
                                     ],
-                                     onChanged: (value) { 
+                                ),
+                                const SizedBox(width: 15,),
+                                DefaultDropdown(
+                                  hint:const Text('Gendar') ,
+                                  height: 56,
+                                  width: 160,
+                                  value: _Gendar,
+                                  onChanged: (value) { 
                                   setState(() {
-                                    _SelectedLetter =value;
-                                  });
+                                    _Gendar =value;
+                                  }); 
                                       },
-                                  ),
+                                      items: const [
+                                     DropdownMenuItem(value: Text('Male'),child: Text('Male'),),
+                                     DropdownMenuItem(value: Text('Female'),child: Text('Female'),),
+                                    ],
                                 ),
                              ],
                            ),

@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api
 
+import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import '../Pop_Up/change_password.dart';
 
@@ -26,8 +27,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color(0xffF48265),
+        backgroundColor: PrimaryColour,
         title: const Text('Edit Account'),
       ),
       body: Center(

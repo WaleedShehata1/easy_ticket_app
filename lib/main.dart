@@ -10,6 +10,8 @@ import 'package:easy_ticket_app/screen/splash.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'screen/bottom_bar.dart';
+import 'screen/notifications.dart';
+import 'screen/payment_method.dart';
 import 'screen/sign_up.dart';
 
 void main()
@@ -17,22 +19,23 @@ void main()
 WidgetsFlutterBinding.ensureInitialized();
 
  await firstTime.init();
-  runApp(const MyApp());
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   const MyApp({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+  theme: ThemeData(
       //  useMaterial3:true ,
         primarySwatch: Colors.deepOrange,
+        
        
-      ),
-      home: const BottomBar(),
+      ), 
+      home: const splash(),
     
         routes: {
                splash.routeName: (context)=>  const splash(),
@@ -45,7 +48,8 @@ class MyApp extends StatelessWidget {
                UserSettingsScreen.routeName:(context) => const UserSettingsScreen(),
                EditProfileScreen.routeName: (context) =>  const EditProfileScreen(),
                GetPasswordResetCode.routeName :(context) =>const GetPasswordResetCode(),
-            
+               NotificationsScreen.routeName:(context) =>  NotificationsScreen(),
+              PaymentMethodScreen.routeName :(context) => const PaymentMethodScreen(),
 
             },
             

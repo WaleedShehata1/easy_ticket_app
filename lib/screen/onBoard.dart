@@ -53,35 +53,37 @@ class onBoard extends StatelessWidget {
                   ),
                 ],
               ),
-              //         Container(
-              //           height: 65,
-              //           width: 300,
-              //           decoration: BoxDecoration(
-              //             color: PrimaryColour,
-              //            borderRadius: BorderRadius.circular(20)),
-              //           child: ElevatedButton(
+      /*                 Container(
+                        height: 65,
+                        width: 300,
+                        decoration: BoxDecoration(
+                          color: PrimaryColour,
+                         borderRadius: BorderRadius.circular(20)),
+                        child: ElevatedButton(
 
-              //             onPressed:()
-              //                       {
-              //                       //  firstTime.putData(key: 'firstTime', valu: true).then(
-              //                       //   (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
-              //                        Navigator.pushReplacementNamed(context, Sign_In.routeName );
-              //                       },
-              //             child: const Center(
-              //               child: Text(
-              //                           'Get Started',textAlign: TextAlign.center,
-              //                           style:TextStyle(
-              //                                 color: Colors.white,
-              //                                 fontSize: 38,
-              //                                 fontWeight: FontWeight.w600
-              //                                 ),
-              //                                 ),
-              //             ),
-              //           ),
-              //         )
-              DefaultButtom(
+                          onPressed:()
+                                    {
+                                     firstTime.putData(key: 'firstTime', valu: true).then(
+                                      (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
+                                     Navigator.pushReplacementNamed(context, Sign_In.routeName );
+                                    },
+                          child: const Center(
+                            child: Text(
+                                        'Get Started',textAlign: TextAlign.center,
+                                        style:TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 38,
+                                              fontWeight: FontWeight.w600
+                                              ),
+                                              ),
+                          ),
+                        ),
+                      ), */
+               DefaultButtom(
                 OnTap: () {
-                  Navigator.pushNamed(context, Sign_In.routeName);
+                 firstTime.putData(key: 'firstTime', valu: true).then(
+                                      (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
+                                     Navigator.pushReplacementNamed(context, Sign_In.routeName );
                 },
                 Child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -108,48 +110,48 @@ class onBoard extends StatelessWidget {
                 Width: double.infinity,
                 PaddingHorizontal: 30,
                 PaddingVertical: 30,
-              ),
-              //  InkWell(
+              ), /* 
+               InkWell(
 
-              //   splashColor: Colors.blue,
-              //   borderRadius: const BorderRadius.all(Radius.circular(30)) ,
-              //    onTap: () {
-              //     Navigator.pushNamed(context, Sign_In.routeName );
-              //   },
-              //    child: Container(
-              //      margin: const EdgeInsets.symmetric(vertical: 30,horizontal: 30),
-              //      alignment: Alignment.center,
-              //      padding: const EdgeInsets.all(10),
-              //      width: double.infinity,
-              //      height: ,
-              //      decoration:  BoxDecoration(
-              //       borderRadius: const BorderRadius.all(Radius.circular(30)),
-              //       color: PrimaryColour,
-              //     ),
-              //      child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Text(
-              //           'get started'.toUpperCase(),
-              //           style: const TextStyle(
-              //             color: Colors.white,
-              //             fontWeight: FontWeight.w700,
-              //             fontSize: 30,
-              //           ),
-              //         ),
-              //         const SizedBox(
-              //           width: 10,
-              //         ),
-              //         const Icon(
-              //           Icons.arrow_forward_ios_outlined,
-              //           size: 30,
-              //           weight: 50,
-              //           color: Colors.white,
-              //         )
-              //       ],
-              //     ),
-              //    ),
-              //  ),
+                splashColor: Colors.blue,
+                borderRadius: const BorderRadius.all(Radius.circular(30)) ,
+                 onTap: () {
+                  Navigator.pushNamed(context, Sign_In.routeName );
+                },
+                 child: Container(
+                   margin: const EdgeInsets.symmetric(vertical: 30,horizontal: 30),
+                   alignment: Alignment.center,
+                   padding: const EdgeInsets.all(10),
+                   width: double.infinity,
+                   
+                   decoration:  BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    color: PrimaryColour,
+                  ),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'get started'.toUpperCase(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 30,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                        size: 30,
+                        weight: 50,
+                        color: Colors.white,
+                      )
+                    ],
+                  ),
+                 ),
+               ), */
             ],
           ),
         ),

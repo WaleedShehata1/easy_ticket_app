@@ -43,6 +43,7 @@ static const String routeName = 'bottom nav bar';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: PageView(
         controller: _pageController,
         physics:  const NeverScrollableScrollPhysics(),
