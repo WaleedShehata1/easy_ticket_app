@@ -3,6 +3,7 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/components.dart';
 
@@ -22,57 +23,58 @@ class metroTicket extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 120,
-              width: 151,
+              height: 120.h,
+              width: 151.w,
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10)),
+                  borderRadius:  BorderRadius.only(
+                      topLeft: Radius.circular(10.r),
+                      bottomLeft: Radius.circular(10.r)),
                   color: Colors.grey.withOpacity(1),
                   boxShadow: [
                     BoxShadow(
                         offset: const Offset(-0.5, 3),
                         color: Colors.grey.withOpacity(1),
                         spreadRadius: 0,
-                        blurRadius: 2),
+                        blurRadius: 2.r),
                     BoxShadow(
                         offset: const Offset(0, -0.1),
                         color: Colors.grey.withOpacity(1),
                         spreadRadius: 0,
-                        blurRadius: 2),
+                        blurRadius: 2.r),
                   ]),
             ),
-            const SizedBox(
-              width: 26,
+             SizedBox(
+              width: 26.w,
             ),
             Container(
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
+                  borderRadius:  BorderRadius.only(
+                      topRight: Radius.circular(10.r),
+                      bottomRight: Radius.circular(10.r)),
                   color: Colors.grey.withOpacity(1),
                   boxShadow: [
                     BoxShadow(
                         offset: const Offset(0.5, 3),
                         color: Colors.grey.withOpacity(1),
                         spreadRadius: 0,
-                        blurRadius: 2),
+                        blurRadius: 2.r),
                     BoxShadow(
                         offset: const Offset(0, -0.1),
                         color: Colors.grey.withOpacity(1),
                         spreadRadius: 0,
-                        blurRadius: 2),
+                        blurRadius: 2.r),
                   ]),
-              height: 120,
-              width: 93,
+              height: 120.h,
+              width: 93.w,
             ),
           ],
         ),
         Container(
-          width: 270,
-          height: 122,
+          width: 270.w,
+          height: 122.h,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              color: Colors.white,
+               borderRadius: BorderRadius.circular(10.r)),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,29 +86,29 @@ class metroTicket extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   children: [
                     Container(
-                      width: 30,
-                      height: 15,
-                      decoration: const BoxDecoration(
+                      width: 30.w,
+                      height: 15.h,
+                      decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20))),
+                              bottomLeft: Radius.circular(20.r),
+                              bottomRight: Radius.circular(20.r))),
                     ),
                     Stack(
                       alignment: Alignment.center,
                       children: [
                         Container(
-                          width: 28,
-                          height: 14.5,
+                          width: 28.w,
+                          height: 14.5.h,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(50),
-                                bottomRight: Radius.circular(50)),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(50.r),
+                                bottomRight: Radius.circular(50.r)),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(1),
                                 spreadRadius: 0,
-                                blurRadius: 0.5,
+                                blurRadius: 0.5.r,
                                 offset: const Offset(
                                     0, -0.1), // changes position of shadow
                               ),
@@ -114,17 +116,17 @@ class metroTicket extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: 28,
-                          height: 15,
+                          width: 28.w,
+                          height: 15.h,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(50),
-                                bottomRight: Radius.circular(50)),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(50.r),
+                                bottomRight: Radius.circular(50.r)),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.white.withOpacity(1),
-                                spreadRadius: 1,
-                                blurRadius: 1,
+                                spreadRadius: 1.r,
+                                blurRadius: 1.r,
                                 offset: const Offset(0, -1.5),
                               ),
                             ],
@@ -134,13 +136,13 @@ class metroTicket extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  width: 150,
+                 SizedBox(
+                  width: 150.w,
                 )
               ],
             ),
-            const SizedBox(
-              height: 92,
+             SizedBox(
+              height: 92.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -149,18 +151,18 @@ class metroTicket extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   children: [
                     Container(
-                      width: 30,
-                      height: 14,
+                      width: 30.w,
+                      height: 14.h,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20)),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20.r),
+                            topRight: Radius.circular(20.r)),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.white.withOpacity(1),
                             spreadRadius: 0,
-                            blurRadius: 5,
+                            blurRadius: 5.r,
                             offset: const Offset(0, 1),
                           ),
                         ],
@@ -170,34 +172,34 @@ class metroTicket extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       children: [
                         Container(
-                          width: 28,
-                          height: 13.5,
+                          width: 28.w,
+                          height: 13.5.h,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50)),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(50.r),
+                                topRight: Radius.circular(50.r)),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(1),
-                                spreadRadius: 1.5,
-                                blurRadius: 1,
+                                spreadRadius: 1.5.r,
+                                blurRadius: 1.r,
                                 offset: const Offset(0, -1),
                               ),
                             ],
                           ),
                         ),
                         Container(
-                          width: 24,
-                          height: 15,
+                          width: 24.w,
+                          height: 15.h,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50)),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(50.r),
+                                topRight: Radius.circular(50.r)),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.white.withOpacity(1),
-                                spreadRadius: 1,
-                                blurRadius: 1,
+                                spreadRadius: 1.r,
+                                blurRadius: 1.r,
                                 offset: const Offset(0, 2),
                               ),
                             ],
@@ -207,8 +209,8 @@ class metroTicket extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  width: 150,
+                 SizedBox(
+                  width: 150.w,
                 ),
               ],
             ),
@@ -217,104 +219,106 @@ class metroTicket extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              width: 5,
+             SizedBox(
+              width: 5.w,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(
-                  height: 5,
+                  SizedBox(
+                  height: 5.w,
                 ),
-                const Text(
+                 Text(
                   "Number",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20),
+                      fontSize: 20.sp),
                 ),
-                const SizedBox(
-                  height: 5,
+                 SizedBox(
+                  height: 5.h,
                 ),
-                const Text(
+                 Text(
                   "Of Stations",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20),
+                      fontSize: 20.sp),
                 ),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 10.h,
                 ),
                 Container(
                   alignment: Alignment.center,
-                  width: 65,
-                  height: 40,
+                  width: 65.w,
+                  height: 40.h,
                   decoration: BoxDecoration(
                       color: PrimaryColour,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: const Text(
+                      borderRadius: BorderRadius.circular(15.r)),
+                  child:  Text(
                     "7",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w900,
-                        fontSize: 26),
+                        fontSize: 26.sp),
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              width: 15,
+             SizedBox(
+              width: 15.w,
             ),
             Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7), color: PrimaryColour),
-              width: 22,
-              child: const Padding(
-                padding: EdgeInsets.only(right: 3, left: 1, bottom: 2, top: 2),
+                  borderRadius: BorderRadius.circular(7.w),
+                   color: PrimaryColour),
+              width: 22.w,
+              child:  Padding(
+                padding: EdgeInsets.only(
+                  right: 3.w, left: 1.w, bottom: 2.h, top: 2.h),
                 child: Text(
                   'Me t r o',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     height: 1,
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-            const SizedBox(
-              width: 15,
+             SizedBox(
+              width: 15.w,
             ),
             DottedBorder(
                 padding: const EdgeInsets.all(0),
                 dashPattern: const [5, 10],
-                child: const SizedBox(
-                  height: 90,
+                child:  SizedBox(
+                  height: 90.h,
                 )),
-            const SizedBox(
-              width: 7,
+             SizedBox(
+              width: 7.w,
             ),
             Column(
               children: [
-                const Text(
+                 Text(
                   'Ticket 4',
                   style: TextStyle(
-                      color: Color(0xff3E548D),
+                      color: textColour,
                       fontWeight: FontWeight.bold,
-                      fontSize: 18),
+                      fontSize: 18.sp),
                 ),
-                const SizedBox(
-                  height: 15,
+                 SizedBox(
+                  height: 15.h,
                 ),
                 DefaultButtom(
                   OnTap: onTap,
-                  Child: const Text(
+                  Child: Text(
                     'Buy Ticket',
                     maxLines: 1,
                     softWrap: false,
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(color: Colors.white, fontSize: 16.sp),
                   ),
                   PaddingVerticalText: 6,
                   Height: 30,
@@ -323,8 +327,8 @@ class metroTicket extends StatelessWidget {
                   PaddingVertical: 0,
                   radius: 10,
                 ),
-                const SizedBox(
-                  height: 15,
+                 SizedBox(
+                  height: 15.h,
                 ),
                 Row(
                   children: [

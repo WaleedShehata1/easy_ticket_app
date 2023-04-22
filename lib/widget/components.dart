@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, must_be_immutable, camel_case_types, unnecessary_null_in_if_null_operators, duplicate_ignore, deprecated_member_use, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Color PrimaryColour = const Color(0xffF48265);
@@ -53,7 +54,7 @@ class DefaultFormField extends StatelessWidget {
        maxLength: MaxLength?? null,
       style: TextStyle(
         color: textColor ?? Colors.black,
-        fontSize: fontSize ?? 14,
+        fontSize: (fontSize?? 14).sp,
         fontWeight: FontWeight.w500,
       ),
       controller: controller,
@@ -65,16 +66,16 @@ class DefaultFormField extends StatelessWidget {
         suffixIcon: suffixIcon ?? null,
 
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.blue, width: 2),
+          borderSide:  const BorderSide(color: Colors.blue, width: 2),
           borderRadius: BorderRadius.circular(
-            20,
+            20.r,
           ),
         ),
         fillColor:Colors.white,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
-            20,
+            20.r,
           ),
           borderSide: BorderSide(color: PrimaryColour, width: 2),
         ),
@@ -115,9 +116,9 @@ class DefaultButtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          vertical: PaddingVertical, horizontal: PaddingHorizontal),
+          vertical: PaddingVertical.h, horizontal: PaddingHorizontal.w),
       child: Container(
-        height: Height,
+        height: Height.h,
         decoration: BoxDecoration(boxShadow: [
          /*  BoxShadow(
               offset: const Offset(0, 0),
@@ -136,18 +137,18 @@ class DefaultButtom extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             shadowColor: Colors.black,
             primary: color ?? PrimaryColour,
-            padding: EdgeInsets.all(PaddingVerticalText ?? 5),
+            padding: EdgeInsets.all(PaddingVerticalText ?? 5).h,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(radius ?? 30)),
+              borderRadius: BorderRadius.all(Radius.circular(radius ?? 30).r),
             ),
           ),
           child: Container(
             margin: const EdgeInsets.all(0),
             alignment: alignment ?? Alignment.center,
-            width: Width,
-            height: Height,
+            width: Width.w,
+            height: Height.h,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(radius ?? 30)),
+              borderRadius: BorderRadius.all(Radius.circular(radius ?? 30).r),
             ),
             child: Child,
           ),
@@ -211,7 +212,7 @@ class DefaultDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-        width: width ??160,
+        width: (width ??160),
         height: height?? 56,
         child: DropdownButtonFormField(
           decoration: InputDecoration(
@@ -219,13 +220,13 @@ class DefaultDropdown extends StatelessWidget {
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
                Radius??20,
-              ),
+              ).r,
               borderSide: BorderSide(color: PrimaryColour, width: 2),
             ),
           ),
           hint: hint,
           value: value,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
           items: items,
           onChanged: onChanged,
         ));

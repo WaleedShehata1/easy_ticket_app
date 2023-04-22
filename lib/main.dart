@@ -9,6 +9,7 @@ import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/screen/splash.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'screen/bottom_bar.dart';
 import 'screen/notifications.dart';
 import 'screen/payment_method.dart';
@@ -27,33 +28,39 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-  theme: ThemeData(
-      //  useMaterial3:true ,
-        primarySwatch: Colors.deepOrange,
-        
-       
-      ), 
-      home: const splash(),
-    
-        routes: {
-               splash.routeName: (context)=>  const splash(),
-                onBoard.routeName : (context)=>  const onBoard(),
-                Sign_In.routeName:(context) =>   Sign_In(),
-                SignUp.routeName:(context)=> SignUp(),
-                BottomBar.routeName:(context) => const BottomBar(),
-               HomeScreen.routeName: (context)=>  const HomeScreen(),
-               MapScreen.routeName:(context) => const MapScreen(),
-               UserSettingsScreen.routeName:(context) => const UserSettingsScreen(),
-               EditProfileScreen.routeName: (context) =>  const EditProfileScreen(),
-               GetPasswordResetCode.routeName :(context) =>const GetPasswordResetCode(),
-               NotificationsScreen.routeName:(context) =>  NotificationsScreen(),
-              PaymentMethodScreen.routeName :(context) => const PaymentMethodScreen(),
-
-            },
-            
-           
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder:(context, child) 
+      {
+        return MaterialApp(
+        debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primarySwatch: Colors.deepOrange,
+          
+         
+        ), 
+        home: child,
+      
+          routes: {
+                 splash.routeName: (context)=>  const splash(),
+                  onBoard.routeName : (context)=>  const onBoard(),
+                  Sign_In.routeName:(context) =>   Sign_In(),
+                  SignUp.routeName:(context)=> SignUp(),
+                  BottomBar.routeName:(context) => const BottomBar(),
+                 HomeScreen.routeName: (context)=>  const HomeScreen(),
+                 MapScreen.routeName:(context) => const MapScreen(),
+                 UserSettingsScreen.routeName:(context) => const UserSettingsScreen(),
+                 EditProfileScreen.routeName: (context) =>  const EditProfileScreen(),
+                 GetPasswordResetCode.routeName :(context) =>const GetPasswordResetCode(),
+                 NotificationsScreen.routeName:(context) =>  NotificationsScreen(),
+                PaymentMethodScreen.routeName :(context) => const PaymentMethodScreen(),
+              },
+              
+             
+      );},
+      child: const PaymentMethodScreen() ,
     );
   }
 }

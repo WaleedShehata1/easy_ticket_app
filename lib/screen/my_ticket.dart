@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import '../Pop_Up/QR.dart';
 import '../shapes/my_ticket_bus.dart';
 import '../shapes/my_ticket_metro.dart';
 import '../widget/components.dart';
@@ -147,28 +148,7 @@ class _myTicketState extends State<myTicket> {
                             context: context,
                             builder: (context) {
                               return DefaultDialog(
-                                  Child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          icon: const Icon(
-                                            Icons.close_outlined,
-                                            size: 35,
-                                          ))
-                                    ],
-                                  ),
-                                  const Icon(
-                                    Icons.qr_code_2_outlined,
-                                    size: 200,
-                                  ),
-                                ],
-                              ));
+                                  Child:const GetQR() ,);
                             });
                       },
                     );
