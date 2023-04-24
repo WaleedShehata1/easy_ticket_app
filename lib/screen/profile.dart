@@ -271,7 +271,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 ))
           ],
         ),
-        SizedBox(height: 20,),
+        const SizedBox(height: 20,),
                           Text('Do you want to Lod out ?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -279,10 +279,10 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                           //  color: Colors.white, 
                             color: PrimaryColour, 
                             fontSize: 26,fontWeight: FontWeight.bold),),
-                          SizedBox(height: 20,),
+                          const SizedBox(height: 20,),
                           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              DefaultButtom(Child: Text('Yes',
+                              DefaultButtom(Child: const Text('Yes',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -294,7 +294,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                               },
                             //  color: Colors.white,
                               ),
-                              DefaultButtom(Child: Text('No',
+                              DefaultButtom(Child: const Text('No',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,

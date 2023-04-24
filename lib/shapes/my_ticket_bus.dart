@@ -343,9 +343,7 @@ class myTicketBus extends StatelessWidget {
             ],
                   ),
              
-              const SizedBox(
-                width: 5,
-              ),
+
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
