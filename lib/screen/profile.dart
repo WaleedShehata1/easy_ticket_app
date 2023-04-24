@@ -4,6 +4,8 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import './edit_profile.dart';
 import './notifications.dart';
+import 'credit_card.dart';
+import 'wallet_screen.dart';
 
 class UserSettingsScreen extends StatefulWidget {
   static const String routeName = 'profile';
@@ -146,6 +148,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ),
             ListTile(
               onTap: () {
+                Navigator.pushNamed(context,CreditCard.routeName);
               },
               leading: Icon(
                 Icons.credit_card,
@@ -161,7 +164,9 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, WalletProfile.routeName);
+              },
               leading: Icon(
                 Icons.account_balance_wallet,
                 color: isDarkMode ? Colors.white : Colors.black,
@@ -242,7 +247,71 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                showDialog(context: context, builder: (context){
+                  return DefaultDialog(
+                  //  backgroundColor: PrimaryColour,
+                    Child:Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 200,
+                      child: Column(mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.close,
+                //  color: Colors.white,
+                  size: 35,
+                ))
+          ],
+        ),
+        SizedBox(height: 20,),
+                          Text('Do you want to Lod out ?',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            wordSpacing: 1,
+                          //  color: Colors.white, 
+                            color: PrimaryColour, 
+                            fontSize: 26,fontWeight: FontWeight.bold),),
+                          SizedBox(height: 20,),
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              DefaultButtom(Child: Text('Yes',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                               // color: Colors.black,
+                                color: Colors.white,
+                                
+                                ),), Height:30, Width: 50, PaddingHorizontal: 5, PaddingVertical: 0,OnTap: () {
+                                
+                              },
+                            //  color: Colors.white,
+                              ),
+                              DefaultButtom(Child: Text('No',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                 // color: Colors.black,
+                                color: Colors.white,
+                                ),), Height:30, Width: 50, PaddingHorizontal: 5, PaddingVertical: 0,OnTap: () {
+                                
+                              },
+                              //color: Colors.white,
+                              )
+                            ],
+                          )
+                        ],),
+                    ),
+                  ) );
+                });
+              },
               leading: Icon(
                 Icons.logout,
                 color: isDarkMode ? Colors.white : Colors.black,

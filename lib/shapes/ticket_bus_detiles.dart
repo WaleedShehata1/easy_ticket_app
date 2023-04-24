@@ -314,10 +314,6 @@ class busTicketDetiles extends StatelessWidget {
               ),
             ],
                   ),
-             
-              const SizedBox(
-                width: 0,
-              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -343,7 +339,7 @@ class busTicketDetiles extends StatelessWidget {
                           ),
                     ),
                     Height: 30,
-                    Width: 80,
+                    Width: 70,
                     PaddingHorizontal: 0,
                     PaddingVertical: 0,
                     radius: 10,

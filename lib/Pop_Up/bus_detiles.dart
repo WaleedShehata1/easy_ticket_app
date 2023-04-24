@@ -43,28 +43,31 @@ class DetilesbusTicket extends StatelessWidget {
                                   child: ListView.separated(
                                     itemCount: 10,
                                     itemBuilder: (ctx, index) {
-                                      return busTicketDetiles(
-                ontap: () {
-                  Navigator.pop(context);
-                  showDialog(
-                      context: context,
-                      builder: (ctx) {
-                        return DefaultDialog(
-                          Child: BuyBusTicket(
-                            ontapAdd: ontapAdd,
-                            ontapMinus: ontapMinus,
-                            numberTicket: numberTicket,
-                            isBusTicket: true,
-                          ),
-                        );
-                      });
-                },
-              );
+                                      return Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 10),
+                                        child: busTicketDetiles(
+                                                      ontap: () {
+                                                        Navigator.pop(context);
+                                                        showDialog(
+                                                            context: context,
+                                                            builder: (ctx) {
+                                                              return DefaultDialog(
+                                                                Child: BuyBusTicket(
+                                                                  ontapAdd: ontapAdd,
+                                                                  ontapMinus: ontapMinus,
+                                                                  numberTicket: numberTicket,
+                                                                  isBusTicket: true,
+                                                                ),
+                                                              );
+                                                            });
+                                                      },
+                                                    ),
+                                      );
                                     },
                                     separatorBuilder:
                                         (BuildContext context, int index) {
                                       return const SizedBox(
-                                        height: 20,
+                                        height: 5,
                                       );
                                     },
                                   ),

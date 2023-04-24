@@ -49,6 +49,7 @@ class NotificationsScreen extends StatelessWidget {
                     child: Text(
                       '${date.day}/ ${date.month}',
                       style: const TextStyle(
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -57,7 +58,7 @@ class NotificationsScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: Text(
                       '${date.hour}:${date.minute}',
-                      style: const TextStyle(
+                      style: const TextStyle(color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -67,7 +68,7 @@ class NotificationsScreen extends StatelessWidget {
                     child: Text(
                       'Trip details',
                       style: TextStyle(
-                        color: Colors.black,
+                       color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                       overflow:
@@ -77,11 +78,11 @@ class NotificationsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              subtitle: Text(
+              children: [
+                Text(
                 'باقي$RemainingTime دقيقة علي وصول باص رقم $BusNumber الي المحطة المختارة برجاء الانتظار في المحطه',
                 style: const TextStyle(fontSize: 16.0),
               ),
-              children: [
                 ElevatedButton(
                   onPressed: () {
                     showDialog(

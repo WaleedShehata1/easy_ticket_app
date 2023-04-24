@@ -158,7 +158,7 @@ class myTicketMetro extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(
-                          width: 90,
+                          width:80,
                         )
                       ],
                     ),
@@ -231,7 +231,7 @@ class myTicketMetro extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(
-                          width: 90,
+                          width: 80,
                         ),
                       ],
                     ),

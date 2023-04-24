@@ -2,6 +2,7 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VisaScreen extends StatefulWidget {
   const VisaScreen({super.key});
@@ -50,118 +51,134 @@ class _VisaScreenState extends State<VisaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-         Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.close,
-                size: 30,
-              ))
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+           Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.close,
+                  size: 30,
+                ))
+          ],
+        ),
+          CreditCardWidget(
+            height: 160,
+            width: 280,
+            cardNumber: cardNumber,
+            expiryDate: expiryDate,
+            cardHolderName: cardHolderName,
+            cvvCode: cvvCode,
+            bankName: 'Axis Bank',
+            showBackView: isCvvFocused,
+            obscureCardNumber: true,
+            obscureCardCvv: true,
+            isHolderNameVisible: true,
+            cardBgColor: Colors.black38,
+            isSwipeGestureEnabled: true,
+            onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
+            customCardTypeIcons: <CustomCardTypeIcon>[],
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              CreditCardForm(
+                formKey: formKey,
+                obscureCvv: true,
+                obscureNumber: true,
+                cardNumber: cardNumber,
+                cvvCode: cvvCode,
+                isHolderNameVisible: true,
+                isCardNumberVisible: true,
+                isExpiryDateVisible: true,
+                cardHolderName: cardHolderName,
+                expiryDate: expiryDate,
+                themeColor: Colors.blue,
+                cardNumberDecoration: InputDecoration(
+                  labelText: 'Number',
+                  hintText: 'XXXX XXXX XXXX XXXX',
+                   focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  focusedBorder: border,
+                  enabledBorder: border,
+                ),
+                expiryDateDecoration: InputDecoration(
+                  labelStyle: TextStyle(fontSize: 16.sp),
+                  focusedBorder: border,
+                  enabledBorder: border,
+                   focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  labelText: 'Expired Date',
+                  hintText: 'XX/XX',
+                ),
+                cvvCodeDecoration: InputDecoration(
+
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  focusedBorder: border,
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  enabledBorder: border,
+                  labelText: 'CVV',
+                  hintText: 'XXX',
+                ),
+                cardHolderDecoration: InputDecoration(
+                   focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  focusedBorder: border,
+                  enabledBorder: border,
+                  labelText: 'Card Holder',
+                ),
+                onCreditCardModelChange: onCreditCardModelChange,
+              ),
+              DefaultButtom(
+                Child: const Text(
+                  'Validate',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'halter',
+                    fontSize: 14,
+                    package: 'flutter_credit_card',
+                  ),
+                ),
+                Height: 40,
+                Width: 220,
+                PaddingHorizontal: 15,
+                PaddingVertical: 15,
+                OnTap: _onValidate,
+              )
+            ],
+          ),
         ],
       ),
-        CreditCardWidget(
-          height: 160,
-          width: 250,
-          cardNumber: cardNumber,
-          expiryDate: expiryDate,
-          cardHolderName: cardHolderName,
-          cvvCode: cvvCode,
-          bankName: 'Axis Bank',
-          showBackView: isCvvFocused,
-          obscureCardNumber: true,
-          obscureCardCvv: true,
-          isHolderNameVisible: true,
-          cardBgColor: PrimaryColour,
-          isSwipeGestureEnabled: true,
-          onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-          customCardTypeIcons: <CustomCardTypeIcon>[],
-        ),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                CreditCardForm(
-                  formKey: formKey,
-                  obscureCvv: true,
-                  obscureNumber: true,
-                  cardNumber: cardNumber,
-                  cvvCode: cvvCode,
-                  isHolderNameVisible: true,
-                  isCardNumberVisible: true,
-                  isExpiryDateVisible: true,
-                  cardHolderName: cardHolderName,
-                  expiryDate: expiryDate,
-                  themeColor: Colors.blue,
-                  cardNumberDecoration: InputDecoration(
-                    labelText: 'Number',
-                    hintText: 'XXXX XXXX XXXX XXXX',
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(width: 2.0, color: Colors.red),
-                    ),
-                    focusedBorder: border,
-                    enabledBorder: border,
-                  ),
-                  expiryDateDecoration: InputDecoration(
-                    focusedBorder: border,
-                    enabledBorder: border,
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(width: 2.0, color: Colors.red),
-                    ),
-                    labelText: 'Expired Date',
-                    hintText: 'XX/XX',
-                  ),
-                  cvvCodeDecoration: InputDecoration(
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(width: 2.0, color: Colors.red),
-                    ),
-                    focusedBorder: border,
-                    enabledBorder: border,
-                    labelText: 'CVV',
-                    hintText: 'XXX',
-                  ),
-                  cardHolderDecoration: InputDecoration(
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(width: 2.0, color: Colors.red),
-                    ),
-                    focusedBorder: border,
-                    enabledBorder: border,
-                    labelText: 'Card Holder',
-                  ),
-                  onCreditCardModelChange: onCreditCardModelChange,
-                ),
-                DefaultButtom(
-                  Child: const Text(
-                    'Validate',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'halter',
-                      fontSize: 14,
-                      package: 'flutter_credit_card',
-                    ),
-                  ),
-                  Height: 40,
-                  Width: 220,
-                  PaddingHorizontal: 15,
-                  PaddingVertical: 15,
-                  OnTap: _onValidate,
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

@@ -137,7 +137,7 @@ class metroTicket extends StatelessWidget {
                   ],
                 ),
                  SizedBox(
-                  width: 150.w,
+                  width: 135.w,
                 )
               ],
             ),
@@ -210,7 +210,7 @@ class metroTicket extends StatelessWidget {
                   ],
                 ),
                  SizedBox(
-                  width: 150.w,
+                  width: 135.w,
                 ),
               ],
             ),

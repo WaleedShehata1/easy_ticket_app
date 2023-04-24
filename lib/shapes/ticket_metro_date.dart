@@ -105,7 +105,7 @@ class dateMetroTicket extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: const Icon(
-                                    Icons.near_me_outlined,
+                                    Icons.near_me_outlined,color: Colors.white,
                                   ),
                                 ),
                                 const Text(
@@ -117,7 +117,7 @@ class dateMetroTicket extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 20),
+                              padding: const EdgeInsets.only(left: 17),
                               child: DottedBorder(
                                   padding: const EdgeInsets.all(0),
                                   dashPattern: const [2, 1],
@@ -128,6 +128,7 @@ class dateMetroTicket extends StatelessWidget {
                             Row(
                               children: [
                                 Container(
+                                  alignment: Alignment.center,
                                   margin: const EdgeInsets.only(right: 10),
                                   width: 35,
                                   height: 25,
@@ -135,9 +136,7 @@ class dateMetroTicket extends StatelessWidget {
                                     color: PrimaryColour,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  child: const Icon(
-                                    Icons.near_me_outlined,
-                                  ),
+                                  child: const Text('Now',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
                                 ),
                                 Text(
                                   'girls school',
@@ -149,7 +148,7 @@ class dateMetroTicket extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 20),
+                              padding: const EdgeInsets.only(left: 17),
                               child: DottedBorder(
                                   padding: const EdgeInsets.all(0),
                                   dashPattern: const [2, 1],
@@ -168,8 +167,9 @@ class dateMetroTicket extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: const Icon(
-                                    Icons.near_me_outlined,
-                                  ),
+                          Icons.location_pin,
+                          color: Colors.white,
+                        ),
                                 ),
                                 const Text(
                                   'Adly Mansour',
@@ -180,7 +180,7 @@ class dateMetroTicket extends StatelessWidget {
                               ],
                             ),
                             const Padding(
-                              padding: EdgeInsets.only(left: 20),
+                              padding: EdgeInsets.only(left: 17),
                               child: Text('waiting : one minute',style: TextStyle(color: Colors.black54,fontWeight: FontWeight.bold,fontSize: 12),),
                             )
                           ]),
@@ -247,8 +247,9 @@ class dateMetroTicket extends StatelessWidget {
                           ],
                         ),
                         DottedBorder(
+                          color: Colors.grey,
                             padding: const EdgeInsets.all(0),
-                            dashPattern: const [5, 9],
+                            dashPattern: const [8, 9],
                             child: const SizedBox(
                               height: 90,
                             )),

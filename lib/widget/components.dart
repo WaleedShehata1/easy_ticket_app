@@ -28,10 +28,12 @@ class DefaultFormField extends StatelessWidget {
   Color? textColor;
   int?MaxLength;
   double? fontSize;
+  double? radius;
   TextEditingController controller;
   TextInputType? keyboardType;
   String? label;
   Widget? prefixIcon;
+ Color? colorBorder;
   Widget? suffixIcon;
   String? Function(String?) validate;
 
@@ -39,6 +41,8 @@ class DefaultFormField extends StatelessWidget {
     Key? key,
     this.MaxLength,
     this.textColor,
+    this.radius,
+    this.colorBorder,
     this.fontSize,
     required this.controller,
     this.keyboardType,
@@ -68,17 +72,25 @@ class DefaultFormField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderSide:  const BorderSide(color: Colors.blue, width: 2),
           borderRadius: BorderRadius.circular(
-            20.r,
+            radius??20.r,
           ),
         ),
         fillColor:Colors.white,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
-            20.r,
+           radius?? 20.r,
           ),
-          borderSide: BorderSide(color: PrimaryColour, width: 2),
+          borderSide: BorderSide(color: colorBorder?? PrimaryColour, width: 2),
         ),
+         focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(radius??20.r),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(radius??20.r),
+                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                  ),
       ),
     );
   }
@@ -163,8 +175,10 @@ class DefaultDialog extends StatelessWidget {
   double? paddingVerrtical;
   double? radius;
   double? paddingHorizontal;
+  Color? backgroundColor;
   DefaultDialog({
     Key? key,
+    this.backgroundColor,
     required this.Child,
     this.paddingVerrtical,
     this.radius,
@@ -175,6 +189,7 @@ class DefaultDialog extends StatelessWidget {
     return GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Dialog(
+          backgroundColor: backgroundColor?? Colors.white,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius ?? 25)),
           clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -193,39 +208,51 @@ class DefaultDropdown extends StatelessWidget {
    Function(Object?)? onChanged;
    List<DropdownMenuItem<Object>>? items;
    Widget? hint;
-   double? Radius;
+   double? radius;
    double? height;
    double? width;
+   Color? colorBorder;
+   Color? color;
 
-   DefaultDropdown({
+
+  DefaultDropdown({
     Key? key,
     this.onChanged,
     this.items,
     required this.hint,
-    this.Radius,
+    this.radius,
     this.height,
     this.width,
-    this.value,
+    this.colorBorder,
+    this.color,
+    this.value
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-        width: (width ??160),
+        width: width ??160,
         height: height?? 56,
+       
+        decoration: BoxDecoration( color:color?? Colors.white,
+          borderRadius: BorderRadius.circular( radius??20)
+        ),
         child: DropdownButtonFormField(
           decoration: InputDecoration(
+            floatingLabelAlignment: FloatingLabelAlignment.start,
+            contentPadding: EdgeInsets.symmetric(horizontal: 15),
             enabled: false,
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
-               Radius??20,
+               radius??20,
               ).r,
-              borderSide: BorderSide(color: PrimaryColour, width: 2),
+              borderSide: BorderSide(color:colorBorder?? PrimaryColour, width: 2),
             ),
           ),
           hint: hint,
           value: value,
+          
           borderRadius: BorderRadius.circular(10.r),
           items: items,
           onChanged: onChanged,

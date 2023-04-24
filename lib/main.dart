@@ -1,4 +1,9 @@
 
+import 'screen/bottom_bar.dart';
+import 'screen/credit_card.dart';
+import 'screen/notifications.dart';
+import 'screen/payment_method.dart';
+import 'screen/sign_up.dart';
 import 'package:easy_ticket_app/screen/edit_profile.dart';
 import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
 import 'package:easy_ticket_app/screen/home.dart';
@@ -10,10 +15,8 @@ import 'package:easy_ticket_app/screen/splash.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'screen/bottom_bar.dart';
-import 'screen/notifications.dart';
-import 'screen/payment_method.dart';
-import 'screen/sign_up.dart';
+
+import 'screen/wallet_screen.dart';
 
 void main()
   async {
@@ -56,11 +59,13 @@ class MyApp extends StatelessWidget {
                  GetPasswordResetCode.routeName :(context) =>const GetPasswordResetCode(),
                  NotificationsScreen.routeName:(context) =>  NotificationsScreen(),
                 PaymentMethodScreen.routeName :(context) => const PaymentMethodScreen(),
+                WalletProfile.routeName:(context) =>  WalletProfile(),
+                CreditCard.routeName:(context) => const CreditCard(),
               },
               
              
       );},
-      child: const PaymentMethodScreen() ,
+      child: const BottomBar(),
     );
   }
 }

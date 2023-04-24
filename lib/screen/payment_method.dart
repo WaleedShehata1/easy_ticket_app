@@ -36,7 +36,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                         showDialog(
                           context: context,
                            builder:(context){
-                            return DefaultDialog(Child:VisaScreen());
+                            return DefaultDialog(Child:VisaScreen(),);
                            });
                       },
                        Height: 120, Width:150, PaddingHorizontal:0, PaddingVertical: 0),
