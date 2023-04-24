@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>io.flutter.embedded_views_preview</key>
+    <true/>
+    <key>MGLMapboxAccessToken</key>
+    <string>pk.eyJ1Ijoid2FsZWVkMjAiLCJhIjoiY2xna3V5dHRrMDN2YzNxcWludGpwaGxhYyJ9.D8bdfOtsE-SlAdrGx2Knvg</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>To find out the distance between him and the bus</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

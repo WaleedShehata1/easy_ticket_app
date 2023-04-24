@@ -2,12 +2,24 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:mapbox_gl/mapbox_gl.dart';
 
-class Map2Screen extends StatelessWidget {
-  static const String route = '/';
+class Map2Screen extends StatefulWidget {
+  static const String route = 'mapBox';
 
   const Map2Screen({Key? key}) : super(key: key);
+
+  @override
+  State<Map2Screen> createState() => _Map2ScreenState();
+}
+
+class _Map2ScreenState extends State<Map2Screen> {
+
+MapboxMapController? mapController;
+  void _onMapCreated(MapboxMapController controller) {
+   mapController =controller;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -15,25 +27,13 @@ class Map2Screen extends StatelessWidget {
 
     return Scaffold(
      
-      body: Column(
-        children: [
-          Flexible(
-            child: FlutterMap(
-              options: MapOptions(
-                center: LatLng(30, 33),
-                zoom:7,
-              ),
+      body: MapboxMap(
+        onMapCreated: _onMapCreated,
 
-              children: [
-                TileLayer(
-                  urlTemplate:
-                      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                ),
-          ],
-            ),
-          ),
-        ],
-      ),
+        initialCameraPosition: const CameraPosition(
+          target: LatLng(0.0, 0.0))
+        ),
     );
   }
+
 }
