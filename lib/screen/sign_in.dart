@@ -6,6 +6,7 @@ import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
 import 'package:easy_ticket_app/screen/sign_up.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/components.dart';
 
@@ -26,7 +27,7 @@ class Sign_In extends StatelessWidget {
           backgroundColor: Colors.white,
           body: Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding:  EdgeInsets.symmetric(horizontal: 20.w),
               child: SingleChildScrollView(
                 child: Form(
                   key: formKey,
@@ -35,11 +36,14 @@ class Sign_In extends StatelessWidget {
                       angle: 44.75,
                       child: logoTicket,
                     ),
-                    const SizedBox(
-                      height: 80,
+                     SizedBox(
+                      height: 80.h,
                     ),
                     DefaultFormField(
-                      prefixIcon: const Icon(Icons.account_circle),
+                      prefixIcon:  Padding(
+                        padding: EdgeInsetsDirectional.only(start: 10.w,end: 10.w),
+                        child: Icon(Icons.account_circle,size: 30.h,),
+                      ),
                       label: 'National ID',
                       keyboardType: TextInputType.number,
                       validate: (String? value) {
@@ -47,13 +51,17 @@ class Sign_In extends StatelessWidget {
                       },
                       controller: NationalIDController,
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     DefaultFormField(
-                      prefixIcon: const Icon(Icons.lock_outline),
+                      prefixIcon:  Padding(
+                        padding: EdgeInsetsDirectional.only(start: 10.w,end: 10.w),
+                        child: Icon(Icons.lock_outline,size: 30.h,),
+                      ),
                       suffixIcon: IconButton(
-                        icon: const Icon(Icons.visibility_off),
+                        padding: EdgeInsetsDirectional.only(end: 30.w),
+                        icon: Icon(Icons.visibility_off,size: 30.h,),
                         onPressed: () {},
                       ),
                       label: 'Password',
@@ -86,39 +94,40 @@ class Sign_In extends StatelessWidget {
                           child: Text(
                             'Forget Password?',
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 15.sp,
                               color: PrimaryColour,
                             ),
                           ),
                         ),
                       ],
                     ),
+                    SizedBox(height: 10.h,),
                     DefaultButtom(
                       OnTap: () =>
                           Navigator.pushNamed(context, BottomBar.routeName),
-                      Child: const Text(
+                      Child: Text(
                         'Log In',
                         style: TextStyle(
-                          fontSize: 28,
+                          fontSize: 28.sp,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      Height: 65,
+                      Height: 25.h,
                       Width: double.infinity,
-                      PaddingHorizontal: 30,
-                      PaddingVertical: 0,
+                      PaddingHorizontal: 30.w,
+                      PaddingVertical: 0.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          width: 15,
+                         SizedBox(
+                          width: 15.w,
                         ),
-                        const Text(
+                         Text(
                           'Don’t have an account?',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -129,7 +138,7 @@ class Sign_In extends StatelessWidget {
                             child: Text(
                               'Sign up.',
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 color: PrimaryColour,
                                 fontWeight: FontWeight.w600,
                               ),

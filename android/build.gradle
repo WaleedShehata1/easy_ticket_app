@@ -6,7 +6,6 @@ buildscript {
     }
 
     dependencies {
-        implementation 'com.mapbox.maps:android:10.12.2'
         classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }

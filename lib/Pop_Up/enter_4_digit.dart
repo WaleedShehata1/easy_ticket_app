@@ -48,6 +48,8 @@ class Enter4Digit extends StatelessWidget {
             controller: Digit,
             label: null,
             validate: Validate,
+            MaxLength: 4,
+            keyboardType: TextInputType.number,
           ),
           const SizedBox(
             height: 40,

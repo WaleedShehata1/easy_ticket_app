@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 Color PrimaryColour = const Color(0xffF48265);
 Color textColour = const Color(0xff3E548D);
 
@@ -36,6 +35,7 @@ class DefaultFormField extends StatelessWidget {
  Color? colorBorder;
   Widget? suffixIcon;
   String? Function(String?) validate;
+  TextAlign? textAlign;
 
   DefaultFormField({
     Key? key,
@@ -50,11 +50,14 @@ class DefaultFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     required this.validate,
+    this.textAlign,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
+      textAlign:textAlign?? TextAlign.start,
        maxLength: MaxLength?? null,
       style: TextStyle(
         color: textColor ?? Colors.black,
@@ -65,10 +68,12 @@ class DefaultFormField extends StatelessWidget {
       keyboardType: keyboardType ?? TextInputType.text,
       validator: validate,
       decoration: InputDecoration(
+        counterStyle: TextStyle(fontSize: 13.sp,),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 15.h),
         labelText: label,
         prefixIcon: prefixIcon ?? null,
         suffixIcon: suffixIcon ?? null,
-
+    
         focusedBorder: OutlineInputBorder(
           borderSide:  const BorderSide(color: Colors.blue, width: 2),
           borderRadius: BorderRadius.circular(
@@ -131,17 +136,19 @@ class DefaultButtom extends StatelessWidget {
           vertical: PaddingVertical.h, horizontal: PaddingHorizontal.w),
       child: Container(
         height: Height.h,
-        decoration: BoxDecoration(boxShadow: [
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(radius ?? 30).r),
+          boxShadow: [
          /*  BoxShadow(
               offset: const Offset(0, 0),
               blurRadius: 15,
               spreadRadius: -5,
               color: colorShadow ?? Colors.grey.withOpacity(0.5)), */
                 BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 10,
-                    offset: const Offset(0, 3), // changes position of shadow
+                    color: Colors.grey.withOpacity(0.7),
+                    spreadRadius:9,
+                    blurRadius: 18,
+                    offset: const Offset(0, 2), // changes position of shadow
                   ),
         ]),
         child: ElevatedButton(
@@ -231,18 +238,21 @@ class DefaultDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-        width: width ??160,
-        height: height?? 56,
+        width: width ?? 140.w,
+       height: height??36.h,
        
         decoration: BoxDecoration( color:color?? Colors.white,
-          borderRadius: BorderRadius.circular( radius??20)
+          borderRadius: BorderRadius.circular( radius??20).r
         ),
         child: DropdownButtonFormField(
+          iconSize: 20.h,
+          style:TextStyle(fontSize: 14.sp, color: Colors.black87,fontWeight: FontWeight.w400),
           decoration: InputDecoration(
+            
+              hintStyle: TextStyle(fontSize: 14.sp, color: Colors.black),
             floatingLabelAlignment: FloatingLabelAlignment.start,
-            contentPadding: EdgeInsets.symmetric(horizontal: 15),
-            enabled: false,
+            contentPadding: EdgeInsetsDirectional.only(start: 5.w ,end: 5.w,top: 7.h,bottom: 7.h),
+                                enabled: false,
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
                radius??20,
@@ -251,6 +261,8 @@ class DefaultDropdown extends StatelessWidget {
             ),
           ),
           hint: hint,
+
+
           value: value,
           
           borderRadius: BorderRadius.circular(10.r),

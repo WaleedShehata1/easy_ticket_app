@@ -21,9 +21,9 @@ class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

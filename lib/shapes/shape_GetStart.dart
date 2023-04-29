@@ -3,11 +3,12 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
  Widget getStartShape =SizedBox(
-     width: 150,
-   height: 350,
+     width: 150.w,
+   height: 350.h,
         child: CustomPaint(
    painter: RPSCustomPainter(),
    ),

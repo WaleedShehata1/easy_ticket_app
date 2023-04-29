@@ -31,6 +31,13 @@ class _SignUpState extends State<SignUp> {
   var _HealthStatus;
   var _Profession;
 
+  var _HealthStatusList = [
+    'heart disease',
+    'Diabetes',
+    'Pressure disease',
+    'good health'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -41,8 +48,7 @@ class _SignUpState extends State<SignUp> {
             backgroundColor: Colors.white,
             body: SingleChildScrollView(
               child: Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
                 child: Form(
                   key: formKey,
                   child: Column(children: [
@@ -50,14 +56,14 @@ class _SignUpState extends State<SignUp> {
                       angle: 44.75,
                       child: logoTicket,
                     ),
-                    const SizedBox(
-                      height: 40,
+                    SizedBox(
+                      height: 40.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          width: 150,
+                          width: 150.w,
                           child: DefaultFormField(
                             label: 'First Name',
                             keyboardType: TextInputType.number,
@@ -68,7 +74,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         SizedBox(
-                          width: 150,
+                          width: 150.w,
                           child: DefaultFormField(
                             label: 'Last Name',
                             keyboardType: TextInputType.number,
@@ -80,8 +86,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     DefaultFormField(
                       label: 'National ID',
@@ -92,17 +98,18 @@ class _SignUpState extends State<SignUp> {
                       controller: NationalIDController,
                       MaxLength: 14,
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          width: 155,
+                          width: 140.w,
                           child: GestureDetector(
                             onTap: () async {
                               newdate = await showDatePicker(
+                               
                                   context: context,
                                   initialDate: date,
                                   firstDate: DateTime(1900),
@@ -117,46 +124,51 @@ class _SignUpState extends State<SignUp> {
                               }
                             },
                             child: Container(
-                              height: 55,
+                              height: 35.h,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(
                                     20,
-                                  ),
+                                  ).r,
                                   border: Border.all(
                                       color: PrimaryColour, width: 2)),
-                              child: Text('$DateOfBirth',style: const TextStyle(fontSize: 16,letterSpacing: 2,wordSpacing: 2),),
+                              child: Text(
+                                '$DateOfBirth',
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    letterSpacing: 2,
+                                    wordSpacing: 2),
+                              ),
                             ),
                           ),
                         ),
                         DefaultDropdown(
-                          hint: const Text('Profession'),
-                          height: 56,
-                          width: 160,
+                          hint: Text('Profession',style: TextStyle(fontSize:14.sp ),),
                           value: _Profession,
-                          onChanged: (value) {
-                            setState(() {
-                              _Profession = value;
-                            });
-                          },
-                          items: const [
-                            DropdownMenuItem(
-                              value: Text('Male'),
-                              child: Text('Male'),
-                            ),
-                            DropdownMenuItem(
-                              value: Text('Female'),
-                              child: Text('Female'),
-                            ),
-                          ],
+                           items: _HealthStatusList.map<
+                                  DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  _Profession = value;
+                                });
+                              },
                         ),
+                        
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     DefaultFormField(
-                      prefixIcon: const Icon(Icons.phone),
+                      prefixIcon: Icon(
+                        Icons.phone,
+                        size: 20.h,
+                      ),
                       label: 'Phone',
                       keyboardType: TextInputType.number,
                       validate: (String? value) {
@@ -165,61 +177,52 @@ class _SignUpState extends State<SignUp> {
                       MaxLength: 11,
                       controller: PhoneController,
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        DefaultDropdown(
-                          hint: const Text('Health Status'),
-                          height: 56,
-                          width: 160,
+ DefaultDropdown(
+                          hint: Text('Health Status',style: TextStyle(fontSize:14.sp ),),
                           value: _HealthStatus,
                           onChanged: (value) {
                             setState(() {
                               _HealthStatus = value;
                             });
                           },
-                          items: const [
-                            DropdownMenuItem(
-                              value: Text('Male'),
-                              child: Text('Male'),
-                            ),
-                            DropdownMenuItem(
-                              value: Text('Female'),
-                              child: Text('Female'),
-                            ),
-                          ],
+                           items: _HealthStatusList.map<
+                                  DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                             
                         ),
-                        const SizedBox(
-                          width: 15,
+                        SizedBox(width: 5.w,),
+                         DefaultDropdown(
+                          hint:  Text('Gendar',style: TextStyle(fontSize:14.sp ),),
+                         items:
+                                _HealthStatusList.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            value: _HealthStatus,
+                            onChanged: (value) {
+                              setState(() {
+                                _HealthStatus = value;
+                              });
+                            },
                         ),
-                        DefaultDropdown(
-                          hint: const Text('Gendar'),
-                          height: 56,
-                          width: 160,
-                          value: _Gendar,
-                          onChanged: (value) {
-                            setState(() {
-                              _Gendar = value;
-                            });
-                          },
-                          items: const [
-                            DropdownMenuItem(
-                              value: Text('Male'),
-                              child: Text('Male'),
-                            ),
-                            DropdownMenuItem(
-                              value: Text('Female'),
-                              child: Text('Female'),
-                            ),
-                          ],
-                        ),
+                      
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     DefaultFormField(
                       prefixIcon: const Icon(Icons.email_outlined),
@@ -230,8 +233,8 @@ class _SignUpState extends State<SignUp> {
                       },
                       controller: EmailController,
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     DefaultFormField(
                       prefixIcon: const Icon(Icons.lock_outline),
@@ -246,8 +249,8 @@ class _SignUpState extends State<SignUp> {
                       },
                       controller: PasswordController,
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     DefaultFormField(
                       suffixIcon: IconButton(
@@ -261,12 +264,12 @@ class _SignUpState extends State<SignUp> {
                       },
                       controller: ConfirmPasswordController,
                     ),
-                    const SizedBox(
-                      height: 35,
+                    SizedBox(
+                      height: 35.h,
                     ),
                     DefaultButtom(
                       OnTap: () {},
-                      Child:  Text(
+                      Child: Text(
                         'Sign Up',
                         style: TextStyle(
                           fontSize: 28.sp,
@@ -274,21 +277,24 @@ class _SignUpState extends State<SignUp> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      Height: 65,
+                      Height: 25.h,
                       Width: double.infinity,
                       PaddingHorizontal: 30,
                       PaddingVertical: 0,
                     ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          width: 15,
+                        SizedBox(
+                          width: 15.w,
                         ),
-                        const Text(
+                        Text(
                           'If you already have an account,',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -299,7 +305,7 @@ class _SignUpState extends State<SignUp> {
                             child: Text(
                               'just login.',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 color: PrimaryColour,
                                 fontWeight: FontWeight.w600,
                               ),

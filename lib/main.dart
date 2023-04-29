@@ -4,15 +4,15 @@ import 'screen/credit_card.dart';
 import 'screen/notifications.dart';
 import 'screen/payment_method.dart';
 import 'screen/sign_up.dart';
-import 'package:easy_ticket_app/screen/edit_profile.dart';
-import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
-import 'package:easy_ticket_app/screen/home.dart';
-import 'package:easy_ticket_app/screen/map.dart';
-import 'package:easy_ticket_app/screen/onBoard.dart';
-import 'package:easy_ticket_app/screen/profile.dart';
-import 'package:easy_ticket_app/screen/sign_in.dart';
-import 'package:easy_ticket_app/screen/splash.dart';
-import 'package:easy_ticket_app/widget/components.dart';
+import 'screen/edit_profile.dart';
+import 'screen/get_password_reset_code.dart';
+import 'screen/home.dart';
+import 'screen/onBoard.dart';
+import 'screen/profile.dart';
+import 'screen/sign_in.dart';
+import 'screen/splash.dart';
+import 'widget/components.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,9 +40,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
         debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
-          
-         
+          primaryColor:PrimaryColour,
         ), 
         home: child,
       
@@ -53,7 +51,6 @@ class MyApp extends StatelessWidget {
                   SignUp.routeName:(context)=> SignUp(),
                   BottomBar.routeName:(context) => const BottomBar(),
                  HomeScreen.routeName: (context)=>  const HomeScreen(),
-                 MapScreen.routeName:(context) => const MapScreen(),
                  UserSettingsScreen.routeName:(context) => const UserSettingsScreen(),
                  EditProfileScreen.routeName: (context) =>  const EditProfileScreen(),
                  GetPasswordResetCode.routeName :(context) =>const GetPasswordResetCode(),
@@ -65,7 +62,7 @@ class MyApp extends StatelessWidget {
               
              
       );},
-      child: const BottomBar(),
+      child: const splash(),
     );
   }
 }

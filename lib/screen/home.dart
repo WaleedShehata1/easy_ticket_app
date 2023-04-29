@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:easy_ticket_app/Pop_Up/bus_detiles.dart';
 import 'package:easy_ticket_app/Pop_Up/buy_bus_ticket.dart';
-import 'package:easy_ticket_app/screen/map.dart';
 import '../Pop_Up/metro_date.dart';
 import '../shapes/ticket_bus.dart';
 import '../shapes/ticket_dates.dart';
@@ -86,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     PaddingVertical: 20,
                     radius: 10,
                     OnTap: () {
-                      Navigator.pushNamed(context, MapScreen.routeName);
+                    //  Navigator.pushNamed(context,Map2Screen.route);
                     },
                   ),
                 ],

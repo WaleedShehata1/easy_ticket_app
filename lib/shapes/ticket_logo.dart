@@ -1,10 +1,11 @@
  // ignore_for_file: camel_case_types, non_constant_identifier_names
 
  import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 Widget logoTicket =Container(
     padding: const EdgeInsets.all(5),
-    width: 90,
-    height: 160,
+    width: 90.w,
+    height: 160.h,
   child:CustomPaint(
      painter: logo(),
      ),
@@ -59,8 +60,8 @@ bool shouldRepaint(covariant CustomPainter oldDelegate) {
 
  Widget my_Ticket =Container(
     padding: const EdgeInsets.all(5),
-    width: 90,
-    height: 160,
+    width: 90.w,
+    height: 160.h,
   child:CustomPaint(
      painter: my_ticket(),
      ),

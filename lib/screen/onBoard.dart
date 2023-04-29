@@ -2,6 +2,7 @@
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/shapes/shape_GetStart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/components.dart';
 
 class onBoard extends StatelessWidget {
@@ -25,27 +26,27 @@ class onBoard extends StatelessWidget {
                 children: [
                   getStartShape,
                   const SizedBox(
-                    height: 50,
+                    height:50,
                   ),
-                  const Text(
+                   Text(
                     'Welcome to Easy Ticket',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontFamily: "Roboto",
-                        fontSize: 28,
+                        fontSize: 26.sp,
                         fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const SizedBox(
-                    width: 320,
+                   SizedBox(
+                    width: 340,
                     child: Text(
                       "Quick & Easy to Travel anywhere & anytime",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: "Roboto",
-                        fontSize: 16,
+                        fontSize: 19.sp,
                         fontWeight: FontWeight.w500,
                       ),
                       maxLines: 2,
@@ -53,6 +54,7 @@ class onBoard extends StatelessWidget {
                   ),
                 ],
               ),
+              
       /*                 Container(
                         height: 65,
                         width: 300,
@@ -80,6 +82,7 @@ class onBoard extends StatelessWidget {
                         ),
                       ), */
                DefaultButtom(
+               // radius: 20,
                 OnTap: () {
                  firstTime.putData(key: 'firstTime', valu: true).then(
                                       (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
@@ -87,21 +90,21 @@ class onBoard extends StatelessWidget {
                 },
                 Child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children:  [
                     Text(
                       'Get Started',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
-                        fontSize: 28,
+                        fontSize: 28.sp,
                       ),
                     ),
                     SizedBox(
-                      width: 10,
+                      width: 10.w,
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
-                      size: 28,
+                      size: 28.w,
                       color: Colors.white,
                     )
                   ],

@@ -38,7 +38,7 @@ String?  Function(String?) Validate;
           DefaultFormField(
             controller:userId ,
             label:null,
-            validate:Validate ,
+            validate:Validate ,MaxLength: 14,keyboardType: TextInputType.number,
           ),
           const SizedBox(height: 40,),
           DefaultButtom(Child: const Text("Searsh",style: TextStyle(fontSize: 24),),

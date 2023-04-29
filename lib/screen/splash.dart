@@ -5,6 +5,7 @@ import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/components.dart';
 
@@ -25,7 +26,7 @@ class _splashState extends State<splash> {
   void initState() {
        super.initState();
     Timer(
-      const Duration(seconds: 2), 
+      const Duration(seconds:5), 
       () {
         if(FirstTime ==true)
         {
@@ -49,19 +50,19 @@ body: Column(
       angle: 44.75,
       child: logoTicket,
       ),
-      const SizedBox(
-        height: 20,
+       SizedBox(
+        height: 20.h,
       ),
        Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          const Text(
+           Text(
             'EasyTicket',
           style: TextStyle(
             fontFamily: 'Jomhuria',
-            fontSize: 45,
-            fontWeight: FontWeight.w900,
+            fontSize: 45.sp,
+            fontWeight: FontWeight.w800,
             ),
             ),
              Container(
@@ -69,10 +70,10 @@ body: Column(
             decoration: BoxDecoration(
               
                color:  PrimaryColour,
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
+              borderRadius:  BorderRadius.all(Radius.circular(8.r)),
               ),
-              width: 15,
-              height:15,
+              width: 15.w,
+              height:15.h,
       ),
         ],
       ),
