@@ -35,7 +35,7 @@ class _SignUpState extends State<SignUp> {
     'heart disease',
     'Diabetes',
     'Pressure disease',
-    'good health'
+    'Healthy'
   ];
 
   @override
@@ -109,7 +109,6 @@ class _SignUpState extends State<SignUp> {
                           child: GestureDetector(
                             onTap: () async {
                               newdate = await showDatePicker(
-                               
                                   context: context,
                                   initialDate: date,
                                   firstDate: DateTime(1900),
@@ -143,22 +142,25 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         DefaultDropdown(
-                          hint: Text('Profession',style: TextStyle(fontSize:14.sp ),),
+                          hint: Text(
+                            'Profession',
+                            style: TextStyle(fontSize: 14.sp),
+                          ),
                           value: _Profession,
-                           items: _HealthStatusList.map<
-                                  DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                              onChanged: (value) {
-                                setState(() {
-                                  _Profession = value;
-                                });
-                              },
+                          items:
+                              _HealthStatusList.map<DropdownMenuItem<String>>(
+                                  (String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _Profession = value;
+                            });
+                          },
                         ),
-                        
                       ],
                     ),
                     SizedBox(
@@ -183,42 +185,49 @@ class _SignUpState extends State<SignUp> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
- DefaultDropdown(
-                          hint: Text('Health Status',style: TextStyle(fontSize:14.sp ),),
+                        DefaultDropdown(
+                          hint: Text(
+                            'Health Status',
+                            style: TextStyle(fontSize: 14.sp),
+                          ),
                           value: _HealthStatus,
                           onChanged: (value) {
                             setState(() {
                               _HealthStatus = value;
                             });
                           },
-                           items: _HealthStatusList.map<
-                                  DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                             
+                          items:
+                              _HealthStatusList.map<DropdownMenuItem<String>>(
+                                  (String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
                         ),
-                        SizedBox(width: 5.w,),
-                         DefaultDropdown(
-                          hint:  Text('Gendar',style: TextStyle(fontSize:14.sp ),),
-                         items:
-                                _HealthStatusList.map<DropdownMenuItem<String>>(
-                                    (String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                            value: _HealthStatus,
-                            onChanged: (value) {
-                              setState(() {
-                                _HealthStatus = value;
-                              });
-                            },
+                        SizedBox(
+                          width: 5.w,
                         ),
-                      
+                        DefaultDropdown(
+                          hint: Text(
+                            'Gender',
+                            style: TextStyle(fontSize: 14.sp),
+                          ),
+                          items:
+                              _HealthStatusList.map<DropdownMenuItem<String>>(
+                                  (String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          value: _HealthStatus,
+                          onChanged: (value) {
+                            setState(() {
+                              _HealthStatus = value;
+                            });
+                          },
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -292,7 +301,7 @@ class _SignUpState extends State<SignUp> {
                           width: 15.w,
                         ),
                         Text(
-                          'If you already have an account,',
+                          'already have an account?',
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
@@ -303,7 +312,7 @@ class _SignUpState extends State<SignUp> {
                               Navigator.pushNamed(context, Sign_In.routeName);
                             },
                             child: Text(
-                              'just login.',
+                              'Login.',
                               style: TextStyle(
                                 fontSize: 16.sp,
                                 color: PrimaryColour,
