@@ -13,7 +13,7 @@ import '../widget/components.dart';
 class Sign_In extends StatelessWidget {
   Sign_In({super.key});
 
-  static const String routeName = 'Sign_im';
+  static const String routeName = 'Sign_in';
   var NationalIDController = TextEditingController();
   var PasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
@@ -125,7 +125,7 @@ class Sign_In extends StatelessWidget {
                           width: 15.w,
                         ),
                          Text(
-                          'Don’t have an account?',
+                          'Don\'t have an account?',
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
