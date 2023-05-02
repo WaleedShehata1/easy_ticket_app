@@ -1,9 +1,12 @@
 // ignore: implementation_imports
 
 import 'dart:ui';
+import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_ticket_app/Pop_Up/bus_detiles.dart';
 import 'package:easy_ticket_app/Pop_Up/buy_bus_ticket.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/metro_date.dart';
 import '../shapes/ticket_bus.dart';
 import '../shapes/ticket_dates.dart';
@@ -26,10 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
   late bool buyTicket;
 
   bool switshTicket = false;
+  
+ 
+
   @override
   Widget build(BuildContext context) {
+     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.isDark?  DarkColour : Colors.white,
       body: Column(children: [
         ClipRRect(
           borderRadius: const BorderRadius.only(
@@ -42,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "asset/images/unsplash_nG3q_mlv8yI.png",
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 175,
+                height: 145.h,
               ),
               Positioned.fill(
                 child: BackdropFilter(
@@ -55,35 +62,35 @@ class _HomeScreenState extends State<HomeScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const SizedBox(
+                   SizedBox(
                     height: 30,
                   ),
-                  const Text(
+                  Text(
                     "Easy Ticket",
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: 15.h,
                   ),
                   DefaultButtom(
                     alignment: Alignment.centerLeft,
-                    Child: const Text(
+                    Child:  Text(
                       'Where do you want to go ?',
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           wordSpacing: 1,
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
-                    Height: 35,
-                    Width: 270,
-                    PaddingHorizontal: 20,
-                    PaddingVertical: 20,
-                    radius: 10,
+                    Height: 20.h,
+                    Width: 270.w,
+                    PaddingHorizontal: 20.w,
+                    PaddingVertical: 10.h,
+                    radius: 5.r,
                     OnTap: () {
                     //  Navigator.pushNamed(context,Map2Screen.route);
                     },
@@ -97,16 +104,16 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             DefaultButtom(
-              Child: const Icon(
+              Child:  Icon(
                 Icons.directions_train_sharp,
                 color: Colors.white,
-                size: 30,
+                size: 30.w,
               ),
-              Height: 50,
-              Width: 45,
-              radius: 12,
+              Height:25.h,
+              Width: 40.w,
+              radius: 10.r,
               PaddingHorizontal: 0,
-              PaddingVertical: 15,
+              PaddingVertical: 10.h,
               OnTap: () {
                 setState(() {
                   selectBottom = false;
@@ -115,16 +122,16 @@ class _HomeScreenState extends State<HomeScreen> {
               color: selectBottom ? Colors.grey : PrimaryColour,
             ),
             DefaultButtom(
-              Child: const Icon(
+              Child:  Icon(
                 Icons.directions_bus_filled_rounded,
                 color: Colors.white,
-                size: 30,
+                size: 30.w,
               ),
-              Height: 50,
-              Width: 45,
-              radius: 12,
+               Height:25.h,
+              Width: 40.w,
+              radius: 10.r,
               PaddingHorizontal: 0,
-              PaddingVertical: 15,
+              PaddingVertical: 10.h,
               color: selectBottom ? PrimaryColour : Colors.grey,
               OnTap: () {
                 setState(() {
@@ -164,8 +171,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return const SizedBox(
-                      height: 20,
+                    return  SizedBox(
+                      height: 20.h,
                     );
                   },
                 )
@@ -178,40 +185,41 @@ class _HomeScreenState extends State<HomeScreen> {
                         DefaultButtom(
                           Child: Transform.rotate(
                             angle: -44.75,
-                            child: const Icon(
+                            child:  Icon(
                               Icons.confirmation_num_outlined,
                               color: Colors.white,
-                              size: 28,
+                              size: 28.w,
                             ),
                           ),
-                          Height: 35,
-                          Width: 60,
+                          Height: 20.h,
+                          Width: 40.w,
                           OnTap: () {
                             setState(() {
                               switshTicket = true;
                             });
                           },
                           color: switshTicket ? PrimaryColour : Colors.grey,
-                          radius: 15,
-                          PaddingHorizontal: 5,
-                          PaddingVertical: 5,
+                          radius: 7.r,
+                          PaddingHorizontal: 5.w,
+                          PaddingVertical: 5.h,
                         ),
                         DefaultButtom(
-                          Child: const Text(
+                          Child:  Text(
                             'Dates',
-                            style: TextStyle(color: Colors.white),
+                            
+                            style: TextStyle(color: Colors.white,fontSize: 18.sp),
                           ),
-                          Height: 35,
-                          Width: 60,
-                          radius: 15,
+                          Height: 20.h,
+                          Width: 40.w,
+                          radius: 7.r,
                           color: switshTicket ? Colors.grey : PrimaryColour,
                           OnTap: () {
                             setState(() {
                               switshTicket = false;
                             });
                           },
-                          PaddingHorizontal: 5,
-                          PaddingVertical: 5,
+                          PaddingHorizontal: 5.w,
+                          PaddingVertical: 5.h,
                         ),
                       ],
                     ),
@@ -226,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     context: context,
                                     builder: (context) {
                                       return DefaultDialog(
-                                        paddingHorizontal: 10,
+                                        paddingHorizontal: 10.w,
                                         Child:const MetroDateTicket() ,
                                       );
                                     }
@@ -260,8 +268,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           }
                         },
                         separatorBuilder: (BuildContext context, int index) {
-                          return const SizedBox(
-                            height: 20,
+                          return  SizedBox(
+                            height: 20.h,
                           );
                         },
                       ),

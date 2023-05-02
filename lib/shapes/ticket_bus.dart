@@ -3,7 +3,10 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../cubit/theme/theme_cubit.dart';
 import '../widget/components.dart';
 
 class busTicket extends StatelessWidget {
@@ -15,6 +18,7 @@ class busTicket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -22,55 +26,55 @@ class busTicket extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 120,
-              width: 151,
+              height: 120.h,
+              width: 151.w,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10)),
+                      bottomLeft: Radius.circular(10)).r,
                   color: Colors.grey.withOpacity(1),
                   boxShadow: [
                     BoxShadow(
                         offset: const Offset(-0.5, 3),
-                        color: Colors.grey.withOpacity(1),
-                        spreadRadius: 0,
-                        blurRadius: 2),
+                        color: theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
+                        spreadRadius: 0.5.r,
+                        blurRadius: 2.r),
                     BoxShadow(
                         offset: const Offset(0, -0.1),
-                        color: Colors.grey.withOpacity(1),
-                        spreadRadius: 0,
-                        blurRadius: 2),
+                        color:theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
+                        spreadRadius: 0.5.r,
+                        blurRadius: 2.r),
                   ]),
             ),
-            const SizedBox(
-              width: 24,
+             SizedBox(
+              width: 24.w,
             ),
             Container(
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
+                      bottomRight: Radius.circular(10)).r,
                   color: Colors.grey.withOpacity(1),
                   boxShadow: [
                     BoxShadow(
                         offset: const Offset(0.5, 3),
-                        color: Colors.grey.withOpacity(1),
-                        spreadRadius: 0,
-                        blurRadius: 2),
+                        color: theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
+                        spreadRadius:0.5.r,
+                        blurRadius: 2.r),
                     BoxShadow(
                         offset: const Offset(0, -0.1),
-                        color: Colors.grey.withOpacity(1),
-                        spreadRadius: 0,
-                        blurRadius: 2),
+                        color: theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
+                        spreadRadius: 0.5.r,
+                        blurRadius: 2.r),
                   ]),
-              height: 120,
-              width: 93,
+              height: 120.h,
+              width: 93.w,
             ),
           ],
         ),
         Container(
           child:Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
+            padding:  EdgeInsets.symmetric(horizontal: 5.w),
             child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -81,48 +85,48 @@ class busTicket extends StatelessWidget {
                     "Bus 12",
                     style: TextStyle(
                         color: textColour,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     children: [
                       Container(
-                        width: 30,
-                        height: 30,
+                        width: 30.w,
+                        height: 30.h,
                         decoration: BoxDecoration(
                             color: PrimaryColour,
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10).r),
                         child: const Icon(
                           Icons.near_me_outlined,
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: 10.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children:  [
                           Text(
                             "Cairo",
-                            style: TextStyle(color: Colors.black, fontSize: 14),
+                            style: TextStyle(color: Colors.black, fontSize: 14.sp),
                           ),
                           SizedBox(
-                            height: 2,
+                            height: 2.h,
                           ),
                           Text(
                             "15-Dec-2022",
-                            style: TextStyle(color: Colors.grey, fontSize: 13),
+                            style: TextStyle(color: Colors.grey, fontSize: 13.sp),
                           )
                         ],
                       )
                     ],
                   ),
-                  const SizedBox(
-                    height: 5,
+                   SizedBox(
+                    height: 5.h,
                   ),
                   Row(
                     children: [
@@ -131,28 +135,28 @@ class busTicket extends StatelessWidget {
                           Icons.location_pin,
                           color: Colors.white,
                         ),
-                        width: 30,
-                        height: 30,
+                        width: 30.w,
+                        height: 30.h,
                         decoration: BoxDecoration(
                             color: PrimaryColour,
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10).r),
                       ),
-                      const SizedBox(
-                        width: 10,
+                       SizedBox(
+                        width: 10.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children:  [
                           Text(
                             "Qena",
-                            style: TextStyle(color: Colors.black, fontSize: 14),
+                            style: TextStyle(color: Colors.black, fontSize: 14.sp),
                           ),
                           SizedBox(
-                            height: 2,
+                            height: 2.h,
                           ),
                           Text(
                             "15-Dec-2022",
-                            style: TextStyle(color: Colors.grey, fontSize: 13),
+                            style: TextStyle(color: Colors.grey, fontSize: 13.sp),
                           )
                         ],
                       )
@@ -160,8 +164,8 @@ class busTicket extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
-                width: 25,
+               SizedBox(
+                width: 25.w,
               ),
                Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,29 +178,30 @@ class busTicket extends StatelessWidget {
                     alignment: Alignment.topCenter,
                     children: [
                       Container(
-                        width: 30,
-                        height: 15,
-                        decoration: const BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(20),
-                                bottomRight: Radius.circular(20))),
+                        width: 30.w,
+                        height: 15.h,
+                        decoration:  BoxDecoration(
+                            color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1), 
+                            borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(50),
+                                bottomRight: Radius.circular(50)).r
+                                ),
                       ),
                       Stack(
                         alignment: Alignment.center,
                         children: [
                           Container(
-                            width: 28,
-                            height: 14.5,
+                            width: 28.w,
+                            height: 14.5.h,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(50),
-                                  bottomRight: Radius.circular(50)),
+                                  bottomRight: Radius.circular(50)).r,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(1),
-                                  spreadRadius: 0,
-                                  blurRadius: 0.5,
+                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
+                                  spreadRadius: 0.5.r,
+                                  blurRadius: 0.5.r,
                                   offset: const Offset(
                                       0, -0.1), // changes position of shadow
                                 ),
@@ -204,17 +209,17 @@ class busTicket extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            width: 28,
-                            height: 15,
+                            width: 28.w,
+                            height: 15.h,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(50),
-                                  bottomRight: Radius.circular(50)),
+                                  bottomRight: Radius.circular(50)).r,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.white.withOpacity(1),
-                                  spreadRadius: 1,
-                                  blurRadius: 1,
+                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
+                                  spreadRadius: 1.r,
+                                  blurRadius: 1.r,
                                   offset: const Offset(0, -1.5),
                                 ),
                               ],
@@ -231,14 +236,14 @@ class busTicket extends StatelessWidget {
                  padding: const EdgeInsets.symmetric(vertical: 3),
                  child: Row(
                    children: [
-                    const SizedBox(
-                      width: 15,
+                     SizedBox(
+                      width: 15.w,
                     ),
                      DottedBorder(
                         padding: const EdgeInsets.all(0),
                         dashPattern: const [5, 8],
-                        child: const SizedBox(
-                          height: 86,
+                        child:  SizedBox(
+                          height: 78.h,
                         )),
                    ],
                  ),
@@ -251,18 +256,18 @@ class busTicket extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     children: [
                       Container(
-                        width: 30,
-                        height: 14,
+                        width: 30.w,
+                        height: 15.h,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
                           borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20)),
+                              topLeft: Radius.circular(50),
+                              topRight: Radius.circular(50)).r,
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.white.withOpacity(1),
+                              color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
                               spreadRadius: 0,
-                              blurRadius: 5,
+                              blurRadius: 5.r,
                               offset: const Offset(0, 1),
                             ),
                           ],
@@ -272,36 +277,39 @@ class busTicket extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         children: [
                           Container(
-                            width: 28,
-                            height: 13.5,
+                            width: 28.w,
+                            height: 14.5.h,
                             decoration: BoxDecoration(
+                             
                               borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(50),
-                                  topRight: Radius.circular(50)),
+                                  topRight: Radius.circular(50)).r,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(1),
-                                  spreadRadius: 1.5,
-                                  blurRadius: 1,
+                                  color: theme.isDark? DarkColour.withOpacity(1): Colors.grey.withOpacity(1),
+                                  spreadRadius: 1.r,
+                                  blurRadius: 0.5.r,
                                   offset: const Offset(0, -1),
                                 ),
                               ],
                             ),
                           ),
                           Container(
-                            width: 24,
-                            height: 15,
+                            width: 28.w,
+                            height: 15.h,
                             decoration: BoxDecoration(
+                            
                               borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(50),
-                                  topRight: Radius.circular(50)),
+                                  topRight: Radius.circular(50)).r,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.white.withOpacity(1),
-                                  spreadRadius: 1,
-                                  blurRadius: 1,
-                                  offset: const Offset(0, 2),
+                                  color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
+                                  spreadRadius: 1.r,
+                                  blurRadius: 1.r,
+                                  offset: const Offset(0, 1.5),
                                 ),
+                                
                               ],
                             ),
                           ),
@@ -319,34 +327,34 @@ class busTicket extends StatelessWidget {
                 children: [
                   DefaultButtom(
                     OnTap: ontap,
-                    Child: const Text(
+                    Child: Text(
                       'Detiles',
                       style: TextStyle(
-                          height: 1,
+                          height: 1.4,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                          fontSize: 16.sp),
                     ),
                     Height: 30,
-                    Width: 70,
+                    Width: 75,
                     PaddingHorizontal: 0,
                     PaddingVertical: 0,
                     radius: 10,
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     children: [
-                      const Text(
+                       Text(
                         "Price: ",
                         style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold),
+                            color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 12.sp),
                       ),
                       Text(
                         "\$70",
                         style: TextStyle(
-                            color: PrimaryColour, fontWeight: FontWeight.bold),
+                            color: PrimaryColour, fontWeight: FontWeight.bold,fontSize: 12.sp),
                       ),
                     ],
                   )
@@ -355,10 +363,10 @@ class busTicket extends StatelessWidget {
             ],
                   ),
           ),
-          width: 270,
-          height: 122,
+          width: 270.w,
+          height: 122.h,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              color: Colors.white, borderRadius: BorderRadius.circular(10).r),
         ),
        
       ],

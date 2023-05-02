@@ -27,7 +27,9 @@ class _CreditCardState extends State<CreditCard> {
   OutlineInputBorder? border;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   
-  bool addCredit=false;
+  bool addCredit=true;
+  
+  int itemCount=2;
   void onCreditCardModelChange(CreditCardModel? creditCardModel) {
     setState(() {
       cardNumber = creditCardModel!.cardNumber;
@@ -53,6 +55,17 @@ class _CreditCardState extends State<CreditCard> {
   void _onValidate() {
     if (formKey.currentState!.validate()) {
       print('valid!');
+      itemCount++;
+      Navigator.pop(context);
+       setState(() {
+                  addCredit=!addCredit;
+                  cardHolderName='';
+              cardNumber='';
+              expiryDate='';
+              cvvCode='';
+                });
+
+
     } else {
       print('invalid!');
     }
@@ -67,17 +80,17 @@ class _CreditCardState extends State<CreditCard> {
           children: [
                 Container(
               width: double.infinity,
-              height: 80,
+              height: 80.h,
               decoration: BoxDecoration(
                 color: PrimaryColour,
                 borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(15),
-                    bottomRight: Radius.circular(15)),
+                    bottomRight: Radius.circular(15)).r,
               ),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 25,
+                   SizedBox(
+                    height: 25.h,
                   ),
                   Row(
                     children: [
@@ -85,20 +98,20 @@ class _CreditCardState extends State<CreditCard> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: const Icon(
+                        icon:  Icon(
                           Icons.arrow_back_ios_new,
                           color: Colors.white,
-                          size: 35,
+                          size:25.w,
                         ),
                       ),
-                      const SizedBox(
-                        width: 80,
+                       SizedBox(
+                        width: 80.w,
                       ),
-                      const Text(
+                       Text(
                         'Credit Card',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 28,
+                            fontSize: 26.sp,
                             fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -106,14 +119,16 @@ class _CreditCardState extends State<CreditCard> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+            height: 30.h,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-              child: Column(
-                children: [
-                  InkWell(
+             Expanded(
+               child: ListView.separated(
+                itemCount: itemCount,
+                itemBuilder: (ctx, index){
+                  return  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                    child: InkWell(
                     onTap: () {
                       showDialog(
                         context: context,
@@ -129,23 +144,26 @@ class _CreditCardState extends State<CreditCard> {
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
-                                        icon: const Icon(
+                                        icon:  Icon(
                                           Icons.close,
-                                          size: 30,
-                                        ))
+                                          size: 30.w,
+                                        )),
+                                        
+                                        
                                   ],
-                                ),
+
+                                ),SizedBox(height: 15.h,),
                                 Container(
-                                  width: double.infinity,
-                                  height:150,
+                                  width: double.infinity.w,
+                                  height:150.h,
                                   decoration: BoxDecoration(
                                     color: PrimaryColour,
                                     borderRadius: BorderRadius.circular(15),
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         offset: Offset(2, 2),
                                         color: Colors.grey,
-                                        blurRadius: 5,
+                                        blurRadius: 5.r,
                                         spreadRadius: 0
                                       )
                                     ]
@@ -156,25 +174,25 @@ class _CreditCardState extends State<CreditCard> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Row(mainAxisAlignment: MainAxisAlignment.end,
-                                          children: const [
-                                            Text('Bank',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
+                                          children:  [
+                                            Text('Bank',style: TextStyle(color: Colors.white,fontSize: 18.sp,fontWeight: FontWeight.bold),),
                                           ],
                                         ),
-                                        const SizedBox(height: 10,),
-                                        const Text('4224 xxxx xxxx 7777',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
-                                        const SizedBox(height: 20,),
-                                        const Align(alignment: Alignment.center,
-                                          child: Text('Valid  MM/YY',style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.bold),)),
-                                        const SizedBox(height: 10,),
-                                        const Text('Waleed mohamed shehate',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
+                                         SizedBox(height: 10.h,),
+                                         Text('4224 xxxx xxxx 7777',style: TextStyle(color: Colors.white,fontSize: 18.sp,fontWeight: FontWeight.bold),),
+                                        SizedBox(height: 20.h,),
+                                         Align(alignment: Alignment.center,
+                                          child: Text('Valid  MM/YY',style: TextStyle(color: Colors.white,fontSize: 14.sp,fontWeight: FontWeight.bold),)),
+                                         SizedBox(height: 10.h,),
+                                         Text('Waleed mohamed shehate',style: TextStyle(color: Colors.white,fontSize: 18.sp,fontWeight: FontWeight.bold),),
                                       ]
                                       ),
                                   ),
                                 ),
-                                const SizedBox(height: 20,),
+                                 SizedBox(height: 20.h,),
                                 TextButton(
                                   onPressed: (){}, child: const Text('Remove',style: TextStyle(color: Colors.red,fontSize: 22,fontWeight: FontWeight.bold),))
-
+                                
                               ],
                             ),
                             );
@@ -189,19 +207,27 @@ class _CreditCardState extends State<CreditCard> {
                         color: PrimaryColour
                       ),
                       child: Row(
-                        children: const [
-                          Icon(Icons.arrow_back,size: 30,color: Colors.white,),
+                        children: [
+                          Icon(Icons.arrow_back,size: 30.w,color: Colors.white,),
                           SizedBox(width: 20,),
-                          Text('4224 xxxx xxxx 7777',style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),),
-                          SizedBox(width: 20,),
-                          SizedBox(width: 80, child: Text('Waleed Mohamed Shehata',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),))
+                          Text('4224 xxxx xxxx 7777',style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.bold),),
+                          SizedBox(width: 20.w,),
+                          SizedBox(width: 80.w, child: Text('Waleed Mohamed Shehata',textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16.sp),))
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-            )
+                                    ),
+                  );
+                } , separatorBuilder: (BuildContext context, int index) {
+                  return  SizedBox(
+                    height: 20.h,
+                  );
+                },
+                         ),
+             ),
+          
+           
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -211,7 +237,7 @@ class _CreditCardState extends State<CreditCard> {
            if(addCredit==true)
            { 
               setState(() {
-              addCredit =false;
+              addCredit =!addCredit;
             });
             ScaffoldKey.currentState?.showBottomSheet((context) {
               return Container(
@@ -237,8 +263,9 @@ class _CreditCardState extends State<CreditCard> {
                          child: SingleChildScrollView(
                            child: Column(children: [
                             CreditCardWidget(
-                                     height: 160,
-                                     width: 280,
+                              textStyle:  TextStyle(fontSize: 14.sp,color: Colors.white),
+                                     height: 160.h,
+                                     width: 280.w,
                                      cardNumber: cardNumber,
                                      expiryDate: expiryDate,
                                      cardHolderName: cardHolderName,
@@ -269,6 +296,9 @@ class _CreditCardState extends State<CreditCard> {
                                          expiryDate: expiryDate,
                                          themeColor: Colors.blue,
                                          cardNumberDecoration: InputDecoration(
+                                          labelStyle: TextStyle(fontSize: 16.sp),
+                                           
+                                           hintStyle: TextStyle(fontSize: 16.sp),
                                            labelText: 'Number',
                                            hintText: 'XXXX XXXX XXXX XXXX',
                                             focusedErrorBorder: OutlineInputBorder(
@@ -293,7 +323,10 @@ class _CreditCardState extends State<CreditCard> {
                                            errorBorder: OutlineInputBorder(
                                              borderRadius: BorderRadius.circular(15),
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
-                                           ),
+                                           ), 
+                                          
+                                           
+                                           hintStyle: TextStyle(fontSize: 16.sp),
                                            labelText: 'Expired Date',
                                            hintText: 'XX/XX',
                                          ),
@@ -309,6 +342,9 @@ class _CreditCardState extends State<CreditCard> {
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ),
                                            enabledBorder: border,
+                                            labelStyle: TextStyle(fontSize: 16.sp),
+                                           
+                                           hintStyle: TextStyle(fontSize: 16.sp),
                                            labelText: 'CVV',
                                            hintText: 'XXX',
                                          ),
@@ -319,21 +355,24 @@ class _CreditCardState extends State<CreditCard> {
                                            ),
                                            errorBorder: OutlineInputBorder(
                                              borderRadius: BorderRadius.circular(15),
-                                             borderSide: const BorderSide(width: 2.0, color: Colors.red),
+                                             borderSide: BorderSide(width: 2.0.w, color: Colors.red),
                                            ),
                                            focusedBorder: border,
                                            enabledBorder: border,
+                                            labelStyle: TextStyle(fontSize: 18.sp),
+                                           
+                                           hintStyle: TextStyle(fontSize: 18.sp),
                                            labelText: 'Card Holder',
                                          ),
                                          onCreditCardModelChange: onCreditCardModelChange,
                                        ),
                                        DefaultButtom(
-                                         Child: const Text(
+                                         Child: Text(
                                            'Add Credit',
                                            style: TextStyle(
                                              color: Colors.white,
                                              fontFamily: 'halter',
-                                             fontSize: 16,
+                                             fontSize: 16.sp,
                                              package: 'flutter_credit_card',
                                            ),
                                          ),
@@ -357,9 +396,9 @@ class _CreditCardState extends State<CreditCard> {
               );
               }else{
                 setState(() {
-                  addCredit=true;
+                  addCredit=!addCredit;
                 });
-                Navigator.pop(context);
+               Navigator.pop(context);
                 
               }
       

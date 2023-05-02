@@ -1,4 +1,9 @@
 
+import 'package:bloc/bloc.dart';
+import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc_observer.dart';
 import 'screen/bottom_bar.dart';
 import 'screen/credit_card.dart';
 import 'screen/notifications.dart';
@@ -21,9 +26,15 @@ import 'screen/wallet_screen.dart';
 void main()
   async {
 WidgetsFlutterBinding.ensureInitialized();
-
  await firstTime.init();
-  runApp( const MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [BlocProvider(create:(coontext) => ThemeCubit(),)],
+       child: const MyApp()
+       ),
+    
+     );
+     Bloc.observer = MyBlocObserver();
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +42,7 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: true);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -39,9 +51,7 @@ class MyApp extends StatelessWidget {
       {
         return MaterialApp(
         debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primaryColor:PrimaryColour,
-        ), 
+      theme: theme.isDark? ThemeData.dark():ThemeData.light(),
         home: child,
       
           routes: {

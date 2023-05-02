@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 Color PrimaryColour = const Color(0xffF48265);
+Color DarkColour = const Color(0xff212121);
 Color textColour = const Color(0xff3E548D);
 
 class firstTime {
@@ -33,9 +34,12 @@ class DefaultFormField extends StatelessWidget {
   String? label;
   Widget? prefixIcon;
  Color? colorBorder;
-  Widget? suffixIcon;
+  IconData? suffixIcon;
   String? Function(String?) validate;
   TextAlign? textAlign;
+  Function? suffixPressed;
+  
+  bool? isPassword;
 
   DefaultFormField({
     Key? key,
@@ -51,12 +55,14 @@ class DefaultFormField extends StatelessWidget {
     this.suffixIcon,
     required this.validate,
     this.textAlign,
+    this.suffixPressed,
+    this.isPassword,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
+       obscureText: isPassword ?? false,
       textAlign:textAlign?? TextAlign.start,
        maxLength: MaxLength?? null,
       style: TextStyle(
@@ -72,7 +78,13 @@ class DefaultFormField extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 15.h),
         labelText: label,
         prefixIcon: prefixIcon ?? null,
-        suffixIcon: suffixIcon ?? null,
+          suffixIcon: suffixIcon!= null
+            ? IconButton(
+                onPressed: () {
+                  suffixPressed!();
+                },
+                icon: const Icon(Icons.remove_red_eye_outlined))
+            : null,
     
         focusedBorder: OutlineInputBorder(
           borderSide:  const BorderSide(color: Colors.blue, width: 2),
@@ -145,10 +157,10 @@ class DefaultButtom extends StatelessWidget {
               spreadRadius: -5,
               color: colorShadow ?? Colors.grey.withOpacity(0.5)), */
                 BoxShadow(
-                    color: Colors.grey.withOpacity(0.7),
-                    spreadRadius:9,
-                    blurRadius: 18,
-                    offset: const Offset(0, 2), // changes position of shadow
+                    color: Colors.grey.withOpacity(0.4),
+                    spreadRadius:3,
+                    blurRadius: 5,
+                    offset: const Offset(0, 1), // changes position of shadow
                   ),
         ]),
         child: ElevatedButton(

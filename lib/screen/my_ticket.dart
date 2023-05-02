@@ -2,7 +2,10 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/QR.dart';
+import '../cubit/theme/theme_cubit.dart';
 import '../shapes/my_ticket_bus.dart';
 import '../shapes/my_ticket_metro.dart';
 import '../widget/components.dart';
@@ -23,13 +26,14 @@ class _myTicketState extends State<myTicket> {
   bool switshTicket = false;
   @override
   Widget build(BuildContext context) {
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.isDark? DarkColour :  Colors.white,
       body: Column(children: [
         ClipRRect(
           borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
+              bottomRight: Radius.circular(20)).r,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -37,7 +41,7 @@ class _myTicketState extends State<myTicket> {
                 "asset/images/unsplash_nG3q_mlv8yI.png",
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 90,
+                height: 90.h,
               ),
               Positioned.fill(
                 child: BackdropFilter(
@@ -49,19 +53,19 @@ class _myTicketState extends State<myTicket> {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
+                children:  [
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Text(
                     "My Ticket",
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 15.h,
                   ),
                 ],
               )
@@ -72,16 +76,16 @@ class _myTicketState extends State<myTicket> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             DefaultButtom(
-              Child: const Icon(
+              Child:  Icon(
                 Icons.directions_train_sharp,
                 color: Colors.white,
-                size: 30,
+                size: 30.w,
               ),
-              Height: 50,
-              Width: 45,
-              radius: 12,
+              Height: 25.h,
+              Width: 35.w,
+              radius: 10.r,
               PaddingHorizontal: 0,
-              PaddingVertical: 15,
+              PaddingVertical: 10.h,
               OnTap: () {
                 setState(() {
                   selectBottom = false;
@@ -90,16 +94,16 @@ class _myTicketState extends State<myTicket> {
               color: selectBottom ? Colors.grey : PrimaryColour,
             ),
             DefaultButtom(
-              Child: const Icon(
+              Child: Icon(
                 Icons.directions_bus_filled_rounded,
                 color: Colors.white,
-                size: 30,
+                size: 30.w,
               ),
-              Height: 50,
-              Width: 45,
-              radius: 12,
+                Height: 25.h,
+              Width: 35.w,
+              radius: 10.r,
               PaddingHorizontal: 0,
-              PaddingVertical: 15,
+              PaddingVertical: 10.h,
               color: selectBottom ? PrimaryColour : Colors.grey,
               OnTap: () {
                 setState(() {
@@ -132,9 +136,9 @@ class _myTicketState extends State<myTicket> {
                                           onPressed: () {
                                             Navigator.pop(context);
                                           },
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.close_outlined,
-                                            size: 35,
+                                            size: 35.w,
                                           ))
                                     ],
                                   ),
@@ -154,8 +158,8 @@ class _myTicketState extends State<myTicket> {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return const SizedBox(
-                      height: 20,
+                    return  SizedBox(
+                      height: 20.h,
                     );
                   },
                 )
@@ -180,9 +184,9 @@ class _myTicketState extends State<myTicket> {
                                           onPressed: () {
                                             Navigator.pop(context);
                                           },
-                                          icon: const Icon(
+                                          icon:  Icon(
                                             Icons.close_outlined,
-                                            size: 35,
+                                            size: 35.w,
                                           ))
                                     ],
                                   ),
@@ -197,8 +201,8 @@ class _myTicketState extends State<myTicket> {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return const SizedBox(
-                      height: 20,
+                    return  SizedBox(
+                      height: 20.h,
                     );
                   },
                 ),
