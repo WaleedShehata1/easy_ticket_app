@@ -161,6 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             },
                                                             ontapMinus: () {
                                 setState(() {
+                                  if(_numberTicket>0)
                                   _numberTicket = _numberTicket - 1;
                                 });
                                                             },
@@ -259,6 +260,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         },
                                         ontapMinus: () {
                                           setState(() {
+                                            if(_numberTicket>0)
                                             _numberTicket--;
                                           });
                                         },
