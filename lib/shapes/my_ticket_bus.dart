@@ -24,7 +24,8 @@ class myTicketBus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
+        ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
+
     return Padding(
       padding:  EdgeInsets.symmetric(horizontal: 50.w),
       child: Container(
@@ -37,8 +38,8 @@ class myTicketBus extends StatelessWidget {
             BoxShadow(
                     offset: const Offset(0, 0),
                      color:theme.isDark?Colors.white.withOpacity(0.3): Colors.grey.withOpacity(0.3),
-                      spreadRadius: 4.r,
-                       blurRadius: 5.r,
+                      spreadRadius: 1.r,
+                       blurRadius: 2.r,
                     ),
          ]
         ),
@@ -365,16 +366,16 @@ class myTicketBus extends StatelessWidget {
                     Child:  Text(
                       'Tracking',
                       style: TextStyle(
-                          height: 1,
+                          height: 1.2,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 14.sp),
                     ),
-                    Height: 20.h,
-                    Width: 30.w,
+                    Height: 25,
+                    Width: 55,
                     PaddingHorizontal: 0,
                     PaddingVertical: 0,
-                    radius: 7.r,
+                    radius: 7,
                   ),
                    SizedBox(
                     height: 10.h,
@@ -408,25 +409,26 @@ class myTicketBus extends StatelessWidget {
                 DefaultButtom(color: Colors.white,
                     Child:  Icon(Icons.delete_outlined,color: Colors.black,size: 30.w,),
                     OnTap: onTapDelete,
-                 radius: 5.r,           
-                   Height: 20.h,
-                    Width: 20.w,
+                radius: 10,           
+                   Height: 40,
+                    Width: 30,
                     PaddingHorizontal: 0,
-                    PaddingVertical: 5.h),
+                    PaddingVertical: 15,),
                 DefaultButtom( color: Colors.white,
                   Child:  Icon(Icons.edit,color: Colors.black,size: 30.w,),
-                 radius: 5.r,           
-                   Height: 20.h,
-                    Width: 20.w,
+                 radius: 10,           
+                   Height: 40,
+                    Width: 30,
                     PaddingHorizontal: 0,
-                    PaddingVertical: 15.h,OnTap:onTapEdit,),
+                    PaddingVertical: 15,
+                    OnTap:onTapEdit,),
                 DefaultButtom(OnTap: onTapQR,color: Colors.white,
                    Child:  Icon(Icons.qr_code_2_rounded,color: Colors.black,size: 30.w,),
-                   radius: 5.r,           
-                   Height: 20.h,
-                    Width: 20.w,
+                  radius: 10,           
+                   Height: 40,
+                    Width: 30,
                     PaddingHorizontal: 0,
-                    PaddingVertical: 5.h),
+                    PaddingVertical: 15,),
               ],
             )
           ],

@@ -77,13 +77,14 @@ class DefaultFormField extends StatelessWidget {
         counterStyle: TextStyle(fontSize: 13.sp,),
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 15.h),
         labelText: label,
+        labelStyle:TextStyle(color: textColor ?? PrimaryColour,fontSize: 16.sp) ,
         prefixIcon: prefixIcon ?? null,
           suffixIcon: suffixIcon!= null
             ? IconButton(
                 onPressed: () {
                   suffixPressed!();
                 },
-                icon: const Icon(Icons.remove_red_eye_outlined))
+                icon:  Icon(Icons.remove_red_eye_outlined,color: DarkColour,))
             : null,
     
         focusedBorder: OutlineInputBorder(

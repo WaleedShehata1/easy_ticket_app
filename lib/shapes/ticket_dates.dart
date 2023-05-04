@@ -3,7 +3,9 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../cubit/theme/theme_cubit.dart';
 
 import '../widget/components.dart';
 
@@ -16,6 +18,7 @@ class metroDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -24,7 +27,7 @@ class metroDate extends StatelessWidget {
           children: [
             Container(
               height: 90.h,
-              width: 167.w,
+              width: 165.w,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
@@ -67,7 +70,7 @@ class metroDate extends StatelessWidget {
                         blurRadius: 2.r),
                   ]),
               height: 90.h,
-              width: 77.w,
+              width: 79.w,
             ),
           ],
         ),
@@ -115,10 +118,10 @@ class metroDate extends StatelessWidget {
                             width: 30.w,
                             height: 15.h,
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                            color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1), 
                                 borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(20),
-                                        bottomRight: Radius.circular(20))
+                                        bottomLeft: Radius.circular(50),
+                                        bottomRight: Radius.circular(50))
                                     .r),
                           ),
                           Stack(
@@ -134,11 +137,11 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.grey.withOpacity(1),
+                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
                                       spreadRadius: 0.5.r,
                                       blurRadius: 0.5.r,
                                       offset: const Offset(0,
-                                          0.1), // changes position of shadow
+                                          -0.1), // changes position of shadow
                                     ),
                                   ],
                                 ),
@@ -153,7 +156,7 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.white.withOpacity(1),
+                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
                                       spreadRadius: 1.r,
                                       blurRadius: 1.r,
                                       offset: const Offset(0, -1.5),
@@ -181,19 +184,19 @@ class metroDate extends StatelessWidget {
                         children: [
                           Container(
                             width: 30.w,
-                            height: 14.h,
+                            height: 15.h,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                          color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
                               borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20))
+                                      topLeft: Radius.circular(50),
+                                      topRight: Radius.circular(50))
                                   .r,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.white.withOpacity(1),
+                          color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
                                   spreadRadius: 0,
-                                  blurRadius: 5.r,
-                                  offset: const Offset(0, 1),
+                                  blurRadius: 2.r,
+                                  offset: const Offset(0, 0),
                                 ),
                               ],
                             ),
@@ -203,7 +206,7 @@ class metroDate extends StatelessWidget {
                             children: [
                               Container(
                                 width: 28.w,
-                                height: 13.5.h,
+                                height: 14.5.h,
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.only(
                                           topLeft: Radius.circular(50),
@@ -211,17 +214,17 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.grey.withOpacity(1),
-                                      spreadRadius: 0.5.r,
-                                      blurRadius: 1.5.r,
-                                      offset: const Offset(0, -1),
+                                     color: Colors.grey.withOpacity(1),
+                                      spreadRadius:1.r,
+                                      blurRadius: 1.r,
+                                      offset: const Offset(0, 0),
                                     ),
                                   ],
                                 ),
                               ),
                               Container(
-                                width: 24.w,
-                                height: 15.h,
+                                width: 27.w,
+                                height: 15.5.h,
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.only(
                                           topLeft: Radius.circular(50),
@@ -229,10 +232,10 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.white.withOpacity(1),
+                                     color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
                                       spreadRadius: 1.r,
                                       blurRadius: 1.r,
-                                      offset: const Offset(0, 3),
+                                      offset: const Offset(0,3),
                                     ),
                                   ],
                                 ),
@@ -252,13 +255,13 @@ class metroDate extends StatelessWidget {
                   maxLines: 1,
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20.sp,
-                      height: 1,
+                      fontSize: 18.sp,
+                      height: 1.2,
                       fontWeight: FontWeight.w900),
                 ),
-                Height: 15.h,
-                Width: 30.w,
-                radius: 5.r,
+                Height: 30,
+                Width: 45,
+                radius: 10,
                 PaddingHorizontal: 0,
                 PaddingVertical: 0,
               ),

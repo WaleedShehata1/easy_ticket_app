@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -113,12 +114,12 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       ),
                     ),
                     Container(
-                      width: 50,
-                      height: 50,
+                      width: 28.w,
+                      height: 28.h,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(50),
-                          border: Border.all(width: 1.5, color: Colors.black)),
+                          border: Border.all(width: 1.w, color: Colors.grey)),
                       child: Icon(
                         Icons.edit,
                         color: Colors.black,
@@ -218,7 +219,10 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 inactiveThumbColor: PrimaryColour,
                 inactiveTrackColor: Colors.black,
                 onChanged: (value) {
-
+ setState(() {
+                    theme.changeTheme() ;
+                    firstTime.putData(key: 'isDarkMode', valu:theme.isDark );
+                  });
                 },
               ),
             ),
@@ -276,24 +280,10 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                     Child:Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
-                      width: 200,
+                      width: 200.w,
                       child: Column(mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(
-                  Icons.close,
-                //  color: Colors.white,
-                  size: 35.w,
-                ))
-          ],
-        ),
-        const SizedBox(height: 20,),
+         SizedBox(height: 10.h,),
                           Text('Do you want to Lod out ?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -304,26 +294,34 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                           const SizedBox(height: 20,),
                           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              DefaultButtom(Child: const Text('Yes',
+                              DefaultButtom(Child:  Text('Yes',
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
                                // color: Colors.black,
                                 color: Colors.white,
                                 
-                                ),), Height:30, Width: 50, PaddingHorizontal: 5, PaddingVertical: 0,OnTap: () {
-                                
+                                ),), Height:30, Width: 50, 
+                                PaddingHorizontal: 5,
+                                 PaddingVertical: 0,
+                                 OnTap: () {
+                                Navigator.pushReplacementNamed(context, Sign_In.routeName);
                               },
                             //  color: Colors.white,
                               ),
-                              DefaultButtom(Child: const Text('No',
+                              DefaultButtom(
+                                Child:  Text('No',
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
                                  // color: Colors.black,
                                 color: Colors.white,
-                                ),), Height:30, Width: 50, PaddingHorizontal: 5, PaddingVertical: 0,OnTap: () {
-                                
+                                ),), Height:30,
+                                 Width: 50, 
+                                 PaddingHorizontal: 5,
+                                  PaddingVertical: 0,
+                                  OnTap: () {
+                                Navigator.pop(context);
                               },
                               //color: Colors.white,
                               )

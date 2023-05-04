@@ -53,7 +53,6 @@ class _SignUpState extends State<SignUp> {
               listener: (context, state) {},
               builder: (context, state) {
                 return Scaffold(
-                  backgroundColor: Colors.white,
                   body: SingleChildScrollView(
                     child: Padding(
                       padding: EdgeInsets.symmetric(
@@ -75,13 +74,13 @@ class _SignUpState extends State<SignUp> {
                                 width: 150.w,
                                 child: DefaultFormField(
                                   label: 'First Name',
-                                  keyboardType: TextInputType.number,
+                                  keyboardType: TextInputType.text,
                                   validate: (String? value) {
-                          if (value!.trim().isEmpty) {
-                            return 'Please enter your First Name';
-                          }
-                          return null;
-                        },
+                                    if (value!.trim().isEmpty) {
+                                      return 'Please enter your First Name';
+                                    }
+                                    return null;
+                                  },
                                   controller: FirstNameController,
                                 ),
                               ),
@@ -89,13 +88,13 @@ class _SignUpState extends State<SignUp> {
                                 width: 150.w,
                                 child: DefaultFormField(
                                   label: 'Last Name',
-                                  keyboardType: TextInputType.number,
+                                  keyboardType: TextInputType.text,
                                   validate: (String? value) {
-                          if (value!.trim().isEmpty) {
-                            return 'Please enter your Last Name';
-                          }
-                          return null;
-                        },
+                                    if (value!.trim().isEmpty) {
+                                      return 'Please enter your Last Name';
+                                    }
+                                    return null;
+                                  },
                                   controller: LastNameController,
                                 ),
                               ),
@@ -138,9 +137,11 @@ class _SignUpState extends State<SignUp> {
                                     }
                                   },
                                   child: Container(
+
                                     height: 35.h,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
+                                      color: Colors.white,
                                         borderRadius: BorderRadius.circular(
                                           20,
                                         ).r,
@@ -151,6 +152,8 @@ class _SignUpState extends State<SignUp> {
                                       style: TextStyle(
                                           fontSize: 14.sp,
                                           letterSpacing: 2,
+                                          fontWeight: FontWeight.bold,
+                                          color: PrimaryColour,
                                           wordSpacing: 2),
                                     ),
                                   ),
@@ -159,7 +162,7 @@ class _SignUpState extends State<SignUp> {
                               DefaultDropdown(
                                 hint: Text(
                                   'Profession',
-                                  style: TextStyle(fontSize: 14.sp),
+                                  style: TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
                                 ),
                                 value: _Profession,
                                 items: _HealthStatusList.map<
@@ -186,13 +189,13 @@ class _SignUpState extends State<SignUp> {
                               size: 20.h,
                             ),
                             label: 'Phone',
-                            keyboardType: TextInputType.number,
-                            validate:  (String? value) {
-                          if (value!.trim().isEmpty) {
-                            return 'Please enter your phone';
-                          }
-                          return null;
-                        },
+                            keyboardType: TextInputType.phone,
+                            validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your phone';
+                              }
+                              return null;
+                            },
                             MaxLength: 11,
                             controller: PhoneController,
                           ),
@@ -205,7 +208,7 @@ class _SignUpState extends State<SignUp> {
                               DefaultDropdown(
                                 hint: Text(
                                   'Health Status',
-                                  style: TextStyle(fontSize: 14.sp),
+                                  style: TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
                                 ),
                                 value: _HealthStatus,
                                 onChanged: (value) {
@@ -227,7 +230,7 @@ class _SignUpState extends State<SignUp> {
                               DefaultDropdown(
                                 hint: Text(
                                   'Gender',
-                                  style: TextStyle(fontSize: 14.sp),
+                                  style: TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
                                 ),
                                 items: _HealthStatusList.map<
                                     DropdownMenuItem<String>>((String value) {
@@ -251,71 +254,83 @@ class _SignUpState extends State<SignUp> {
                           DefaultFormField(
                             prefixIcon: const Icon(Icons.email_outlined),
                             label: 'Email',
-                            keyboardType: TextInputType.number,
+                            keyboardType: TextInputType.emailAddress,
                             validate: (String? value) {
-                          if (value!.trim().isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          return null;
-                        },
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your email';
+                              }
+                              return null;
+                            },
                             controller: EmailController,
                           ),
                           SizedBox(
                             height: 20.h,
                           ),
                           DefaultFormField(
-                             isPassword: SignUpCubit.get(context).isPassword,
+                            isPassword: SignUpCubit.get(context).isPassword,
                             prefixIcon: const Icon(Icons.lock_outline),
-                            suffixIcon:SignUpCubit.get(context).suffix,
-                             suffixPressed: () {
-                          SignUpCubit.get(context).showPassword();
-                        },
+                            suffixIcon: SignUpCubit.get(context).suffix,
+                            suffixPressed: () {
+                              SignUpCubit.get(context).showPassword();
+                            },
                             label: 'Password',
                             controller: PasswordController,
                             keyboardType: TextInputType.text,
                             validate: (String? value) {
-                          if (value!.trim().isEmpty) {
-                            return 'Please enter your Password';
-                          } else if (PasswordController.text.trim() !=
-                              ConfirmPasswordController.text.trim()) {
-                            return "your Password doesn't same";
-                          }
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your Password';
+                              } else if (PasswordController.text.trim() !=
+                                  ConfirmPasswordController.text.trim()) {
+                                return "your Password doesn't same";
+                              }
 
-                          return null;
-                        },
-                           
+                              return null;
+                            },
                           ),
                           SizedBox(
                             height: 20.h,
                           ),
                           DefaultFormField(
-                             isPassword: SignUpCubit.get(context).isPassword,
-                            suffixIcon:SignUpCubit.get(context).suffix,
-                             suffixPressed: () {
-                          SignUpCubit.get(context).showPassword();
-                        },
+                            isPassword: SignUpCubit.get(context).isPassword,
+                            suffixIcon: SignUpCubit.get(context).suffix,
+                            suffixPressed: () {
+                              SignUpCubit.get(context).showPassword();
+                            },
                             label: 'Confirm Password',
                             keyboardType: TextInputType.text,
                             validate: (String? value) {
-                          if (value!.trim().isEmpty) {
-                            return 'Please enter your Confirm Password';
-                          }
-                          if (value.trim().length <= 6) {
-                            return 'No';
-                          } else if (PasswordController.text.trim() !=
-                              ConfirmPasswordController.text.trim()) {
-                            return "your confirm Password doesn't same";
-                          }
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your Confirm Password';
+                              }
+                              if (value.trim().length <= 6) {
+                                return 'No';
+                              } else if (PasswordController.text.trim() !=
+                                  ConfirmPasswordController.text.trim()) {
+                                return "your confirm Password doesn't same";
+                              }
 
-                          return null;
-                        },
+                              return null;
+                            },
                             controller: ConfirmPasswordController,
                           ),
                           SizedBox(
                             height: 35.h,
                           ),
                           DefaultButtom(
-                            OnTap: () {},
+                            OnTap: () {
+                              if (formKey.currentState!.validate()) {
+                                SignUpCubit.get(context).userSignUp(
+                                  password: PasswordController.text,
+                                  email: EmailController.text,
+                                  firstName: FirstNameController.text,
+                                  lastName: LastNameController.text,
+                                  phone: PhoneController.text,
+                                );
+
+                                Navigator.pushNamed(context, Sign_In.routeName);
+                              }
+                              return null;
+                            },
                             Child: Text(
                               'Sign Up',
                               style: TextStyle(
@@ -324,10 +339,11 @@ class _SignUpState extends State<SignUp> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            Height: 40.h,
+                            Height: 43,
                             Width: double.infinity,
                             PaddingHorizontal: 30,
                             PaddingVertical: 0,
+                            radius: 15,
                           ),
                           SizedBox(
                             height: 5.h,
@@ -347,20 +363,8 @@ class _SignUpState extends State<SignUp> {
                               ),
                               TextButton(
                                   onPressed: () {
-                                     if (formKey.currentState!.validate()) {
-                              SignUpCubit.get(context).userSignUp(
-                                password: PasswordController.text,
-                                email: EmailController.text,
-                                firstName: FirstNameController.text,
-                                lastName:LastNameController.text,
-                                phone: PhoneController.text,
-                              );
-                              
-                             Navigator.pushNamed(
+                                    Navigator.pushNamed(
                                         context, Sign_In.routeName);
-
-                            }
-                            return null;
                                   },
                                   child: Text(
                                     'Login.',

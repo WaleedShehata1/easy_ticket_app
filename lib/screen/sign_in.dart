@@ -32,7 +32,7 @@ class Sign_In extends StatelessWidget {
             listener: (context, state) {},
             builder: (context, state) {
               return Scaffold(
-                backgroundColor: Colors.white,
+               
                 body: Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -53,6 +53,7 @@ class Sign_In extends StatelessWidget {
                                   start: 10.w, end: 10.w),
                               child: Icon(
                                 Icons.account_circle,
+                                color: DarkColour,
                                 size: 30.h,
                               ),
                             ),
@@ -67,21 +68,21 @@ class Sign_In extends StatelessWidget {
                             height: 20.h,
                           ),
                           DefaultFormField(
-                             isPassword: SignInCubit.get(context).isPassword,
+                            isPassword: SignInCubit.get(context).isPassword,
                             prefixIcon: Padding(
                               padding: EdgeInsetsDirectional.only(
                                   start: 10.w, end: 10.w),
                               child: Icon(
-                                Icons.lock_outline,
+                                Icons.lock_outline,color: DarkColour,
                                 size: 30.h,
                               ),
                             ),
-                            suffixIcon:SignInCubit.get(context).suffix,
-                             suffixPressed: () {
-                          SignInCubit.get(context).showPassword();
-                        },
+                            suffixIcon: SignInCubit.get(context).suffix,
+                            suffixPressed: () {
+                              SignInCubit.get(context).showPassword();
+                            },
                             label: 'Password',
-                            keyboardType: TextInputType.number,
+                            keyboardType: TextInputType.text,
                             validate: (String? value) {
                               return null;
                             },
@@ -134,10 +135,11 @@ class Sign_In extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            Height: 40.h,
+                            Height: 43,
                             Width: double.infinity,
-                            PaddingHorizontal: 30.w,
-                            PaddingVertical: 0.h,
+                            PaddingHorizontal: 30,
+                            PaddingVertical: 0,
+                            radius: 15,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

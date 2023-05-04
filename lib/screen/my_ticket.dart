@@ -41,7 +41,7 @@ class _myTicketState extends State<myTicket> {
                 "asset/images/unsplash_nG3q_mlv8yI.png",
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 90.h,
+                height: 95.h,
               ),
               Positioned.fill(
                 child: BackdropFilter(
@@ -78,33 +78,33 @@ class _myTicketState extends State<myTicket> {
             DefaultButtom(
               Child:  Icon(
                 Icons.directions_train_sharp,
-                color: Colors.white,
+                color:selectBottom?   Colors.black:Colors.white,
                 size: 30.w,
               ),
-              Height: 25.h,
-              Width: 35.w,
-              radius: 10.r,
+              Height: 38,
+              Width: 35,
+              radius: 10,
               PaddingHorizontal: 0,
-              PaddingVertical: 10.h,
+              PaddingVertical: 10,
               OnTap: () {
                 setState(() {
                   selectBottom = false;
                 });
               },
-              color: selectBottom ? Colors.grey : PrimaryColour,
+             color: selectBottom ? Colors.white : PrimaryColour,
             ),
             DefaultButtom(
               Child: Icon(
                 Icons.directions_bus_filled_rounded,
-                color: Colors.white,
+                color:selectBottom?   Colors.white:Colors.black,
                 size: 30.w,
               ),
-                Height: 25.h,
-              Width: 35.w,
-              radius: 10.r,
+                Height: 38,
+              Width: 35,
+              radius: 10,
               PaddingHorizontal: 0,
-              PaddingVertical: 10.h,
-              color: selectBottom ? PrimaryColour : Colors.grey,
+              PaddingVertical: 10,
+             color: selectBottom ? PrimaryColour : Colors.white,
               OnTap: () {
                 setState(() {
                   selectBottom = true;

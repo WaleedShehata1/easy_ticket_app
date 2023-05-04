@@ -201,19 +201,26 @@ class _CreditCardState extends State<CreditCard> {
                     },
                     child: Container(
                       width: double.infinity,
-                      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10,),
+                      padding:  EdgeInsets.symmetric(horizontal: 15.w,vertical: 5.h,),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(15).r,
                         color: PrimaryColour
                       ),
                       child: Row(
                         children: [
                           Icon(Icons.arrow_back,size: 30.w,color: Colors.white,),
-                          SizedBox(width: 20,),
-                          Text('4224 xxxx xxxx 7777',style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.bold),),
-                          SizedBox(width: 20.w,),
-                          SizedBox(width: 80.w, child: Text('Waleed Mohamed Shehata',textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16.sp),))
+                          SizedBox(width: 10.w,),
+                          Text('4224 xxxx xxxx 7777',
+                          style: TextStyle(fontSize: 16.sp,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),),
+                          SizedBox(width: 15.w,),
+                          SizedBox(width: 80.w,
+                           child: Text('Waleed Mohamed Shehata',
+                           textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.sp),))
                         ],
                       ),
                     ),
@@ -231,7 +238,10 @@ class _CreditCardState extends State<CreditCard> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add,size: 35,),
+          backgroundColor: PrimaryColour,
+          child:  Icon(Icons.add,
+          color: Colors.white,
+          size: 35.w,),
           onPressed:() 
           {
            if(addCredit==true)
@@ -241,29 +251,33 @@ class _CreditCardState extends State<CreditCard> {
             });
             ScaffoldKey.currentState?.showBottomSheet((context) {
               return Container(
+                padding: EdgeInsetsDirectional.only(top: 5.h),
                 height: MediaQuery.of(context).size.height *0.70,
                 width: double.infinity,
-                decoration:  const BoxDecoration(
+                decoration:   BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                       offset: Offset(0, -3),
                       color: Colors.grey,
-                      blurRadius: 5
+                      blurRadius: 5.r
                     )
                   ],
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft:Radius.circular(25),
                     topRight:Radius.circular(25),
-                     ),
+                     ).r,
                      ),
                      child: Padding(
-                       padding: const EdgeInsets.all(8.0),
+                       padding: const EdgeInsets.all(8.0).w,
                        child: Center(
                          child: SingleChildScrollView(
                            child: Column(children: [
                             CreditCardWidget(
-                              textStyle:  TextStyle(fontSize: 14.sp,color: Colors.white),
+                              textStyle:  TextStyle(
+                                fontSize: 14.sp,
+                                color: PrimaryColour,
+                                fontWeight: FontWeight.bold),
                                      height: 160.h,
                                      width: 280.w,
                                      cardNumber: cardNumber,
@@ -277,7 +291,11 @@ class _CreditCardState extends State<CreditCard> {
                                      isHolderNameVisible: true,
                                      cardBgColor: Colors.black38,
                                      isSwipeGestureEnabled: true,
-                                     onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
+                                     onCreditCardWidgetChange: (
+                                      CreditCardBrand creditCardBrand
+                                      ) {
+                                        
+                                      },
                                      customCardTypeIcons: <CustomCardTypeIcon>[],
                                    ),
                                    Column(
@@ -302,11 +320,11 @@ class _CreditCardState extends State<CreditCard> {
                                            labelText: 'Number',
                                            hintText: 'XXXX XXXX XXXX XXXX',
                                             focusedErrorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ),
                                            errorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ),
                                            focusedBorder: border,
@@ -317,28 +335,28 @@ class _CreditCardState extends State<CreditCard> {
                                            focusedBorder: border,
                                            enabledBorder: border,
                                             focusedErrorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ),
                                            errorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ), 
                                           
                                            
                                            hintStyle: TextStyle(fontSize: 16.sp),
                                            labelText: 'Expired Date',
-                                           hintText: 'XX/XX',
+                                           hintText: 'mm/yy',
                                          ),
                                          cvvCodeDecoration: InputDecoration(
                          
                                            errorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ),
                                            focusedBorder: border,
                                            focusedErrorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ),
                                            enabledBorder: border,
@@ -350,11 +368,11 @@ class _CreditCardState extends State<CreditCard> {
                                          ),
                                          cardHolderDecoration: InputDecoration(
                                             focusedErrorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: const BorderSide(width: 2.0, color: Colors.red),
                                            ),
                                            errorBorder: OutlineInputBorder(
-                                             borderRadius: BorderRadius.circular(15),
+                                             borderRadius: BorderRadius.circular(15).r,
                                              borderSide: BorderSide(width: 2.0.w, color: Colors.red),
                                            ),
                                            focusedBorder: border,
@@ -380,6 +398,7 @@ class _CreditCardState extends State<CreditCard> {
                                          Width: 220,
                                          PaddingHorizontal: 15,
                                          PaddingVertical: 15,
+                                         radius: 15,
                                          OnTap: _onValidate,
                                        )
                                      ],

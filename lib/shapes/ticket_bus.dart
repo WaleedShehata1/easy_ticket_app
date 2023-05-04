@@ -27,7 +27,7 @@ class busTicket extends StatelessWidget {
           children: [
             Container(
               height: 120.h,
-              width: 151.w,
+              width: 145.w,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
@@ -47,7 +47,7 @@ class busTicket extends StatelessWidget {
                   ]),
             ),
              SizedBox(
-              width: 24.w,
+              width: 28.w,
             ),
             Container(
               decoration: BoxDecoration(
@@ -68,7 +68,7 @@ class busTicket extends StatelessWidget {
                         blurRadius: 2.r),
                   ]),
               height: 120.h,
-              width: 93.w,
+              width: 95.w,
             ),
           ],
         ),
@@ -209,7 +209,7 @@ class busTicket extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            width: 28.w,
+                            width: 29.w,
                             height: 15.h,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(
@@ -220,7 +220,7 @@ class busTicket extends StatelessWidget {
                                   color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
                                   spreadRadius: 1.r,
                                   blurRadius: 1.r,
-                                  offset: const Offset(0, -1.5),
+                                  offset: const Offset(0, -2),
                                 ),
                               ],
                             ),
@@ -288,14 +288,14 @@ class busTicket extends StatelessWidget {
                                 BoxShadow(
                                   color: theme.isDark? DarkColour.withOpacity(1): Colors.grey.withOpacity(1),
                                   spreadRadius: 1.r,
-                                  blurRadius: 0.5.r,
-                                  offset: const Offset(0, -1),
+                                  blurRadius: 1.r,
+                                  offset: const Offset(0, 0),
                                 ),
                               ],
                             ),
                           ),
                           Container(
-                            width: 28.w,
+                            width: 26.w,
                             height: 15.h,
                             decoration: BoxDecoration(
                             
@@ -305,9 +305,9 @@ class busTicket extends StatelessWidget {
                               boxShadow: [
                                 BoxShadow(
                                   color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
-                                  spreadRadius: 1.r,
-                                  blurRadius: 1.r,
-                                  offset: const Offset(0, 1.5),
+                                  spreadRadius: 0.5.r,
+                                  blurRadius: 0.5.r,
+                                  offset: const Offset(0, 3),
                                 ),
                                 
                               ],

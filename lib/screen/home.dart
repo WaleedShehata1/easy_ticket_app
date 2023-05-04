@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                   SizedBox(
+                   const SizedBox(
                     height: 30,
                   ),
                   Text(
@@ -86,11 +86,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
-                    Height: 20.h,
-                    Width: 270.w,
-                    PaddingHorizontal: 20.w,
-                    PaddingVertical: 10.h,
-                    radius: 5.r,
+                    Height: 30,
+                    Width: 270,
+                    PaddingHorizontal: 20,
+                    PaddingVertical: 10,
+                    radius: 10,
                     OnTap: () {
                     //  Navigator.pushNamed(context,Map2Screen.route);
                     },
@@ -106,33 +106,33 @@ class _HomeScreenState extends State<HomeScreen> {
             DefaultButtom(
               Child:  Icon(
                 Icons.directions_train_sharp,
-                color: Colors.white,
+                color:selectBottom?   Colors.black:Colors.white,
                 size: 30.w,
               ),
-              Height:25.h,
-              Width: 40.w,
-              radius: 10.r,
+              Height:40,
+              Width: 40,
+              radius: 10,
               PaddingHorizontal: 0,
-              PaddingVertical: 10.h,
+              PaddingVertical: 10,
               OnTap: () {
                 setState(() {
                   selectBottom = false;
                 });
               },
-              color: selectBottom ? Colors.grey : PrimaryColour,
+              color: selectBottom ? Colors.white : PrimaryColour,
             ),
             DefaultButtom(
               Child:  Icon(
                 Icons.directions_bus_filled_rounded,
-                color: Colors.white,
+                color:selectBottom?   Colors.white:Colors.black,
                 size: 30.w,
               ),
-               Height:25.h,
-              Width: 40.w,
-              radius: 10.r,
+               Height:40,
+              Width: 40,
+              radius: 10,
               PaddingHorizontal: 0,
-              PaddingVertical: 10.h,
-              color: selectBottom ? PrimaryColour : Colors.grey,
+              PaddingVertical: 10,
+              color: selectBottom ? PrimaryColour : Colors.white,
               OnTap: () {
                 setState(() {
                   selectBottom = true;
@@ -184,42 +184,45 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         DefaultButtom(
                           Child: Transform.rotate(
+                            origin: const Offset(-2, -1),
                             angle: -44.75,
                             child:  Icon(
                               Icons.confirmation_num_outlined,
-                              color: Colors.white,
-                              size: 28.w,
+                             color:switshTicket?   Colors.white:Colors.black,
+                              size: 23.w,
                             ),
                           ),
-                          Height: 20.h,
-                          Width: 40.w,
+                          Height: 28,
+                          Width: 40,
                           OnTap: () {
                             setState(() {
                               switshTicket = true;
                             });
                           },
-                          color: switshTicket ? PrimaryColour : Colors.grey,
-                          radius: 7.r,
-                          PaddingHorizontal: 5.w,
-                          PaddingVertical: 5.h,
+                          color: switshTicket ? PrimaryColour : Colors.white,
+                          radius: 7,
+                          PaddingHorizontal: 5,
+                          PaddingVertical: 5,
                         ),
                         DefaultButtom(
                           Child:  Text(
                             'Dates',
                             
-                            style: TextStyle(color: Colors.white,fontSize: 18.sp),
+                            style: TextStyle(
+                               color:switshTicket?   Colors.black:Colors.white,
+                               fontSize: 18.sp),
                           ),
-                          Height: 20.h,
-                          Width: 40.w,
-                          radius: 7.r,
-                          color: switshTicket ? Colors.grey : PrimaryColour,
+                          Height: 28,
+                          Width: 40,
+                          radius: 7,
+                          color: switshTicket ? Colors.white : PrimaryColour,
                           OnTap: () {
                             setState(() {
                               switshTicket = false;
                             });
                           },
-                          PaddingHorizontal: 5.w,
-                          PaddingVertical: 5.h,
+                          PaddingHorizontal: 5,
+                          PaddingVertical: 5,
                         ),
                       ],
                     ),
