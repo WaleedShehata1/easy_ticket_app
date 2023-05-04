@@ -16,7 +16,6 @@ import 'screen/profile.dart';
 import 'screen/sign_in.dart';
 import 'screen/splash.dart';
 import 'widget/components.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

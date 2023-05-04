@@ -24,7 +24,7 @@ class busTicketDetiles extends StatelessWidget {
           children: [
             Container(
               height: 115.h,
-              width: 148.w,
+              width: 145.w,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
@@ -57,7 +57,7 @@ class busTicketDetiles extends StatelessWidget {
 
                   ]),
               height: 115.h,
-              width: 80.w,
+              width: 78.w,
             ),
           ],
         ),
@@ -362,7 +362,7 @@ class busTicketDetiles extends StatelessWidget {
             ],
                   ),
           ),
-          width: 255.w,
+          width: 250.w,
           height: 115.h,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(10).r),

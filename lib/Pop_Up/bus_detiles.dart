@@ -24,7 +24,6 @@ class DetilesbusTicket extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Column(
-
                               children: [
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
