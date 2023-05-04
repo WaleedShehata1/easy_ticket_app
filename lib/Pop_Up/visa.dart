@@ -32,7 +32,7 @@ class _VisaScreenState extends State<VisaScreen> {
   @override
   void initState() {
     border = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15),
+      borderRadius: BorderRadius.circular(15).r,
       borderSide: BorderSide(
         color: PrimaryColour.withOpacity(0.7),
         width: 2.0,
@@ -62,15 +62,15 @@ class _VisaScreenState extends State<VisaScreen> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.close,
-                  size: 30,
+                  size: 30.w,
                 ))
           ],
         ),
           CreditCardWidget(
-            height: 160,
-            width: 280,
+            height: 160.h,
+            width: 280.w,
             cardNumber: cardNumber,
             expiryDate: expiryDate,
             cardHolderName: cardHolderName,
@@ -104,11 +104,11 @@ class _VisaScreenState extends State<VisaScreen> {
                   labelText: 'Number',
                   hintText: 'XXXX XXXX XXXX XXXX',
                    focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   focusedBorder: border,
@@ -119,11 +119,11 @@ class _VisaScreenState extends State<VisaScreen> {
                   focusedBorder: border,
                   enabledBorder: border,
                    focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   labelText: 'Expired Date',
@@ -132,12 +132,12 @@ class _VisaScreenState extends State<VisaScreen> {
                 cvvCodeDecoration: InputDecoration(
 
                   errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   focusedBorder: border,
                   focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   enabledBorder: border,
@@ -146,11 +146,11 @@ class _VisaScreenState extends State<VisaScreen> {
                 ),
                 cardHolderDecoration: InputDecoration(
                    focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(15).r,
                     borderSide: BorderSide(width: 2.0, color: Colors.red),
                   ),
                   focusedBorder: border,
@@ -160,12 +160,12 @@ class _VisaScreenState extends State<VisaScreen> {
                 onCreditCardModelChange: onCreditCardModelChange,
               ),
               DefaultButtom(
-                Child: const Text(
+                Child: Text(
                   'Validate',
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'halter',
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     package: 'flutter_credit_card',
                   ),
                 ),

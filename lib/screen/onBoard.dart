@@ -12,10 +12,7 @@ class onBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),
+     
       body: Container(
         color: Colors.white,
         child: Center(
@@ -24,9 +21,10 @@ class onBoard extends StatelessWidget {
             children: [
               Column(
                 children: [
+SizedBox(height: 50.h,),
                   getStartShape,
-                  const SizedBox(
-                    height:50,
+                   SizedBox(
+                    height:50.h,
                   ),
                    Text(
                     'Welcome to Easy Ticket',
@@ -82,7 +80,6 @@ class onBoard extends StatelessWidget {
                         ),
                       ), */
                DefaultButtom(
-               // radius: 20,
                 OnTap: () {
                  firstTime.putData(key: 'firstTime', valu: true).then(
                                       (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
@@ -113,7 +110,9 @@ class onBoard extends StatelessWidget {
                 Width: double.infinity,
                 PaddingHorizontal: 30,
                 PaddingVertical: 30,
-              ), /* 
+              ),
+              SizedBox(height: 10.h,),
+               /* 
                InkWell(
 
                 splashColor: Colors.blue,

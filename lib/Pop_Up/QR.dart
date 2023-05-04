@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GetQR extends StatelessWidget {
   const GetQR({super.key});
@@ -17,15 +18,15 @@ class GetQR extends StatelessWidget {
                                           onPressed: () {
                                             Navigator.pop(context);
                                           },
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.close_outlined,
-                                            size: 35,
+                                            size: 35.w,
                                           ))
                                     ],
                                   ),
-                                  const Icon(
+                                  Icon(
                                     Icons.qr_code_2_outlined,
-                                    size: 200,
+                                    size: 200.w,
                                   ),
                                 ],
                               );

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:easy_ticket_app/widget/components.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../shapes/ticket_bus_detiles.dart';
 import 'buy_bus_ticket.dart';
@@ -32,9 +33,9 @@ class DetilesbusTicket extends StatelessWidget {
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
-                                        icon: const Icon(
+                                        icon:  Icon(
                                           Icons.close_outlined,
-                                          size: 35,
+                                          size: 35.w,
                                         ))
                                   ],
                                 ),
@@ -44,7 +45,7 @@ class DetilesbusTicket extends StatelessWidget {
                                     itemCount: 10,
                                     itemBuilder: (ctx, index) {
                                       return Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 10),
+                                        padding:  EdgeInsets.symmetric(vertical: 10.h),
                                         child: busTicketDetiles(
                                                       ontap: () {
                                                         Navigator.pop(context);
@@ -66,13 +67,13 @@ class DetilesbusTicket extends StatelessWidget {
                                     },
                                     separatorBuilder:
                                         (BuildContext context, int index) {
-                                      return const SizedBox(
-                                        height: 5,
+                                      return SizedBox(
+                                        height: 5.h,
                                       );
                                     },
                                   ),
                                 ),
-                                const SizedBox(height: 5,),
+                                 SizedBox(height: 5.h,),
                               ],
                             );
   }

@@ -126,25 +126,7 @@ class _myTicketState extends State<myTicket> {
                             context: context,
                             builder: (context) {
                               return DefaultDialog(
-                                  Child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          icon: Icon(
-                                            Icons.close_outlined,
-                                            size: 35.w,
-                                          ))
-                                    ],
-                                  ),
-                                  const TicketModificationScreen(),
-                                ],
-                              ));
+                                  Child: const TicketModificationScreen());
                             });
                       },
                       onTapQR: () {

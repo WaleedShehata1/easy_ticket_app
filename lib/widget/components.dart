@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, must_be_immutable, camel_case_types, unnecessary_null_in_if_null_operators, duplicate_ignore, deprecated_member_use, prefer_typing_uninitialized_variables
 
+import 'package:easy_ticket_app/Pop_Up/ticket_modification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,6 +9,22 @@ Color DarkColour = const Color(0xff212121);
 Color textColour = const Color(0xff3E548D);
 
 class firstTime {
+  static SharedPreferences? sharedPreferences;
+
+  static init() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+  }
+
+  static Future<bool?> putData(
+      {required String key, required bool valu}) async {
+    return await sharedPreferences?.setBool(key, valu);
+  }
+
+  static bool? getData({required String key}) {
+    return sharedPreferences?.getBool(key);
+  }
+}
+class darkMode {
   static SharedPreferences? sharedPreferences;
 
   static init() async {
@@ -84,14 +101,14 @@ class DefaultFormField extends StatelessWidget {
                 onPressed: () {
                   suffixPressed!();
                 },
-                icon:  Icon(Icons.remove_red_eye_outlined,color: DarkColour,))
+                icon:  Icon(Icons.remove_red_eye_outlined,))
             : null,
     
         focusedBorder: OutlineInputBorder(
           borderSide:  const BorderSide(color: Colors.blue, width: 2),
           borderRadius: BorderRadius.circular(
-            radius??20.r,
-          ),
+            radius??20,
+          ).r,
         ),
         fillColor:Colors.white,
         filled: true,

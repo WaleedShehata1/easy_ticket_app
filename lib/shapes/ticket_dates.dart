@@ -39,12 +39,12 @@ class metroDate extends StatelessWidget {
                         offset: const Offset(-0.5, 3),
                         color: Colors.grey.withOpacity(1),
                         spreadRadius: 0,
-                        blurRadius: 2),
+                        blurRadius: 2.r),
                     BoxShadow(
                         offset: const Offset(0, -0.1),
                         color: Colors.grey.withOpacity(1),
                         spreadRadius: 0,
-                        blurRadius: 2),
+                        blurRadius: 2.r),
                   ]),
             ),
             SizedBox(
@@ -55,7 +55,7 @@ class metroDate extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                           topRight: Radius.circular(10),
                           bottomRight: Radius.circular(10))
-                      .w,
+                      .r,
                   color: Colors.grey.withOpacity(1),
                   boxShadow: [
                     BoxShadow(

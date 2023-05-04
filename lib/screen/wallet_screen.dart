@@ -1,5 +1,6 @@
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WalletProfile extends StatelessWidget {
   var walletController = TextEditingController();
@@ -18,17 +19,17 @@ class WalletProfile extends StatelessWidget {
         body: Column(children: [
           Container(
             width: double.infinity,
-            height: 80,
+            height: 80.h,
             decoration: BoxDecoration(
               color: PrimaryColour,
               borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15)),
+                  bottomRight: Radius.circular(15)).r,
             ),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 25,
+               SizedBox(
+                  height: 25.h,
                 ),
                 Row(
                   children: [
@@ -36,20 +37,20 @@ class WalletProfile extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.arrow_back_ios_new,
                         color: Colors.white,
-                        size: 35,
+                        size: 35.w,
                       ),
                     ),
-                    const SizedBox(
-                      width: 100,
+                    SizedBox(
+                      width: 100.w,
                     ),
-                    const Text(
+                    Text(
                       'Wallet',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 28,
+                          fontSize: 28.sp,
                           fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -57,71 +58,61 @@ class WalletProfile extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 50,
+           SizedBox(
+            height: 50.h,
           ),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding:  EdgeInsets.symmetric(horizontal: 25.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       padding:
-                          const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                           EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10).r,
                         color: const Color.fromARGB(255, 231, 230, 230),
                       ),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
+                          children: [
                             Text(
                               '70 LE',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
+                                
+                                  fontWeight: FontWeight.bold, fontSize: 20.sp),
                             ),
                             Text(
                               'رصيد',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
+                                  fontWeight: FontWeight.bold, fontSize: 20.sp),
                             )
                           ]),
                     ),
-                    const SizedBox(
-                      height: 50,
+                     SizedBox(
+                      height: 50.h,
                     ),
                     Container(
-                      padding: const EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15).w,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(15).r,
                         color: const Color.fromARGB(255, 231, 230, 230),
                       ),
                       child: Form(
                         key: formKey,
                         child: Column(
                           children: [
-                            const Text(
+                             Text(
                               'تفاصيل الشحن',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w900, fontSize: 22),
+                                  fontWeight: FontWeight.w900, fontSize: 22.sp),
                             ),
-                            const SizedBox(
-                              height: 20,
+                             SizedBox(
+                              height: 20.h,
                             ),
-                            /*  const Padding(
-                              padding: EdgeInsetsDirectional.only(end: 10),
-                              child: Align
-                              (alignment: Alignment.centerRight,
-                               child  :Text(
-                                  'اختر وسيلة الشحن',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 18,
-                                      color: Colors.black),
-                                ),),
-                            ), */
+                        
                             DefaultDropdown(
                               /*  items: const [
                                 DropdownMenuItem(child: Text(
@@ -135,22 +126,22 @@ class WalletProfile extends StatelessWidget {
                               ], */
                               colorBorder: Colors.white,
                               onChanged: (p0) {},
-                              radius: 15,
-                              hint: const Text(
+                              radius: 15.r,
+                              hint:  Text(
                                 'اختر',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w800,
-                                    fontSize: 18,
+                                    fontSize: 18.sp,
                                     color: Colors.black),
                               ),
-                              height: 50,
+                              height: 50.h,
                               width: double.infinity,
                             ),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: 10.h,
                             ),
                             SizedBox(
-                              height: 50,
+                              height: 50.h,
                               child: DefaultFormField(
                                 colorBorder: Colors.white,
                                 radius: 15,
@@ -159,15 +150,15 @@ class WalletProfile extends StatelessWidget {
                                 validate: (p0) {},
                               ),
                             ),
-                            const SizedBox(
-                              height: 30,
+                             SizedBox(
+                              height: 30.h,
                             ),
                             DefaultButtom(
-                              Child: const Text(
+                              Child:  Text(
                                 'تأكيد',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w900,
-                                    fontSize: 22,
+                                    fontSize: 22.sp,
                                     color: Colors.white),
                               ),
                               Height: 40,
@@ -190,22 +181,22 @@ class WalletProfile extends StatelessWidget {
                                                     onPressed: () {
                                                       Navigator.pop(context);
                                                     },
-                                                    icon: const Icon(
+                                                    icon:  Icon(
                                                       Icons.close,
-                                                      size: 30,
+                                                      size: 30.w,
                                                     ))
                                               ],
                                             ),
                                             Text('ادخل الرقم السري',
                                                 style: TextStyle(
-                                                  fontSize: 24,
+                                                  fontSize: 24.sp,
                                                   fontWeight: FontWeight.w800,
                                                 )),
                                             SizedBox(
-                                              height: 40,
+                                              height: 40.h,
                                             ),
                                             SizedBox(
-                                              height: 40,
+                                              height: 40.h,
                                               child: DefaultFormField(
                                                 radius: 15,
                                                 controller: PasswordController,
@@ -214,16 +205,16 @@ class WalletProfile extends StatelessWidget {
                                               ),
                                             ),
                                             SizedBox(
-                                              height: 30,
+                                              height: 30.h,
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.symmetric(
-                                                  horizontal: 40),
+                                              padding:  EdgeInsets.symmetric(
+                                                  horizontal: 40.w),
                                               child: DefaultButtom(
                                                 Child: Text(
                                                   'تاكيد',
                                                   style: TextStyle(
-                                                      fontSize: 20,
+                                                      fontSize: 20.sp,
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -257,11 +248,11 @@ class WalletProfile extends StatelessWidget {
                                                                               context);
                                                                         },
                                                                         icon:
-                                                                            const Icon(
+                                                                            Icon(
                                                                           Icons
                                                                               .close,
                                                                           size:
-                                                                              30,
+                                                                              30.w,
                                                                         ))
                                                                   ],
                                                                 ),
@@ -272,7 +263,8 @@ class WalletProfile extends StatelessWidget {
                                                                           .center,
                                                                   style: TextStyle(
                                                                       fontSize:
-                                                                          30,
+                                                                          30.w,
+                                                                          color:Colors.black,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold),

@@ -3,6 +3,7 @@
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   final TextEditingController oldPasswordController = TextEditingController();
@@ -13,7 +14,7 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5).w,
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -25,20 +26,20 @@ class ChangePasswordScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(
+                    icon:  Icon(
                       Icons.close,
-                      size: 30,
+                      size: 30.w,
                     ))
               ],
             ),
-            const Text(
+            Text(
               'Change Password',
               style: TextStyle(
-                fontSize: 26.0,
+                fontSize: 26.0.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 35.0),
+            SizedBox(height: 35.0.h),
             DefaultFormField(
               controller: oldPasswordController,
               label: 'Current Password',
@@ -46,7 +47,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 return null;
               },
             ),
-            const SizedBox(height: 15.0),
+             SizedBox(height: 15.0.h),
             DefaultFormField(
               controller: oldPasswordController,
               label: 'New Password',
@@ -54,7 +55,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 return null;
               },
             ),
-            const SizedBox(height: 15.0),
+             SizedBox(height: 15.0.h),
             DefaultFormField(
               controller: oldPasswordController,
               label: 'Confirm Password',
@@ -62,12 +63,12 @@ class ChangePasswordScreen extends StatelessWidget {
                 return null;
               },
             ),
-            const SizedBox(height: 35.0),
+             SizedBox(height: 35.0.h),
             DefaultButtom(
-              Child: const Text('Save',
+              Child:  Text('Save',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 22.0,
+                      fontSize: 22.0.sp,
                       fontWeight: FontWeight.bold)),
               Height: 35,
               Width: 150,

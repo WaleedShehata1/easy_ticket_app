@@ -53,7 +53,7 @@ class Sign_In extends StatelessWidget {
                                   start: 10.w, end: 10.w),
                               child: Icon(
                                 Icons.account_circle,
-                                color: DarkColour,
+                               
                                 size: 30.h,
                               ),
                             ),
@@ -73,7 +73,7 @@ class Sign_In extends StatelessWidget {
                               padding: EdgeInsetsDirectional.only(
                                   start: 10.w, end: 10.w),
                               child: Icon(
-                                Icons.lock_outline,color: DarkColour,
+                                Icons.lock_outline,
                                 size: 30.h,
                               ),
                             ),
@@ -152,6 +152,7 @@ class Sign_In extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 12.sp,
                                   fontWeight: FontWeight.w500,
+                                  color: Theme.of(context).textTheme.subtitle2!.color!,
                                 ),
                               ),
                               TextButton(

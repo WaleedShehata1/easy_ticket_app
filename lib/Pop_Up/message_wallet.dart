@@ -1,5 +1,6 @@
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'QR.dart';
 
@@ -22,28 +23,28 @@ class MessageWalletScreen extends StatelessWidget {
                         return DefaultDialog(Child: const GetQR());
                       });
                 },
-                icon: const Icon(
+                icon:  Icon(
                   Icons.close,
-                  size: 35,
+                  size: 35.w,
                 ))
           ],
         ),
-        const Icon(
+         Icon(
           Icons.done,
-          size: 70,
+          size: 70.w,
           color: Colors.black,
         ),
-        const SizedBox(
-          height: 30,
+         SizedBox(
+          height: 30.h,
           width: double.infinity,
         ),
-        const Text(
+        Text(
           'Done',
           style: TextStyle(
-              color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold),
+              color: Colors.black, fontSize: 32.sp, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: 20.h,
         )
       ],
     );

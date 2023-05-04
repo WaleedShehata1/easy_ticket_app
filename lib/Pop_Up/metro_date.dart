@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../shapes/ticket_metro_date.dart';
 
@@ -16,9 +17,9 @@ class MetroDateTicket extends StatelessWidget {
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.close_outlined,
-                                          size: 35,
+                                          size: 35.w,
                                         ))
                                   ],
                                 ),
@@ -30,8 +31,8 @@ class MetroDateTicket extends StatelessWidget {
                                     },
                                     separatorBuilder:
                                         (BuildContext context, int index) {
-                                      return const SizedBox(
-                                        height: 10,
+                                      return  SizedBox(
+                                        height: 10.h,
                                       );
                                     },
                                   ),

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, must_be_immutable, sized_box_for_whitespace
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/components.dart';
 
@@ -26,26 +27,29 @@ String?  Function(String?) Validate;
             children: [
               IconButton(onPressed: (){
                 Navigator.pop(context);
-              }, icon:  const Icon(Icons.close_outlined,size: 35,))
+              }, icon:  Icon(Icons.close_outlined,size: 35.w,))
             ],
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 10.h,
           ),
-         const Text('Enter',textAlign: TextAlign.center,style: TextStyle(fontSize: 24,fontWeight: FontWeight.w900),),
-          const Text('the national number to search for your account.',textAlign: TextAlign.center,style: TextStyle(fontSize: 24,fontWeight: FontWeight.w900),),
-          const SizedBox(height: 30,),
+          Text('Enter',textAlign: TextAlign.center,style: TextStyle(fontSize: 24.sp,
+          fontWeight: FontWeight.w900),),
+           Text('the national number to search for your account.',
+           textAlign: TextAlign.center,style: TextStyle(fontSize: 24.sp,
+           fontWeight: FontWeight.w900),),
+           SizedBox(height: 30.h,),
           DefaultFormField(
             controller:userId ,
             label:null,
             validate:Validate ,MaxLength: 14,keyboardType: TextInputType.number,
           ),
-          const SizedBox(height: 40,),
-          DefaultButtom(Child: const Text("Searsh",style: TextStyle(fontSize: 24),),
+          SizedBox(height: 40.h,),
+          DefaultButtom(Child:  Text("Searsh",style: TextStyle(fontSize: 24.sp),),
            Height: 50, Width: 200,
             PaddingHorizontal: 0, PaddingVertical:0,
             OnTap:onTap),
-            const SizedBox(height: 20,)
+            SizedBox(height: 20.h,)
         ],
        ),
     );

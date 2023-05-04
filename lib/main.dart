@@ -1,8 +1,7 @@
 
-import 'package:bloc/bloc.dart';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
+import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'bloc_observer.dart';
 import 'screen/bottom_bar.dart';
 import 'screen/credit_card.dart';
@@ -27,6 +26,7 @@ void main()
   async {
 WidgetsFlutterBinding.ensureInitialized();
  await firstTime.init();
+ await darkMode.init();
   runApp(
     MultiBlocProvider(
       providers: [BlocProvider(create:(coontext) => ThemeCubit(),)],
@@ -51,7 +51,8 @@ class MyApp extends StatelessWidget {
       {
         return MaterialApp(
         debugShowCheckedModeBanner: false,
-      theme: theme.isDark? ThemeData.dark():ThemeData.light(),
+      theme: theme.isDark? ThemeClass.darkTheme:ThemeData.light(),
+      
         home: child,
       
           routes: {

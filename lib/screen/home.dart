@@ -151,20 +151,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            return DefaultDialog(
+                            return DefaultDialog(paddingHorizontal: 15,
                                 Child: DetilesbusTicket(
-                              numberTicket: _numberTicket,
-                              ontapAdd: () {
+                                                            numberTicket: _numberTicket,
+                                                            ontapAdd: () {
                                 setState(() {
                                   _numberTicket++;
                                 });
-                              },
-                              ontapMinus: () {
+                                                            },
+                                                            ontapMinus: () {
                                 setState(() {
                                   _numberTicket = _numberTicket - 1;
                                 });
-                              },
-                            ));
+                                                            },
+                                                          ));
                           },
                         );
                       },

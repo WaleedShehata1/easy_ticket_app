@@ -134,8 +134,8 @@ class NotificationsScreen extends StatelessWidget {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
-                              return const Dialog(
-                                child: TicketModificationScreen(),
+                              return  DefaultDialog(
+                                Child: TicketModificationScreen(),
                               );
                             },
                           );

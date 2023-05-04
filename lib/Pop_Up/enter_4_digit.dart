@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names, must_be_immutable, sized_box_for_whitespace
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/components.dart';
 
@@ -27,22 +28,22 @@ class Enter4Digit extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: const Icon(
+                  icon:  Icon(
                     Icons.close_outlined,
-                    size: 35,
+                    size: 35.w,
                   ))
             ],
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 10.h,
           ),
-          const Text(
+          Text(
             'Enter the 4-digit code',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
+            style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w900),
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: 30.h,
           ),
           DefaultFormField(
             controller: Digit,
@@ -51,13 +52,13 @@ class Enter4Digit extends StatelessWidget {
             MaxLength: 4,
             keyboardType: TextInputType.number,
           ),
-          const SizedBox(
-            height: 40,
+           SizedBox(
+            height: 40.h,
           ),
           DefaultButtom(
-              Child: const Text(
+              Child:  Text(
                 "Enter",
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 24.sp),
               ),
               Height: 50,
               Width: 150,
@@ -65,8 +66,8 @@ class Enter4Digit extends StatelessWidget {
               PaddingVertical: 0,
               OnTap: onTap,
               radius: 15,),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: 20.h,
           )
         ],
       ),

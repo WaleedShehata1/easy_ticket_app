@@ -3,6 +3,7 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/components.dart';
 
@@ -14,7 +15,7 @@ class dateMetroTicket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10,bottom: 10),
+      padding:  EdgeInsets.only(top: 10.h,bottom: 10.h),
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -22,58 +23,58 @@ class dateMetroTicket extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 120,
-                width: 170,
+                height: 120.h,
+                width: 170.w,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10)),
+                        bottomLeft: Radius.circular(10)).r,
                     color: Colors.grey.withOpacity(1),
                     boxShadow: [
                       BoxShadow(
                           offset: const Offset(-0.5, 3),
                           color: Colors.grey.withOpacity(1),
                           spreadRadius: 0,
-                          blurRadius: 2),
+                          blurRadius: 2.r),
                       BoxShadow(
                           offset: const Offset(0, -0.1),
                           color: Colors.grey.withOpacity(1),
                           spreadRadius: 0,
-                          blurRadius: 2),
+                          blurRadius: 2.r),
                     ]),
               ),
-              const SizedBox(
-                width: 26,
+               SizedBox(
+                width: 26.w,
               ),
               Container(
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                         topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10)),
+                        bottomRight: Radius.circular(10)).r,
                     color: Colors.grey.withOpacity(1),
                     boxShadow: [
                       BoxShadow(
                           offset: const Offset(0.5, 3),
                           color: Colors.grey.withOpacity(1),
                           spreadRadius: 0,
-                          blurRadius: 2),
+                          blurRadius: 2.r),
                       BoxShadow(
                           offset: const Offset(0, -0.1),
                           color: Colors.grey.withOpacity(1),
                           spreadRadius: 0,
-                          blurRadius: 2),
+                          blurRadius: 2.r),
                     ]),
-                height: 120,
-                width: 77,
+                height: 120.h,
+                width: 59.w,
               ),
             ],
           ),
           Container(
-            width: 270,
-            height: 120,
+            width: 257.w,
+            height: 120.h,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10).r,
             ),
             child: Row(
               children: [
@@ -82,14 +83,14 @@ class dateMetroTicket extends StatelessWidget {
                   children: [
                     Container(
                       padding:
-                          const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                      height: 120,
-                      width: 167,
-                      decoration: const BoxDecoration(
+                           EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.h),
+                      height: 120.h,
+                      width: 167.w,
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10),
-                        ),
+                        ).r,
                       ),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,91 +98,97 @@ class dateMetroTicket extends StatelessWidget {
                             Row(
                               children: [
                                 Container(
-                                  margin: const EdgeInsets.only(right: 10),
-                                  width: 35,
-                                  height: 25,
+                                  margin:  EdgeInsets.only(right: 10).w,
+                                  width: 35.w,
+                                  height: 25.h,
                                   decoration: BoxDecoration(
                                     color: PrimaryColour,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10).r,
                                   ),
-                                  child: const Icon(
+                                  child:  Icon(
                                     Icons.near_me_outlined,color: Colors.white,
+                                    size: 20.w,
                                   ),
                                 ),
-                                const Text(
+                                Text(
                                   'Elshuhada',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                      fontSize: 16.sp),
                                 )
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 17),
+                              padding:  EdgeInsets.only(left: 17.w),
                               child: DottedBorder(
                                   padding: const EdgeInsets.all(0),
-                                  dashPattern: const [2, 1],
-                                  child: const SizedBox(
-                                    height: 10,
+                                  dashPattern: const [2, 2],
+                                  child:  SizedBox(
+                                    height: 10.h,
                                   )),
                             ),
                             Row(
                               children: [
                                 Container(
                                   alignment: Alignment.center,
-                                  margin: const EdgeInsets.only(right: 10),
-                                  width: 35,
-                                  height: 25,
+                                  margin: EdgeInsets.only(right: 10.w),
+                                  width: 35.w,
+                                  height: 25.h,
                                   decoration: BoxDecoration(
                                     color: PrimaryColour,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10).r,
                                   ),
-                                  child: const Text('Now',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
+                                  child:  Text('Now',style: TextStyle(color: Colors.white,
+                                  fontWeight:FontWeight.bold,
+                                  fontSize: 16.sp),),
                                 ),
                                 Text(
                                   'girls school',
                                   style: TextStyle(
                                     color: PrimaryColour,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                      fontSize: 16.sp),
                                 )
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 17),
+                              padding:  EdgeInsets.only(left: 17.w),
                               child: DottedBorder(
                                   padding: const EdgeInsets.all(0),
-                                  dashPattern: const [2, 1],
-                                  child: const SizedBox(
-                                    height: 10,
+                                  dashPattern: const [2, 2],
+                                  child: SizedBox(
+                                    height: 10.h,
                                   )),
                             ),
                             Row(
                               children: [
                                 Container(
-                                  margin: const EdgeInsets.only(right: 10),
-                                  width: 35,
-                                  height: 25,
+                                  margin: EdgeInsets.only(right: 10.w),
+                                  width: 35.w,
+                                  height: 25.h,
                                   decoration: BoxDecoration(
                                     color: PrimaryColour,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10).r,
                                   ),
-                                  child: const Icon(
+                                  child:  Icon(
                           Icons.location_pin,
                           color: Colors.white,
+                          size: 20.w,
                         ),
                                 ),
-                                const Text(
+                                 Text(
                                   'Adly Mansour',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                      fontSize: 16.sp),
                                 )
                               ],
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 17),
-                              child: Text('waiting : one minute',style: TextStyle(color: Colors.black54,fontWeight: FontWeight.bold,fontSize: 12),),
+                             Padding(
+                              padding: EdgeInsets.only(left: 17.w),
+                              child: Text('waiting : one minute',
+                              style: TextStyle(color: Colors.black54,
+                              fontWeight: FontWeight.bold,fontSize: 12.sp),),
                             )
                           ]),
                     ),
@@ -194,29 +201,29 @@ class dateMetroTicket extends StatelessWidget {
                               alignment: Alignment.topCenter,
                               children: [
                                 Container(
-                                  width: 30,
-                                  height: 15,
-                                  decoration: const BoxDecoration(
+                                  width: 30.w,
+                                  height: 15.h,
+                                  decoration:  BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(20),
-                                          bottomRight: Radius.circular(20))),
+                                          bottomRight: Radius.circular(20)).r),
                                 ),
                                 Stack(
                                   alignment: Alignment.center,
                                   children: [
                                     Container(
-                                      width: 28,
-                                      height: 14.5,
+                                      width: 28.w,
+                                      height: 14.5.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
                                             bottomLeft: Radius.circular(50),
-                                            bottomRight: Radius.circular(50)),
+                                            bottomRight: Radius.circular(50)).r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.grey.withOpacity(1),
                                             spreadRadius: 0,
-                                            blurRadius: 0.5,
+                                            blurRadius: 0.5.r,
                                             offset: const Offset(0,
                                                 -0.1), // changes position of shadow
                                           ),
@@ -224,17 +231,17 @@ class dateMetroTicket extends StatelessWidget {
                                       ),
                                     ),
                                     Container(
-                                      width: 28,
-                                      height: 15,
+                                      width: 28.w,
+                                      height: 15.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
                                             bottomLeft: Radius.circular(50),
-                                            bottomRight: Radius.circular(50)),
+                                            bottomRight: Radius.circular(50)).r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.white.withOpacity(1),
-                                            spreadRadius: 1,
-                                            blurRadius: 1,
+                                            spreadRadius: 1.r,
+                                            blurRadius: 1.r,
                                             offset: const Offset(0, -1.5),
                                           ),
                                         ],
@@ -250,8 +257,8 @@ class dateMetroTicket extends StatelessWidget {
                           color: Colors.grey,
                             padding: const EdgeInsets.all(0),
                             dashPattern: const [8, 9],
-                            child: const SizedBox(
-                              height: 90,
+                            child:  SizedBox(
+                              height: 90.h,
                             )),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -260,18 +267,18 @@ class dateMetroTicket extends StatelessWidget {
                               alignment: Alignment.bottomCenter,
                               children: [
                                 Container(
-                                  width: 30,
-                                  height: 14,
+                                  width: 30.w,
+                                  height: 14.h,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20)),
+                                        topRight: Radius.circular(20)).r,
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.white.withOpacity(1),
                                         spreadRadius: 0,
-                                        blurRadius: 5,
+                                        blurRadius: 5.r,
                                         offset: const Offset(0, 1),
                                       ),
                                     ],
@@ -281,34 +288,34 @@ class dateMetroTicket extends StatelessWidget {
                                   alignment: Alignment.bottomCenter,
                                   children: [
                                     Container(
-                                      width: 28,
-                                      height: 13.5,
+                                      width: 28.w,
+                                      height: 13.5.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(50),
-                                            topRight: Radius.circular(50)),
+                                            topRight: Radius.circular(50)).r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.grey.withOpacity(1),
-                                            spreadRadius: 1.5,
-                                            blurRadius: 1,
+                                            spreadRadius: 1.5.r,
+                                            blurRadius: 1.r,
                                             offset: const Offset(0, -1),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Container(
-                                      width: 24,
-                                      height: 15,
+                                      width: 24.w,
+                                      height: 15.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(50),
-                                            topRight: Radius.circular(50)),
+                                            topRight: Radius.circular(50)).r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.white.withOpacity(1),
-                                            spreadRadius: 1,
-                                            blurRadius: 1,
+                                            spreadRadius: 1.r,
+                                            blurRadius: 1.r,
                                             offset: const Offset(0, 2),
                                           ),
                                         ],
@@ -323,23 +330,27 @@ class dateMetroTicket extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      margin: const EdgeInsets.only(left: 3),
-                      height: 125,
-                      width: 70,
+                      margin:  EdgeInsets.only(left: 2.w),
+                      height: 125.h,
+                      width: 58.w,
                       decoration: BoxDecoration(
                           color: PrimaryColour,
                           borderRadius: const BorderRadius.only(
                               topRight: Radius.circular(10),
-                              bottomRight: Radius.circular(10))),
+                              bottomRight: Radius.circular(10)).r),
                               child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  SizedBox(height: 10,),
+                                children:  [
+                                  SizedBox(height: 10.h,),
                                   Text('Metro',
-                                  style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20) ,),
-                                  Text('1258',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20) ,),
-                                  SizedBox(height: 25,),
-                                  Text('9:55pm',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16) ,),
-                                 SizedBox(height:15,),
+                                  style:TextStyle(color: Colors.white,
+                                  fontWeight: FontWeight.bold,fontSize: 20.sp) ,),
+                                   SizedBox(height: 10.h,),
+                                  Text('1258',style:TextStyle(color: Colors.white,
+                                  fontWeight: FontWeight.bold,fontSize: 18.sp) ,),
+                                  SizedBox(height: 15.h,),
+                                  Text('9:55pm',style:TextStyle(color: Colors.white,
+                                  fontWeight: FontWeight.bold,fontSize: 16.sp) ,),
+                                 SizedBox(height:15.h,),
                                 ]
                                 ),
                     )

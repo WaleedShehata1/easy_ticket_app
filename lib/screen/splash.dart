@@ -42,7 +42,6 @@ class _splashState extends State<splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
 body: Column(
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
@@ -63,6 +62,7 @@ body: Column(
             fontFamily: 'Jomhuria',
             fontSize: 45.sp,
             fontWeight: FontWeight.w800,
+            color: Theme.of(context).textTheme.subtitle2!.color!,
             ),
             ),
              Container(

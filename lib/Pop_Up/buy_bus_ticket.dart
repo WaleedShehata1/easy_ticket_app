@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:easy_ticket_app/Pop_Up/bus_detiles.dart';
 import 'package:easy_ticket_app/widget/components.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../screen/payment_method.dart';
 
@@ -46,17 +47,17 @@ class BuyBusTicket extends StatelessWidget {
                                   ));
                             });
                       },
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.arrow_back,
-                        size: 35,
+                        size: 35.w,
                       )),
                   IconButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.close_outlined,
-                        size: 35,
+                        size: 35.w,
                       ))
                 ],
               )
@@ -67,22 +68,22 @@ class BuyBusTicket extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.close_outlined,
-                        size: 35,
+                        size: 35.w,
                       ))
                 ],
               ),
         Padding(
-          padding: const EdgeInsets.only(left: 20,top: 10),
+          padding:  EdgeInsets.only(left: 20.w,top: 10.h),
           child: Text(
             isBusTicket ? 'Bus 12' : 'Ticket 1',
             style: TextStyle(
-                color: textColour, fontSize: 24, fontWeight: FontWeight.bold),
+                color: textColour, fontSize: 24.sp, fontWeight: FontWeight.bold),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
+          padding:  EdgeInsets.symmetric(vertical: 25.h, horizontal: 30.w),
           child: isBusTicket
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,94 +92,98 @@ class BuyBusTicket extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          width: 45,
-                          height: 40,
+                          width: 45.w,
+                          height: 40.h,
                           decoration: BoxDecoration(
                               color: PrimaryColour,
-                              borderRadius: BorderRadius.circular(13)),
-                          child: const Icon(
+                              borderRadius: BorderRadius.circular(13).r),
+                          child:  Icon(
                             Icons.near_me_outlined,
                             color: Colors.white,
+                            size: 25.w,
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
+                         SizedBox(
+                          width: 10.w,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children:  [
                             Text(
                               "Cairo",
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 18,fontWeight: FontWeight.bold),
+                                  TextStyle(color: Colors.black, fontSize: 18.sp,fontWeight: FontWeight.bold),
                             ),
                             SizedBox(
-                              height: 2,
+                              height: 2.h,
                             ),
                             Text(
                               "15-Dec-2022",
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 16,fontWeight: FontWeight.bold),
+                                  TextStyle(color: Colors.grey, fontSize: 16.sp,fontWeight: FontWeight.bold),
                             )
                           ],
                         )
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          width: 45,
-                          height: 40,
+                          width: 45.w,
+                          height: 40.h,
                           decoration: BoxDecoration(
                               color: PrimaryColour,
-                              borderRadius: BorderRadius.circular(13)),
-                          child: const Text('Now',
-                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                              borderRadius: BorderRadius.circular(13).r),
+                          child:  Text('Now',
+                          style: TextStyle(color: Colors.white,
+                          fontWeight: FontWeight.bold,fontSize: 18.sp),),
                         ),
-                        const SizedBox(
-                          width: 10,
+                         SizedBox(
+                          width: 10.w,
                         ),
-                         Text('girls school',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: PrimaryColour),)
+                         Text('girls school',style: TextStyle(
+                          fontSize: 18.sp,fontWeight: FontWeight.bold,color: PrimaryColour),)
                       ],
                     ),
-                    const SizedBox(
-                      height: 5,
+                     SizedBox(
+                      height: 5.h,
                     ),
                     Row(
                       children: [
                         Container(
-                          width: 45,
-                          height: 40,
+                          width: 45.w,
+                          height: 40.h,
                           decoration: BoxDecoration(
                               color: PrimaryColour,
-                              borderRadius: BorderRadius.circular(13)),
-                          child: const Icon(
+                              borderRadius: BorderRadius.circular(13).r),
+                          child:  Icon(
                             Icons.location_pin,
                             color: Colors.white,
+                            size: 25.w,
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
+                         SizedBox(
+                          width: 10.w,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children:  [
                             Text(
                               "Qena",
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 18,fontWeight: FontWeight.bold),
+                                  TextStyle(color: Colors.black, fontSize: 18.sp,fontWeight: FontWeight.bold),
                             ),
                             SizedBox(
-                              height: 2,
+                              height: 2.h,
                             ),
                             Text(
                               "15-Dec-2022",
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 16,fontWeight: FontWeight.bold),
+                                  TextStyle(color: Colors.grey, fontSize: 16.sp,fontWeight: FontWeight.bold),
                             )
                           ],
                         )
@@ -192,20 +197,21 @@ class BuyBusTicket extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                        Text('Metro',style: TextStyle(color: PrimaryColour, fontWeight: FontWeight.bold,fontSize: 22),),
-                      const SizedBox(
-                        height: 5,
+                       SizedBox(
+                        height: 5.h,
                       ),
-                      const Text('number of stations',style: TextStyle( fontWeight: FontWeight.bold,fontSize: 20),),                      const SizedBox(
-                        height: 15,
+                      Text('number of stations',style: TextStyle( fontWeight: FontWeight.bold,fontSize: 20),),                 
+                           SizedBox(
+                        height: 15.h,
                       ),
                       Container(
                         alignment: Alignment.center,
-                        width: 70,
-                        height: 40,
+                        width: 70.w,
+                        height: 40.h,
                         decoration: BoxDecoration(
                             color: PrimaryColour,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: const Text('7',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),),
+                            borderRadius: BorderRadius.circular(10).r),
+                        child:  Text('7',style: TextStyle(color: Colors.white,fontSize: 24.sp,fontWeight: FontWeight.bold),),
                       )
                     ],
                   ),
@@ -215,14 +221,14 @@ class BuyBusTicket extends StatelessWidget {
            child: DottedBorder(
             color: Colors.grey,
                           padding: const EdgeInsets.all(0),
-                          dashPattern: const [2, 8],
-                          child: const SizedBox(
-                            width: 250,
+                          dashPattern: const [4, 8],
+                          child:  SizedBox(
+                            width: 240.w,
                           )),
          ),
-        const SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+          padding:  EdgeInsets.symmetric(vertical: 5.h, horizontal: 25.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -231,62 +237,63 @@ class BuyBusTicket extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children:  [
                   Text('9:00 AM',
-                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: textColour),),
-                  const SizedBox(height: 3,),
+                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,color: textColour),),
+                   SizedBox(height: 3.h,),
                   Text('9:00 AM',
-                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: textColour),),
+                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,color: textColour),),
                   
                 ],
               ),
               Row(
                 children: [
-                  const Text('Price: ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color:Colors.grey),),
-                  Text('\$23',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color:PrimaryColour),),
+                   Text('Price: ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,color:Colors.grey),),
+                  Text('\$23',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,color:PrimaryColour),),
                 ],
               ),
             ],
           ),
         ),
-        const SizedBox(height: 20,),
+         SizedBox(height: 20.h,),
         Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
             DefaultButtom(
               color: Colors.white,
-              Child:Container(color: Colors.black,width: 20,height: 3,),
-               Height: 40, radius: 13,Width: 30, PaddingHorizontal:20, PaddingVertical: 0,
+              Child:Container(color: Colors.black,width: 20.w,height: 3.h,),
+               Height: 40, radius: 13,Width: 25, PaddingHorizontal:15, PaddingVertical: 0,
                OnTap:ontapMinus,),
   Container(
     alignment: Alignment.center,
-    width: 55,
-    height: 50,
+    width: 55.w,
+    height: 50.h,
     decoration: BoxDecoration(
       color: PrimaryColour,
-      borderRadius: BorderRadius.circular(13)
+      borderRadius: BorderRadius.circular(13).r
     ),
     child: Text("$numberTicket",
     textAlign: TextAlign.center,
-    style: const TextStyle(
+    style: TextStyle(
       color: Colors.white,
-      fontSize: 26,fontWeight: FontWeight.bold),),
+      fontSize: 26.sp,fontWeight: FontWeight.bold),),
   ),
             DefaultButtom(
               color: Colors.white,
-              Child:const Icon(Icons.add,color: Colors.black,size: 30,),
-               Height: 40, radius: 13,Width: 30, PaddingHorizontal: 20, PaddingVertical: 0,
+              Child: Center(child: Icon(Icons.add,color: Colors.black,size: 30.w,)),
+               Height: 40, radius: 13,Width: 30, PaddingHorizontal: 15, PaddingVertical: 0,
                OnTap: ontapAdd,)
           ],
         ),
-        const SizedBox(height: 25,),
+         SizedBox(height: 25.h,),
         DefaultButtom(
           OnTap: () {
             Navigator.pushNamed(context, PaymentMethodScreen.routeName);
           },
-          Child: const Text("Buy", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 26),),
+          Child:  Text("Buy", style: TextStyle(color: Colors.white,
+          fontWeight: FontWeight.bold,fontSize: 26.sp),),
            Height: 40,
             Width: 200, 
             radius: 15,
             PaddingHorizontal:40,
-             PaddingVertical: 0),
+             PaddingVertical: 5),
       ],
     );
   }

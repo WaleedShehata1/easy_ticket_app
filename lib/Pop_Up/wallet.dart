@@ -24,14 +24,14 @@ class WalletScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon:  const Icon(
+                  icon:   Icon(
                     Icons.close,
-                    size: 30,
+                    size: 30.w,
                   ))
             ],
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 20.h,
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10.w),
