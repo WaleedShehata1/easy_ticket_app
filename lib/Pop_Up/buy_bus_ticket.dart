@@ -30,7 +30,12 @@ class BuyBusTicket extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => CounterCubit(),
       child: BlocConsumer<CounterCubit, CounterStates>(
-        listener: (context, state) => {},
+        listener: (context, state) => {
+          if (state is CounterIncrementState)
+            {print('Counter + ${state.counter}')}
+          else if (state is CounterDecrementState)
+            {print('Counter - ${state.counter}')}
+        },
         builder: (context, state) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -339,7 +344,7 @@ class BuyBusTicket extends StatelessWidget {
                     PaddingHorizontal: 15,
                     PaddingVertical: 0,
                     OnTap: () {
-                      CounterCubit.get(context).Decrement();
+                      CounterCubit.get(context).decrement();
                     },
                   ),
                   Container(
@@ -372,7 +377,7 @@ class BuyBusTicket extends StatelessWidget {
                     PaddingHorizontal: 15,
                     PaddingVertical: 0,
                     OnTap: () {
-                      CounterCubit.get(context).Increment();
+                      CounterCubit.get(context).increment();
                     },
                   )
                 ],
