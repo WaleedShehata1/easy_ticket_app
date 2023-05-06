@@ -30,25 +30,29 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            IconButton(onPressed: (){
-              Navigator.pop(context);
-            }, icon:  Icon(Icons.close_outlined,size: 35.w,))
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.close_outlined,
+                  size: 35.w,
+                ))
           ],
         ),
         Container(
           decoration: const BoxDecoration(
-             // border: Border(bottom: BorderSide(style: BorderStyle.solid))
-             ),
-          child:  Text(
+              // border: Border(bottom: BorderSide(style: BorderStyle.solid))
+              ),
+          child: Text(
             'Ticket Modification',
             style: TextStyle(
                 fontSize: 20.0.sp,
                 fontWeight: FontWeight.bold,
-                color: PrimaryColour
-                ),
+                color: PrimaryColour),
           ),
         ),
-         SizedBox(
+        SizedBox(
           height: 20.0.h,
         ),
         Row(
@@ -61,7 +65,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15.0).r,
                     color: Colors.white,
-                    border: Border.all(color:PrimaryColour),
+                    border: Border.all(color: PrimaryColour),
                   ),
                   child: FutureBuilder<List<String>>(
                     // future: fetchData(),
@@ -81,8 +85,8 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                             hint: const Text('Select options'),
                             value: _selectedValue,
                             borderRadius: BorderRadius.circular(10).r,
-                            items: options
-                                .map<DropdownMenuItem<String>>((option) {
+                            items:
+                                options.map<DropdownMenuItem<String>>((option) {
                               return DropdownMenuItem(
                                 value: option,
                                 child: Text(option),
@@ -105,15 +109,18 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                       } else {
                         return Center(
                           child: SizedBox(
-                            width: 30.w,
-                            height: 30.h,
-                            child:  CircularProgressIndicator(strokeWidth: 2,color: PrimaryColour,)),
+                              width: 30.w,
+                              height: 30.h,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: PrimaryColour,
+                              )),
                         );
                       }
                     },
                   )),
             ),
-             SizedBox(width:10.0.w),
+            SizedBox(width: 10.0.w),
             Text(
               ': معاد الباص',
               style: TextStyle(
@@ -124,7 +131,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
             ),
           ],
         ),
-         SizedBox(height: 16.0.h),
+        SizedBox(height: 16.0.h),
         Row(
           children: [
             Expanded(
@@ -134,17 +141,20 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0).r,
                   color: Colors.white,
-                  border: Border.all(color:PrimaryColour),
+                  border: Border.all(color: PrimaryColour),
                 ),
-                child:  Text(
+                child: Text(
                   'Data',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,height: 1.5),
+                  style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.bold,
+                      height: 1.5),
                 ),
               ),
             ),
-             SizedBox(width: 15.0.w),
-             Text(
+            SizedBox(width: 15.0.w),
+            Text(
               ': خط السير',
               style: TextStyle(
                 fontSize: 16.0.sp,
@@ -153,7 +163,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
             ),
           ],
         ),
-         SizedBox(height: 16.0.h),
+        SizedBox(height: 16.0.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -164,17 +174,20 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0).r,
                   color: Colors.white,
-                  border: Border.all(color:PrimaryColour),
+                  border: Border.all(color: PrimaryColour),
                 ),
-                child:Text(
+                child: Text(
                   'Data',
                   textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,height: 1.5),
+                  style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.bold,
+                      height: 1.5),
                 ),
               ),
             ),
-             SizedBox(width: 10.0.w),
-             Text(
+            SizedBox(width: 10.0.w),
+            Text(
               ': رقم الباص',
               style: TextStyle(
                 fontSize: 16.0.sp,
@@ -185,21 +198,20 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
         ),
         const SizedBox(height: 32.0),
         DefaultButtom(
-          Child:Text('Save',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0.sp,
-                      fontWeight: FontWeight.bold)), 
-          Height: 30, 
-          Width: 100, 
+          Child: Text('Save',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0.sp,
+                  fontWeight: FontWeight.bold)),
+          Height: 30,
+          Width: 100,
           radius: 15,
           PaddingHorizontal: 10,
-           PaddingVertical: 5,
-           OnTap:() {
-                print('Saved!');
-              },
-           )
-      
+          PaddingVertical: 5,
+          OnTap: () {
+            print('Saved!');
+          },
+        )
       ],
     );
   }
