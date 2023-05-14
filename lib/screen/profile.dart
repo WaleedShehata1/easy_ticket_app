@@ -268,7 +268,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                 height: 10.h,
                               ),
                               Text(
-                                'Do you want to Lod out ?',
+                                'Do you want to Log out ?',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     wordSpacing: 1,
