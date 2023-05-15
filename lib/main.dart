@@ -1,5 +1,5 @@
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
-import 'package:easy_ticket_app/network/remote/dio_helper.dart';
+import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc_observer.dart';
