@@ -33,7 +33,9 @@ class Sign_In extends StatelessWidget {
         child: BlocProvider(
           create: (BuildContext context) => SignInCubit(),
           child: BlocConsumer<SignInCubit, SignInStates>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state is SignInSuccessState) {}
+            },
             builder: (context, state) {
               return Scaffold(
                 body: Center(
@@ -139,12 +141,12 @@ class Sign_In extends StatelessWidget {
                             builder: (context) => DefaultButtom(
                               OnTap: () {
                                 if (formKey.currentState!.validate()) {
-                                  SignInCubit.get(context).userLogin(
+                                  SignInCubit.get(context).userSignIn(
                                       national_ID: NationalIDController.text,
                                       password: PasswordController.text);
                                 }
-                                  Navigator.pushNamed(
-                                  context, BottomBar.routeName); 
+                                Navigator.pushNamed(
+                                    context, BottomBar.routeName);
                               },
                               Child: Text(
                                 'Log In',
@@ -160,10 +162,10 @@ class Sign_In extends StatelessWidget {
                               PaddingVertical: 0,
                               radius: 15,
                             ),
-                            fallback: (BuildContext context) =>
-                                Center(child: CircularProgressIndicator(
-                                  color: PrimaryColour,
-                                )),
+                            fallback: (BuildContext context) => Center(
+                                child: CircularProgressIndicator(
+                              color: PrimaryColour,
+                            )),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

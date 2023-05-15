@@ -4,30 +4,32 @@ import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../model/sign_in_model.dart';
+
 class SignInCubit extends Cubit<SignInStates> {
   SignInCubit() : super(SignInInitialState());
 
   static SignInCubit get(context) => BlocProvider.of(context);
 
-  void userLogin({
-    required String national_ID ,
-    required String password
-  }){
-emit(SignInLoadingState());
+  SignIn? SignInModel;
 
-   /*  DioHelper.postData(
+  void userSignIn({required String national_ID, required String password}) {
+    emit(SignInLoadingState());
+
+    /*  DioHelper.postData(
       url: LOGIN,
        data: {
         "national_ID":national_ID ,
         "password": password,
        },).then((value) {
          print(value?.data);
-         emit(SignInSuccessState());
+         SignInModel = SignIn.fromJson(value.data);
+         emit(SignInSuccessState(SignInModel));
        }).catchError((error){
         print(error.toString());
         emit(SignInErrorState(error.toString()));
        }); */
-        /* try {
+    /* try {
       // Make HTTP request to API
       final response = await http.post(Uri.parse('https://example.com/api/login'), body: {
         'email': event.email,
@@ -58,11 +60,11 @@ emit(SignInLoadingState());
   void showPassword() {
     isPassword = !isPassword;
 
-    suffix = isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
-        
+    suffix =
+        isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
+
     emit(ShowPassword());
   }
-   
 
   /*  void sign_in({
      required String nationalID,
@@ -91,5 +93,4 @@ emit(SignInLoadingState());
 
 
    } */
-  
 }

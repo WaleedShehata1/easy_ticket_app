@@ -13,7 +13,6 @@ import '../widget/components.dart';
 import '../widget/drop_down_list.dart';
 import '../widget/text_Form_Field.dart';
 
-
 class SignUp extends StatefulWidget {
   static const String routeName = 'Sign_Up';
 
@@ -112,12 +111,12 @@ class _SignUpState extends State<SignUp> {
                           DefaultFormField(
                             label: 'National ID',
                             keyboardType: TextInputType.number,
-                            validate:  (String? value) {
-                                    if (value!.trim().isEmpty) {
-                                      return 'Please enter your National ID';
-                                    }
-                                    return null;
-                                  },
+                            validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your National ID';
+                              }
+                              return null;
+                            },
                             controller: NationalIDController,
                             MaxLength: 14,
                           ),
@@ -129,9 +128,8 @@ class _SignUpState extends State<SignUp> {
                             children: [
                               SizedBox(
                                 width: 155.w,
-                                child:DefaultFormField(
+                                child: DefaultFormField(
                                   controller: _date,
-                                  
                                   label: 'Date Of Birth',
                                   prefixIcon: const Icon(Icons.calendar_today),
                                   onTap: () async {
@@ -140,35 +138,35 @@ class _SignUpState extends State<SignUp> {
                                         initialDate: date,
                                         firstDate: DateTime(1900),
                                         lastDate: DateTime(2100));
-                                        if(newdate != null){
-                                          setState(() {
-                                             _date.text = '${newdate?.day}-${newdate?.month}-${newdate?.year}';
-                                          });
-                                         
-                                        }
+                                    if (newdate != null) {
+                                      setState(() {
+                                        _date.text =
+                                            '${newdate?.day}-${newdate?.month}-${newdate?.year}';
+                                      });
+                                    }
                                   },
                                   validate: (String? value) {
-                              if (value!.trim().isEmpty) {
-                                return 'Please enter your Date Of Birth';
-                              }
-                              return null;
-                            },
+                                    if (value!.trim().isEmpty) {
+                                      return 'Please enter your Date Of Birth';
+                                    }
+                                    return null;
+                                  },
                                 ),
                               ),
-
-
-                              
                               SizedBox(
                                 width: 155.w,
                                 child: DefaultDropdown(
                                   validator: (value) {
-                                              if (value == null) {
-                                                return 'Please select your Profession';
-                                              }
-                                              return null;
-                                            },
-                                  labelText:'Profession',
-                                  labelStyle:TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
+                                    if (value == null) {
+                                      return 'Please select your Profession';
+                                    }
+                                    return null;
+                                  },
+                                  labelText: 'Profession',
+                                  labelStyle: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: PrimaryColour,
+                                      fontWeight: FontWeight.bold),
                                   value: _Profession,
                                   items: _HealthStatusList.map<
                                       DropdownMenuItem<String>>((String value) {
@@ -214,14 +212,17 @@ class _SignUpState extends State<SignUp> {
                               SizedBox(
                                 width: 155.w,
                                 child: DefaultDropdown(
-                                  labelText: 'Health Status' ,
-                                  labelStyle:TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold) ,
-                                  validator: ( value) {
-                              if (value == null) {
-                                return 'Please enter your Health Status';
-                              }
-                              return null;
-                            },
+                                  labelText: 'Health Status',
+                                  labelStyle: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: PrimaryColour,
+                                      fontWeight: FontWeight.bold),
+                                  validator: (value) {
+                                    if (value == null) {
+                                      return 'Please enter your Health Status';
+                                    }
+                                    return null;
+                                  },
                                   value: _HealthStatus,
                                   onChanged: (value) {
                                     setState(() {
@@ -244,16 +245,16 @@ class _SignUpState extends State<SignUp> {
                                 width: 155.w,
                                 child: DefaultDropdown(
                                   labelText: 'Gender',
-                                  labelStyle:TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold) ,
-                                  validator:(value) {
-                                    if (value ==null) {
-                                  return 'Please enter your Gender';
-                                }
+                                  labelStyle: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: PrimaryColour,
+                                      fontWeight: FontWeight.bold),
+                                  validator: (value) {
+                                    if (value == null) {
+                                      return 'Please enter your Gender';
+                                    }
                                     return null;
-                                  
-                                    
                                   },
-                                                           
                                   items: _HealthStatusList.map<
                                       DropdownMenuItem<String>>((String value) {
                                     return DropdownMenuItem<String>(
@@ -305,8 +306,7 @@ class _SignUpState extends State<SignUp> {
                               } else if (value.trim().length <= 6) {
                                 return 'is short password';
                               }
-                                return null;
-
+                              return null;
                             },
                           ),
                           SizedBox(
@@ -347,7 +347,6 @@ class _SignUpState extends State<SignUp> {
                                   firstName: FirstNameController.text,
                                   lastName: LastNameController.text,
                                   phone: PhoneController.text,
-
                                 );
 
                                 Navigator.pushNamed(context, Sign_In.routeName);
@@ -382,7 +381,10 @@ class _SignUpState extends State<SignUp> {
                                 style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: Theme.of(context).textTheme.subtitle2!.color!,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .subtitle2!
+                                      .color!,
                                 ),
                               ),
                               TextButton(
