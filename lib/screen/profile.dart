@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/theme/theme_cubit.dart';
+import '../widget/Buttom.dart';
+import '../widget/dialog.dart';
 import './edit_profile.dart';
 import './notifications.dart';
-import 'credit_card.dart';
 import 'wallet_screen.dart';
 
 class UserSettingsScreen extends StatefulWidget {
@@ -70,7 +71,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                             borderRadius: BorderRadius.circular(8).r,
                             boxShadow:  [
                               BoxShadow(
-                                offset: Offset(0, 0),
+                                offset: const Offset(0, 0),
                                 color: Colors.black,
                                 blurRadius: 5.r,
                                 spreadRadius: 0,
@@ -155,7 +156,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 ),
               ),
             ),
-            ListTile(
+           /*  ListTile(
               minVerticalPadding: 15.h ,
               onTap: () {
                 Navigator.pushNamed(context,CreditCard.routeName);
@@ -173,7 +174,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                   color: theme.isDark?  Colors.white : Colors.black,
                 ),
               ),
-            ),
+            ), */
             ListTile(
               minVerticalPadding: 15.h ,
               onTap: () {

@@ -1,8 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../widget/Buttom.dart';
 
 class VisaScreen extends StatefulWidget {
   const VisaScreen({super.key});
@@ -83,7 +87,7 @@ class _VisaScreenState extends State<VisaScreen> {
             cardBgColor: Colors.black38,
             isSwipeGestureEnabled: true,
             onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-            customCardTypeIcons: <CustomCardTypeIcon>[],
+            customCardTypeIcons: const <CustomCardTypeIcon>[],
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
@@ -105,11 +109,11 @@ class _VisaScreenState extends State<VisaScreen> {
                   hintText: 'XXXX XXXX XXXX XXXX',
                    focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   focusedBorder: border,
                   enabledBorder: border,
@@ -120,11 +124,11 @@ class _VisaScreenState extends State<VisaScreen> {
                   enabledBorder: border,
                    focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   labelText: 'Expired Date',
                   hintText: 'XX/XX',
@@ -133,12 +137,12 @@ class _VisaScreenState extends State<VisaScreen> {
 
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   focusedBorder: border,
                   focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   enabledBorder: border,
                   labelText: 'CVV',
@@ -147,11 +151,11 @@ class _VisaScreenState extends State<VisaScreen> {
                 cardHolderDecoration: InputDecoration(
                    focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   focusedBorder: border,
                   enabledBorder: border,

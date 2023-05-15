@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sized_box_for_whitespace
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sized_box_for_whitespace, avoid_print
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:easy_ticket_app/cubit/counter_cubit/counter_cubit.dart';
@@ -11,6 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../cubit/counter_cubit/counter_states.dart';
 import '../screen/payment_method.dart';
+import '../widget/Buttom.dart';
+import '../widget/dialog.dart';
 
 class BuyBusTicket extends StatelessWidget {
   late bool isBusTicket;
@@ -237,7 +239,7 @@ class BuyBusTicket extends StatelessWidget {
                             SizedBox(
                               height: 5.h,
                             ),
-                            Text(
+                            const Text(
                               'number of stations',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),

@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable, prefer_typing_uninitialized_variables
+// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable, prefer_typing_uninitialized_variables, unused_field, prefer_final_fields, deprecated_member_use
 
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/sign_up_cubit/sign_up_cubit.dart';
 import '../cubit/sign_up_cubit/sign_up_state.dart';
 import '../shapes/ticket_logo.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
+import '../widget/drop_down_list.dart';
+import '../widget/text_Form_Field.dart';
+
 
 class SignUp extends StatefulWidget {
   static const String routeName = 'Sign_Up';
@@ -21,9 +25,10 @@ class _SignUpState extends State<SignUp> {
   var NationalIDController = TextEditingController();
   var FirstNameController = TextEditingController();
   var LastNameController = TextEditingController();
+  var _date = TextEditingController();
+
   DateTime date = DateTime.now();
   DateTime? newdate;
-  String? DateOfBirth = 'dd/mm/year';
   var PhoneController = TextEditingController();
   var EmailController = TextEditingController();
   var PasswordController = TextEditingController();
@@ -53,6 +58,7 @@ class _SignUpState extends State<SignUp> {
               listener: (context, state) {},
               builder: (context, state) {
                 return Scaffold(
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   body: SingleChildScrollView(
                     child: Padding(
                       padding: EdgeInsets.symmetric(
@@ -106,9 +112,12 @@ class _SignUpState extends State<SignUp> {
                           DefaultFormField(
                             label: 'National ID',
                             keyboardType: TextInputType.number,
-                            validate: (String? value) {
-                              return null;
-                            },
+                            validate:  (String? value) {
+                                    if (value!.trim().isEmpty) {
+                                      return 'Please enter your National ID';
+                                    }
+                                    return null;
+                                  },
                             controller: NationalIDController,
                             MaxLength: 14,
                           ),
@@ -119,64 +128,61 @@ class _SignUpState extends State<SignUp> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
-                                width: 140.w,
-                                child: GestureDetector(
+                                width: 155.w,
+                                child:DefaultFormField(
+                                  controller: _date,
+                                  
+                                  label: 'Date Of Birth',
+                                  prefixIcon: const Icon(Icons.calendar_today),
                                   onTap: () async {
                                     newdate = await showDatePicker(
                                         context: context,
                                         initialDate: date,
                                         firstDate: DateTime(1900),
                                         lastDate: DateTime(2100));
-                                    if (newdate == null) {
-                                      return;
-                                    } else {
-                                      setState(() {
-                                        DateOfBirth =
-                                            '${newdate?.day}/${newdate?.month}/${newdate?.year}';
-                                      });
-                                    }
+                                        if(newdate != null){
+                                          setState(() {
+                                             _date.text = '${newdate?.day}-${newdate?.month}-${newdate?.year}';
+                                          });
+                                         
+                                        }
                                   },
-                                  child: Container(
-
-                                    height: 35.h,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ).r,
-                                        border: Border.all(
-                                            color: PrimaryColour, width: 2)),
-                                    child: Text(
-                                      '$DateOfBirth',
-                                      style: TextStyle(
-                                          fontSize: 14.sp,
-                                          letterSpacing: 2,
-                                          fontWeight: FontWeight.bold,
-                                          color: PrimaryColour,
-                                          wordSpacing: 2),
-                                    ),
-                                  ),
+                                  validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your Date Of Birth';
+                              }
+                              return null;
+                            },
                                 ),
                               ),
-                              DefaultDropdown(
-                                hint: Text(
-                                  'Profession',
-                                  style: TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
+
+
+                              
+                              SizedBox(
+                                width: 155.w,
+                                child: DefaultDropdown(
+                                  validator: (value) {
+                                              if (value == null) {
+                                                return 'Please select your Profession';
+                                              }
+                                              return null;
+                                            },
+                                  labelText:'Profession',
+                                  labelStyle:TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
+                                  value: _Profession,
+                                  items: _HealthStatusList.map<
+                                      DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _Profession = value;
+                                    });
+                                  },
                                 ),
-                                value: _Profession,
-                                items: _HealthStatusList.map<
-                                    DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                                onChanged: (value) {
-                                  setState(() {
-                                    _Profession = value;
-                                  });
-                                },
                               ),
                             ],
                           ),
@@ -200,51 +206,68 @@ class _SignUpState extends State<SignUp> {
                             controller: PhoneController,
                           ),
                           SizedBox(
-                            height: 5.h,
+                            height: 10.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              DefaultDropdown(
-                                hint: Text(
-                                  'Health Status',
-                                  style: TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
+                              SizedBox(
+                                width: 155.w,
+                                child: DefaultDropdown(
+                                  labelText: 'Health Status' ,
+                                  labelStyle:TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold) ,
+                                  validator: ( value) {
+                              if (value == null) {
+                                return 'Please enter your Health Status';
+                              }
+                              return null;
+                            },
+                                  value: _HealthStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _HealthStatus = value;
+                                    });
+                                  },
+                                  items: _HealthStatusList.map<
+                                      DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
                                 ),
-                                value: _HealthStatus,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _HealthStatus = value;
-                                  });
-                                },
-                                items: _HealthStatusList.map<
-                                    DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
                               ),
                               SizedBox(
                                 width: 5.w,
                               ),
-                              DefaultDropdown(
-                                hint: Text(
-                                  'Gender',
-                                  style: TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold),
+                              SizedBox(
+                                width: 155.w,
+                                child: DefaultDropdown(
+                                  labelText: 'Gender',
+                                  labelStyle:TextStyle(fontSize: 14.sp,color: PrimaryColour,fontWeight: FontWeight.bold) ,
+                                  validator:(value) {
+                                    if (value ==null) {
+                                  return 'Please enter your Gender';
+                                }
+                                    return null;
+                                  
+                                    
+                                  },
+                                                           
+                                  items: _HealthStatusList.map<
+                                      DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  value: _HealthStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _HealthStatus = value;
+                                    });
+                                  },
                                 ),
-                                items: _HealthStatusList.map<
-                                    DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                                value: _HealthStatus,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _HealthStatus = value;
-                                  });
-                                },
                               ),
                             ],
                           ),
@@ -279,12 +302,11 @@ class _SignUpState extends State<SignUp> {
                             validate: (String? value) {
                               if (value!.trim().isEmpty) {
                                 return 'Please enter your Password';
-                              } else if (PasswordController.text.trim() !=
-                                  ConfirmPasswordController.text.trim()) {
-                                return "your Password doesn't same";
+                              } else if (value.trim().length <= 6) {
+                                return 'is short password';
                               }
+                                return null;
 
-                              return null;
                             },
                           ),
                           SizedBox(
@@ -325,11 +347,12 @@ class _SignUpState extends State<SignUp> {
                                   firstName: FirstNameController.text,
                                   lastName: LastNameController.text,
                                   phone: PhoneController.text,
+
                                 );
 
                                 Navigator.pushNamed(context, Sign_In.routeName);
                               }
-                              return null;
+                              return;
                             },
                             Child: Text(
                               'Sign Up',

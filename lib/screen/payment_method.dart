@@ -1,7 +1,9 @@
 import 'package:easy_ticket_app/Pop_Up/visa.dart';
 import 'package:easy_ticket_app/Pop_Up/wallet.dart';
-import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
+
+import '../widget/Buttom.dart';
+import '../widget/dialog.dart';
 
 class PaymentMethodScreen extends StatefulWidget {
     static const String routeName = 'Payment Method ';
@@ -36,7 +38,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                         showDialog(
                           context: context,
                            builder:(context){
-                            return DefaultDialog(Child:VisaScreen(),);
+                            return DefaultDialog(Child:const VisaScreen(),);
                            });
                       },
                        Height: 120, Width:150, PaddingHorizontal:0, PaddingVertical: 0),

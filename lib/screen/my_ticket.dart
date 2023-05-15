@@ -8,8 +8,10 @@ import '../Pop_Up/QR.dart';
 import '../cubit/theme/theme_cubit.dart';
 import '../shapes/my_ticket_bus.dart';
 import '../shapes/my_ticket_metro.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
 import '../Pop_Up/ticket_modification.dart';
+import '../widget/dialog.dart';
 
 class myTicket extends StatefulWidget {
   const myTicket({super.key});

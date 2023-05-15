@@ -1,6 +1,12 @@
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
+
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../widget/Buttom.dart';
+import '../widget/dialog.dart';
+import '../widget/text_Form_Field.dart';
 
 class WalletProfile extends StatelessWidget {
   var walletController = TextEditingController();
@@ -113,8 +119,8 @@ class WalletProfile extends StatelessWidget {
                               height: 20.h,
                             ),
                         
-                            DefaultDropdown(
-                              /*  items: const [
+                          /*  DefaultDropdown(
+                                items: const [
                                 DropdownMenuItem(child: Text(
                                 'اختر وسيلة الشحن',
                                 style: TextStyle(
@@ -123,7 +129,7 @@ class WalletProfile extends StatelessWidget {
                                     color: Colors.black),
                               ),
                               ),
-                              ], */
+                              ], 
                               colorBorder: Colors.white,
                               onChanged: (p0) {},
                               radius: 15.r,
@@ -136,7 +142,7 @@ class WalletProfile extends StatelessWidget {
                               ),
                               height: 50.h,
                               width: double.infinity,
-                            ),
+                            ),*/
                             SizedBox(
                               height: 10.h,
                             ),
@@ -147,7 +153,9 @@ class WalletProfile extends StatelessWidget {
                                 radius: 15,
                                 controller: walletController,
                                 label: "ادخل المبلغ",
-                                validate: (p0) {},
+                                validate: (p0) {
+                                  return null;
+                                },
                               ),
                             ),
                              SizedBox(
@@ -201,7 +209,9 @@ class WalletProfile extends StatelessWidget {
                                                 radius: 15,
                                                 controller: PasswordController,
                                                 label: null,
-                                                validate: (p0) {},
+                                                validate: (p0) {
+                                                  return null;
+                                                },
                                               ),
                                             ),
                                             SizedBox(

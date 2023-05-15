@@ -4,6 +4,7 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/ticket_modification.dart';
+import '../widget/dialog.dart';
 
 class NotificationsScreen extends StatelessWidget {
     static const String routeName = 'Notifications';
@@ -135,7 +136,7 @@ class NotificationsScreen extends StatelessWidget {
                             context: context,
                             builder: (BuildContext context) {
                               return  DefaultDialog(
-                                Child: TicketModificationScreen(),
+                                Child: const TicketModificationScreen(),
                               );
                             },
                           );

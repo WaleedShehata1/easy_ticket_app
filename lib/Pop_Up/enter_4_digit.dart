@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widget/components.dart';
+import '../widget/Buttom.dart';
+import '../widget/text_Form_Field.dart';
+
 
 class Enter4Digit extends StatelessWidget {
   var Digit = TextEditingController();

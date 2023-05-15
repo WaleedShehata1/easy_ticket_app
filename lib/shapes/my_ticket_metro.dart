@@ -5,6 +5,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
 
 class myTicketMetro extends StatelessWidget {
@@ -25,7 +26,7 @@ class myTicketMetro extends StatelessWidget {
       padding:  EdgeInsets.symmetric(horizontal: 40.w),
       child: Container(
         
-        padding:  EdgeInsets.all(10).w,
+        padding:  const EdgeInsets.all(10).w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15).r,
           color: Colors.white,
@@ -189,7 +190,7 @@ class myTicketMetro extends StatelessWidget {
                               height: 15.h,
                               decoration:  BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.only(
+                                  borderRadius: const BorderRadius.only(
                                       bottomLeft: Radius.circular(20),
                                       bottomRight: Radius.circular(20)).r),
                             ),

@@ -5,6 +5,10 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widget/Buttom.dart';
+import '../widget/dialog.dart';
+import '../widget/text_Form_Field.dart';
+
 class WalletScreen extends StatelessWidget {
   var passwordController=TextEditingController();
 

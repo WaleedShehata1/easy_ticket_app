@@ -5,6 +5,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
 
 class busTicketDetiles extends StatelessWidget {
@@ -173,7 +174,7 @@ class busTicketDetiles extends StatelessWidget {
                         height: 15.h,
                         decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(20),
                                 bottomRight: Radius.circular(20)).r),
                       ),

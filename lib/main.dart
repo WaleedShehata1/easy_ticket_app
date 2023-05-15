@@ -4,7 +4,7 @@ import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc_observer.dart';
 import 'screen/bottom_bar.dart';
-import 'screen/credit_card.dart';
+
 import 'screen/notifications.dart';
 import 'screen/payment_method.dart';
 import 'screen/sign_up.dart';
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
       {
         return MaterialApp(
         debugShowCheckedModeBanner: false,
-      theme: theme.isDark? ThemeClass.darkTheme:ThemeData.light(),
+      theme: theme.isDark? ThemeClass.darkTheme:ThemeClass.lightTheme,
       
         home: child,
       
@@ -67,7 +67,6 @@ class MyApp extends StatelessWidget {
                  NotificationsScreen.routeName:(context) =>  NotificationsScreen(),
                 PaymentMethodScreen.routeName :(context) => const PaymentMethodScreen(),
                 WalletProfile.routeName:(context) =>  WalletProfile(),
-                CreditCard.routeName:(context) =>  CreditCard(),
               },
               
              
@@ -76,5 +75,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

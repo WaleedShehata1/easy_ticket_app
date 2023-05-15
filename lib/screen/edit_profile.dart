@@ -1,9 +1,10 @@
-// ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api
+// ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names
 
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/change_password.dart';
+import '../widget/Buttom.dart';
 
 class EditProfileScreen extends StatefulWidget {
     static const String routeName = 'Edite profile';

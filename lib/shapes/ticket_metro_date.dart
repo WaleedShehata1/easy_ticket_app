@@ -87,7 +87,7 @@ class dateMetroTicket extends StatelessWidget {
                       height: 120.h,
                       width: 167.w,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10),
                         ).r,
@@ -98,7 +98,7 @@ class dateMetroTicket extends StatelessWidget {
                             Row(
                               children: [
                                 Container(
-                                  margin:  EdgeInsets.only(right: 10).w,
+                                  margin:  const EdgeInsets.only(right: 10).w,
                                   width: 35.w,
                                   height: 25.h,
                                   decoration: BoxDecoration(
@@ -205,7 +205,7 @@ class dateMetroTicket extends StatelessWidget {
                                   height: 15.h,
                                   decoration:  BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.only(
+                                      borderRadius: const BorderRadius.only(
                                           bottomLeft: Radius.circular(20),
                                           bottomRight: Radius.circular(20)).r),
                                 ),

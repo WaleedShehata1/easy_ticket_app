@@ -1,8 +1,8 @@
-// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable
+// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, deprecated_member_use
 
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/Pop_Up/searsh_account.dart';
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
-import 'package:easy_ticket_app/screen/bottom_bar.dart';
 import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
 import 'package:easy_ticket_app/screen/sign_up.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
@@ -11,7 +11,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../cubit/sign_in_cubit/sign_in_cubit.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
+import '../widget/dialog.dart';
+import '../widget/text_Form_Field.dart';
 
 class Sign_In extends StatelessWidget {
   Sign_In({super.key});
@@ -32,7 +35,6 @@ class Sign_In extends StatelessWidget {
             listener: (context, state) {},
             builder: (context, state) {
               return Scaffold(
-               
                 body: Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -53,13 +55,15 @@ class Sign_In extends StatelessWidget {
                                   start: 10.w, end: 10.w),
                               child: Icon(
                                 Icons.account_circle,
-                               
                                 size: 30.h,
                               ),
                             ),
                             label: 'National ID',
                             keyboardType: TextInputType.number,
                             validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your National ID';
+                              }
                               return null;
                             },
                             controller: NationalIDController,
@@ -84,6 +88,11 @@ class Sign_In extends StatelessWidget {
                             label: 'Password',
                             keyboardType: TextInputType.text,
                             validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your Password';
+                              } else if (value.trim().length <= 6) {
+                                return 'is short password';
+                              }
                               return null;
                             },
                             controller: PasswordController,
@@ -124,22 +133,36 @@ class Sign_In extends StatelessWidget {
                           SizedBox(
                             height: 10.h,
                           ),
-                          DefaultButtom(
-                            OnTap: () => Navigator.pushNamed(
-                                context, BottomBar.routeName),
-                            Child: Text(
-                              'Log In',
-                              style: TextStyle(
-                                fontSize: 28.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
+                          ConditionalBuilder(
+                            condition: state is! SignInLoadingState,
+                            builder: (context) => DefaultButtom(
+                              OnTap: () {
+                                if (formKey.currentState!.validate()) {
+                                  SignInCubit.get(context).userLogin(
+                                      national_ID: NationalIDController.text,
+                                      password: PasswordController.text);
+                                }
+                                /*  Navigator.pushNamed(
+                                  context, BottomBar.routeName); */
+                              },
+                              Child: Text(
+                                'Log In',
+                                style: TextStyle(
+                                  fontSize: 28.sp,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
+                              Height: 43,
+                              Width: double.infinity,
+                              PaddingHorizontal: 30,
+                              PaddingVertical: 0,
+                              radius: 15,
                             ),
-                            Height: 43,
-                            Width: double.infinity,
-                            PaddingHorizontal: 30,
-                            PaddingVertical: 0,
-                            radius: 15,
+                            fallback: (BuildContext context) =>
+                                Center(child: CircularProgressIndicator(
+                                  color: PrimaryColour,
+                                )),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -152,7 +175,10 @@ class Sign_In extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 12.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: Theme.of(context).textTheme.subtitle2!.color!,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .subtitle2!
+                                      .color!,
                                 ),
                               ),
                               TextButton(

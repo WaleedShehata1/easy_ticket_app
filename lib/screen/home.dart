@@ -11,7 +11,9 @@ import '../Pop_Up/metro_date.dart';
 import '../shapes/ticket_bus.dart';
 import '../shapes/ticket_dates.dart';
 import '../shapes/ticket_metro.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
+import '../widget/dialog.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -161,8 +163,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             },
                                                             ontapMinus: () {
                                 setState(() {
-                                  if(_numberTicket>0)
-                                  _numberTicket = _numberTicket - 1;
+                                  if(_numberTicket>0) {
+                                    _numberTicket = _numberTicket - 1;
+                                  }
                                 });
                                                             },
                                                           ));
@@ -260,8 +263,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         },
                                         ontapMinus: () {
                                           setState(() {
-                                            if(_numberTicket>0)
-                                            _numberTicket--;
+                                            if(_numberTicket>0) {
+                                              _numberTicket--;
+                                            }
                                           });
                                         },
                                         numberTicket: _numberTicket,

@@ -5,6 +5,8 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 
 import '../Pop_Up/change_passwword_login.dart';
+import '../widget/Buttom.dart';
+import '../widget/dialog.dart';
 
 class GetPasswordResetCode extends StatefulWidget {
   static const String routeName = 'Get Password Reset Code';

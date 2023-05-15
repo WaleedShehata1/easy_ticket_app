@@ -1,9 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api, avoid_unnecessary_containers
 
 import 'package:easy_ticket_app/screen/sign_in.dart';
-import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../widget/Buttom.dart';
+import '../widget/text_Form_Field.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   final TextEditingController oldPasswordController = TextEditingController();

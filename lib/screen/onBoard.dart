@@ -3,6 +3,7 @@ import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/shapes/shape_GetStart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
 
 class onBoard extends StatelessWidget {

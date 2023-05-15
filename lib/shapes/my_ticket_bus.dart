@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../cubit/theme/theme_cubit.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
 
 class myTicketBus extends StatelessWidget {
@@ -214,7 +215,7 @@ class myTicketBus extends StatelessWidget {
                         height: 15.h,
                         decoration:  BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(20),
                                 bottomRight: Radius.circular(20)).r),
                       ),

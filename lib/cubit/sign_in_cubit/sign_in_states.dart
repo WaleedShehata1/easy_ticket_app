@@ -4,9 +4,9 @@ class SignInInitialState extends SignInStates {}
 class SignInLoadingState extends SignInStates {}
 
 class SignInSuccessState extends SignInStates {
-  final String uid;
+/*   final String uid;
 
-  SignInSuccessState(this.uid);
+  SignInSuccessState(this.uid); */
 }
 
 class SignInErrorState extends SignInStates {

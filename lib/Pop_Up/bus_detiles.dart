@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../shapes/ticket_bus_detiles.dart';
+import '../widget/dialog.dart';
 import 'buy_bus_ticket.dart';
 
 class DetilesbusTicket extends StatelessWidget {
