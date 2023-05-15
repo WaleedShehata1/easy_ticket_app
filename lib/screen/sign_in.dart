@@ -15,6 +15,7 @@ import '../widget/Buttom.dart';
 import '../widget/components.dart';
 import '../widget/dialog.dart';
 import '../widget/text_Form_Field.dart';
+import 'bottom_bar.dart';
 
 class Sign_In extends StatelessWidget {
   Sign_In({super.key});
@@ -142,8 +143,8 @@ class Sign_In extends StatelessWidget {
                                       national_ID: NationalIDController.text,
                                       password: PasswordController.text);
                                 }
-                                /*  Navigator.pushNamed(
-                                  context, BottomBar.routeName); */
+                                  Navigator.pushNamed(
+                                  context, BottomBar.routeName); 
                               },
                               Child: Text(
                                 'Log In',

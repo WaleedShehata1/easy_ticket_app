@@ -67,6 +67,7 @@ class MyApp extends StatelessWidget {
                  NotificationsScreen.routeName:(context) =>  NotificationsScreen(),
                 PaymentMethodScreen.routeName :(context) => const PaymentMethodScreen(),
                 WalletProfile.routeName:(context) =>  WalletProfile(),
+                BottomBar.routeName:(context) =>  const BottomBar(),
               },
               
              

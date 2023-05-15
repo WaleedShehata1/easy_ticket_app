@@ -21,21 +21,20 @@ class UserSettingsScreen extends StatefulWidget {
 }
 
 class _UserSettingsScreenState extends State<UserSettingsScreen> {
- 
-
   @override
   Widget build(BuildContext context) {
-    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
     return Scaffold(
-      backgroundColor: theme.isDark?  DarkColour : Colors.white,
+      backgroundColor: theme.isDark ? DarkColour : Colors.white,
       body: Column(children: [
         Stack(alignment: Alignment.center, children: [
           Container(
             decoration: BoxDecoration(
                 color: PrimaryColour,
                 borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20)).r),
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20))
+                    .r),
             height: 100.h,
             width: double.infinity,
           ),
@@ -44,10 +43,10 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             children: [
               Column(
                 children: [
-                   SizedBox(
+                  SizedBox(
                     height: 30.h,
                   ),
-                   Text(
+                  Text(
                     'Abdulhamed Ashry',
                     style: TextStyle(
                       color: Colors.white,
@@ -55,7 +54,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 5.h,
                   ),
                   Row(
@@ -69,7 +68,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(8).r,
-                            boxShadow:  [
+                            boxShadow: [
                               BoxShadow(
                                 offset: const Offset(0, 0),
                                 color: Colors.black,
@@ -78,13 +77,12 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                               )
                             ]),
                         width: 50.w,
-                        child:  Text(
+                        child: Text(
                           '\$70',
                           style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black
-                          ),
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black),
                         ),
                       ),
                     ],
@@ -108,7 +106,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(45).r,
                           border: Border.all(width: 5.w, color: PrimaryColour)),
-                      child:  Icon(
+                      child: Icon(
                         Icons.account_circle,
                         color: Colors.white,
                         size: 75.w,
@@ -136,23 +134,23 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-             SizedBox(height: 30.h),
+            SizedBox(height: 30.h),
             ListTile(
-              minVerticalPadding: 15.h ,
+              minVerticalPadding: 15.h,
               onTap: () {
                 Navigator.pushNamed(context, NotificationsScreen.routeName);
               },
               leading: Icon(
                 Icons.notifications,
                 size: 35.w,
-                color:  theme.isDark?  Colors.white : Colors.black,
+                color: theme.isDark ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Notifications',
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
-                  color: theme.isDark?  Colors.white : Colors.black,
+                  color: theme.isDark ? Colors.white : Colors.black,
                 ),
               ),
             ),
@@ -175,42 +173,43 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 ),
               ),
             ), */
+  
             ListTile(
-              minVerticalPadding: 15.h ,
+              minVerticalPadding: 15.h,
               onTap: () {
                 Navigator.pushNamed(context, WalletProfile.routeName);
               },
               leading: Icon(
                 Icons.account_balance_wallet,
                 size: 35.w,
-                color:  theme.isDark?  Colors.white : Colors.black,
+                color: theme.isDark ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Wallet',
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
-                  color:   theme.isDark?  Colors.white : Colors.black,
+                  color: theme.isDark ? Colors.white : Colors.black,
                 ),
               ),
             ),
             ListTile(
-              onTap: () =>  setState(() {
-                    theme.changeTheme() ;
-                    firstTime.putData(key: 'isDarkMode', valu:theme.isDark );
-                  }),
-              minVerticalPadding: 15.h ,
+              onTap: () => setState(() {
+                theme.changeTheme();
+                firstTime.putData(key: 'isDarkMode', valu: theme.isDark);
+              }),
+              minVerticalPadding: 15.h,
               leading: Icon(
                 Icons.dark_mode,
                 size: 35.w,
-                color:  theme.isDark?  Colors.white : Colors.black,
+                color: theme.isDark ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Dark Mode',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18.sp,
-                  color: theme.isDark?  Colors.white : Colors.black,
+                  color: theme.isDark ? Colors.white : Colors.black,
                 ),
               ),
               trailing: Switch(
@@ -220,15 +219,15 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 inactiveThumbColor: PrimaryColour,
                 inactiveTrackColor: Colors.black,
                 onChanged: (value) {
- setState(() {
-                    theme.changeTheme() ;
-                    firstTime.putData(key: 'isDarkMode', valu:theme.isDark );
+                  setState(() {
+                    theme.changeTheme();
+                    firstTime.putData(key: 'isDarkMode', valu: theme.isDark);
                   });
                 },
               ),
             ),
             ListTile(
-              minVerticalPadding: 15.h ,
+              minVerticalPadding: 15.h,
               onTap: () {
                 // Navigator.push(
                 //   context,
@@ -238,19 +237,19 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               leading: Icon(
                 Icons.contact_support_rounded,
                 size: 35.w,
-                color:  theme.isDark?  Colors.white : Colors.black,
+                color: theme.isDark ? Colors.white : Colors.black,
               ),
               title: Text(
                 'About us',
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
-                  color:  theme.isDark?  Colors.white : Colors.black,
+                  color: theme.isDark ? Colors.white : Colors.black,
                 ),
               ),
             ),
             ListTile(
-              minVerticalPadding: 15.h ,
+              minVerticalPadding: 15.h,
               onTap: () {
                 // Navigator.push(
                 //   context,
@@ -260,90 +259,110 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
               leading: Icon(
                 Icons.person_3_rounded,
                 size: 35.w,
-                color: theme.isDark?  Colors.white : Colors.black,
+                color: theme.isDark ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Team Members',
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
-                  color:  theme.isDark?  Colors.white : Colors.black,
+                  color: theme.isDark ? Colors.white : Colors.black,
                 ),
               ),
             ),
             ListTile(
-              
-              minVerticalPadding: 20.h ,
+              minVerticalPadding: 20.h,
               onTap: () {
-                showDialog(context: context, builder: (context){
-                  return DefaultDialog(
-                  //  backgroundColor: PrimaryColour,
-                    Child:Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 200.w,
-                      child: Column(mainAxisSize: MainAxisSize.min,
-                        children: [
-         SizedBox(height: 10.h,),
-                          Text('Do you want to Lod out ?',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            wordSpacing: 1,
-                          //  color: Colors.white, 
-                            color: PrimaryColour, 
-                            fontSize: 26,fontWeight: FontWeight.bold),),
-                          const SizedBox(height: 20,),
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return DefaultDialog(
+                          //  backgroundColor: PrimaryColour,
+                          Child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 200.w,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              DefaultButtom(Child:  Text('Yes',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                               // color: Colors.black,
-                                color: Colors.white,
-                                
-                                ),), Height:30, Width: 50, 
-                                PaddingHorizontal: 5,
-                                 PaddingVertical: 0,
-                                 OnTap: () {
-                                Navigator.pushReplacementNamed(context, Sign_In.routeName);
-                              },
-                            //  color: Colors.white,
+                              SizedBox(
+                                height: 10.h,
                               ),
-                              DefaultButtom(
-                                Child:  Text('No',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                                 // color: Colors.black,
-                                color: Colors.white,
-                                ),), Height:30,
-                                 Width: 50, 
-                                 PaddingHorizontal: 5,
-                                  PaddingVertical: 0,
-                                  OnTap: () {
-                                Navigator.pop(context);
-                              },
-                              //color: Colors.white,
+                              Text(
+                                'Do you want to Log out ?',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    wordSpacing: 1,
+                                    //  color: Colors.white,
+                                    color: PrimaryColour,
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  DefaultButtom(
+                                    Child: Text(
+                                      'Yes',
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        // color: Colors.black,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Height: 30,
+                                    Width: 50,
+                                    PaddingHorizontal: 5,
+                                    PaddingVertical: 0,
+                                    OnTap: () {
+                                      Navigator.pushReplacementNamed(
+                                          context, Sign_In.routeName);
+                                    },
+                                    //  color: Colors.white,
+                                  ),
+                                  DefaultButtom(
+                                    Child: Text(
+                                      'No',
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        // color: Colors.black,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Height: 30,
+                                    Width: 50,
+                                    PaddingHorizontal: 5,
+                                    PaddingVertical: 0,
+                                    OnTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    //color: Colors.white,
+                                  )
+                                ],
                               )
                             ],
-                          )
-                        ],),
-                    ),
-                  ) );
-                });
+                          ),
+                        ),
+                      ));
+                    });
               },
               leading: Icon(
                 Icons.logout,
                 size: 35.w,
-                color:  theme.isDark?  Colors.white : Colors.black,
+                color: theme.isDark ? Colors.white : Colors.black,
               ),
               title: Text(
                 'Logout',
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
-                  color:  theme.isDark?  Colors.white : Colors.black,
+                  color: theme.isDark ? Colors.white : Colors.black,
                 ),
               ),
             ),
