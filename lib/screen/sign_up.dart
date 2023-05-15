@@ -313,10 +313,10 @@ class _SignUpState extends State<SignUp> {
                             height: 20.h,
                           ),
                           DefaultFormField(
-                            isPassword: SignUpCubit.get(context).isPassword,
-                            suffixIcon: SignUpCubit.get(context).suffix,
+                            isPassword: SignUpCubit.get(context).isConfirmPassword,
+                            suffixIcon: SignUpCubit.get(context).suffixConfirm,
                             suffixPressed: () {
-                              SignUpCubit.get(context).showPassword();
+                              SignUpCubit.get(context).showConfirmPassword1();
                             },
                             label: 'Confirm Password',
                             keyboardType: TextInputType.text,

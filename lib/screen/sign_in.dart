@@ -75,7 +75,7 @@ class Sign_In extends StatelessWidget {
                             height: 20.h,
                           ),
                           DefaultFormField(
-                            isPassword: SignInCubit.get(context).isPassword,
+                            
                             prefixIcon: Padding(
                               padding: EdgeInsetsDirectional.only(
                                   start: 10.w, end: 10.w),
@@ -84,9 +84,10 @@ class Sign_In extends StatelessWidget {
                                 size: 30.h,
                               ),
                             ),
+                            isPassword: SignInCubit.get(context).isPassword,
                             suffixIcon: SignInCubit.get(context).suffix,
                             suffixPressed: () {
-                              SignInCubit.get(context).showPassword();
+                              SignInCubit.get(context).showPasswordLogin();
                             },
                             label: 'Password',
                             keyboardType: TextInputType.text,

@@ -15,7 +15,7 @@ class SignInCubit extends Cubit<SignInStates> {
 
   bool isPassword = true;
 
-  void showPassword() {
+  void showPasswordLogin() {
     isPassword = !isPassword;
 
     suffix = isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;

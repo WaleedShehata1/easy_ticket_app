@@ -65,7 +65,7 @@ class DefaultFormField extends StatelessWidget {
         labelText: label,
         labelStyle:TextStyle(color: textColor ?? PrimaryColour,fontSize: 16.sp) ,
         prefixIcon: prefixIcon ?? null,
-          suffixIcon: suffixIcon!=null
+         suffixIcon: suffixIcon!=null
             ? IconButton(
                 onPressed: () {
                   suffixPressed!();
