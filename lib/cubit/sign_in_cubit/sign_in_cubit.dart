@@ -1,96 +1,42 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, avoid_print
+
+import 'dart:convert';
 
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../model/sign_in_model.dart';
 
 class SignInCubit extends Cubit<SignInStates> {
   SignInCubit() : super(SignInInitialState());
 
   static SignInCubit get(context) => BlocProvider.of(context);
-
-  SignIn? SignInModel;
-
-  void userSignIn({required String national_ID, required String password}) {
-    emit(SignInLoadingState());
-
-    /*  DioHelper.postData(
-      url: LOGIN,
-       data: {
-        "national_ID":national_ID ,
-        "password": password,
-       },).then((value) {
-         print(value?.data);
-         SignInModel = SignIn.fromJson(value.data);
-         emit(SignInSuccessState(SignInModel));
-       }).catchError((error){
-        print(error.toString());
-        emit(SignInErrorState(error.toString()));
-       }); */
-    /* try {
-      // Make HTTP request to API
-      final response = await http.post(Uri.parse('https://example.com/api/login'), body: {
-        'email': event.email,
-        'password': event.password,
-      });
-
-      if (response.statusCode == 200) {
-        // If login is successful, parse the JSON response and emit LoginSuccess state with user data.
-        final json = jsonDecode(response.body);
-        final user = User.fromJson(json);
-        yield LoginSuccess(user: user);
-      } else {
-        // If login fails, emit LoginFailure state with error message.
-        final errorMessage = 'Login failed. Please check your email and password.';
-         SignInErrorState(errorMessage: errorMessage);
-      }
-    } catch (_) {
-      // If there's an exception during the API call, emit LoginFailure state with error message.
-      final errorMessage = 'An unexpected error occurred. Please try again later.';
-      yield LoginFailure(errorMessage: errorMessage);
-    } */
-  }
-
-  IconData suffix = Icons.visibility_outlined;
+ IconData suffix = Icons.visibility_outlined;
 
   bool isPassword = true;
 
   void showPassword() {
     isPassword = !isPassword;
 
-    suffix =
-        isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
-
-    emit(ShowPassword());
-  }
-
-  /*  void sign_in({
-     required String nationalID,
-    required String password
+    suffix = isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
+        
+    emit(ShowPassword());}
+ 
+  Stream<Future<void>> userLogin(
+      {required String national_ID, required String password}) async* {
+    try {
+      emit(SignInLoadingState());
+      final response = await http.post(
+        Uri.parse('https://easyticket.website/api/auth/login'),
+        body: {'national_ID': national_ID, 'password': password},
+      );
+      final data = json.decode(response.body);
+      print(data);
+      // handle the response data and update the state accordingly
+      emit(SignInSuccessState(data['id']));
+    } catch (e) {
+      emit(SignInErrorState(e.toString()));
     }
-  
-   ) async
-   {
-    var url = Uri.https('https://easyticket.website', '/api/auth/login');
-
-
-     var response = await http.post(
-        url,body: {
-          "national_ID":nationalID,
-          "password":password
-        }
-      ).then((value) {
-      
-      }).catchError(onError);
-
-
-
-      //var responsebody =jsonDecode(response.body);
-
-
-
-
-   } */
+  }
 }
+
