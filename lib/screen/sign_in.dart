@@ -9,6 +9,7 @@ import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../cubit/sign_in_cubit/sign_in_cubit.dart';
 import '../widget/Buttom.dart';
@@ -34,7 +35,30 @@ class Sign_In extends StatelessWidget {
           create: (BuildContext context) => SignInCubit(),
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
-              if (state is SignInSuccessState) {}
+              if (state is SignInSuccessState) {
+                if (state.loginModel?.status != null) {
+                  print(state.loginModel?.data?.token);
+                  print(state.loginModel?.message);
+                  Fluttertoast.showToast(
+                      msg: state.loginModel?.message ?? "Error",
+                      toastLength: Toast.LENGTH_LONG,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 5,
+                      backgroundColor: Colors.green,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                } else {
+                  print(state.loginModel?.message);
+                  Fluttertoast.showToast(
+                      msg: state.loginModel?.message ?? "Error",
+                      toastLength: Toast.LENGTH_LONG,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 5,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                }
+              }
             },
             builder: (context, state) {
               return Scaffold(
@@ -75,7 +99,6 @@ class Sign_In extends StatelessWidget {
                             height: 20.h,
                           ),
                           DefaultFormField(
-                            
                             prefixIcon: Padding(
                               padding: EdgeInsetsDirectional.only(
                                   start: 10.w, end: 10.w),

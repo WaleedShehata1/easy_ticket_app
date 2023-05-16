@@ -7,9 +7,9 @@ class SignInInitialState extends SignInStates {}
 class SignInLoadingState extends SignInStates {}
 
 class SignInSuccessState extends SignInStates {
-  final SignIn SignInModel;
+  final SignInModel? loginModel;
 
-  SignInSuccessState(this.SignInModel);
+  SignInSuccessState(this.loginModel);
 }
 
 class SignInErrorState extends SignInStates {

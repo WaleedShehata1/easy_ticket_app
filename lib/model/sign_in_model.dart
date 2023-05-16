@@ -1,9 +1,9 @@
-class SignIn {
+class SignInModel {
   bool? status;
   String? message;
   UserData? data;
 
-  SignIn.fromJson(Map<String, dynamic> json) {
+  SignInModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
     data = json['data'] != null ? UserData.fromJson(json['data']) : null;
@@ -22,7 +22,7 @@ class UserData {
   String? profession;
   String? phone;
   String? password;
-
+  String? token;
 
   UserData.fromJson(Map<String, dynamic> json) {
     uid = json['id'];
@@ -35,6 +35,6 @@ class UserData {
     date_of_birth = json['date_of_birth'];
     gender = json['gender'];
     profession = json['profession'];
+    token = json['token'];
   }
-
 }
