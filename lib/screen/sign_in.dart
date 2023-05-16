@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 import '../cubit/sign_in_cubit/sign_in_cubit.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
@@ -90,6 +89,8 @@ class Sign_In extends StatelessWidget {
                             validate: (String? value) {
                               if (value!.trim().isEmpty) {
                                 return 'Please enter your National ID';
+                              }else if(value.length<14){
+                                return 'Enter the national number consisting of 14 digits';
                               }
                               return null;
                             },

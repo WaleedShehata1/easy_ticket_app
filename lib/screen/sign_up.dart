@@ -114,6 +114,8 @@ class _SignUpState extends State<SignUp> {
                             validate: (String? value) {
                               if (value!.trim().isEmpty) {
                                 return 'Please enter your National ID';
+                              }else if(value.length<14){
+                                return 'Enter the national number consisting of 14 digits';
                               }
                               return null;
                             },
@@ -197,6 +199,8 @@ class _SignUpState extends State<SignUp> {
                             validate: (String? value) {
                               if (value!.trim().isEmpty) {
                                 return 'Please enter your phone';
+                              }else if(value.length<14){
+                                return 'Enter the phone number consisting of 11 digits';
                               }
                               return null;
                             },
