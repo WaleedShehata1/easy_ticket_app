@@ -40,7 +40,7 @@ class Sign_In extends StatelessWidget {
                   print(state.loginModel?.data?.token);
                   print(state.loginModel?.message);
                   Fluttertoast.showToast(
-                      msg: state.loginModel?.message ?? "Error",
+                      msg: state.loginModel?.message ?? "Done!",
                       toastLength: Toast.LENGTH_LONG,
                       gravity: ToastGravity.BOTTOM,
                       timeInSecForIosWeb: 5,
