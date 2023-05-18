@@ -2,11 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 Color PrimaryColour = const Color(0xffF48265);
 Color DarkColour = const Color(0xff212121);
 Color textColour = const Color(0xff3E548D);
-
-const LOGIN ="login";
 
 class firstTime {
   static SharedPreferences? sharedPreferences;
@@ -16,14 +15,15 @@ class firstTime {
   }
 
   static Future<bool?> putData(
-      {required String key, required bool valu}) async {
-    return await sharedPreferences?.setBool(key, valu);
+      {required String key, required bool value}) async {
+    return await sharedPreferences?.setBool(key, value);
   }
 
   static bool? getData({required String key}) {
     return sharedPreferences?.getBool(key);
   }
 }
+
 class darkMode {
   static SharedPreferences? sharedPreferences;
 
@@ -32,16 +32,22 @@ class darkMode {
   }
 
   static Future<bool?> putData(
-      {required String key, required bool valu}) async {
-    return await sharedPreferences?.setBool(key, valu);
+      {required String key, required bool value}) async {
+    return await sharedPreferences?.setBool(key, value);
   }
 
   static bool? getData({required String key}) {
     return sharedPreferences?.getBool(key);
   }
+
+  static Future<bool?> saveData({
+    required String key,
+    required dynamic value,
+  }) async {
+    if (value is String) return await sharedPreferences?.setString(key, value);
+    if (value is int) return await sharedPreferences?.setInt(key, value);
+    if (value is bool) return await sharedPreferences?.setBool(key, value);
+
+    return await sharedPreferences?.setDouble(key, value);
+  }
 }
-
-
-
-
-

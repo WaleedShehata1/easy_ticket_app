@@ -89,7 +89,7 @@ class Sign_In extends StatelessWidget {
                             validate: (String? value) {
                               if (value!.trim().isEmpty) {
                                 return 'Please enter your National ID';
-                              }else if(value.length<14){
+                              } else if (value.length < 14) {
                                 return 'Enter the national number consisting of 14 digits';
                               }
                               return null;

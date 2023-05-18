@@ -154,7 +154,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 ),
               ),
             ),
-           /*  ListTile(
+            /*  ListTile(
               minVerticalPadding: 15.h ,
               onTap: () {
                 Navigator.pushNamed(context,CreditCard.routeName);
@@ -173,7 +173,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 ),
               ),
             ), */
-  
+
             ListTile(
               minVerticalPadding: 15.h,
               onTap: () {
@@ -196,7 +196,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ListTile(
               onTap: () => setState(() {
                 theme.changeTheme();
-                firstTime.putData(key: 'isDarkMode', valu: theme.isDark);
+                firstTime.putData(key: 'isDarkMode', value: theme.isDark);
               }),
               minVerticalPadding: 15.h,
               leading: Icon(
@@ -221,7 +221,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 onChanged: (value) {
                   setState(() {
                     theme.changeTheme();
-                    firstTime.putData(key: 'isDarkMode', valu: theme.isDark);
+                    firstTime.putData(key: 'isDarkMode', value: theme.isDark);
                   });
                 },
               ),
