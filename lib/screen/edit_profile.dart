@@ -1,10 +1,13 @@
-// ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names
+// ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields
 
 import 'package:easy_ticket_app/widget/components.dart';
+import 'package:easy_ticket_app/widget/container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/change_password.dart';
 import '../widget/Buttom.dart';
+import '../widget/drop_down_list.dart';
+import '../widget/text_Form_Field.dart';
 
 class EditProfileScreen extends StatefulWidget {
     static const String routeName = 'Edite profile';
@@ -16,19 +19,33 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController nationalIdController = TextEditingController();
-  final TextEditingController birthDateController = TextEditingController();
   final TextEditingController professionController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController healthStatusController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+   
   var ScaffoldKey = GlobalKey<ScaffoldState>();
-
+  var _HealthStatusList = [
+    'heart disease',
+    'Diabetes',
+    'Pressure disease',
+    'Healthy'
+  ];
+    var _professionList = [
+    'study',
+    'senior',
+    'Pressure disease',
+    'Healthy'
+  ];
+  
+  var _HealthStatus;
+  
+  var _Profession;
   @override
   Widget build(BuildContext context) {
+    phoneController.text='01010100666';
+   
     return GestureDetector(
        onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -81,93 +98,118 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16.0),
+                padding:  const EdgeInsets.all(20.0).w,
                 child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
-                          child: TextField(
-                            controller: firstNameController,
-                            decoration: const InputDecoration(
-                              labelText: 'First Name',
-                            ),
-                          ),
+                        const Expanded(child: DefaultContaiiner(text: 'First Name')),
+                       
+                         SizedBox(width: 16.w),
+                          const Expanded(child: DefaultContaiiner(text: 'Last Name')),
+                       
+                      ],
+                    ),
+                    SizedBox(height: 20.h),
+                     const DefaultContaiiner(text:'National ID'),
+                     SizedBox(height: 20.w),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Expanded(
+                          child:DefaultContaiiner(text: 'Birth Date'),
                         ),
-                        const SizedBox(width: 16.0),
-                        Expanded(
-                          child: TextField(
-                            controller: lastNameController,
-                            decoration: const InputDecoration(
-                              labelText: 'Last Name',
-                            ),
-                          ),
+                        SizedBox(width: 16.w),
+                       
+                      const Expanded(
+                          child: 
+                           DefaultContaiiner(text: 'Gender'),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 16.0),
-                    TextField(
-                      maxLength: 14,
-                      keyboardType: TextInputType.number,
-                      controller: nationalIdController,
-                      decoration: const InputDecoration(
-                        labelText: 'National ID',
-                      ),
-                    ),
+                     SizedBox(height: 16.h),
+ DefaultFormField(
+                            prefixIcon: Icon(
+                              Icons.phone,
+                              size: 20.h,
+                            ),
+                            label: 'Phone',
+                            keyboardType: TextInputType.phone,
+                            validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your phone';
+                              }else if(value.length<14){
+                                return 'Enter the phone number consisting of 11 digits';
+                              }
+                              return null;
+                            },
+                            MaxLength: 11,
+                            controller: phoneController,
+                          ),
+                    
                     const SizedBox(height: 16.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: TextField(
-                            keyboardType: TextInputType.datetime,
-                            controller: birthDateController,
-                            decoration: const InputDecoration(
-                              labelText: 'Birth Date',
-                            ),
-                          ),
+                          child:  DefaultDropdown(
+                                  labelText: 'Health Status',
+                                  labelStyle: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: PrimaryColour,
+                                      fontWeight: FontWeight.bold),
+                                  validator: (value) {
+                                    if (value == null) {
+                                      return 'Please enter your Health Status';
+                                    }
+                                    return null;
+                                  },
+                                  value: _HealthStatus,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _HealthStatus = value;
+                                    });
+                                  },
+                                  items: _HealthStatusList.map<
+                                      DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                ),
                         ),
-                        const SizedBox(width: 16.0),
-                        Expanded(
-                          child: TextField(
-                            controller: professionController,
-                            decoration: const InputDecoration(
-                              labelText: 'Profession',
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16.0),
-                    TextField(
-                      keyboardType: TextInputType.phone,
-                      controller: phoneController,
-                      decoration: const InputDecoration(
-                        labelText: 'Phone',
-                      ),
-                    ),
-                    const SizedBox(height: 16.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            controller: healthStatusController,
-                            decoration: const InputDecoration(
-                              labelText: 'Health Status',
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 16.0),
-                        Expanded(
-                          child: TextField(
-                            controller: genderController,
-                            decoration: const InputDecoration(
-                              labelText: 'Gender',
-                            ),
-                          ),
-                        ),
+                        SizedBox(width: 16.w,),
+                         Expanded(
+                               
+                                child: DefaultDropdown(
+                                  validator: (value) {
+                                    if (value == null) {
+                                      return 'Please select your Profession';
+                                    }
+                                    return null;
+                                  },
+                                  labelText: 'Profession',
+                                  labelStyle: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: PrimaryColour,
+                                      fontWeight: FontWeight.bold),
+                                  value: _Profession,
+                                  items: _HealthStatusList.map<
+                                      DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _Profession = value;
+                                    });
+                                  },
+                                ),
+                              ),
                       ],
                     ),
                     const SizedBox(height: 16.0),

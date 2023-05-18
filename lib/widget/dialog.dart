@@ -28,8 +28,8 @@ class DefaultDialog extends StatelessWidget {
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Padding(
             padding: EdgeInsets.symmetric(
-                vertical: paddingVerrtical ?? 15.h,
-                horizontal: paddingHorizontal ?? 20.w),
+                vertical: (paddingVerrtical ?? 15).h,
+                horizontal: paddingHorizontal ?? 10.w),
             child: Child,
           ),
         ));
