@@ -13,7 +13,6 @@ class onBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: Container(
         color: Colors.white,
         child: Center(
@@ -22,12 +21,14 @@ class onBoard extends StatelessWidget {
             children: [
               Column(
                 children: [
-SizedBox(height: 50.h,),
-                  getStartShape,
-                   SizedBox(
-                    height:50.h,
+                  SizedBox(
+                    height: 50.h,
                   ),
-                   Text(
+                  getStartShape,
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  Text(
                     'Welcome to Easy Ticket',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -38,7 +39,7 @@ SizedBox(height: 50.h,),
                   const SizedBox(
                     height: 10,
                   ),
-                   SizedBox(
+                  SizedBox(
                     width: 340,
                     child: Text(
                       "Quick & Easy to Travel anywhere & anytime",
@@ -53,8 +54,8 @@ SizedBox(height: 50.h,),
                   ),
                 ],
               ),
-              
-      /*                 Container(
+
+              /*                 Container(
                         height: 65,
                         width: 300,
                         decoration: BoxDecoration(
@@ -80,15 +81,16 @@ SizedBox(height: 50.h,),
                           ),
                         ),
                       ), */
-               DefaultButtom(
+              DefaultButtom(
                 OnTap: () {
-                 firstTime.putData(key: 'firstTime', valu: true).then(
-                                      (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
-                                     Navigator.pushReplacementNamed(context, Sign_In.routeName );
+                  firstTime.putData(key: 'firstTime', value: true).then(
+                      (value) => Navigator.pushReplacementNamed(
+                          context, Sign_In.routeName));
+                  Navigator.pushReplacementNamed(context, Sign_In.routeName);
                 },
                 Child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
+                  children: [
                     Text(
                       'Get Started',
                       style: TextStyle(
@@ -112,8 +114,10 @@ SizedBox(height: 50.h,),
                 PaddingHorizontal: 30,
                 PaddingVertical: 30,
               ),
-              SizedBox(height: 10.h,),
-               /* 
+              SizedBox(
+                height: 10.h,
+              ),
+              /* 
                InkWell(
 
                 splashColor: Colors.blue,

@@ -26,6 +26,7 @@ void main() async {
   DioHelper.init();
   await firstTime.init();
   await darkMode.init();
+
   runApp(
     MultiBlocProvider(providers: [
       BlocProvider(
