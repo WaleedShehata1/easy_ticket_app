@@ -351,9 +351,8 @@ class _SignUpState extends State<SignUp> {
                                   firstName: FirstNameController.text,
                                   lastName: LastNameController.text,
                                   phone: PhoneController.text,
-                                );
 
-                                Navigator.pushNamed(context, Sign_In.routeName);
+                                );
                               }
                               return;
                             },
