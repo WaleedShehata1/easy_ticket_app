@@ -17,7 +17,7 @@ class DefaultContaiiner extends StatelessWidget {
       padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15).r,
-          border: Border.all(width: 2.w, color: PrimaryColour.withOpacity(0.5))),
+          border: Border.all(width: 2.w, color: PrimaryColour.withOpacity(0.3))),
       child: Text(text,style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w400),),
     );
   }

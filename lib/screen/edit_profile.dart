@@ -148,7 +148,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             controller: phoneController,
                           ),
                     
-                    const SizedBox(height: 16.0),
+                    const SizedBox(height: 5.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -213,13 +213,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ],
                     ),
                     const SizedBox(height: 16.0),
-                    TextField(
+                  /*   TextField(
                       keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       decoration: const InputDecoration(
                         labelText: 'Email',
                       ),
-                    ),
+                    ), */
+                     DefaultFormField(
+                            prefixIcon: const Icon(Icons.email_outlined),
+                            label: 'Email',
+                            keyboardType: TextInputType.emailAddress,
+                            validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your email';
+                              }
+                              return null;
+                            },
+                            controller: emailController,
+                          ),
                      SizedBox(height: 15.h),
                    
                      DefaultButtom(
