@@ -30,7 +30,7 @@ class SignInCubit extends Cubit<SignInStates> {
     emit(ShowPassword());
   }
 
-  void userLogin({required String national_ID, required String password}) {
+  userLogin({required String national_ID, required String password}) {
     emit(SignInLoadingState());
     DioHelper.postData(
       url: LOGIN,
@@ -42,7 +42,7 @@ class SignInCubit extends Cubit<SignInStates> {
       print(value.data);
       loginModel = SignInModel.fromJson(value.data);
       print(loginModel?.data?.token);
-      CacheHelper.saveData(key: 'access_token',value:loginModel?.data?.token);
+      CacheHelper.saveData(key: 'access_token', value: loginModel?.data?.token);
       print(loginModel?.status);
       print(loginModel?.message);
       emit(SignInSuccessState(loginModel));

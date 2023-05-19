@@ -27,16 +27,15 @@ class _splashState extends State<splash> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
-      if (FirstTime == true ) {
-        if(token !=null){
-            Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-        }else{
-           Navigator.pushReplacementNamed(context, Sign_In.routeName);
+      if (FirstTime == true) {
+        if (token != null) {
+          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+        } else {
+          Navigator.pushReplacementNamed(context, Sign_In.routeName);
         }
-      }else {
+      } else {
         Navigator.pushReplacementNamed(context, onBoard.routeName);
       }
-      
     });
   }
 

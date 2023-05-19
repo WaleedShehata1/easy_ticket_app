@@ -27,11 +27,11 @@ class CacheHelper {
   static bool? getData({required String key}) {
     return sharedPreferences?.getBool(key);
   }
+
   static String? getToken({required String key}) {
     return sharedPreferences?.getString(key);
   }
 
-  
   static Future<bool?> saveData({
     required String key,
     required dynamic value,
@@ -42,6 +42,10 @@ class CacheHelper {
 
     return await sharedPreferences?.setDouble(key, value);
   }
+
+  static Future<bool?> clearData({
+    required String key,
+  }) async {
+    return await sharedPreferences?.remove(key);
+  }
 }
-
-

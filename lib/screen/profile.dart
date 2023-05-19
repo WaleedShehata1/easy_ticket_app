@@ -1,7 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/widget/components.dart';
+import 'package:easy_ticket_app/widget/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -320,8 +322,13 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                     PaddingHorizontal: 5,
                                     PaddingVertical: 0,
                                     OnTap: () {
-                                      Navigator.pushReplacementNamed(
-                                          context, Sign_In.routeName);
+                                      CacheHelper.clearData(key: 'token')
+                                          .then((value) {
+                                        if (value!) {
+                                          navigateAndFinish(
+                                              context, HomeScreen());
+                                        }
+                                      });
                                     },
                                     //  color: Colors.white,
                                   ),
