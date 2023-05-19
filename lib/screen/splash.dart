@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names, deprecated_member_use
 import 'dart:async';
+import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/onBoard.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
@@ -21,15 +22,21 @@ class splash extends StatefulWidget {
 
 class _splashState extends State<splash> {
   bool? FirstTime = CacheHelper.getData(key: 'firstTime');
+  String? token = CacheHelper.getToken(key: 'access_token');
   @override
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
-      if (FirstTime == true) {
-        Navigator.pushReplacementNamed(context, Sign_In.routeName);
-      } else {
+      if (FirstTime == true ) {
+        if(token !=null){
+            Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+        }else{
+           Navigator.pushReplacementNamed(context, Sign_In.routeName);
+        }
+      }else {
         Navigator.pushReplacementNamed(context, onBoard.routeName);
       }
+      
     });
   }
 

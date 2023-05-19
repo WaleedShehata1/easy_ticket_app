@@ -35,6 +35,6 @@ class UserData {
     date_of_birth = json['date_of_birth'];
     gender = json['gender'];
     profession = json['profession'];
-    token = json['token'];
+    token = json['access_token'];
   }
 }

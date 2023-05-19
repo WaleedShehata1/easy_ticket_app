@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
+import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +31,7 @@ class SignInCubit extends Cubit<SignInStates> {
   }
 
   void userLogin({required String national_ID, required String password}) {
+    emit(SignInLoadingState());
     DioHelper.postData(
       url: LOGIN,
       data: {
@@ -40,6 +42,7 @@ class SignInCubit extends Cubit<SignInStates> {
       print(value.data);
       loginModel = SignInModel.fromJson(value.data);
       print(loginModel?.data?.token);
+      CacheHelper.saveData(key: 'access_token',value:loginModel?.data?.token);
       print(loginModel?.status);
       print(loginModel?.message);
       emit(SignInSuccessState(loginModel));
