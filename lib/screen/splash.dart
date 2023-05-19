@@ -34,10 +34,9 @@ class _splashState extends State<splash> {
         if(token ==null){
            Navigator.pushReplacementNamed(context, Sign_In.routeName);
         }
-      }else {
+      } else {
         Navigator.pushReplacementNamed(context, onBoard.routeName);
       }
-      
     });
   }
 

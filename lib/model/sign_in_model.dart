@@ -8,6 +8,15 @@ class SignInModel {
     message = json['message'];
     data = json['data'] != null ? UserData.fromJson(json['data']) : null;
   }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data?.toJson();
+    }
+    return data;
+  }
 }
 
 class UserData {
@@ -36,5 +45,21 @@ class UserData {
     gender = json['gender'];
     profession = json['profession'];
     token = json['access_token'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.uid;
+    data['national_ID'] = this.national_ID;
+    data['first_Name'] = this.first_Name;
+    data['last_Name'] = this.last_Name;
+    data['email'] = this.email;
+    data['phone'] = this.phone;
+    data['gender'] = this.gender;
+    data['profession'] = this.profession;
+    data['date_of_birth'] = this.date_of_birth;
+    data['access_token'] = this.token;
+    data['health_status'] = this.health_status;
+    return data;
   }
 }

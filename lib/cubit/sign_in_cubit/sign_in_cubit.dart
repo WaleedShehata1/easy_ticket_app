@@ -30,7 +30,7 @@ class SignInCubit extends Cubit<SignInStates> {
     emit(ShowPassword());
   }
 
-  void userLogin({required String national_ID, required String password}) {
+  userLogin({required String national_ID, required String password}) {
     emit(SignInLoadingState());
     DioHelper.postData(
       url: LOGIN,
