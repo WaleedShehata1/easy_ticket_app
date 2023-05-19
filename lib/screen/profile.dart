@@ -322,7 +322,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                     PaddingHorizontal: 5,
                                     PaddingVertical: 0,
                                     OnTap: () {
-                                      CacheHelper.clearData(key: 'token')
+                                      CacheHelper.clearData(key: 'access_token')
                                           .then((value) {
                                         if (value!) {
                                           navigateAndFinish(

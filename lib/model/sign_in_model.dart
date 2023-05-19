@@ -10,7 +10,7 @@ class SignInModel {
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
+    data['statu'] = this.status;
     data['message'] = this.message;
     if (this.data != null) {
       data['data'] = this.data?.toJson();

@@ -47,9 +47,6 @@ class SignInCubit extends Cubit<SignInStates> {
       print(loginModel?.message);
       emit(SignInSuccessState(loginModel));
     }).catchError((error) {
-      var e= loginModel?.message;
-      print('$e');
-      print(error.toString());
       emit(SignInErrorState(error.toString()));
     });
   }
