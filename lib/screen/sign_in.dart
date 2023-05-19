@@ -40,8 +40,7 @@ class Sign_In extends StatelessWidget {
                 if (state.loginModel?.status != null) {
                   print(state.loginModel?.data?.token);
                   print(state.loginModel?.message);
-                  CacheHelper
-                      .saveData(
+                  CacheHelper.saveData(
                           key: 'token', value: state.loginModel?.data?.token)
                       .then((value) => navigateAndFinish(
                             context,
@@ -50,7 +49,7 @@ class Sign_In extends StatelessWidget {
                 } else {
                   print(state.loginModel?.message);
                   showToast(
-                      text: state.loginModel?.message ?? 'ERROR!',
+                      text: state.loginModel?.message ?? '',
                       state: ToastStates.ERROR);
                 }
               }
@@ -166,7 +165,7 @@ class Sign_In extends StatelessWidget {
                                       national_ID: NationalIDController.text,
                                       password: PasswordController.text);
                                 }
-                          /*       Navigator.pushNamed(
+                                /*       Navigator.pushNamed(
                                     context, BottomBar.routeName); */
                               },
                               Child: Text(
@@ -185,7 +184,7 @@ class Sign_In extends StatelessWidget {
                             ),
                             fallback: (BuildContext context) => Center(
                                 child: CircularProgressIndicator(
-                              color: PrimaryColour, 
+                              color: PrimaryColour,
                             )),
                           ),
                           Row(
