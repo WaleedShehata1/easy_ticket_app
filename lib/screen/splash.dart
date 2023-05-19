@@ -20,7 +20,7 @@ class splash extends StatefulWidget {
 }
 
 class _splashState extends State<splash> {
-  bool? FirstTime = firstTime.getData(key: 'firstTime');
+  bool? FirstTime = CacheHelper.getData(key: 'firstTime');
   @override
   void initState() {
     super.initState();

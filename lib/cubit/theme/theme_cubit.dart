@@ -6,11 +6,11 @@ part 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
   ThemeCubit() : super(ThemeInitial());
-  bool _isDark = darkMode.getData(key: 'darkMode') ?? false;
+  bool _isDark = CacheHelper.getData(key: 'darkMode') ?? false;
   bool get isDark => _isDark;
   void changeTheme() {
     _isDark = !_isDark;
-    darkMode.putData(key: 'darkMode', value: _isDark);
+    CacheHelper.putData(key: 'darkMode', value: _isDark);
     emit(ThemeChange());
   }
 }

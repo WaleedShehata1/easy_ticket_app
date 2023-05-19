@@ -213,13 +213,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ],
                     ),
                     const SizedBox(height: 16.0),
-                  /*   TextField(
-                      keyboardType: TextInputType.emailAddress,
-                      controller: emailController,
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                      ),
-                    ), */
                      DefaultFormField(
                             prefixIcon: const Icon(Icons.email_outlined),
                             label: 'Email',

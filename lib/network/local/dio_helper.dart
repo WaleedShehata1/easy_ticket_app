@@ -6,7 +6,7 @@ class DioHelper {
   static void init() {
     dio = Dio(
       BaseOptions(
-          baseUrl: 'https://easyticket.website/api/passengers',
+          baseUrl: 'https://easyticket.website/api/',
           receiveDataWhenStatusError: true,
           headers: {
             'Content-Type': 'application/json',

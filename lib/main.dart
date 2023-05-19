@@ -24,9 +24,7 @@ import 'screen/wallet_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
-  await firstTime.init();
-  await darkMode.init();
-
+  await CacheHelper.init();
   runApp(
     MultiBlocProvider(providers: [
       BlocProvider(

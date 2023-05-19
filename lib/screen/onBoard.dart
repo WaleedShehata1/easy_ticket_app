@@ -83,7 +83,7 @@ class onBoard extends StatelessWidget {
                       ), */
               DefaultButtom(
                 OnTap: () {
-                  firstTime.putData(key: 'firstTime', value: true).then(
+                  CacheHelper.putData(key: 'firstTime', value: true).then(
                       (value) => Navigator.pushReplacementNamed(
                           context, Sign_In.routeName));
                   Navigator.pushReplacementNamed(context, Sign_In.routeName);

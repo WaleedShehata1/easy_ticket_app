@@ -40,7 +40,7 @@ class Sign_In extends StatelessWidget {
                 if (state.loginModel?.status != null) {
                   print(state.loginModel?.data?.token);
                   print(state.loginModel?.message);
-                  firstTime
+                  CacheHelper
                       .saveData(
                           key: 'token', value: state.loginModel?.data?.token)
                       .then((value) => navigateAndFinish(
@@ -166,8 +166,8 @@ class Sign_In extends StatelessWidget {
                                       national_ID: NationalIDController.text,
                                       password: PasswordController.text);
                                 }
-                                Navigator.pushNamed(
-                                    context, BottomBar.routeName);
+                          /*       Navigator.pushNamed(
+                                    context, BottomBar.routeName); */
                               },
                               Child: Text(
                                 'Log In',
@@ -185,7 +185,7 @@ class Sign_In extends StatelessWidget {
                             ),
                             fallback: (BuildContext context) => Center(
                                 child: CircularProgressIndicator(
-                              color: PrimaryColour,
+                              color: PrimaryColour, 
                             )),
                           ),
                           Row(

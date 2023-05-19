@@ -196,7 +196,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ListTile(
               onTap: () => setState(() {
                 theme.changeTheme();
-                firstTime.putData(key: 'isDarkMode', value: theme.isDark);
+                CacheHelper.putData(key: 'isDarkMode', value: theme.isDark);
               }),
               minVerticalPadding: 15.h,
               leading: Icon(
@@ -221,7 +221,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                 onChanged: (value) {
                   setState(() {
                     theme.changeTheme();
-                    firstTime.putData(key: 'isDarkMode', value: theme.isDark);
+                    CacheHelper.putData(key: 'isDarkMode', value: theme.isDark);
                   });
                 },
               ),
