@@ -41,7 +41,8 @@ class Sign_In extends StatelessWidget {
                   print(state.loginModel?.data?.token);
                   print(state.loginModel?.message);
                   CacheHelper.saveData(
-                          key: 'token', value: state.loginModel?.data?.token)
+                          key: 'access_token',
+                          value: state.loginModel?.data?.token)
                       .then((value) => navigateAndFinish(
                             context,
                             HomeScreen(),
