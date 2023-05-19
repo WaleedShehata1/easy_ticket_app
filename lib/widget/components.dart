@@ -19,10 +19,10 @@ class CacheHelper {
       {required String key, required bool value}) async {
     return await sharedPreferences?.setBool(key, value);
   }
-  static Future<String?> putToken(
+/*   static Future<String?> putToken(
       {required String key, required String value}) async {
     return await sharedPreferences?.setString(key, value);
-  }
+  } */
 
   static bool? getData({required String key}) {
     return sharedPreferences?.getBool(key);
