@@ -29,8 +29,9 @@ class _splashState extends State<splash> {
     Timer(const Duration(seconds: 5), () {
       if (FirstTime == true ) {
         if(token !=null){
-            Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-        }else{
+            Navigator.pushReplacementNamed(context,HomeScreen.routeName);
+        }
+        if(token ==null){
            Navigator.pushReplacementNamed(context, Sign_In.routeName);
         }
       }else {

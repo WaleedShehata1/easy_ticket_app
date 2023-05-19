@@ -42,11 +42,14 @@ class SignInCubit extends Cubit<SignInStates> {
       print(value.data);
       loginModel = SignInModel.fromJson(value.data);
       print(loginModel?.data?.token);
-      CacheHelper.saveData(key: 'access_token',value:loginModel?.data?.token);
+      CacheHelper.putToken(key: 'access_token',value:loginModel?.data?.token);
       print(loginModel?.status);
       print(loginModel?.message);
       emit(SignInSuccessState(loginModel));
     }).catchError((error) {
+      var e= loginModel?.message;
+      print('$e');
+      print(error.toString());
       emit(SignInErrorState(error.toString()));
     });
   }
