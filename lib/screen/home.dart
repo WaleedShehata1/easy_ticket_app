@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
+import 'package:easy_ticket_app/widget/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_ticket_app/Pop_Up/bus_detiles.dart';
 import 'package:easy_ticket_app/Pop_Up/buy_bus_ticket.dart';
@@ -102,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+        
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

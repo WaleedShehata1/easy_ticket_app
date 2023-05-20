@@ -16,19 +16,23 @@ void showToast({
           fontSize: 16.0)
     };
 
-enum ToastStates { SUCCESS, ERROR, WARNING }
+enum ToastStates { success, error, waring }
 
-Color? chooseToastColor(ToastStates state) {
+Color chooseToastColor(ToastStates state) {
   Color color;
+  switch (state) {
+    case ToastStates.success:
+      color = Colors.green;
+      break;
 
-  if (state == ToastStates.SUCCESS) {
-    color = Colors.green;
-  } else if (state == ToastStates.ERROR) {
-    color = Colors.red;
-  } else {
-    color = Colors.amber;
+    case ToastStates.error:
+      color = Colors.red;
+      break;
+
+    case ToastStates.waring:
+      color = Colors.amber;
+      break;
   }
-
   return color;
 }
 
@@ -38,3 +42,6 @@ void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
       builder: (context) => widget,
     ),
     (Route<dynamic> route) => false);
+
+
+String? token = '';

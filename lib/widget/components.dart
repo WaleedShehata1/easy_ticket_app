@@ -19,18 +19,10 @@ class CacheHelper {
       {required String key, required bool value}) async {
     return await sharedPreferences?.setBool(key, value);
   }
-  static Future<bool?> putToken(
-      {required String key, required dynamic value}) 
-      async {
-    return await sharedPreferences?.setString(key, value);
-  }
+ 
 
-  static bool? getData({required String key}) {
-    return sharedPreferences?.getBool(key);
-  }
-
-  static String? getToken({required String key}) {
-    return sharedPreferences?.getString(key);
+  static dynamic getData({required String key}) {
+    return sharedPreferences?.get(key);
   }
 
   static Future<bool?> saveData({
@@ -41,7 +33,7 @@ class CacheHelper {
     if (value is int) return await sharedPreferences?.setInt(key, value);
     if (value is bool) return await sharedPreferences?.setBool(key, value);
 
-    return await sharedPreferences?.setDouble(key, value);
+    
   }
 
   static Future<bool?> clearData({

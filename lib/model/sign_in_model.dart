@@ -1,22 +1,28 @@
+// ignore_for_file: unnecessary_this, non_constant_identifier_names
+
+import 'package:easy_ticket_app/widget/components.dart';
+
 class SignInModel {
   bool? status;
   String? message;
+  String? token;
   UserData? data;
 
   SignInModel.fromJson(Map<String, dynamic> json) {
     status = json['statu'];
     message = json['message'];
-    data = json['data'] != null ? UserData.fromJson(json['data']) : null;
+    token = json['access_token'];
+    data = UserData.fromJson(json['user']);
   }
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['statu'] = this.status;
-    data['message'] = this.message;
-    if (this.data != null) {
-      data['data'] = this.data?.toJson();
-    }
-    return data;
-  }
+//  Map<String, dynamic> toJson() {
+  //  final Map<String, dynamic> data = new Map<String, dynamic>();
+  //  data['statu'] = this.status;
+  //  data['message'] = this.message;
+  //  if (this.data != null) {
+  //    data['user'] = this.data?.toJson();
+ //   }
+ //   return data;
+//  }//
 }
 
 class UserData {
@@ -31,11 +37,11 @@ class UserData {
   String? profession;
   String? phone;
   String? password;
-  String? token;
+  
 
   UserData.fromJson(Map<String, dynamic> json) {
-    uid = json['id'];
-    national_ID = json['national_ID'];
+    uid = json['id'].toString();
+    national_ID = json['national_ID'].toString();
     email = json['email'];
     first_Name = json['first_Name'];
     last_Name = json['last_Name'];
@@ -44,9 +50,8 @@ class UserData {
     date_of_birth = json['date_of_birth'];
     gender = json['gender'];
     profession = json['profession'];
-    token = json['access_token'];
   }
-
+/* 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.uid;
@@ -62,4 +67,5 @@ class UserData {
     data['health_status'] = this.health_status;
     return data;
   }
+} */
 }

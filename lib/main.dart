@@ -18,13 +18,14 @@ import 'screen/splash.dart';
 import 'widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../widget/constants.dart';
 import 'screen/wallet_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
   await CacheHelper.init();
+  token = CacheHelper.getData(key: 'access_token');
   runApp(
     MultiBlocProvider(providers: [
       BlocProvider(

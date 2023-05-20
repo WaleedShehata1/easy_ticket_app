@@ -10,8 +10,10 @@ import '../cubit/sign_up_cubit/sign_up_state.dart';
 import '../shapes/ticket_logo.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
+import '../widget/constants.dart';
 import '../widget/drop_down_list.dart';
 import '../widget/text_Form_Field.dart';
+import 'bottom_bar.dart';
 
 class SignUp extends StatefulWidget {
   static const String routeName = 'Sign_Up';
@@ -54,7 +56,30 @@ class _SignUpState extends State<SignUp> {
           child: BlocProvider(
             create: (context) => SignUpCubit(),
             child: BlocConsumer<SignUpCubit, SignUpStates>(
-              listener: (context, state) {},
+              listener: (context, state) {
+                if (state is SignUpSuccessState) {
+                if (state.loginModel?.status != null) {
+                  print(state.loginModel!.token);
+                  print(state.loginModel!.message);
+                  CacheHelper.saveData(
+                          key: 'access_token',
+                          value: state.loginModel?.token)
+                      .then((value) {
+                        print(CacheHelper.getData(key: 'access_token'));
+                           navigateAndFinish(
+                            context,
+                            const BottomBar(), 
+                            
+                          );
+                          });
+                } else {
+                  print(state.loginModel?.message);
+                  showToast(
+                      text: state.loginModel?.message ?? '',
+                      state: ToastStates.error); 
+                }
+              }
+              },
               builder: (context, state) {
                 return Scaffold(
                   backgroundColor: Theme.of(context).scaffoldBackgroundColor,

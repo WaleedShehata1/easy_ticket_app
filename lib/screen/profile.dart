@@ -12,6 +12,7 @@ import '../widget/Buttom.dart';
 import '../widget/dialog.dart';
 import './edit_profile.dart';
 import './notifications.dart';
+import 'bottom_bar.dart';
 import 'wallet_screen.dart';
 
 class UserSettingsScreen extends StatefulWidget {
@@ -326,7 +327,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                           .then((value) {
                                         if (value!) {
                                           navigateAndFinish(
-                                              context, HomeScreen());
+                                              context, BottomBar());
                                         }
                                       });
                                     },

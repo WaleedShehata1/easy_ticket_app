@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widget/components.dart';
+import 'bottom_bar.dart';
 
 class splash extends StatefulWidget {
   static const String routeName = 'splash';
@@ -22,14 +23,14 @@ class splash extends StatefulWidget {
 
 class _splashState extends State<splash> {
   bool? FirstTime = CacheHelper.getData(key: 'firstTime');
-  String? token = CacheHelper.getToken(key: 'access_token');
+  String? token = CacheHelper.getData(key: 'access_token');
   @override
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
       if (FirstTime == true ) {
         if(token !=null){
-            Navigator.pushReplacementNamed(context,HomeScreen.routeName);
+            Navigator.pushReplacementNamed(context,BottomBar.routeName);
         }else{
            Navigator.pushReplacementNamed(context, Sign_In.routeName);
         }
