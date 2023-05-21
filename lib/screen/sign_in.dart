@@ -34,11 +34,13 @@ class Sign_In extends StatelessWidget {
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
               if (state is SignInSuccessState) {
-                if (state.loginModel!.status != null) {
+                if (state.loginModel?.status != null) {
+                  print("Token ==${state.loginModel!.token}");
+                  print("Message==  ${state.loginModel!.message}");
                   CacheHelper.saveData(
                           key: 'access_token', value: state.loginModel!.token)
                       .then((value) {
-                    token = state.loginModel؟.token;
+                    token = state.loginModel!.token;
 
                     print(
                         "access_token ${CacheHelper.getData(key: 'access_token')}");
