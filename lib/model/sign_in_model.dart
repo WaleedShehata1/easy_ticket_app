@@ -20,8 +20,8 @@ class SignInModel {
   //  data['message'] = this.message;
   //  if (this.data != null) {
   //    data['user'] = this.data?.toJson();
- //   }
- //   return data;
+  //   }
+  //   return data;
 //  }//
 }
 
@@ -37,7 +37,6 @@ class UserData {
   String? profession;
   String? phone;
   String? password;
-  
 
   UserData.fromJson(Map<String, dynamic> json) {
     uid = json['id'].toString();
