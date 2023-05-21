@@ -38,8 +38,6 @@ class Sign_In extends StatelessWidget {
             listener: (context, state) {
               if (state is SignInSuccessState) {
                 if (state.loginModel?.status != null) {
-                  print("Token ==${state.loginModel!.token}");
-                  print("Message==  ${state.loginModel!.message}");
                   CacheHelper.saveData(
                           key: 'access_token', value: state.loginModel!.token)
                       .then((value) {
@@ -50,6 +48,8 @@ class Sign_In extends StatelessWidget {
                       context,
                       const BottomBar(),
                     );
+                    print("Token ==${state.loginModel!.token}");
+                    print("Message==  ${state.loginModel!.message}");
                     showToast(
                         text: state.loginModel!.message ?? '',
                         state: ToastStates.success);
