@@ -16,7 +16,7 @@ void showToast({
           fontSize: 16.0)
     };
 
-enum ToastStates { success, error, waring }
+enum ToastStates { success, error, warning }
 
 Color chooseToastColor(ToastStates state) {
   Color color;
@@ -29,7 +29,7 @@ Color chooseToastColor(ToastStates state) {
       color = Colors.red;
       break;
 
-    case ToastStates.waring:
+    case ToastStates.warning:
       color = Colors.amber;
       break;
   }
@@ -42,6 +42,5 @@ void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
       builder: (context) => widget,
     ),
     (Route<dynamic> route) => false);
-
 
 String? token = '';

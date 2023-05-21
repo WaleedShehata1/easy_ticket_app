@@ -14,7 +14,6 @@ class SignInModel {
     token = json['access_token'];
     data = UserData.fromJson(json['user']);
   }
-
 }
 
 class UserData {

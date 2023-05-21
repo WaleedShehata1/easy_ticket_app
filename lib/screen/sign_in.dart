@@ -37,31 +37,28 @@ class Sign_In extends StatelessWidget {
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
               if (state is SignInSuccessState) {
-               if (state.loginModel!.status != null) {
-                 
-                  CacheHelper.saveData(
-                          key: 'access_token',
-                          value: state.loginModel!.token)
-                      .then((value) {
-                        token = state.loginModel!.token;
-                  
-                        print(CacheHelper.getData(key: 'access_token'));
-                           navigateAndFinish(
-                            context,
-                            const BottomBar(), 
-                            
-                          );
-                           showToast(
-                      text: state.loginModel!.message!,
-                      state: ToastStates.success); 
-                          }); print("Token ==${state.loginModel!.token}");
+                if (state.loginModel!.status != null) {
+                  print("Token ==${state.loginModel!.token}");
                   print("Message==  ${state.loginModel!.message}");
-                } 
-                else {
-                  print(state.loginModel?.message);
+                  CacheHelper.saveData(
+                          key: 'access_token', value: state.loginModel!.token)
+                      .then((value) {
+                    token = state.loginModel!.token;
+
+                    print(CacheHelper.getData(key: 'access_token'));
+                    navigateAndFinish(
+                      context,
+                      const BottomBar(),
+                    );
+                    showToast(
+                        text: state.loginModel!.message!,
+                        state: ToastStates.success);
+                  });
+                } else {
+                  print(state.loginModel!.message);
                   showToast(
-                      text: state.loginModel?.message ?? '',
-                      state: ToastStates.error); 
+                      text: state.loginModel!.message ?? '',
+                      state: ToastStates.error);
                 }
               }
             },
