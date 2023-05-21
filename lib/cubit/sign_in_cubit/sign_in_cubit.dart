@@ -33,7 +33,7 @@ class SignInCubit extends Cubit<SignInStates> {
   userLogin({required String national_ID, required String password}) {
     emit(SignInLoadingState());
     DioHelper.postData(
-      url: LOGIN,
+      url: login,
       data: {
         'national_ID': national_ID,
         'password': password,
@@ -41,32 +41,11 @@ class SignInCubit extends Cubit<SignInStates> {
     ).then((value) {
       print('Value == ${value.data}');
       loginModel = SignInModel.fromJson(value.data);
-   print(loginModel!.token);
-     // CacheHelper.saveData(key: 'access_token',value:loginModel?.data?.token);
-     // print(loginModel?.status);
-    //  print(loginModel?.message);
-     // CacheHelper.getData(key: 'access_token');
+      print(loginModel!.token);
       emit(SignInSuccessState(loginModel));
     }).catchError((error) {
       print(error.toString());
       emit(SignInErrorState(error.toString()));
     });
   }
-
-  // Stream<Future<void>> userLogin(
-  //     {required String national_ID, required String password}) async* {
-  //   try {
-  //     emit(SignInLoadingState());
-  //     final response = await http.post(
-  //       Uri.parse('https://easyticket.website/api/auth/login'),
-  //       body: {'national_ID': national_ID, 'password': password},
-  //     );
-  //     final data = json.decode(response.body);
-  //     print(data);
-  //     // handle the response data and update the state accordingly
-  //     emit(SignInSuccessState(data['id']));
-  //   } catch (e) {
-  //     emit(SignInErrorState(e.toString()));
-  //   }
-  // }
 }
