@@ -51,7 +51,7 @@ class Sign_In extends StatelessWidget {
                       const BottomBar(),
                     );
                     showToast(
-                        text: state.loginModel!.message!,
+                        text: state.loginModel!.message ?? '',
                         state: ToastStates.success);
                   });
                 } else {
