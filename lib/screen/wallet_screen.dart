@@ -29,12 +29,13 @@ class WalletProfile extends StatelessWidget {
             decoration: BoxDecoration(
               color: PrimaryColour,
               borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15)).r,
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15))
+                  .r,
             ),
             child: Column(
               children: [
-               SizedBox(
+                SizedBox(
                   height: 25.h,
                 ),
                 Row(
@@ -43,7 +44,7 @@ class WalletProfile extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon:  Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios_new,
                         color: Colors.white,
                         size: 35.w,
@@ -64,19 +65,19 @@ class WalletProfile extends StatelessWidget {
               ],
             ),
           ),
-           SizedBox(
+          SizedBox(
             height: 50.h,
           ),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 25.w),
+                padding: EdgeInsets.symmetric(horizontal: 25.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       padding:
-                           EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
+                          EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10).r,
                         color: const Color.fromARGB(255, 231, 230, 230),
@@ -87,7 +88,6 @@ class WalletProfile extends StatelessWidget {
                             Text(
                               '70 LE',
                               style: TextStyle(
-                                
                                   fontWeight: FontWeight.bold, fontSize: 20.sp),
                             ),
                             Text(
@@ -97,7 +97,7 @@ class WalletProfile extends StatelessWidget {
                             )
                           ]),
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 50.h,
                     ),
                     Container(
@@ -110,16 +110,16 @@ class WalletProfile extends StatelessWidget {
                         key: formKey,
                         child: Column(
                           children: [
-                             Text(
+                            Text(
                               'تفاصيل الشحن',
                               style: TextStyle(
                                   fontWeight: FontWeight.w900, fontSize: 22.sp),
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 20.h,
                             ),
-                        
-                          /*  DefaultDropdown(
+
+                            /*  DefaultDropdown(
                                 items: const [
                                 DropdownMenuItem(child: Text(
                                 'اختر وسيلة الشحن',
@@ -158,11 +158,11 @@ class WalletProfile extends StatelessWidget {
                                 },
                               ),
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 30.h,
                             ),
                             DefaultButtom(
-                              Child:  Text(
+                              Child: Text(
                                 'تأكيد',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w900,
@@ -189,7 +189,7 @@ class WalletProfile extends StatelessWidget {
                                                     onPressed: () {
                                                       Navigator.pop(context);
                                                     },
-                                                    icon:  Icon(
+                                                    icon: Icon(
                                                       Icons.close,
                                                       size: 30.w,
                                                     ))
@@ -218,7 +218,7 @@ class WalletProfile extends StatelessWidget {
                                               height: 30.h,
                                             ),
                                             Padding(
-                                              padding:  EdgeInsets.symmetric(
+                                              padding: EdgeInsets.symmetric(
                                                   horizontal: 40.w),
                                               child: DefaultButtom(
                                                 Child: Text(
@@ -274,7 +274,8 @@ class WalletProfile extends StatelessWidget {
                                                                   style: TextStyle(
                                                                       fontSize:
                                                                           30.w,
-                                                                          color:Colors.black,
+                                                                      color: Colors
+                                                                          .black,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold),

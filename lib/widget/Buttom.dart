@@ -41,20 +41,20 @@ class DefaultButtom extends StatelessWidget {
       child: Container(
         height: Height.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(radius ?? 30).r),
-          boxShadow: [
-         /*  BoxShadow(
+            borderRadius: BorderRadius.all(Radius.circular(radius ?? 30).r),
+            boxShadow: [
+              /*  BoxShadow(
               offset: const Offset(0, 0),
               blurRadius: 15,
               spreadRadius: -5,
               color: colorShadow ?? Colors.grey.withOpacity(0.5)), */
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.4),
-                    spreadRadius:3,
-                    blurRadius: 5,
-                    offset: const Offset(0, 1), // changes position of shadow
-                  ),
-        ]),
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.4),
+                spreadRadius: 3,
+                blurRadius: 5,
+                offset: const Offset(0, 1), // changes position of shadow
+              ),
+            ]),
         child: ElevatedButton(
           onPressed: OnTap,
           style: ElevatedButton.styleFrom(

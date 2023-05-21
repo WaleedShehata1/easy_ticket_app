@@ -28,7 +28,7 @@ class ChangePasswordScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon:  Icon(
+                    icon: Icon(
                       Icons.close,
                       size: 30.w,
                     ))
@@ -49,7 +49,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 return null;
               },
             ),
-             SizedBox(height: 15.0.h),
+            SizedBox(height: 15.0.h),
             DefaultFormField(
               controller: oldPasswordController,
               label: 'New Password',
@@ -57,7 +57,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 return null;
               },
             ),
-             SizedBox(height: 15.0.h),
+            SizedBox(height: 15.0.h),
             DefaultFormField(
               controller: oldPasswordController,
               label: 'Confirm Password',
@@ -65,9 +65,9 @@ class ChangePasswordScreen extends StatelessWidget {
                 return null;
               },
             ),
-             SizedBox(height: 35.0.h),
+            SizedBox(height: 35.0.h),
             DefaultButtom(
-              Child:  Text('Save',
+              Child: Text('Save',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22.0.sp,

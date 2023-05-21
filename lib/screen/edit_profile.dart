@@ -10,7 +10,7 @@ import '../widget/drop_down_list.dart';
 import '../widget/text_Form_Field.dart';
 
 class EditProfileScreen extends StatefulWidget {
-    static const String routeName = 'Edite profile';
+  static const String routeName = 'Edite profile';
 
   const EditProfileScreen({super.key});
 
@@ -24,7 +24,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController healthStatusController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-   
+
   var ScaffoldKey = GlobalKey<ScaffoldState>();
   var _HealthStatusList = [
     'heart disease',
@@ -32,242 +32,238 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     'Pressure disease',
     'Healthy'
   ];
-    var _professionList = [
-    'study',
-    'senior',
-    'Pressure disease',
-    'Healthy'
-  ];
-  
+  var _professionList = ['study', 'senior', 'Pressure disease', 'Healthy'];
+
   var _HealthStatus;
-  
+
   var _Profession;
   @override
   Widget build(BuildContext context) {
-    phoneController.text='01010100666';
-   
+    phoneController.text = '01010100666';
+
     return GestureDetector(
-       onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: ScaffoldKey,
-         body: Column(
+        body: Column(
           children: [
-               Container(
-                width: double.infinity,
-                height: 80.h,
-                decoration: BoxDecoration(
-                  color: PrimaryColour,
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(15),
-                      bottomRight: Radius.circular(15)).r,
-                ),
-                child: Column(
-                  children: [
-                     SizedBox(
-                      height: 25.h,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon:  Icon(
-                            Icons.arrow_back_ios_new,
+            Container(
+              width: double.infinity,
+              height: 80.h,
+              decoration: BoxDecoration(
+                color: PrimaryColour,
+                borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15))
+                    .r,
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 25.h,
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios_new,
+                          color: Colors.white,
+                          size: 25.w,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 80.w,
+                      ),
+                      Text(
+                        'Edit Account',
+                        style: TextStyle(
                             color: Colors.white,
-                            size:25.w,
-                          ),
-                        ),
-                         SizedBox(
-                          width: 80.w,
-                        ),
-                         Text(
-                          'Edit Account',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 26.sp,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                            fontSize: 26.sp,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              SizedBox(
+            ),
+            SizedBox(
               height: 20.h,
-              ),
+            ),
             Expanded(
               child: SingleChildScrollView(
-                padding:  const EdgeInsets.all(20.0).w,
+                padding: const EdgeInsets.all(20.0).w,
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Expanded(child: DefaultContaiiner(text: 'First Name')),
-                       
-                         SizedBox(width: 16.w),
-                          const Expanded(child: DefaultContaiiner(text: 'Last Name')),
-                       
-                      ],
-                    ),
-                    SizedBox(height: 20.h),
-                     const DefaultContaiiner(text:'National ID'),
-                     SizedBox(height: 20.w),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Expanded(
-                          child:DefaultContaiiner(text: 'Birth Date'),
+                            child: DefaultContaiiner(text: 'First Name')),
+                        SizedBox(width: 16.w),
+                        const Expanded(
+                            child: DefaultContaiiner(text: 'Last Name')),
+                      ],
+                    ),
+                    SizedBox(height: 20.h),
+                    const DefaultContaiiner(text: 'National ID'),
+                    SizedBox(height: 20.w),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Expanded(
+                          child: DefaultContaiiner(text: 'Birth Date'),
                         ),
                         SizedBox(width: 16.w),
-                       
-                      const Expanded(
-                          child: 
-                           DefaultContaiiner(text: 'Gender'),
+                        const Expanded(
+                          child: DefaultContaiiner(text: 'Gender'),
                         ),
                       ],
                     ),
-                     SizedBox(height: 16.h),
- DefaultFormField(
-                            prefixIcon: Icon(
-                              Icons.phone,
-                              size: 20.h,
-                            ),
-                            label: 'Phone',
-                            keyboardType: TextInputType.phone,
-                            validate: (String? value) {
-                              if (value!.trim().isEmpty) {
-                                return 'Please enter your phone';
-                              }else if(value.length<14){
-                                return 'Enter the phone number consisting of 11 digits';
-                              }
-                              return null;
-                            },
-                            MaxLength: 11,
-                            controller: phoneController,
-                          ),
-                    
+                    SizedBox(height: 16.h),
+                    DefaultFormField(
+                      prefixIcon: Icon(
+                        Icons.phone,
+                        size: 20.h,
+                      ),
+                      label: 'Phone',
+                      keyboardType: TextInputType.phone,
+                      validate: (String? value) {
+                        if (value!.trim().isEmpty) {
+                          return 'Please enter your phone';
+                        } else if (value.length < 11) {
+                          return 'Enter the phone number consisting of 11 digits';
+                        }
+                        return null;
+                      },
+                      MaxLength: 11,
+                      controller: phoneController,
+                    ),
                     const SizedBox(height: 5.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child:  DefaultDropdown(
-                                  labelText: 'Health Status',
-                                  labelStyle: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: PrimaryColour,
-                                      fontWeight: FontWeight.bold),
-                                  validator: (value) {
-                                    if (value == null) {
-                                      return 'Please enter your Health Status';
-                                    }
-                                    return null;
-                                  },
-                                  value: _HealthStatus,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      _HealthStatus = value;
-                                    });
-                                  },
-                                  items: _HealthStatusList.map<
-                                      DropdownMenuItem<String>>((String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
-                                ),
-                        ),
-                        SizedBox(width: 16.w,),
-                         Expanded(
-                               
-                                child: DefaultDropdown(
-                                  validator: (value) {
-                                    if (value == null) {
-                                      return 'Please select your Profession';
-                                    }
-                                    return null;
-                                  },
-                                  labelText: 'Profession',
-                                  labelStyle: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: PrimaryColour,
-                                      fontWeight: FontWeight.bold),
-                                  value: _Profession,
-                                  items: _HealthStatusList.map<
-                                      DropdownMenuItem<String>>((String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      _Profession = value;
-                                    });
-                                  },
-                                ),
-                              ),
-                      ],
-                    ),
-                    const SizedBox(height: 16.0),
-                     DefaultFormField(
-                            prefixIcon: const Icon(Icons.email_outlined),
-                            label: 'Email',
-                            keyboardType: TextInputType.emailAddress,
-                            validate: (String? value) {
-                              if (value!.trim().isEmpty) {
-                                return 'Please enter your email';
+                          child: DefaultDropdown(
+                            labelText: 'Health Status',
+                            labelStyle: TextStyle(
+                                fontSize: 14.sp,
+                                color: PrimaryColour,
+                                fontWeight: FontWeight.bold),
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Please enter your Health Status';
                               }
                               return null;
                             },
-                            controller: emailController,
+                            value: _HealthStatus,
+                            onChanged: (value) {
+                              setState(() {
+                                _HealthStatus = value;
+                              });
+                            },
+                            items:
+                                _HealthStatusList.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
                           ),
-                     SizedBox(height: 15.h),
-                   
-                     DefaultButtom(
-                      Child:Text('Change Password',style: TextStyle(
-                        fontSize: 16.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800
-                      ),),
-                       Height: 35.h,
-                        Width: 150.w,
-                         PaddingHorizontal: 10.w,
-                          PaddingVertical: 10.h,
-                          radius: 15.r,
-                          OnTap:() {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return Dialog(
-                                  child: ChangePasswordScreen(),
-                                );
-                              },
+                        ),
+                        SizedBox(
+                          width: 16.w,
+                        ),
+                        Expanded(
+                          child: DefaultDropdown(
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Please select your Profession';
+                              }
+                              return null;
+                            },
+                            labelText: 'Profession',
+                            labelStyle: TextStyle(
+                                fontSize: 14.sp,
+                                color: PrimaryColour,
+                                fontWeight: FontWeight.bold),
+                            value: _Profession,
+                            items:
+                                _HealthStatusList.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            onChanged: (value) {
+                              setState(() {
+                                _Profession = value;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16.0),
+                    DefaultFormField(
+                      prefixIcon: const Icon(Icons.email_outlined),
+                      label: 'Email',
+                      keyboardType: TextInputType.emailAddress,
+                      validate: (String? value) {
+                        if (value!.trim().isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        return null;
+                      },
+                      controller: emailController,
+                    ),
+                    SizedBox(height: 15.h),
+                    DefaultButtom(
+                      Child: Text(
+                        'Change Password',
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Height: 35.h,
+                      Width: 150.w,
+                      PaddingHorizontal: 10.w,
+                      PaddingVertical: 10.h,
+                      radius: 15.r,
+                      OnTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                              child: ChangePasswordScreen(),
                             );
                           },
-                          ),
+                        );
+                      },
+                    ),
                     SizedBox(
                       height: 5.h,
                     ),
-                     DefaultButtom(
-                      Child:Text('Save Changes',style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800
-                      ),),
-                       Height: 40.h,
-                        Width: 200.w,
-                         PaddingHorizontal: 10.w,
-                          PaddingVertical: 10.h,
-                          radius: 15.r,
-                          OnTap: () {
-                            
-                          },
-                          ),
-                 
+                    DefaultButtom(
+                      Child: Text(
+                        'Save Changes',
+                        style: TextStyle(
+                            fontSize: 18.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Height: 40.h,
+                      Width: 200.w,
+                      PaddingHorizontal: 10.w,
+                      PaddingVertical: 10.h,
+                      radius: 15.r,
+                      OnTap: () {},
+                    ),
                   ],
                 ),
               ),

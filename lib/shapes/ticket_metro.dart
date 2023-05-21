@@ -12,14 +12,14 @@ import '../widget/components.dart';
 
 class metroTicket extends StatelessWidget {
   Function()? onTap;
-   metroTicket({
+  metroTicket({
     Key? key,
     this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-        ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
 
     return Stack(
       alignment: Alignment.center,
@@ -31,7 +31,7 @@ class metroTicket extends StatelessWidget {
               height: 120.h,
               width: 147.w,
               decoration: BoxDecoration(
-                  borderRadius:  BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10.r),
                       bottomLeft: Radius.circular(10.r)),
                   color: Colors.grey.withOpacity(1),
@@ -48,12 +48,12 @@ class metroTicket extends StatelessWidget {
                         blurRadius: 2.r),
                   ]),
             ),
-             SizedBox(
+            SizedBox(
               width: 28.w,
             ),
             Container(
               decoration: BoxDecoration(
-                  borderRadius:  BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10.r),
                       bottomRight: Radius.circular(10.r)),
                   color: Colors.grey.withOpacity(1),
@@ -79,33 +79,32 @@ class metroTicket extends StatelessWidget {
           width: 270.w,
           height: 122.h,
           decoration: BoxDecoration(
-              color: Colors.white,
-               borderRadius: BorderRadius.circular(10.r)),
-               child: Row(
-                children: [   Column(
+              color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
+          child: Row(children: [
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                  SizedBox(
+                SizedBox(
                   height: 5.w,
                 ),
-                 Text(
+                Text(
                   "Number",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20.sp),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 5.h,
                 ),
-                 Text(
+                Text(
                   "Of Stations",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20.sp),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 10.h,
                 ),
                 Container(
@@ -115,7 +114,7 @@ class metroTicket extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: PrimaryColour,
                       borderRadius: BorderRadius.circular(15.r)),
-                  child:  Text(
+                  child: Text(
                     "7",
                     style: TextStyle(
                         color: Colors.white,
@@ -123,18 +122,22 @@ class metroTicket extends StatelessWidget {
                         fontSize: 26.sp),
                   ),
                 ),
-                SizedBox(height: 7.h,)
+                SizedBox(
+                  height: 7.h,
+                )
               ],
             ),
-            SizedBox(width: 20.w,),
+            SizedBox(
+              width: 20.w,
+            ),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(7.w),
-                   color: PrimaryColour),
+                  color: PrimaryColour),
               width: 22.w,
-              child:  Padding(
+              child: Padding(
                 padding: EdgeInsets.only(
-                  right: 3.w, left: 1.w, bottom: 2.h, top: 2.h),
+                    right: 3.w, left: 1.w, bottom: 2.h, top: 2.h),
                 child: Text(
                   'Me t r o',
                   textAlign: TextAlign.center,
@@ -147,154 +150,168 @@ class metroTicket extends StatelessWidget {
                 ),
               ),
             ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Stack(
-                  alignment: Alignment.topCenter,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      width: 30.w,
-                      height: 15.h,
-                      decoration: BoxDecoration(
-                            color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1), 
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(50.r),
-                              bottomRight: Radius.circular(50.r))),
-                    ),
                     Stack(
-                      alignment: Alignment.center,
+                      alignment: Alignment.topCenter,
                       children: [
                         Container(
-                          width: 28.w,
-                          height: 14.5.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(50.r),
-                                bottomRight: Radius.circular(50.r)),
-                            boxShadow: [
-                              BoxShadow(
-                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
-                                spreadRadius: 0.5.r,
-                                blurRadius: 0.5.r,
-                                offset: const Offset(
-                                    0, -0.1), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          width: 28.w,
+                          width: 30.w,
                           height: 15.h,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(50.r),
-                                bottomRight: Radius.circular(50.r)),
-                            boxShadow: [
-                              BoxShadow(
-                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
-                                spreadRadius: 1.r,
-                                blurRadius: 1.r,
-                                offset: const Offset(0, -1.5),
-                              ),
-                            ],
-                          ),
+                              color: theme.isDark
+                                  ? DarkColour.withOpacity(1)
+                                  : Colors.white.withOpacity(1),
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(50.r),
+                                  bottomRight: Radius.circular(50.r))),
                         ),
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              width: 28.w,
+                              height: 14.5.h,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(50.r),
+                                    bottomRight: Radius.circular(50.r)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: theme.isDark
+                                        ? DarkColour.withOpacity(1)
+                                        : Colors.grey.withOpacity(1),
+                                    spreadRadius: 0.5.r,
+                                    blurRadius: 0.5.r,
+                                    offset: const Offset(
+                                        0, -0.1), // changes position of shadow
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: 28.w,
+                              height: 15.h,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(50.r),
+                                    bottomRight: Radius.circular(50.r)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: theme.isDark
+                                        ? DarkColour.withOpacity(1)
+                                        : Colors.white.withOpacity(1),
+                                    spreadRadius: 1.r,
+                                    blurRadius: 1.r,
+                                    offset: const Offset(0, -1.5),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
                       ],
-                    )
+                    ),
                   ],
                 ),
-                
-              ],
-            ), DottedBorder(
-                padding: const EdgeInsets.all(0),
-                dashPattern: const [5, 10],
-                child:  SizedBox(
-                  height: 92.h,
-                )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Stack(
-                  alignment: Alignment.bottomCenter,
+                DottedBorder(
+                    padding: const EdgeInsets.all(0),
+                    dashPattern: const [5, 10],
+                    child: SizedBox(
+                      height: 92.h,
+                    )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      width: 30.w,
-                      height: 14.h,
-                      decoration: BoxDecoration(
-                          color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.r),
-                            topRight: Radius.circular(20.r)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
-                            spreadRadius: 0,
-                            blurRadius: 2.r,
-                            offset: const Offset(0, 0),
-                          ),
-                        ],
-                      ),
-                    ),
                     Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
                         Container(
-                          width: 28.w,
-                          height: 14.5.h,
+                          width: 30.w,
+                          height: 14.h,
                           decoration: BoxDecoration(
+                            color: theme.isDark
+                                ? DarkColour.withOpacity(1)
+                                : Colors.white.withOpacity(1),
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(50.r),
-                                topRight: Radius.circular(50.r)),
+                                topLeft: Radius.circular(20.r),
+                                topRight: Radius.circular(20.r)),
                             boxShadow: [
                               BoxShadow(
-                                     color: Colors.grey.withOpacity(1),
-                                spreadRadius: 1.r,
-                                blurRadius: 1.r,
+                                color: theme.isDark
+                                    ? DarkColour.withOpacity(1)
+                                    : Colors.white.withOpacity(1),
+                                spreadRadius: 0,
+                                blurRadius: 2.r,
                                 offset: const Offset(0, 0),
                               ),
                             ],
                           ),
                         ),
-                        Container(
-                          width: 27.w,
-                          height: 15.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(50.r),
-                                topRight: Radius.circular(50.r)),
-                            boxShadow: [
-                              BoxShadow(
-                                     color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
-                                spreadRadius: 1.r,
-                                blurRadius: 1.r,
-                                offset: const Offset(0, 3),
+                        Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            Container(
+                              width: 28.w,
+                              height: 14.5.h,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(50.r),
+                                    topRight: Radius.circular(50.r)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(1),
+                                    spreadRadius: 1.r,
+                                    blurRadius: 1.r,
+                                    offset: const Offset(0, 0),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ),
+                            ),
+                            Container(
+                              width: 27.w,
+                              height: 15.h,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(50.r),
+                                    topRight: Radius.circular(50.r)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: theme.isDark
+                                        ? DarkColour.withOpacity(1)
+                                        : Colors.white.withOpacity(1),
+                                    spreadRadius: 1.r,
+                                    blurRadius: 1.r,
+                                    offset: const Offset(0, 3),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
                       ],
-                    )
+                    ),
                   ],
                 ),
-                
               ],
             ),
-          ],
-        ), Column(
+            Column(
               children: [
-                SizedBox(height: 5.h,),
-                 Text(
+                SizedBox(
+                  height: 5.h,
+                ),
+                Text(
                   'Ticket 4',
                   style: TextStyle(
                       color: textColour,
                       fontWeight: FontWeight.bold,
                       fontSize: 18.sp),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 15.h,
                 ),
                 DefaultButtom(
@@ -312,7 +329,7 @@ class metroTicket extends StatelessWidget {
                   PaddingVertical: 0,
                   radius: 10,
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 15.h,
                 ),
                 Row(
@@ -320,19 +337,22 @@ class metroTicket extends StatelessWidget {
                     Text(
                       "Price: ",
                       style: TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 14.sp),
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp),
                     ),
                     Text(
                       "\$70",
                       style: TextStyle(
-                          color: PrimaryColour, fontWeight: FontWeight.bold,fontSize: 14.sp),
+                          color: PrimaryColour,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp),
                     ),
                   ],
                 )
               ],
             ),
-                ]
-                ),
+          ]),
         ),
       ],
     );

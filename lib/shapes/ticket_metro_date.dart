@@ -15,7 +15,7 @@ class dateMetroTicket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(top: 10.h,bottom: 10.h),
+      padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -27,8 +27,9 @@ class dateMetroTicket extends StatelessWidget {
                 width: 170.w,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10)).r,
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10))
+                        .r,
                     color: Colors.grey.withOpacity(1),
                     boxShadow: [
                       BoxShadow(
@@ -43,14 +44,15 @@ class dateMetroTicket extends StatelessWidget {
                           blurRadius: 2.r),
                     ]),
               ),
-               SizedBox(
+              SizedBox(
                 width: 26.w,
               ),
               Container(
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10)).r,
+                            topRight: Radius.circular(10),
+                            bottomRight: Radius.circular(10))
+                        .r,
                     color: Colors.grey.withOpacity(1),
                     boxShadow: [
                       BoxShadow(
@@ -83,7 +85,7 @@ class dateMetroTicket extends StatelessWidget {
                   children: [
                     Container(
                       padding:
-                           EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.h),
+                          EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.h),
                       height: 120.h,
                       width: 167.w,
                       decoration: BoxDecoration(
@@ -98,15 +100,16 @@ class dateMetroTicket extends StatelessWidget {
                             Row(
                               children: [
                                 Container(
-                                  margin:  const EdgeInsets.only(right: 10).w,
+                                  margin: const EdgeInsets.only(right: 10).w,
                                   width: 35.w,
                                   height: 25.h,
                                   decoration: BoxDecoration(
                                     color: PrimaryColour,
                                     borderRadius: BorderRadius.circular(10).r,
                                   ),
-                                  child:  Icon(
-                                    Icons.near_me_outlined,color: Colors.white,
+                                  child: Icon(
+                                    Icons.near_me_outlined,
+                                    color: Colors.white,
                                     size: 20.w,
                                   ),
                                 ),
@@ -119,11 +122,11 @@ class dateMetroTicket extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding:  EdgeInsets.only(left: 17.w),
+                              padding: EdgeInsets.only(left: 17.w),
                               child: DottedBorder(
                                   padding: const EdgeInsets.all(0),
                                   dashPattern: const [2, 2],
-                                  child:  SizedBox(
+                                  child: SizedBox(
                                     height: 10.h,
                                   )),
                             ),
@@ -138,21 +141,25 @@ class dateMetroTicket extends StatelessWidget {
                                     color: PrimaryColour,
                                     borderRadius: BorderRadius.circular(10).r,
                                   ),
-                                  child:  Text('Now',style: TextStyle(color: Colors.white,
-                                  fontWeight:FontWeight.bold,
-                                  fontSize: 16.sp),),
+                                  child: Text(
+                                    'Now',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16.sp),
+                                  ),
                                 ),
                                 Text(
                                   'girls school',
                                   style: TextStyle(
-                                    color: PrimaryColour,
+                                      color: PrimaryColour,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16.sp),
                                 )
                               ],
                             ),
                             Padding(
-                              padding:  EdgeInsets.only(left: 17.w),
+                              padding: EdgeInsets.only(left: 17.w),
                               child: DottedBorder(
                                   padding: const EdgeInsets.all(0),
                                   dashPattern: const [2, 2],
@@ -170,13 +177,13 @@ class dateMetroTicket extends StatelessWidget {
                                     color: PrimaryColour,
                                     borderRadius: BorderRadius.circular(10).r,
                                   ),
-                                  child:  Icon(
-                          Icons.location_pin,
-                          color: Colors.white,
-                          size: 20.w,
-                        ),
+                                  child: Icon(
+                                    Icons.location_pin,
+                                    color: Colors.white,
+                                    size: 20.w,
+                                  ),
                                 ),
-                                 Text(
+                                Text(
                                   'Adly Mansour',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -184,11 +191,15 @@ class dateMetroTicket extends StatelessWidget {
                                 )
                               ],
                             ),
-                             Padding(
+                            Padding(
                               padding: EdgeInsets.only(left: 17.w),
-                              child: Text('waiting : one minute',
-                              style: TextStyle(color: Colors.black54,
-                              fontWeight: FontWeight.bold,fontSize: 12.sp),),
+                              child: Text(
+                                'waiting : one minute',
+                                style: TextStyle(
+                                    color: Colors.black54,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12.sp),
+                              ),
                             )
                           ]),
                     ),
@@ -203,11 +214,12 @@ class dateMetroTicket extends StatelessWidget {
                                 Container(
                                   width: 30.w,
                                   height: 15.h,
-                                  decoration:  BoxDecoration(
+                                  decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: const BorderRadius.only(
-                                          bottomLeft: Radius.circular(20),
-                                          bottomRight: Radius.circular(20)).r),
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20))
+                                          .r),
                                 ),
                                 Stack(
                                   alignment: Alignment.center,
@@ -217,8 +229,10 @@ class dateMetroTicket extends StatelessWidget {
                                       height: 14.5.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
-                                            bottomLeft: Radius.circular(50),
-                                            bottomRight: Radius.circular(50)).r,
+                                                bottomLeft: Radius.circular(50),
+                                                bottomRight:
+                                                    Radius.circular(50))
+                                            .r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.grey.withOpacity(1),
@@ -235,8 +249,10 @@ class dateMetroTicket extends StatelessWidget {
                                       height: 15.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
-                                            bottomLeft: Radius.circular(50),
-                                            bottomRight: Radius.circular(50)).r,
+                                                bottomLeft: Radius.circular(50),
+                                                bottomRight:
+                                                    Radius.circular(50))
+                                            .r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.white.withOpacity(1),
@@ -254,10 +270,10 @@ class dateMetroTicket extends StatelessWidget {
                           ],
                         ),
                         DottedBorder(
-                          color: Colors.grey,
+                            color: Colors.grey,
                             padding: const EdgeInsets.all(0),
                             dashPattern: const [8, 9],
-                            child:  SizedBox(
+                            child: SizedBox(
                               height: 90.h,
                             )),
                         Row(
@@ -272,8 +288,9 @@ class dateMetroTicket extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20)).r,
+                                            topLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20))
+                                        .r,
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.white.withOpacity(1),
@@ -292,8 +309,9 @@ class dateMetroTicket extends StatelessWidget {
                                       height: 13.5.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(50),
-                                            topRight: Radius.circular(50)).r,
+                                                topLeft: Radius.circular(50),
+                                                topRight: Radius.circular(50))
+                                            .r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.grey.withOpacity(1),
@@ -309,8 +327,9 @@ class dateMetroTicket extends StatelessWidget {
                                       height: 15.h,
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(50),
-                                            topRight: Radius.circular(50)).r,
+                                                topLeft: Radius.circular(50),
+                                                topRight: Radius.circular(50))
+                                            .r,
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.white.withOpacity(1),
@@ -330,29 +349,52 @@ class dateMetroTicket extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      margin:  EdgeInsets.only(left: 2.w),
+                      margin: EdgeInsets.only(left: 2.w),
                       height: 125.h,
                       width: 58.w,
                       decoration: BoxDecoration(
                           color: PrimaryColour,
                           borderRadius: const BorderRadius.only(
-                              topRight: Radius.circular(10),
-                              bottomRight: Radius.circular(10)).r),
-                              child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                                children:  [
-                                  SizedBox(height: 10.h,),
-                                  Text('Metro',
-                                  style:TextStyle(color: Colors.white,
-                                  fontWeight: FontWeight.bold,fontSize: 20.sp) ,),
-                                   SizedBox(height: 10.h,),
-                                  Text('1258',style:TextStyle(color: Colors.white,
-                                  fontWeight: FontWeight.bold,fontSize: 18.sp) ,),
-                                  SizedBox(height: 15.h,),
-                                  Text('9:55pm',style:TextStyle(color: Colors.white,
-                                  fontWeight: FontWeight.bold,fontSize: 16.sp) ,),
-                                 SizedBox(height:15.h,),
-                                ]
-                                ),
+                                  topRight: Radius.circular(10),
+                                  bottomRight: Radius.circular(10))
+                              .r),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Text(
+                              'Metro',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.sp),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Text(
+                              '1258',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18.sp),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            Text(
+                              '9:55pm',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16.sp),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                          ]),
                     )
                   ],
                 ),

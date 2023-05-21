@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
-static const String routeName = 'bottom nav bar';
+  static const String routeName = 'bottom nav bar';
 
   @override
   State<BottomBar> createState() => _BottomBarState();
@@ -24,7 +24,7 @@ class _BottomBarState extends State<BottomBar> {
   /// widget list
   final List<Widget> bottomBarPages = [
     const myTicket(),
-     const HomeScreen(),
+    const HomeScreen(),
     const UserSettingsScreen(),
   ];
 
@@ -38,7 +38,8 @@ class _BottomBarState extends State<BottomBar> {
   void initState() {
     super.initState();
   }
-static const String routeName = 'bottom nav bar';
+
+  static const String routeName = 'bottom nav bar';
 
   @override
   Widget build(BuildContext context) {
@@ -46,48 +47,45 @@ static const String routeName = 'bottom nav bar';
       backgroundColor: Colors.white,
       body: PageView(
         controller: _pageController,
-        physics:  const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: List.generate(
             bottomBarPages.length, (index) => bottomBarPages[index]),
       ),
       extendBody: true,
-      bottomNavigationBar: 
-        
-        (bottomBarPages.length <= maxCount)
-          ?Container(
-           child: AnimatedNotchBottomBar(
-
-           blurFilterX : 5.0,
-           blurFilterY : 5.0,
+      bottomNavigationBar: (bottomBarPages.length <= maxCount)
+          ? Container(
+              child: AnimatedNotchBottomBar(
+              blurFilterX: 5.0,
+              blurFilterY: 5.0,
               pageController: _pageController,
-              color:PrimaryColour,
+              color: PrimaryColour,
               notchColor: Colors.white,
               bottomBarItems: [
                 BottomBarItem(
-                  inActiveItem:  SizedBox(  width: 35,
+                  inActiveItem: SizedBox(
+                    width: 35,
                     height: 35,
                     child: Transform.rotate(
-                                  angle: -44.75,
-                                  child: 
-                                  const Icon(
-                      Icons.confirmation_num_outlined,
-                      color: Colors.white,
-                      size: 30,),),
+                      angle: -44.75,
+                      child: const Icon(
+                        Icons.confirmation_num_outlined,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                   ),
-                  activeItem:
-                  Transform.rotate(
-                angle: -44.75,
-                child: 
-                 Icon(
-                    Icons.confirmation_num_outlined,
-                   color:PrimaryColour,
-                    size: 25,
+                  activeItem: Transform.rotate(
+                    angle: -44.75,
+                    child: Icon(
+                      Icons.confirmation_num_outlined,
+                      color: PrimaryColour,
+                      size: 25,
                     ),
-                    ),
+                  ),
                 ),
                 BottomBarItem(
                   inActiveItem: const SizedBox(
-                      width: 35,
+                    width: 35,
                     height: 35,
                     child: Icon(
                       Icons.home,
@@ -97,12 +95,12 @@ static const String routeName = 'bottom nav bar';
                   ),
                   activeItem: Icon(
                     Icons.home,
-                    color:PrimaryColour,
+                    color: PrimaryColour,
                     size: 25,
                   ),
                 ),
-                 BottomBarItem(
-                  inActiveItem:  const SizedBox(
+                BottomBarItem(
+                  inActiveItem: const SizedBox(
                     width: 35,
                     height: 35,
                     child: Icon(
@@ -112,16 +110,15 @@ static const String routeName = 'bottom nav bar';
                     ),
                   ),
                   activeItem: SizedBox(
-                      width: 35,
+                    width: 35,
                     height: 35,
                     child: Icon(
                       Icons.person,
-                      color:PrimaryColour,
+                      color: PrimaryColour,
                       size: 25,
                     ),
                   ),
                 ),
-               
               ],
               onTap: (index) {
                 _pageController.animateToPage(
@@ -130,9 +127,8 @@ static const String routeName = 'bottom nav bar';
                   curve: Curves.easeInOut,
                 );
               },
-            )
-         ): null,
+            ))
+          : null,
     );
   }
 }
-

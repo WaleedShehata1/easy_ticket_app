@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, deprecated_member_use
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:easy_ticket_app/Pop_Up/searsh_account.dart';
+import 'package:easy_ticket_app/Pop_Up/search_account.dart';
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
 import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
 import 'package:easy_ticket_app/screen/home.dart';
@@ -137,7 +137,7 @@ class Sign_In extends StatelessWidget {
                                     context: context,
                                     builder: (BuildContext context) {
                                       return DefaultDialog(
-                                        Child: SearshAccount(
+                                        Child: SearchAccount(
                                           Validate: (p0) {
                                             return null;
                                           },

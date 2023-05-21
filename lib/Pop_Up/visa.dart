@@ -59,19 +59,19 @@ class _VisaScreenState extends State<VisaScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-           Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(
-                  Icons.close,
-                  size: 30.w,
-                ))
-          ],
-        ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    Icons.close,
+                    size: 30.w,
+                  ))
+            ],
+          ),
           CreditCardWidget(
             height: 160.h,
             width: 280.w,
@@ -107,7 +107,7 @@ class _VisaScreenState extends State<VisaScreen> {
                 cardNumberDecoration: InputDecoration(
                   labelText: 'Number',
                   hintText: 'XXXX XXXX XXXX XXXX',
-                   focusedErrorBorder: OutlineInputBorder(
+                  focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
                     borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
@@ -122,7 +122,7 @@ class _VisaScreenState extends State<VisaScreen> {
                   labelStyle: TextStyle(fontSize: 16.sp),
                   focusedBorder: border,
                   enabledBorder: border,
-                   focusedErrorBorder: OutlineInputBorder(
+                  focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
                     borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
@@ -130,11 +130,10 @@ class _VisaScreenState extends State<VisaScreen> {
                     borderRadius: BorderRadius.circular(15).r,
                     borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
-                  labelText: 'Expired Date',
+                  labelText: 'Expire Date',
                   hintText: 'XX/XX',
                 ),
                 cvvCodeDecoration: InputDecoration(
-
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
                     borderSide: const BorderSide(width: 2.0, color: Colors.red),
@@ -149,7 +148,7 @@ class _VisaScreenState extends State<VisaScreen> {
                   hintText: 'XXX',
                 ),
                 cardHolderDecoration: InputDecoration(
-                   focusedErrorBorder: OutlineInputBorder(
+                  focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15).r,
                     borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),

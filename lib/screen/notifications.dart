@@ -7,7 +7,7 @@ import '../Pop_Up/ticket_modification.dart';
 import '../widget/dialog.dart';
 
 class NotificationsScreen extends StatelessWidget {
-    static const String routeName = 'Notifications';
+  static const String routeName = 'Notifications';
 
   DateTime date = DateTime.now();
   int RemainingTime = 15;
@@ -18,58 +18,58 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-       onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        body: Column(
-          children:[ 
-             Container(
-                width: double.infinity,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: PrimaryColour,
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(15),
-                      bottomRight: Radius.circular(15)),
+        body: Column(children: [
+          Container(
+            width: double.infinity,
+            height: 80,
+            decoration: BoxDecoration(
+              color: PrimaryColour,
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15)),
+            ),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 25,
                 ),
-                child: Column(
+                Row(
                   children: [
-                    const SizedBox(
-                      height: 25,
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        size: 35,
+                      ),
                     ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios_new,
-                            color: Colors.white,
-                            size: 35,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 100,
-                        ),
-                         Text(
-                          'Notifications',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 28.sp,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    const SizedBox(
+                      width: 100,
+                    ),
+                    Text(
+                      'Notifications',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28.sp,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-              ),
-               SizedBox(
-                height: 30.h,
-              ),
-            Expanded(
-              child: ListView.separated(
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 30.h,
+          ),
+          Expanded(
+            child: ListView.separated(
               scrollDirection: Axis.vertical,
-              padding:  EdgeInsetsDirectional.symmetric(horizontal: 20.w,vertical:10.h ),
+              padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 20.w, vertical: 10.h),
               physics: const ClampingScrollPhysics(),
               itemCount: 1,
               itemBuilder: (context, index) {
@@ -80,7 +80,7 @@ class NotificationsScreen extends StatelessWidget {
                   ),
                   child: ExpansionTile(
                     textColor: Colors.black,
-                    tilePadding:  EdgeInsets.symmetric(horizontal: 10.0.w),
+                    tilePadding: EdgeInsets.symmetric(horizontal: 10.0.w),
                     title: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -88,21 +88,20 @@ class NotificationsScreen extends StatelessWidget {
                           alignment: Alignment.topRight,
                           child: Text(
                             '${date.day}/ ${date.month}',
-                            style:  TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.sp
-                            ),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.sp),
                           ),
                         ),
                         Align(
                           alignment: Alignment.topRight,
                           child: Text(
                             '${date.hour}:${date.minute}',
-                            style:  TextStyle(color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.sp
-                            ),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.sp),
                           ),
                         ),
                         const Align(
@@ -110,11 +109,11 @@ class NotificationsScreen extends StatelessWidget {
                           child: Text(
                             'Trip details',
                             style: TextStyle(
-                             color: Colors.white,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
-                            overflow:
-                                TextOverflow.ellipsis, // set overflow to ellipsis
+                            overflow: TextOverflow
+                                .ellipsis, // set overflow to ellipsis
                             maxLines: 1, // set max lines to 1
                           ),
                         ),
@@ -122,20 +121,22 @@ class NotificationsScreen extends StatelessWidget {
                     ),
                     children: [
                       Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Text(
-                        'باقي$RemainingTime دقيقة علي وصول باص رقم $BusNumber الي المحطة المختارة برجاء الانتظار في المحطه',
-                        textAlign: TextAlign.center,style:  TextStyle(
-                          fontSize: 16.sp,color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                                    ),
+                          'باقي$RemainingTime دقيقة علي وصول باص رقم $BusNumber الي المحطة المختارة برجاء الانتظار في المحطه',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       ElevatedButton(
                         onPressed: () {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
-                              return  DefaultDialog(
+                              return DefaultDialog(
                                 Child: const TicketModificationScreen(),
                               );
                             },
@@ -145,13 +146,12 @@ class NotificationsScreen extends StatelessWidget {
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20).r)),
-                        child:  Text(
+                        child: Text(
                           'تعديل التذكرة؟',
                           style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.sp
-                          ),
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.sp),
                         ),
                       ),
                     ],
@@ -161,11 +161,9 @@ class NotificationsScreen extends StatelessWidget {
               separatorBuilder: (context, index) {
                 return SizedBox(height: 10.0.h);
               },
-              
-                    ),
             ),
-          ]
-        ),
+          ),
+        ]),
       ),
     );
   }

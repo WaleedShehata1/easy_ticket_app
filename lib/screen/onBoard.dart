@@ -42,7 +42,7 @@ class onBoard extends StatelessWidget {
                   SizedBox(
                     width: 340,
                     child: Text(
-                      "Quick & Easy to Travel anywhere & anytime",
+                      "Quick & easy travel anywhere. anytime.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: "Roboto",

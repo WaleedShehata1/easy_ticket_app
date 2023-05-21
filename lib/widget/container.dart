@@ -14,11 +14,16 @@ class DefaultContaiiner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.center,
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 10.h),
+      padding:
+          EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15).r,
-          border: Border.all(width: 2.w, color: PrimaryColour.withOpacity(0.3))),
-      child: Text(text,style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w400),),
+          border:
+              Border.all(width: 2.w, color: PrimaryColour.withOpacity(0.3))),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
+      ),
     );
   }
 }

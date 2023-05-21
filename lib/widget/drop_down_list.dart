@@ -38,39 +38,37 @@ class DefaultDropdown extends StatelessWidget {
     return DropdownButtonFormField(
       iconSize: 0.h,
       style: TextStyle(
-          fontSize: 14.sp,
-          color: Colors.black87,
-          fontWeight: FontWeight.w400),
+          fontSize: 14.sp, color: Colors.black87, fontWeight: FontWeight.w400),
       decoration: InputDecoration(
-    
-    counterStyle: TextStyle(fontSize: 13.sp,),
-    contentPadding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 10.h),
-    labelText:labelText ,
-    labelStyle:TextStyle(color: color ?? PrimaryColour,fontSize: 16.sp) ,
-    focusedBorder: OutlineInputBorder(
-      borderSide:  const BorderSide(color: Colors.blue, width: 2),
-      borderRadius: BorderRadius.circular(
-        radius??15,
-      ).r,
-    ),
-    fillColor:Colors.white,
-    filled: true,
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(
-       radius?? 15.r,
-      ),
-      borderSide: BorderSide(color: colorBorder?? PrimaryColour, width: 2),
-    ),
-    errorMaxLines: 2,
-     focusedErrorBorder: OutlineInputBorder(
-
-                borderRadius: BorderRadius.circular(radius??15.r),
-                borderSide: const BorderSide(width: 2.0, color: Colors.red),
-              ),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius??15.r),
-                borderSide: const BorderSide(width: 2.0, color: Colors.red),
-              ),
+        counterStyle: TextStyle(
+          fontSize: 13.sp,
+        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        labelText: labelText,
+        labelStyle: TextStyle(color: color ?? PrimaryColour, fontSize: 16.sp),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.blue, width: 2),
+          borderRadius: BorderRadius.circular(
+            radius ?? 15,
+          ).r,
+        ),
+        fillColor: Colors.white,
+        filled: true,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(
+            radius ?? 15.r,
+          ),
+          borderSide: BorderSide(color: colorBorder ?? PrimaryColour, width: 2),
+        ),
+        errorMaxLines: 2,
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius ?? 15.r),
+          borderSide: const BorderSide(width: 2.0, color: Colors.red),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius ?? 15.r),
+          borderSide: const BorderSide(width: 2.0, color: Colors.red),
+        ),
       ),
       value: value,
       borderRadius: BorderRadius.circular(10.r),

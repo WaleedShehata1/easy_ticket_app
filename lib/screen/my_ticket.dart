@@ -28,14 +28,15 @@ class _myTicketState extends State<myTicket> {
   bool switshTicket = false;
   @override
   Widget build(BuildContext context) {
-    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
     return Scaffold(
-      backgroundColor: theme.isDark? DarkColour :  Colors.white,
+      backgroundColor: theme.isDark ? DarkColour : Colors.white,
       body: Column(children: [
         ClipRRect(
           borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)).r,
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20))
+              .r,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -55,7 +56,7 @@ class _myTicketState extends State<myTicket> {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children:  [
+                children: [
                   SizedBox(
                     height: 30.h,
                   ),
@@ -78,9 +79,9 @@ class _myTicketState extends State<myTicket> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             DefaultButtom(
-              Child:  Icon(
+              Child: Icon(
                 Icons.directions_train_sharp,
-                color:selectBottom?   Colors.black:Colors.white,
+                color: selectBottom ? Colors.black : Colors.white,
                 size: 30.w,
               ),
               Height: 38,
@@ -93,20 +94,20 @@ class _myTicketState extends State<myTicket> {
                   selectBottom = false;
                 });
               },
-             color: selectBottom ? Colors.white : PrimaryColour,
+              color: selectBottom ? Colors.white : PrimaryColour,
             ),
             DefaultButtom(
               Child: Icon(
                 Icons.directions_bus_filled_rounded,
-                color:selectBottom?   Colors.white:Colors.black,
+                color: selectBottom ? Colors.white : Colors.black,
                 size: 30.w,
               ),
-                Height: 38,
+              Height: 38,
               Width: 35,
               radius: 10,
               PaddingHorizontal: 0,
               PaddingVertical: 10,
-             color: selectBottom ? PrimaryColour : Colors.white,
+              color: selectBottom ? PrimaryColour : Colors.white,
               OnTap: () {
                 setState(() {
                   selectBottom = true;
@@ -136,13 +137,14 @@ class _myTicketState extends State<myTicket> {
                             context: context,
                             builder: (context) {
                               return DefaultDialog(
-                                  Child:const GetQR() ,);
+                                Child: const GetQR(),
+                              );
                             });
                       },
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return  SizedBox(
+                    return SizedBox(
                       height: 20.h,
                     );
                   },
@@ -168,7 +170,7 @@ class _myTicketState extends State<myTicket> {
                                           onPressed: () {
                                             Navigator.pop(context);
                                           },
-                                          icon:  Icon(
+                                          icon: Icon(
                                             Icons.close_outlined,
                                             size: 35.w,
                                           ))
@@ -185,7 +187,7 @@ class _myTicketState extends State<myTicket> {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return  SizedBox(
+                    return SizedBox(
                       height: 20.h,
                     );
                   },

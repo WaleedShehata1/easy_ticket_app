@@ -22,7 +22,7 @@ class DefaultDialog extends StatelessWidget {
     return GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Dialog(
-          backgroundColor: backgroundColor?? Colors.white,
+          backgroundColor: backgroundColor ?? Colors.white,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius ?? 25).r),
           clipBehavior: Clip.antiAliasWithSaveLayer,

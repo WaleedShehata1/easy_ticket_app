@@ -124,7 +124,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
             ),
             SizedBox(width: 10.0.w),
             Text(
-              ': معاد الباص',
+              'Bus schedule:',
               style: TextStyle(
                 fontSize: 16.0.sp,
                 fontWeight: FontWeight.bold,
@@ -157,7 +157,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
             ),
             SizedBox(width: 15.0.w),
             Text(
-              ': خط السير',
+              'Bus line:',
               style: TextStyle(
                 fontSize: 16.0.sp,
                 fontWeight: FontWeight.bold,
@@ -190,7 +190,7 @@ class _TicketModificationScreenState extends State<TicketModificationScreen> {
             ),
             SizedBox(width: 10.0.w),
             Text(
-              ': رقم الباص',
+              'Bus no.:',
               style: TextStyle(
                 fontSize: 16.0.sp,
                 fontWeight: FontWeight.bold,

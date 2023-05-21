@@ -5,12 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/Buttom.dart';
 import '../widget/text_Form_Field.dart';
 
-class Enter4Digit extends StatelessWidget {
-  var Digit = TextEditingController();
+class SearchAccount extends StatelessWidget {
+  var userId = TextEditingController();
   Function()? onTap;
   String? Function(String?) Validate;
 
-  Enter4Digit({
+  SearchAccount({
     Key? key,
     this.onTap,
     required this.Validate,
@@ -39,7 +39,12 @@ class Enter4Digit extends StatelessWidget {
             height: 10.h,
           ),
           Text(
-            'Enter the 4-digit code',
+            'Enter',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w900),
+          ),
+          Text(
+            'the national ID associated with your account.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w900),
           ),
@@ -47,27 +52,25 @@ class Enter4Digit extends StatelessWidget {
             height: 30.h,
           ),
           DefaultFormField(
-            controller: Digit,
+            controller: userId,
             label: null,
             validate: Validate,
-            MaxLength: 4,
+            MaxLength: 14,
             keyboardType: TextInputType.number,
           ),
           SizedBox(
             height: 40.h,
           ),
           DefaultButtom(
-            Child: Text(
-              "Enter",
-              style: TextStyle(fontSize: 24.sp),
-            ),
-            Height: 50,
-            Width: 150,
-            PaddingHorizontal: 0,
-            PaddingVertical: 0,
-            OnTap: onTap,
-            radius: 15,
-          ),
+              Child: Text(
+                "Search",
+                style: TextStyle(fontSize: 24.sp),
+              ),
+              Height: 50,
+              Width: 200,
+              PaddingHorizontal: 0,
+              PaddingVertical: 0,
+              OnTap: onTap),
           SizedBox(
             height: 20.h,
           )

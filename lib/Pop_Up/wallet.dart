@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:easy_ticket_app/Pop_Up/message_wallet.dart';
+import 'package:easy_ticket_app/Pop_Up/wallet_message.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,15 +10,14 @@ import '../widget/dialog.dart';
 import '../widget/text_Form_Field.dart';
 
 class WalletScreen extends StatelessWidget {
-  var passwordController=TextEditingController();
+  var passwordController = TextEditingController();
 
-   WalletScreen({super.key});
+  WalletScreen({super.key});
   static const String routeName = 'Wallet ';
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
@@ -28,7 +27,7 @@ class WalletScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon:   Icon(
+                  icon: Icon(
                     Icons.close,
                     size: 30.w,
                   ))
@@ -43,54 +42,64 @@ class WalletScreen extends StatelessWidget {
             width: double.infinity,
             height: 40.h,
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(10)
-            ),
-            child:  Text(
+                color: Colors.grey.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(10)),
+            child: Text(
               'Wallet',
-              style: TextStyle(fontSize: 22.sp,fontWeight: FontWeight.bold),),
-    
+              style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
+            ),
           ),
-           SizedBox(
+          SizedBox(
             height: 30.h,
           ),
-          Row(mainAxisAlignment: MainAxisAlignment.center,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               Text('Total : ',style: TextStyle(fontWeight: FontWeight.bold,
-              fontSize: 20.sp),),
-              Text('\$80',style: TextStyle(color: PrimaryColour,fontSize: 20.sp,),)
+              Text(
+                'Total: ',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
+              ),
+              Text(
+                '\$80',
+                style: TextStyle(
+                  color: PrimaryColour,
+                  fontSize: 20.sp,
+                ),
+              )
             ],
           ),
-          const SizedBox(height: 40,),
+          const SizedBox(
+            height: 40,
+          ),
           SizedBox(
             height: 40.h,
             width: 250.w,
             child: DefaultFormField(
-              controller: passwordController,
-               label: 'Password', validate:(p0) {
-                 return null;
-               
-                 
-               }),
+                controller: passwordController,
+                label: 'Password',
+                validate: (p0) {
+                  return null;
+                }),
           ),
-     SizedBox(
-      height: 50.h,
-    ),
-    DefaultButtom(
-      Child: const Text('Pay By Wallet'),
-       Height: 40.h,
-      Width: 220.w, 
-      PaddingHorizontal:15.w,
-       PaddingVertical:10.h,
-       radius: 15.r,
-       OnTap: () {
-       Navigator.pop(context);
-        showDialog(
-        context: context, builder: (context){
-          return DefaultDialog(Child: const MessageWalletScreen());
-        });
-       
-       },)
+          SizedBox(
+            height: 50.h,
+          ),
+          DefaultButtom(
+            Child: const Text('Pay with wallet'),
+            Height: 40.h,
+            Width: 220.w,
+            PaddingHorizontal: 15.w,
+            PaddingVertical: 10.h,
+            radius: 15.r,
+            OnTap: () {
+              Navigator.pop(context);
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return DefaultDialog(Child: const MessageWalletScreen());
+                  });
+            },
+          )
         ],
       ),
     );

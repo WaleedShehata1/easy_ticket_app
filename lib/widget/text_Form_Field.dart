@@ -7,21 +7,21 @@ import 'components.dart';
 
 class DefaultFormField extends StatelessWidget {
   Color? textColor;
-  int?MaxLength;
+  int? MaxLength;
   double? fontSize;
   double? radius;
   TextEditingController controller;
   TextInputType? keyboardType;
   String? label;
   Widget? prefixIcon;
- Color? colorBorder;
+  Color? colorBorder;
   IconData? suffixIcon;
   String? Function(String?) validate;
   TextAlign? textAlign;
   Function? suffixPressed;
-  
+
   bool? isPassword;
-  
+
   void Function()? onTap;
 
   DefaultFormField({
@@ -46,56 +46,57 @@ class DefaultFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onTap:onTap??null ,
-       obscureText: isPassword ?? false,
-      textAlign:textAlign?? TextAlign.start,
-       maxLength: MaxLength?? null,
+      onTap: onTap ?? null,
+      obscureText: isPassword ?? false,
+      textAlign: textAlign ?? TextAlign.start,
+      maxLength: MaxLength ?? null,
       style: TextStyle(
         color: textColor ?? Colors.black,
-        fontSize: (fontSize?? 14).sp,
+        fontSize: (fontSize ?? 14).sp,
         fontWeight: FontWeight.w500,
       ),
       controller: controller,
       keyboardType: keyboardType ?? TextInputType.text,
       validator: validate,
       decoration: InputDecoration(
-        
-        counterStyle: TextStyle(fontSize: 13.sp,),
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 15.h),
+        counterStyle: TextStyle(
+          fontSize: 13.sp,
+        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
         labelText: label,
-        labelStyle:TextStyle(color: textColor ?? PrimaryColour,fontSize: 16.sp) ,
+        labelStyle:
+            TextStyle(color: textColor ?? PrimaryColour, fontSize: 16.sp),
         prefixIcon: prefixIcon ?? null,
-         suffixIcon: suffixIcon!=null
+        suffixIcon: suffixIcon != null
             ? IconButton(
                 onPressed: () {
                   suffixPressed!();
                 },
-                icon:Icon(suffixIcon))
+                icon: Icon(suffixIcon))
             : null,
-    
         focusedBorder: OutlineInputBorder(
-          borderSide:  const BorderSide(color: Colors.blue, width: 2),
+          borderSide: const BorderSide(color: Colors.blue, width: 2),
           borderRadius: BorderRadius.circular(
-            radius??15,
+            radius ?? 15,
           ).r,
         ),
-        fillColor:Colors.white,
+        fillColor: Colors.white,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
-           radius?? 15.r,
+            radius ?? 15.r,
           ),
-          borderSide: BorderSide(color: colorBorder?? PrimaryColour, width: 2),
+          borderSide: BorderSide(color: colorBorder ?? PrimaryColour, width: 2),
         ),
         errorMaxLines: 2,
-         focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(radius??15.r),
-                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(radius??15.r),
-                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
-                  ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius ?? 15.r),
+          borderSide: const BorderSide(width: 2.0, color: Colors.red),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius ?? 15.r),
+          borderSide: const BorderSide(width: 2.0, color: Colors.red),
+        ),
       ),
     );
   }

@@ -19,7 +19,7 @@ class metroDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context,listen: false);
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -105,7 +105,9 @@ class metroDate extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 15.w,),
+              SizedBox(
+                width: 15.w,
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -119,7 +121,9 @@ class metroDate extends StatelessWidget {
                             width: 30.w,
                             height: 15.h,
                             decoration: BoxDecoration(
-                            color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1), 
+                                color: theme.isDark
+                                    ? DarkColour.withOpacity(1)
+                                    : Colors.white.withOpacity(1),
                                 borderRadius: const BorderRadius.only(
                                         bottomLeft: Radius.circular(50),
                                         bottomRight: Radius.circular(50))
@@ -138,7 +142,9 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.grey.withOpacity(1),
+                                      color: theme.isDark
+                                          ? DarkColour.withOpacity(1)
+                                          : Colors.grey.withOpacity(1),
                                       spreadRadius: 0.5.r,
                                       blurRadius: 0.5.r,
                                       offset: const Offset(0,
@@ -157,7 +163,9 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                  color:theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
+                                      color: theme.isDark
+                                          ? DarkColour.withOpacity(1)
+                                          : Colors.white.withOpacity(1),
                                       spreadRadius: 1.r,
                                       blurRadius: 1.r,
                                       offset: const Offset(0, -1.5),
@@ -187,14 +195,18 @@ class metroDate extends StatelessWidget {
                             width: 30.w,
                             height: 15.h,
                             decoration: BoxDecoration(
-                          color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
+                              color: theme.isDark
+                                  ? DarkColour.withOpacity(1)
+                                  : Colors.white.withOpacity(1),
                               borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                       topRight: Radius.circular(50))
                                   .r,
                               boxShadow: [
                                 BoxShadow(
-                          color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
+                                  color: theme.isDark
+                                      ? DarkColour.withOpacity(1)
+                                      : Colors.white.withOpacity(1),
                                   spreadRadius: 0,
                                   blurRadius: 2.r,
                                   offset: const Offset(0, 0),
@@ -215,8 +227,8 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                     color: Colors.grey.withOpacity(1),
-                                      spreadRadius:1.r,
+                                      color: Colors.grey.withOpacity(1),
+                                      spreadRadius: 1.r,
                                       blurRadius: 1.r,
                                       offset: const Offset(0, 0),
                                     ),
@@ -233,10 +245,12 @@ class metroDate extends StatelessWidget {
                                       .r,
                                   boxShadow: [
                                     BoxShadow(
-                                     color: theme.isDark? DarkColour.withOpacity(1):Colors.white.withOpacity(1),
+                                      color: theme.isDark
+                                          ? DarkColour.withOpacity(1)
+                                          : Colors.white.withOpacity(1),
                                       spreadRadius: 1.r,
                                       blurRadius: 1.r,
-                                      offset: const Offset(0,3),
+                                      offset: const Offset(0, 3),
                                     ),
                                   ],
                                 ),
