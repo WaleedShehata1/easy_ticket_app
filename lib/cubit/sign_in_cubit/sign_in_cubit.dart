@@ -1,7 +1,5 @@
 // ignore_for_file: non_constant_identifier_names, avoid_print
-
 import 'dart:convert';
-
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/widget/components.dart';
@@ -35,16 +33,16 @@ class SignInCubit extends Cubit<SignInStates> {
     DioHelper.postData(
       url: login,
       data: {
-        'national_ID': national_ID,
+        'national_ID': int.parse(national_ID),
         'password': password,
       },
     ).then((value) {
       print('Value == ${value.data}');
       loginModel = SignInModel.fromJson(value.data);
-      print(loginModel!.token);
+      print("token=${loginModel!.token}");
       emit(SignInSuccessState(loginModel));
     }).catchError((error) {
-      print(error.toString());
+      print("error=${error.toString()}");
       emit(SignInErrorState(error.toString()));
     });
   }

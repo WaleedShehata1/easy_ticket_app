@@ -8,10 +8,10 @@ import '../../network/local/dio_helper.dart';
 
 class SignUpCubit extends Cubit<SignUpStates> {
   SignUpCubit() : super(SignUpInitialState());
-    RegisterModel? logUpModel;
+  RegisterModel? logUpModel;
   static SignUpCubit get(context) => BlocProvider.of(context);
 
-  IconData? suffix = Icons.visibility_outlined ;
+  IconData? suffix = Icons.visibility_outlined;
 
   bool isPassword = true;
 
@@ -20,35 +20,34 @@ class SignUpCubit extends Cubit<SignUpStates> {
 
     suffix =
         isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
-    emit(ShowPassword());
+    emit(RegisterShowPassword());
   }
-  IconData? suffixConfirm = Icons.visibility_outlined ;
+
+  IconData? suffixConfirm = Icons.visibility_outlined;
 
   bool isConfirmPassword = true;
 
   void showConfirmPassword1() {
     isConfirmPassword = !isConfirmPassword;
 
-    suffixConfirm =
-        isConfirmPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
-    emit(ShowPassword());
+    suffixConfirm = isConfirmPassword
+        ? Icons.visibility_outlined
+        : Icons.visibility_off_outlined;
+    emit(RegisterShowPassword());
   }
-   userRegister(
-    {
-      required String national_ID,
-       required String password,
-       required String email,
-       required String first_Name,
-       required String last_Name,
-       required String phone,
-       required String health_status,
-       required String date_of_birth,
-       required String gender,
-       required String profession,
-       required String email_verified_at,
 
-       }
-       ) {
+  userRegister({
+    required String national_ID,
+    required String password,
+    required String email,
+    required String first_Name,
+    required String last_Name,
+    required String phone,
+    required String health_status,
+    required String date_of_birth,
+    required String gender,
+    required String profession,
+  }) {
     emit(SignUpLoadingState());
     DioHelper.postData(
       url: register,
@@ -67,10 +66,10 @@ class SignUpCubit extends Cubit<SignUpStates> {
     ).then((value) {
       print('Value == ${value.data}');
       logUpModel = RegisterModel.fromJson(value.data);
-   print(logUpModel!.message);
+      print(logUpModel!.message);
       emit(SignUpSuccessState(logUpModel));
     }).catchError((error) {
-      print(error.toString());
+      print("error= ${error.toString()}");
       emit(SignUpErrorState(error.toString()));
     });
   }
