@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_this, non_constant_identifier_names
-
 import 'package:easy_ticket_app/widget/components.dart';
 
 class SignInModel {
@@ -9,10 +7,10 @@ class SignInModel {
   UserData? data;
 
   SignInModel.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
+    status = json['statu'];
     message = json['message'];
     token = json['access_token'];
-    data = UserData.fromJson(json['user']);
+    data = UserData.fromJson(json['data']);
   }
 }
 
@@ -28,8 +26,6 @@ class UserData {
   String? profession;
   String? phone;
   String? password;
-   String? email_verified_at;
-  
 
   UserData.fromJson(Map<String, dynamic> json) {
     uid = json['id'].toString();
@@ -42,6 +38,5 @@ class UserData {
     date_of_birth = json['date_of_birth'];
     gender = json['gender'];
     profession = json['profession'];
-    email_verified_at=json['email_verified_at'];
   }
 }

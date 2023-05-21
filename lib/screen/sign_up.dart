@@ -1,10 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable, prefer_typing_uninitialized_variables, unused_field, prefer_final_fields, deprecated_member_use
 
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../cubit/sign_up_cubit/sign_up_cubit.dart';
 import '../cubit/sign_up_cubit/sign_up_state.dart';
 import '../shapes/ticket_logo.dart';
@@ -13,7 +13,6 @@ import '../widget/components.dart';
 import '../widget/constants.dart';
 import '../widget/drop_down_list.dart';
 import '../widget/text_Form_Field.dart';
-import 'bottom_bar.dart';
 
 class SignUp extends StatefulWidget {
   static const String routeName = 'Sign_Up';
@@ -26,19 +25,18 @@ class _SignUpState extends State<SignUp> {
   var NationalIDController = TextEditingController();
   var FirstNameController = TextEditingController();
   var LastNameController = TextEditingController();
-  var _date = TextEditingController();
-
-  DateTime date = DateTime.now();
-  DateTime? newdate;
   var PhoneController = TextEditingController();
   var EmailController = TextEditingController();
   var PasswordController = TextEditingController();
   var ConfirmPasswordController = TextEditingController();
-  var formKey = GlobalKey<FormState>();
-
+  var _date = TextEditingController();
+  DateTime date = DateTime.now();
+  DateTime? newdate;
   var _Gendar;
   var _HealthStatus;
   var _Profession;
+
+  var formKey = GlobalKey<FormState>();
 
   var _HealthStatusList = [
     'heart disease',
@@ -46,6 +44,8 @@ class _SignUpState extends State<SignUp> {
     'Pressure disease',
     'Healthy'
   ];
+  var _GendarList = ['Male', 'Female'];
+  var _ProfessionList = ['Study', 'Senuor', 'Pressure disease', 'Healthy'];
 
   @override
   Widget build(BuildContext context) {
@@ -58,18 +58,20 @@ class _SignUpState extends State<SignUp> {
             child: BlocConsumer<SignUpCubit, SignUpStates>(
               listener: (context, state) {
                 if (state is SignUpSuccessState) {
-                if (state.registerModel!= null) {
-                  print(state.registerModel!.status);
-                  print(state.registerModel!.message);
-                 
-                     
-                } else {
-                  print(state.registerModel?.message);
-                  showToast(
-                      text: state.registerModel?.message ?? '',
-                      state: ToastStates.error); 
+                  if (state.registerModel!.status != null) {
+                    print("status=${state.registerModel!.status}");
+                    print("message=${state.registerModel!.message}");
+                    navigateAndFinish(context, Sign_In.routeName);
+                    showToast(
+                        text: state.registerModel!.message!,
+                        state: ToastStates.success);
+                  } else {
+                    print("message=${state.registerModel!.message}");
+                    showToast(
+                        text: state.registerModel!.message!,
+                        state: ToastStates.error);
+                  }
                 }
-              }
               },
               builder: (context, state) {
                 return Scaffold(
@@ -130,7 +132,7 @@ class _SignUpState extends State<SignUp> {
                             validate: (String? value) {
                               if (value!.trim().isEmpty) {
                                 return 'Please enter your National ID';
-                              }else if(value.length<14){
+                              } else if (value.length < 14) {
                                 return 'Enter the national number consisting of 14 digits';
                               }
                               return null;
@@ -159,7 +161,7 @@ class _SignUpState extends State<SignUp> {
                                     if (newdate != null) {
                                       setState(() {
                                         _date.text =
-                                            '${newdate?.day}-${newdate?.month}-${newdate?.year}';
+                                            '${newdate?.year}-${newdate?.month}-${newdate?.day}';
                                       });
                                     }
                                   },
@@ -186,7 +188,7 @@ class _SignUpState extends State<SignUp> {
                                       color: PrimaryColour,
                                       fontWeight: FontWeight.bold),
                                   value: _Profession,
-                                  items: _HealthStatusList.map<
+                                  items: _ProfessionList.map<
                                       DropdownMenuItem<String>>((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
@@ -215,7 +217,7 @@ class _SignUpState extends State<SignUp> {
                             validate: (String? value) {
                               if (value!.trim().isEmpty) {
                                 return 'Please enter your phone';
-                              }else if(value.length<14){
+                              } else if (value.length < 11) {
                                 return 'Enter the phone number consisting of 11 digits';
                               }
                               return null;
@@ -275,17 +277,18 @@ class _SignUpState extends State<SignUp> {
                                     }
                                     return null;
                                   },
-                                  items: _HealthStatusList.map<
-                                      DropdownMenuItem<String>>((String value) {
+                                  items:
+                                      _GendarList.map<DropdownMenuItem<String>>(
+                                          (String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
                                       child: Text(value),
                                     );
                                   }).toList(),
-                                  value: _HealthStatus,
+                                  value: _Gendar,
                                   onChanged: (value) {
                                     setState(() {
-                                      _HealthStatus = value;
+                                      _Gendar = value;
                                     });
                                   },
                                 ),
@@ -333,7 +336,8 @@ class _SignUpState extends State<SignUp> {
                             height: 20.h,
                           ),
                           DefaultFormField(
-                            isPassword: SignUpCubit.get(context).isConfirmPassword,
+                            isPassword:
+                                SignUpCubit.get(context).isConfirmPassword,
                             suffixIcon: SignUpCubit.get(context).suffixConfirm,
                             suffixPressed: () {
                               SignUpCubit.get(context).showConfirmPassword1();
@@ -358,38 +362,47 @@ class _SignUpState extends State<SignUp> {
                           SizedBox(
                             height: 35.h,
                           ),
-                          DefaultButtom(
-                            OnTap: () {
-                              if (formKey.currentState!.validate()) {
-                                SignUpCubit.get(context).userRegister(
-                                  password: PasswordController.text,
-                                  email: EmailController.text,
-                                  phone: PhoneController.text,
-                                  date_of_birth: '',
-                                  email_verified_at: '',
-                                  first_Name: FirstNameController.text,
-                                  gender: '',
-                                  health_status: '',
-                                  last_Name:  LastNameController.text,
-                                  national_ID: '',
-                                  profession: '',
-                                );
-                              }
-                              return;
+                          ConditionalBuilder(
+                            condition: state is! SignUpLoadingState,
+                            builder: (context) {
+                              return DefaultButtom(
+                                OnTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    SignUpCubit.get(context).userRegister(
+                                      password: PasswordController.toString(),
+                                      email: EmailController.toString(),
+                                      phone: PhoneController.toString(),
+                                      date_of_birth: _date.toString(),
+                                      first_Name:
+                                          FirstNameController.toString(),
+                                      gender: _Gendar.toString(),
+                                      health_status: _HealthStatus.toString(),
+                                      last_Name: LastNameController.toString(),
+                                      national_ID:
+                                          NationalIDController.toString(),
+                                      profession: _Profession.toString(),
+                                    );
+                                  }
+                                },
+                                Child: Text(
+                                  'Sign Up',
+                                  style: TextStyle(
+                                    fontSize: 28.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Height: 43,
+                                Width: double.infinity,
+                                PaddingHorizontal: 30,
+                                PaddingVertical: 0,
+                                radius: 15,
+                              );
                             },
-                            Child: Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                fontSize: 28.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Height: 43,
-                            Width: double.infinity,
-                            PaddingHorizontal: 30,
-                            PaddingVertical: 0,
-                            radius: 15,
+                            fallback: (BuildContext context) => Center(
+                                child: CircularProgressIndicator(
+                              color: PrimaryColour,
+                            )),
                           ),
                           SizedBox(
                             height: 5.h,

@@ -20,4 +20,4 @@ class SignUpErrorState extends SignUpStates {
 
 
 
-class ShowPassword extends SignUpStates {}
+class RegisterShowPassword extends SignUpStates {}
