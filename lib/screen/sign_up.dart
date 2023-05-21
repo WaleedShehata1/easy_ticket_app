@@ -58,24 +58,15 @@ class _SignUpState extends State<SignUp> {
             child: BlocConsumer<SignUpCubit, SignUpStates>(
               listener: (context, state) {
                 if (state is SignUpSuccessState) {
-                if (state.loginModel?.status != null) {
-                  print(state.loginModel!.token);
-                  print(state.loginModel!.message);
-                  CacheHelper.saveData(
-                          key: 'access_token',
-                          value: state.loginModel?.token)
-                      .then((value) {
-                        print(CacheHelper.getData(key: 'access_token'));
-                           navigateAndFinish(
-                            context,
-                            const BottomBar(), 
-                            
-                          );
-                          });
+                if (state.registerModel!= null) {
+                  print(state.registerModel!.status);
+                  print(state.registerModel!.message);
+                 
+                     
                 } else {
-                  print(state.loginModel?.message);
+                  print(state.registerModel?.message);
                   showToast(
-                      text: state.loginModel?.message ?? '',
+                      text: state.registerModel?.message ?? '',
                       state: ToastStates.error); 
                 }
               }
@@ -370,13 +361,18 @@ class _SignUpState extends State<SignUp> {
                           DefaultButtom(
                             OnTap: () {
                               if (formKey.currentState!.validate()) {
-                                SignUpCubit.get(context).userSignUp(
+                                SignUpCubit.get(context).userRegister(
                                   password: PasswordController.text,
                                   email: EmailController.text,
-                                  firstName: FirstNameController.text,
-                                  lastName: LastNameController.text,
                                   phone: PhoneController.text,
-
+                                  date_of_birth: '',
+                                  email_verified_at: '',
+                                  first_Name: FirstNameController.text,
+                                  gender: '',
+                                  health_status: '',
+                                  last_Name:  LastNameController.text,
+                                  national_ID: '',
+                                  profession: '',
                                 );
                               }
                               return;

@@ -9,20 +9,11 @@ class SignInModel {
   UserData? data;
 
   SignInModel.fromJson(Map<String, dynamic> json) {
-    status = json['statu'];
+    status = json['status'];
     message = json['message'];
     token = json['access_token'];
     data = UserData.fromJson(json['user']);
   }
-//  Map<String, dynamic> toJson() {
-  //  final Map<String, dynamic> data = new Map<String, dynamic>();
-  //  data['statu'] = this.status;
-  //  data['message'] = this.message;
-  //  if (this.data != null) {
-  //    data['user'] = this.data?.toJson();
-  //   }
-  //   return data;
-//  }//
 }
 
 class UserData {
@@ -37,6 +28,8 @@ class UserData {
   String? profession;
   String? phone;
   String? password;
+   String? email_verified_at;
+  
 
   UserData.fromJson(Map<String, dynamic> json) {
     uid = json['id'].toString();
@@ -49,22 +42,6 @@ class UserData {
     date_of_birth = json['date_of_birth'];
     gender = json['gender'];
     profession = json['profession'];
+    email_verified_at=json['email_verified_at'];
   }
-/* 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.uid;
-    data['national_ID'] = this.national_ID;
-    data['first_Name'] = this.first_Name;
-    data['last_Name'] = this.last_Name;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['gender'] = this.gender;
-    data['profession'] = this.profession;
-    data['date_of_birth'] = this.date_of_birth;
-    data['access_token'] = this.token;
-    data['health_status'] = this.health_status;
-    return data;
-  }
-} */
 }

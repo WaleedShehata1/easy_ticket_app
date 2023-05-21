@@ -1,5 +1,6 @@
-const LOGIN = 'login';
+const login = 'login';
 
-const REGISTER = 'passengers';
-
-const PROFILE = 'profile';
+const show = 'show/';
+const register = 'register';
+const logout = 'logout';
+const update = 'update';
