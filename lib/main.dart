@@ -25,7 +25,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
   await CacheHelper.init();
-  token = CacheHelper.getData(key: 'access_token');
+  token = CacheHelper.getData(key: 'token');
   runApp(
     MultiBlocProvider(providers: [
       BlocProvider(

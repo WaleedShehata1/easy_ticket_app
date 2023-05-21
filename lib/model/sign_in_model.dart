@@ -7,10 +7,10 @@ class SignInModel {
   UserData? data;
 
   SignInModel.fromJson(Map<String, dynamic> json) {
-    status = json['statu'];
+    status = json['status'];
     message = json['message'];
-    token = json['access_token'];
-    data = UserData.fromJson(json['data']);
+    token = json['token'];
+    data = UserData.fromJson(json['date']);
   }
 }
 

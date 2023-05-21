@@ -34,14 +34,13 @@ class Sign_In extends StatelessWidget {
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
               if (state is SignInSuccessState) {
-                if (state.loginModel?.status != null) {
+                if (state.loginModel!.status != true) {
                   CacheHelper.saveData(
-                          key: 'access_token', value: state.loginModel!.token)
+                          key: 'token', value: state.loginModel!.token)
                       .then((value) {
                     token = state.loginModel!.token;
 
-                    print(
-                        "access_token ${CacheHelper.getData(key: 'access_token')}");
+                    print("token ${CacheHelper.getData(key: 'token')}");
                     navigateAndFinish(
                       context,
                       const BottomBar(),
@@ -49,15 +48,13 @@ class Sign_In extends StatelessWidget {
                     print("Token ==${state.loginModel!.token}");
                     print("Message==  ${state.loginModel!.message}");
                     showToast(
-                        text: state.loginModel!.message ?? '',
+                        text: state.loginModel!.message!,
                         state: ToastStates.success);
                   });
-                  print("Token ==${state.loginModel!.token}");
-                  print("Message==  ${state.loginModel!.message}");
                 } else {
-                  print(state.loginModel?.message);
+                  print(state.loginModel!.message);
                   showToast(
-                      text: state.loginModel?.message ?? '',
+                      text: state.loginModel!.message!,
                       state: ToastStates.error);
                 }
               }

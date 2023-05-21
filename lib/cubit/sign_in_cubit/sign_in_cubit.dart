@@ -33,7 +33,7 @@ class SignInCubit extends Cubit<SignInStates> {
     DioHelper.postData(
       url: login,
       data: {
-        'national_ID': int.parse(national_ID),
+        'national_ID': national_ID,
         'password': password,
       },
     ).then((value) {
