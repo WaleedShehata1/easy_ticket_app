@@ -1,6 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/constants.dart';
@@ -12,7 +11,6 @@ import '../widget/Buttom.dart';
 import '../widget/dialog.dart';
 import './edit_profile.dart';
 import './notifications.dart';
-import 'bottom_bar.dart';
 import 'wallet_screen.dart';
 
 class UserSettingsScreen extends StatefulWidget {

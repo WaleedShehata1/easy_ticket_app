@@ -1,6 +1,5 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names, deprecated_member_use
 import 'dart:async';
-import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/onBoard.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';

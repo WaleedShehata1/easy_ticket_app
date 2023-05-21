@@ -1,16 +1,14 @@
-// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, deprecated_member_use
+// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, deprecated_member_use, avoid_print
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/Pop_Up/search_account.dart';
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
 import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
-import 'package:easy_ticket_app/screen/home.dart';
 import 'package:easy_ticket_app/screen/sign_up.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import '../cubit/sign_in_cubit/sign_in_cubit.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
@@ -175,8 +173,6 @@ class Sign_In extends StatelessWidget {
                                       national_ID: NationalIDController.text,
                                       password: PasswordController.text);
                                 }
-                                /*       Navigator.pushNamed(
-                                    context, BottomBar.routeName); */
                               },
                               Child: Text(
                                 'Log In',

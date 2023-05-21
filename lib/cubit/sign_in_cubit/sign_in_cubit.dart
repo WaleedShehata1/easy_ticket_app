@@ -1,10 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, avoid_print
-import 'dart:convert';
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
-import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/model/sign_in_model.dart';

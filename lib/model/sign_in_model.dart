@@ -1,4 +1,4 @@
-import 'package:easy_ticket_app/widget/components.dart';
+// ignore_for_file: non_constant_identifier_names
 
 class SignInModel {
   bool? status;
@@ -26,7 +26,7 @@ class UserData {
   String? profession;
   String? phone;
   String? password;
-
+  String? email_verified_at;
   UserData.fromJson(Map<String, dynamic> json) {
     uid = json['id'].toString();
     national_ID = json['national_ID'].toString();
@@ -38,5 +38,6 @@ class UserData {
     date_of_birth = json['date_of_birth'];
     gender = json['gender'];
     profession = json['profession'];
+    email_verified_at = json['email_verified_at'];
   }
 }

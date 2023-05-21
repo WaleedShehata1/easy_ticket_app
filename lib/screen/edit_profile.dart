@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields
+// ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields, prefer_typing_uninitialized_variables
 
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/container.dart';

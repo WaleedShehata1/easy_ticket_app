@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable, prefer_typing_uninitialized_variables, unused_field, prefer_final_fields, deprecated_member_use
+// ignore_for_file: use_key_in_widget_constructors, non_constant_identifier_names, must_be_immutable, prefer_typing_uninitialized_variables, unused_field, prefer_final_fields, deprecated_member_use, avoid_print
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
@@ -61,11 +61,12 @@ class _SignUpState extends State<SignUp> {
                   if (state.registerModel!.status != null) {
                     print("status=${state.registerModel!.status}");
                     print("message=${state.registerModel!.message}");
-                    navigateAndFinish(context, Sign_In.routeName);
+                    navigateAndFinish(context, Sign_In());
                     showToast(
                         text: state.registerModel!.message!,
                         state: ToastStates.success);
                   } else {
+                    print("status=${state.registerModel!.status}");
                     print("message=${state.registerModel!.message}");
                     showToast(
                         text: state.registerModel!.message!,
@@ -369,18 +370,16 @@ class _SignUpState extends State<SignUp> {
                                 OnTap: () {
                                   if (formKey.currentState!.validate()) {
                                     SignUpCubit.get(context).userRegister(
-                                      password: PasswordController.toString(),
-                                      email: EmailController.toString(),
-                                      phone: PhoneController.toString(),
-                                      date_of_birth: _date.toString(),
-                                      first_Name:
-                                          FirstNameController.toString(),
-                                      gender: _Gendar.toString(),
-                                      health_status: _HealthStatus.toString(),
-                                      last_Name: LastNameController.toString(),
-                                      national_ID:
-                                          NationalIDController.toString(),
-                                      profession: _Profession.toString(),
+                                      password: PasswordController.text,
+                                      email: EmailController.text,
+                                      phone: PhoneController.text,
+                                      date_of_birth: _date.text,
+                                      first_Name: FirstNameController.text,
+                                      gender: _Gendar,
+                                      health_status: _HealthStatus,
+                                      last_Name: LastNameController.text,
+                                      national_ID: NationalIDController.text,
+                                      profession: _Profession,
                                     );
                                   }
                                 },

@@ -1,3 +1,5 @@
+// ignore_for_file: equal_keys_in_map
+
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/widget/theme.dart';

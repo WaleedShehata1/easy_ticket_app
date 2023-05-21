@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, avoid_print
+
 import 'package:easy_ticket_app/cubit/sign_up_cubit/sign_up_state.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:flutter/material.dart';
@@ -52,21 +54,22 @@ class SignUpCubit extends Cubit<SignUpStates> {
     DioHelper.postData(
       url: register,
       data: {
-        'national_ID': national_ID,
-        'password': password,
-        'email': email,
         'first_Name': first_Name,
         'last_Name': last_Name,
-        'phone': phone,
+        'national_ID': national_ID,
+        'gender': gender,
         'health_status': health_status,
         'date_of_birth': date_of_birth,
-        'gender': gender,
+        'email': email,
         'profession': profession,
+        'phone': phone,
+        'password': password,
       },
     ).then((value) {
       print('Value == ${value.data}');
       logUpModel = RegisterModel.fromJson(value.data);
       print(logUpModel!.message);
+
       emit(SignUpSuccessState(logUpModel));
     }).catchError((error) {
       print("error= ${error.toString()}");

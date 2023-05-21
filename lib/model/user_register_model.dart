@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class RegisterModel {
   bool? status;
   String? message;
@@ -7,12 +9,12 @@ class RegisterModel {
     status = json['status'];
     message = json['message'];
 
-    data = UserCreate.fromJson(json['date']);
+    data = UserCreate.fromJson(json['data']);
   }
 }
 
 class UserCreate {
-  int? uid;
+  String? uid;
   String? first_Name;
   String? last_Name;
   String? national_ID;
@@ -22,10 +24,9 @@ class UserCreate {
   String? email;
   String? profession;
   String? phone;
-  String? password;
 
   UserCreate.fromJson(Map<String, dynamic> json) {
-    uid = json['id'];
+    uid = json['id'].toString();
     national_ID = json['national_ID'].toString();
     email = json['email'];
     first_Name = json['first_Name'];
