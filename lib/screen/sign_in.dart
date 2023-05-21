@@ -34,7 +34,7 @@ class Sign_In extends StatelessWidget {
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
               if (state is SignInSuccessState) {
-                if (state.loginModel!.status != true) {
+                if (state.loginModel!.status != null) {
                   CacheHelper.saveData(
                           key: 'token', value: state.loginModel!.token)
                       .then((value) {
