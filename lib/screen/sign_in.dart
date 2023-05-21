@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, deprecated_member_use
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/Pop_Up/searsh_account.dart';
 import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
@@ -20,10 +21,12 @@ import '../widget/constants.dart';
 
 class Sign_In extends StatelessWidget {
   Sign_In({super.key});
+
   static const String routeName = 'Sign_in';
   var NationalIDController = TextEditingController();
   var PasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,28 +37,27 @@ class Sign_In extends StatelessWidget {
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
               if (state is SignInSuccessState) {
-                if (state.loginModel!.status != null) {
+                if (state.loginModel?.status != null) {
+                  print("Token ==${state.loginModel!.token}");
+                  print("Message==  ${state.loginModel!.message}");
                   CacheHelper.saveData(
                           key: 'access_token', value: state.loginModel!.token)
                       .then((value) {
                     token = state.loginModel!.token;
 
-                    print(
-                        "access_token ${CacheHelper.getData(key: 'access_token')}");
+                    print(CacheHelper.getData(key: 'access_token'));
                     navigateAndFinish(
                       context,
                       const BottomBar(),
                     );
-                    print("Token ==${state.loginModel!.token}");
-                    print("Message==  ${state.loginModel!.message}");
                     showToast(
-                        text: state.loginModel!.message ?? '',
+                        text: state.loginModel!.message!,
                         state: ToastStates.success);
                   });
                 } else {
-                  print(state.loginModel?.message);
+                  print(state.loginModel!.message);
                   showToast(
-                      text: state.loginModel?.message ?? '',
+                      text: state.loginModel!.message ?? '',
                       state: ToastStates.error);
                 }
               }
@@ -171,6 +173,8 @@ class Sign_In extends StatelessWidget {
                                       national_ID: NationalIDController.text,
                                       password: PasswordController.text);
                                 }
+                                /*       Navigator.pushNamed(
+                                    context, BottomBar.routeName); */
                               },
                               Child: Text(
                                 'Log In',
