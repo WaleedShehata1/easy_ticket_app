@@ -1,3 +1,5 @@
 const LOGIN = 'login';
 
-const Register = 'passengers';
+const REGISTER = 'passengers';
+
+const PROFILE = 'profile';
