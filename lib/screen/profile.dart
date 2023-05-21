@@ -326,8 +326,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                       CacheHelper.clearData(key: 'access_token')
                                           .then((value) {
                                         if (value!) {
-                                          navigateAndFinish(
-                                              context, BottomBar());
+                                          navigateAndFinish(context, Sign_In());
                                         }
                                       });
                                     },
