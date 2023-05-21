@@ -52,21 +52,4 @@ class SignInCubit extends Cubit<SignInStates> {
       emit(SignInErrorState(error.toString()));
     });
   }
-
-  // Stream<Future<void>> userLogin(
-  //     {required String national_ID, required String password}) async* {
-  //   try {
-  //     emit(SignInLoadingState());
-  //     final response = await http.post(
-  //       Uri.parse('https://easyticket.website/api/auth/login'),
-  //       body: {'national_ID': national_ID, 'password': password},
-  //     );
-  //     final data = json.decode(response.body);
-  //     print(data);
-  //     // handle the response data and update the state accordingly
-  //     emit(SignInSuccessState(data['id']));
-  //   } catch (e) {
-  //     emit(SignInErrorState(e.toString()));
-  //   }
-  // }
 }

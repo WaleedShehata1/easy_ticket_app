@@ -22,14 +22,14 @@ class SignInErrorState extends SignInStates {
 class ShowPassword extends SignInStates {}
 
 //Profile
-class UserDataLoadingState extends SignInStates {}
+// class UserDataLoadingState extends SignInStates {}
 
-class UserDataSuccessState extends SignInStates {
-  UserDataSuccessState();
-}
+// class UserDataSuccessState extends SignInStates {
+//   UserDataSuccessState();
+// }
 
-class UserDataErrorState extends SignInStates {
-  final String error;
+// class UserDataErrorState extends SignInStates {
+//   final String error;
 
-  UserDataErrorState(this.error);
-}
+//   UserDataErrorState(this.error);
+// }
