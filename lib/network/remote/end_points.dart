@@ -1,3 +1,3 @@
-const LOGIN = 'auth/login';
+const LOGIN = 'login';
 
 const Register = 'passengers';
