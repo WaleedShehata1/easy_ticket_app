@@ -177,7 +177,8 @@ class Sign_In extends StatelessWidget {
                                 if (formKey.currentState!.validate()) {
                                   SignInCubit.get(context).userLogin(
                                       national_ID: NationalIDController.text,
-                                      password: PasswordController.text);
+                                      password: PasswordController.text,
+                                      context: context);
                                 }
                               },
                               Child: Text(
