@@ -1,5 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, avoid_print
 
+import 'package:easy_ticket_app/network/local/dio_helper.dart';
+import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/constants.dart';
@@ -312,7 +314,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                       style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.bold,
-                                        // color: Colors.black,
                                         color: Colors.white,
                                       ),
                                     ),
@@ -321,14 +322,32 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                     PaddingHorizontal: 5,
                                     PaddingVertical: 0,
                                     OnTap: () {
-                                      CacheHelper.clearData(key: 'token')
-                                          .then((value) {
-                                        if (value!) {
-                                          navigateAndFinish(context, Sign_In());
-                                        }
+                                      DioHelper.postData(
+                                        url: logout,
+                                        token:
+                                            CacheHelper.getData(key: 'token'),
+                                        data: {
+                                          'token':
+                                              CacheHelper.getData(key: 'token')
+                                        },
+                                      ).then((value) {
+                                        print("value = ${value.data}");
+                                        CacheHelper.clearData(key: 'token')
+                                            .then((value) {
+                                          if (value!) {
+                                            CacheHelper.clearData(key: 'uid');
+
+                                            navigateAndFinish(
+                                                context, Sign_In());
+                                          }
+                                          showToast(
+                                              text: 'succeeded',
+                                              state: ToastStates.success);
+                                        });
+                                      }).catchError((error) {
+                                        print("error= ${error.toString()}");
                                       });
                                     },
-                                    //  color: Colors.white,
                                   ),
                                   DefaultButtom(
                                     Child: Text(
@@ -336,7 +355,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                       style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.bold,
-                                        // color: Colors.black,
                                         color: Colors.white,
                                       ),
                                     ),
@@ -347,7 +365,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                     OnTap: () {
                                       Navigator.pop(context);
                                     },
-                                    //color: Colors.white,
                                   )
                                 ],
                               )

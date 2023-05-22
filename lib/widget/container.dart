@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'components.dart';
-
 class DefaultContaiiner extends StatelessWidget {
   final String text;
   const DefaultContaiiner({
@@ -17,9 +15,9 @@ class DefaultContaiiner extends StatelessWidget {
       padding:
           EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.circular(15).r,
-          border:
-              Border.all(width: 2.w, color: PrimaryColour.withOpacity(0.3))),
+          border: Border.all(width: 2.w, color: Colors.grey.withOpacity(0.8))),
       child: Text(
         text,
         style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),

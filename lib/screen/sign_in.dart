@@ -56,10 +56,9 @@ class Sign_In extends StatelessWidget {
                   });
                 } else {
                   print(state.loginModel!.message);
-                  showToast(
-                      text: state.loginModel!.message!,
-                      state: ToastStates.error);
                 }
+              } else if (state is SignInErrorState) {
+                showToast(text: state.error, state: ToastStates.error);
               }
             },
             builder: (context, state) {

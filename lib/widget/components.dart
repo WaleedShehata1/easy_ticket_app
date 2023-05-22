@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Color PrimaryColour = const Color(0xffF48265);
+//Color PrimaryColour = Colors.blue.shade600;
 Color DarkColour = const Color(0xff212121);
 Color textColour = const Color(0xff3E548D);
 

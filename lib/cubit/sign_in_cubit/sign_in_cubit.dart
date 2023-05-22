@@ -34,6 +34,7 @@ class SignInCubit extends Cubit<SignInStates> {
         'password': password,
       },
     ).then((value) {
+      emit(SignInLoadingState());
       print('Value == ${value.data}');
       loginModel = SignInModel.fromJson(value.data);
       print("token=${loginModel!.token}");

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:easy_ticket_app/widget/constants.dart';
 
 class DioHelper {
   static Dio? dio;
@@ -10,17 +11,18 @@ class DioHelper {
           receiveDataWhenStatusError: true,
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token'
           }),
     );
   }
 
   static Future<Response> getData({
     required String url,
-    required Map<String, dynamic> query,
+    Map<String, dynamic>? query,
     String lang = 'en',
-    String? token,
+    required String token,
   }) async {
-    dio?.options.headers = {'lang': lang, 'Authorization': token};
+    dio?.options.headers = {'lang': lang, 'Authorization': 'Bearer $token'};
     return await dio!.get(url, queryParameters: query);
   }
 
@@ -31,8 +33,19 @@ class DioHelper {
     String lang = 'en',
     String? token,
   }) async {
-    dio?.options.headers = {'lang': lang, 'Authorization': token};
+    dio?.options.headers = {'lang': lang, 'Authorization': 'Bearer $token'};
 
     return dio!.post(url, queryParameters: query, data: data);
+  }
+
+  static Future<Response> postToken({
+    required String url,
+    String lang = 'en',
+  }) async {
+    dio?.options.headers = {'lang': lang, 'Authorization': 'Bearer $token'};
+
+    return dio!.post(
+      url,
+    );
   }
 }
