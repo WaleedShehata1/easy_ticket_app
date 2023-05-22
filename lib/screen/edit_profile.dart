@@ -50,7 +50,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           key: formKey,
           child: Column(
             children: [
-              if (State is UpdateLoadingState) LinearProgressIndicator(),
+              if (State is UpdateLoadingState) const LinearProgressIndicator(),
               Container(
                 width: double.infinity,
                 height: 80.h,

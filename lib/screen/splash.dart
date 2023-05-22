@@ -1,16 +1,12 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names, deprecated_member_use
 import 'dart:async';
-import 'package:easy_ticket_app/network/local/dio_helper.dart';
-import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/screen/onBoard.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
-import 'package:easy_ticket_app/widget/constants.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../cubit/sign_in/sign_in_cubit.dart';
 import '../widget/components.dart';
 import 'bottom_bar.dart';
 

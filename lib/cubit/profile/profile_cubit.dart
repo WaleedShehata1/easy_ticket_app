@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages, avoid_print
+// ignore_for_file: depend_on_referenced_packages, avoid_print, non_constant_identifier_names
 
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
