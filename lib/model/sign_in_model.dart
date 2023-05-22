@@ -10,7 +10,7 @@ class SignInModel {
     status = json['status'];
     message = json['message'];
     token = json['token'];
-    data = UserData.fromJson(json['data']);
+    data = json['data'] != null ? UserData.fromJson(json['data']) : null;
   }
 }
 
