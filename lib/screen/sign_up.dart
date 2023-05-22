@@ -58,18 +58,20 @@ class _SignUpState extends State<SignUp> {
             child: BlocConsumer<SignUpCubit, SignUpStates>(
               listener: (context, state) {
                 if (state is SignUpSuccessState) {
-                  if (state.registerModel!.status != null) {
+                  if (state.registerModel!.status != false) {
                     print("status=${state.registerModel!.status}");
                     print("message=${state.registerModel!.message}");
                     navigateAndFinish(context, Sign_In());
                     showToast(
                         text: state.registerModel!.message!,
                         state: ToastStates.success);
-                  } else {
+                  } else if (state.registerModel!.status == false) {
                     print("status=${state.registerModel!.status}");
                     print("message=${state.registerModel!.message}");
+                    print(state.registerModel!.message);
                     showToast(
-                        text: state.registerModel!.message!,
+                        text:
+                            "The national_id or email has already been taken.",
                         state: ToastStates.error);
                   }
                 }

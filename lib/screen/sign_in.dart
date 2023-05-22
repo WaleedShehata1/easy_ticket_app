@@ -35,7 +35,7 @@ class Sign_In extends StatelessWidget {
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
               if (state is SignInSuccessState) {
-                if (state.loginModel!.status != null) {
+                if (state.loginModel!.status == true) {
                   print("Token ==${state.loginModel!.token}");
                   print("Message==  ${state.loginModel!.message}");
                   CacheHelper.saveData(
@@ -54,11 +54,16 @@ class Sign_In extends StatelessWidget {
                         text: state.loginModel!.message!,
                         state: ToastStates.success);
                   });
-                } else {
+                } else if (state.loginModel!.status == false) {
                   print(state.loginModel!.message);
+                  showToast(
+                      text: state.loginModel!.message!,
+                      state: ToastStates.error);
                 }
               } else if (state is SignInErrorState) {
-                showToast(text: state.error, state: ToastStates.error);
+                showToast(
+                    text: "the national_ID or password is invalid",
+                    state: ToastStates.error);
               }
             },
             builder: (context, state) {
