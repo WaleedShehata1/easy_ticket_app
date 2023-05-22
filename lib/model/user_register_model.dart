@@ -9,7 +9,7 @@ class RegisterModel {
     status = json['status'];
     message = json['message'];
 
-    data = UserCreate.fromJson(json['data']);
+    data = json['data'] != null ? UserCreate.fromJson(json['data']) : null;
   }
 }
 

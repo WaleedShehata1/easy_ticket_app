@@ -55,15 +55,17 @@ class Sign_In extends StatelessWidget {
                         state: ToastStates.success);
                   });
                 } else if (state.loginModel!.status == false) {
+                  print(state.loginModel!);
                   print(state.loginModel!.message);
                   showToast(
                       text: state.loginModel!.message!,
                       state: ToastStates.error);
+                } else {
+                  showToast(
+                      text:
+                          'There is a problem connecting to the server or the Internet',
+                      state: ToastStates.warning);
                 }
-              } else if (state is SignInErrorState) {
-                showToast(
-                    text: "the national_ID or password is invalid",
-                    state: ToastStates.error);
               }
             },
             builder: (context, state) {

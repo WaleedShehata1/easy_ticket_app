@@ -70,9 +70,13 @@ class _SignUpState extends State<SignUp> {
                     print("message=${state.registerModel!.message}");
                     print(state.registerModel!.message);
                     showToast(
-                        text:
-                            "The national_id or email has already been taken.",
+                        text: state.registerModel!.message!,
                         state: ToastStates.error);
+                  } else {
+                    showToast(
+                        text:
+                            'There is a problem connecting to the server or the Internet',
+                        state: ToastStates.warning);
                   }
                 }
               },
