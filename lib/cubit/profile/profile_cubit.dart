@@ -6,7 +6,7 @@ import 'package:easy_ticket_app/widget/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../../../model/sign_in_model.dart';
+import '../../model/sign_in_model.dart';
 
 part 'profile_state.dart';
 
@@ -25,6 +25,29 @@ class ProfileCubit extends Cubit<ProfileState> {
     }).catchError((error) {
       print("error= ${error.toString()}");
       emit(ProfileErrorState(error));
+    });
+  }
+
+  void updateUserData({
+    required String profession,
+    required String health_status,
+    required String email,
+    required String phone,
+  }) {
+    emit(UpdateLoadingState());
+
+    DioHelper.putData(url: update, token: token, data: {
+      'profession': profession,
+      'phone': phone,
+      'email': email,
+      'health_status': health_status,
+    }).then((value) {
+      userModel = SignInModel.fromJson(value.data);
+      print(userModel!.data!.first_Name);
+      emit(ProfileSuccessState(userModel));
+    }).catchError((error) {
+      print("error=${error.toString()}");
+      emit(ProfileErrorState(error.toString()));
     });
   }
 }

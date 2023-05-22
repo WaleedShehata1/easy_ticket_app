@@ -22,7 +22,11 @@ class DioHelper {
     String lang = 'en',
     required String token,
   }) async {
-    dio?.options.headers = {'lang': lang, 'Authorization': 'Bearer $token'};
+    dio?.options.headers = {
+      'lang': lang,
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    };
     return await dio!.get(url, queryParameters: query);
   }
 
@@ -33,7 +37,11 @@ class DioHelper {
     String lang = 'en',
     String? token,
   }) async {
-    dio?.options.headers = {'lang': lang, 'Authorization': 'Bearer $token'};
+    dio?.options.headers = {
+      'lang': lang,
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    };
 
     return dio!.post(url, queryParameters: query, data: data);
   }
@@ -42,10 +50,30 @@ class DioHelper {
     required String url,
     String lang = 'en',
   }) async {
-    dio?.options.headers = {'lang': lang, 'Authorization': 'Bearer $token'};
+    dio?.options.headers = {
+      'lang': lang,
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    };
 
     return dio!.post(
       url,
     );
+  }
+
+  static Future<Response> putData({
+    required String url,
+    Map<String, dynamic>? query,
+    required Map<String, dynamic> data,
+    String lang = 'en',
+    String? token,
+  }) async {
+    dio?.options.headers = {
+      'lang': lang,
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    };
+
+    return dio!.put(url, queryParameters: query, data: data);
   }
 }

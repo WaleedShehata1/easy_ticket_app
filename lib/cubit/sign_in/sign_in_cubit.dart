@@ -1,5 +1,5 @@
 // ignore_for_file: non_constant_identifier_names, avoid_print
-import 'package:easy_ticket_app/cubit/sign_in_cubit/sign_in_states.dart';
+import 'package:easy_ticket_app/cubit/sign_in/sign_in_states.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

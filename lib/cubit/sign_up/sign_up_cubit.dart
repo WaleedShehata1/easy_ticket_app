@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, avoid_print
 
-import 'package:easy_ticket_app/cubit/sign_up_cubit/sign_up_state.dart';
+import 'package:easy_ticket_app/cubit/sign_up/sign_up_state.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
