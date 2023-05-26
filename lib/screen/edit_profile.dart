@@ -13,17 +13,11 @@ import '../widget/constants.dart';
 import '../widget/drop_down_list.dart';
 import '../widget/text_Form_Field.dart';
 
-class EditProfileScreen extends StatefulWidget {
+class EditProfileScreen extends StatelessWidget {
   static const String routeName = 'Edite profile';
 
-  const EditProfileScreen({super.key});
-
-  @override
-  _EditProfileScreenState createState() => _EditProfileScreenState();
-}
-
-class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController phoneController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
 
   var formKey = GlobalKey<FormState>();
@@ -34,11 +28,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     'Pressure disease',
     'Healthy'
   ];
+
   var _professionList = ['study', 'senior', 'Pressure disease', 'Healthy'];
 
   var _HealthStatus;
 
   var _Profession;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -173,9 +169,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     },
                                     value: _HealthStatus,
                                     onChanged: (value) {
-                                      setState(() {
-                                        _HealthStatus = value;
-                                      });
+                                      _HealthStatus = value;
                                     },
                                     items: _HealthStatusList.map<
                                             DropdownMenuItem<String>>(
@@ -213,9 +207,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                       );
                                     }).toList(),
                                     onChanged: (value) {
-                                      setState(() {
-                                        _Profession = value;
-                                      });
+                                      _Profession = value;
                                     },
                                   ),
                                 ),
