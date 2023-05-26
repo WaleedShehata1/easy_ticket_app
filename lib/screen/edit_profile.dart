@@ -6,24 +6,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/change_password.dart';
 import '../cubit/app/cubit/app_cubit.dart';
-import '../cubit/sign_in/sign_in_cubit.dart';
-import '../model/sign_in_model.dart';
 import '../widget/Buttom.dart';
-import '../widget/constants.dart';
 import '../widget/drop_down_list.dart';
 import '../widget/text_Form_Field.dart';
 
-class EditProfileScreen extends StatefulWidget {
+class EditProfileScreen extends StatelessWidget {
   static const String routeName = 'Edite profile';
 
-  const EditProfileScreen({super.key});
+  EditProfileScreen({super.key});
 
-  @override
-  _EditProfileScreenState createState() => _EditProfileScreenState();
-}
-
-class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController phoneController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
 
   var formKey = GlobalKey<FormState>();
@@ -34,11 +27,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     'Pressure disease',
     'Healthy'
   ];
+
   var _professionList = ['study', 'senior', 'Pressure disease', 'Healthy'];
 
   var _HealthStatus;
 
   var _Profession;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -55,8 +50,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 key: formKey,
                 child: Column(
                   children: [
-                    if (State is UpdateLoadingState)
-                      const LinearProgressIndicator(),
+                    if (State is LoadingState) const LinearProgressIndicator(),
                     Container(
                       width: double.infinity,
                       height: 80.h,
@@ -110,27 +104,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
+                                const Expanded(
                                     child:
                                         DefaultContaiiner(text: "first name")),
                                 SizedBox(width: 16.w),
-                                Expanded(
+                                const Expanded(
                                     child:
                                         DefaultContaiiner(text: "last_Name")),
                               ],
                             ),
                             SizedBox(height: 20.h),
-                            DefaultContaiiner(text: "national_ID"),
+                            const DefaultContaiiner(text: "national_ID"),
                             SizedBox(height: 20.w),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
+                                const Expanded(
                                   child:
                                       DefaultContaiiner(text: "date_of_birth"),
                                 ),
                                 SizedBox(width: 16.w),
-                                Expanded(
+                                const Expanded(
                                   child: DefaultContaiiner(text: "gender"),
                                 ),
                               ],
@@ -173,9 +167,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     },
                                     value: _HealthStatus,
                                     onChanged: (value) {
-                                      setState(() {
-                                        _HealthStatus = value;
-                                      });
+                                      _HealthStatus = value;
                                     },
                                     items: _HealthStatusList.map<
                                             DropdownMenuItem<String>>(
@@ -213,9 +205,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                       );
                                     }).toList(),
                                     onChanged: (value) {
-                                      setState(() {
-                                        _Profession = value;
-                                      });
+                                      _Profession = value;
+                                      ;
                                     },
                                   ),
                                 ),
