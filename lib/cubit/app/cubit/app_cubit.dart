@@ -71,7 +71,7 @@ class AppCubit extends Cubit<AppState> {
       'health_status': health_status,
     }).then((value) {
       userModel = SignInModel.fromJson(value.data);
-      print(userModel!.data!.first_Name);
+      print(userModel!.data!.email);
       emit(UpdateSuccessState(userModel));
     }).catchError((error) {
       print("error=${error.toString()}");
