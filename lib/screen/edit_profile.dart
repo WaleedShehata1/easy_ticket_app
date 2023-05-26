@@ -26,10 +26,10 @@ class EditProfileScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => AppCubit(),
       child: BlocConsumer<AppCubit, AppState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (State is LoadingState) const LinearProgressIndicator();
+        },
         builder: (context, state) {
-          phoneController.text = '00000000000';
-          emailController.text = '******@***.com';
           return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -37,7 +37,6 @@ class EditProfileScreen extends StatelessWidget {
                 key: formKey,
                 child: Column(
                   children: [
-                    if (State is LoadingState) const LinearProgressIndicator(),
                     Container(
                       width: double.infinity,
                       height: 80.h,
@@ -125,10 +124,9 @@ class EditProfileScreen extends StatelessWidget {
                               label: 'Phone',
                               keyboardType: TextInputType.phone,
                               validate: (String? value) {
-                                if (value!.trim().isEmpty) {
+                                if (value!.trim().isEmpty ||
+                                    value.length < 11) {
                                   return 'Please enter your phone';
-                                } else if (value.length < 11) {
-                                  return 'Enter the phone number consisting of 11 digits';
                                 }
                                 return null;
                               },
