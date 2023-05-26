@@ -353,6 +353,12 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                                       key: 'uid');
                                                   CacheHelper.clearData(
                                                       key: 'userName');
+                                                  CacheHelper.clearData(
+                                                      key: 'token');
+                                                  CacheHelper.clearData(
+                                                      key: 'email');
+                                                  CacheHelper.clearData(
+                                                      key: 'loginModel');
                                                   navigateAndFinish(
                                                       context, Sign_In());
                                                 }

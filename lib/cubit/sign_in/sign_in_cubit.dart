@@ -43,6 +43,7 @@ class SignInCubit extends Cubit<SignInStates> {
           value:
               '${SignInCubit.get(context).loginModel!.data!.first_Name} ${SignInCubit.get(context).loginModel!.data!.last_Name}');
       print("token=${loginModel!.token}");
+
       emit(SignInSuccessState(loginModel));
     }).catchError((error) {
       print("error=${error.toString()}");

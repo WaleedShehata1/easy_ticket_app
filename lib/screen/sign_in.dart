@@ -1,15 +1,17 @@
-// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, deprecated_member_use, avoid_print
+// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, deprecated_member_use, avoid_print, unnecessary_null_comparison
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/Pop_Up/search_account.dart';
 import 'package:easy_ticket_app/cubit/sign_in/sign_in_states.dart';
 import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
+import 'package:easy_ticket_app/screen/otp_code.dart';
 import 'package:easy_ticket_app/screen/sign_up.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/sign_in/sign_in_cubit.dart';
+import '../model/sign_in_model.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
 import '../widget/dialog.dart';
@@ -23,8 +25,8 @@ class Sign_In extends StatelessWidget {
   static const String routeName = 'Sign_in';
   var NationalIDController = TextEditingController();
   var PasswordController = TextEditingController();
+  var searchAccountController = TextEditingController();
   var formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -36,20 +38,21 @@ class Sign_In extends StatelessWidget {
             listener: (context, state) {
               if (state is SignInSuccessState) {
                 if (state.loginModel!.status == true) {
-                  print("Token ==${state.loginModel!.token}");
-                  print("Message==  ${state.loginModel!.message}");
                   CacheHelper.saveData(
                           key: 'token', value: state.loginModel!.token)
                       .then((value) {
                     CacheHelper.saveData(
-                        key: "uid", value: state.loginModel!.data!.uid);
-                    token = state.loginModel!.token;
-
-                    print("token ${CacheHelper.getData(key: 'token')}");
-                    navigateAndFinish(
-                      context,
-                      const BottomBar(),
-                    );
+                        key: 'uid', value: state.loginModel!.data!.uid);
+                    CacheHelper.saveData(
+                        key: 'email', value: state.loginModel!.data!.email);
+                    if (state.loginModel!.data!.email_verified_at == null) {
+                      Navigator.pushNamed(context, OtpForm.routeName);
+                    } else {
+                      navigateAndFinish(
+                        context,
+                        const BottomBar(),
+                      );
+                    }
                     showToast(
                         text: state.loginModel!.message!,
                         state: ToastStates.success);
@@ -144,7 +147,13 @@ class Sign_In extends StatelessWidget {
                                     builder: (BuildContext context) {
                                       return DefaultDialog(
                                         Child: SearchAccount(
-                                          Validate: (p0) {
+                                          userId: searchAccountController,
+                                          Validate: (value) {
+                                            if (value!.trim().isEmpty) {
+                                              return 'enter your National ID';
+                                            } else if (value.length < 14) {
+                                              return 'Enter the national number consisting of 14 digits';
+                                            }
                                             return null;
                                           },
                                           onTap: () {

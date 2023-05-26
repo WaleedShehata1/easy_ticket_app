@@ -6,12 +6,13 @@ import '../widget/Buttom.dart';
 import '../widget/text_Form_Field.dart';
 
 class SearchAccount extends StatelessWidget {
-  var userId = TextEditingController();
+  TextEditingController userId;
   Function()? onTap;
   String? Function(String?) Validate;
 
   SearchAccount({
     Key? key,
+    required this.userId,
     this.onTap,
     required this.Validate,
   }) : super(key: key);

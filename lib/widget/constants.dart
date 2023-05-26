@@ -1,5 +1,9 @@
+import 'package:easy_ticket_app/model/sign_in_model.dart';
+import 'package:easy_ticket_app/widget/components.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
+
+import '../model/sign_in_model.dart';
 
 void showToast({
   required String text,
@@ -43,4 +47,7 @@ void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
     ),
     (Route<dynamic> route) => false);
 
-String? token = '';
+String? token = CacheHelper.getData(key: 'token');
+String? uid = CacheHelper.getData(key: 'uid');
+String? userEmail = CacheHelper.getData(key: 'email');
+String? userName = CacheHelper.getData(key: "userName");

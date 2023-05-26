@@ -1,6 +1,8 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: file_names, unnecessary_null_in_if_null_operators, non_constant_identifier_names, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'components.dart';
@@ -19,33 +21,41 @@ class DefaultFormField extends StatelessWidget {
   String? Function(String?) validate;
   TextAlign? textAlign;
   Function? suffixPressed;
-
+  List<TextInputFormatter>? inputFormatters;
+  String? hint;
+  void Function(String)? onChanged;
+  void Function(String?)? onSaved;
   bool? isPassword;
 
   void Function()? onTap;
 
   DefaultFormField({
     Key? key,
-    this.MaxLength,
-    this.onTap,
     this.textColor,
-    this.radius,
-    this.colorBorder,
+    this.MaxLength,
     this.fontSize,
+    this.radius,
     required this.controller,
     this.keyboardType,
-    required this.label,
+    this.label,
     this.prefixIcon,
+    this.colorBorder,
     this.suffixIcon,
     required this.validate,
     this.textAlign,
     this.suffixPressed,
+    this.inputFormatters,
+    this.hint,
+    this.onChanged,
+    this.onSaved,
     this.isPassword,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      inputFormatters: inputFormatters,
       onTap: onTap ?? null,
       obscureText: isPassword ?? false,
       textAlign: textAlign ?? TextAlign.start,
@@ -55,10 +65,13 @@ class DefaultFormField extends StatelessWidget {
         fontSize: (fontSize ?? 14).sp,
         fontWeight: FontWeight.w500,
       ),
+      onChanged: onChanged,
+      onSaved: onSaved,
       controller: controller,
       keyboardType: keyboardType ?? TextInputType.text,
       validator: validate,
       decoration: InputDecoration(
+        hintText: hint,
         counterStyle: TextStyle(
           fontSize: 13.sp,
         ),

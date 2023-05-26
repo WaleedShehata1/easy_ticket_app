@@ -6,7 +6,6 @@ import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../widget/components.dart';
 import 'bottom_bar.dart';
 
@@ -24,7 +23,6 @@ class _splashState extends State<splash> {
   bool? FirstTime = CacheHelper.getData(key: 'firstTime');
   String? token = CacheHelper.getData(key: 'token');
   String? uid = CacheHelper.getData(key: 'uid');
-
   @override
   void initState() {
     super.initState();

@@ -41,3 +41,29 @@ class UserData {
     email_verified_at = json['email_verified_at'];
   }
 }
+
+class User {
+  String? uid;
+  String? first_Name;
+  String? last_Name;
+  String? national_ID;
+  String? gender;
+  String? health_status;
+  String? date_of_birth;
+  String? email;
+  String? profession;
+  String? phone;
+  String? email_verified_at;
+  User(
+      {this.uid,
+      this.first_Name,
+      this.last_Name,
+      this.national_ID,
+      this.phone,
+      this.email,
+      this.email_verified_at = null,
+      this.date_of_birth,
+      this.gender,
+      this.health_status,
+      this.profession});
+}
