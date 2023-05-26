@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
             HomeScreen.routeName: (context) => const HomeScreen(),
             UserSettingsScreen.routeName: (context) =>
                 const UserSettingsScreen(),
-            EditProfileScreen.routeName: (context) => const EditProfileScreen(),
+            EditProfileScreen.routeName: (context) => EditProfileScreen(),
             GetPasswordResetCode.routeName: (context) =>
                 const GetPasswordResetCode(),
             NotificationsScreen.routeName: (context) => NotificationsScreen(),
