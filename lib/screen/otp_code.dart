@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, avoid_print
 
 import 'package:easy_ticket_app/cubit/app/cubit/app_cubit.dart';
 import 'package:easy_ticket_app/widget/Buttom.dart';
@@ -15,7 +15,8 @@ import 'bottom_bar.dart';
 
 class OtpForm extends StatelessWidget {
   static const String routeName = 'otp Screen';
-  OtpForm({super.key});
+  OtpForm({super.key, required this.sendBy});
+  String sendBy;
   var otp = TextEditingController();
   var formKey = GlobalKey<FormState>();
   @override
@@ -34,13 +35,13 @@ class OtpForm extends StatelessWidget {
                 userData?.email_verified_at = 'done';
                 CacheHelper.saveData(key: 'userData', value: userData)
                     .then((value) {
+                  showToast(
+                      text: state.getResponsEmailVerrification!.message!,
+                      state: ToastStates.success);
                   navigateAndFinish(
                     context,
                     const BottomBar(),
                   );
-                  showToast(
-                      text: state.getResponsEmailVerrification!.message!,
-                      state: ToastStates.success);
                 });
               } else if (state.getResponsEmailVerrification!.status == false) {
                 print(
@@ -63,7 +64,7 @@ class OtpForm extends StatelessWidget {
                   height: MediaQuery.of(context).size.height,
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Row(
@@ -85,7 +86,7 @@ class OtpForm extends StatelessWidget {
                         child: Column(
                           children: [
                             Container(
-                              padding: EdgeInsetsDirectional.symmetric(
+                              padding: const EdgeInsetsDirectional.symmetric(
                                   horizontal: 20),
                               height:
                                   (MediaQuery.of(context).size.height * 0.75),
@@ -341,15 +342,16 @@ class OtpForm extends StatelessWidget {
                                         SizedBox(
                                           width: 250,
                                           child: DefaultFormField(
+                                            fontSize: 20.sp,
                                             colorBorder:
                                                 PrimaryColour.withOpacity(0.5),
                                             controller: otp,
                                             hint: "000000",
                                             validate: (String? value) {
-                                              /*  if (value!.trim().isEmpty) {
-                                                      return '!';
-                                                    }
-                                                    return null; */
+                                              if (value!.trim().isEmpty) {
+                                                return '!';
+                                              }
+                                              return null;
                                             },
                                             onSaved: (p0) {
                                               print("onsave= $p0");

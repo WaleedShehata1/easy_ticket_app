@@ -1,12 +1,13 @@
+// ignore_for_file: avoid_print
+
 import 'package:dotted_border/dotted_border.dart';
-import 'package:easy_ticket_app/Pop_Up/enter_4_digit.dart';
+import 'package:easy_ticket_app/screen/otp2_code.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 
-import '../Pop_Up/change_passwword_login.dart';
 import '../widget/Buttom.dart';
-import '../widget/dialog.dart';
+import '../widget/constants.dart';
 
 class GetPasswordResetCode extends StatefulWidget {
   static const String routeName = 'Get Password Reset Code';
@@ -19,6 +20,7 @@ class GetPasswordResetCode extends StatefulWidget {
 class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
   num? _radioValue = 1;
   bool nextDailog = false;
+  String? sendBy;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +60,9 @@ class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
                       padding: const EdgeInsets.symmetric(vertical: 5),
                       child: Column(
                         children: [
-                          const Text(
-                            "User Name Account",
-                            style: TextStyle(
+                          Text(
+                            "${CacheHelper.getData(key: 'userName')}",
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold),
@@ -138,9 +140,11 @@ class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
                                                     Radius.circular(10),
                                                 bottomEnd: Radius.circular(10)),
                                       ),
-                                      child: const Text(
-                                        '+*********14',
-                                        style: TextStyle(color: Colors.white),
+                                      child: Text(
+                                        "${CacheHelper.getData(key: 'phone')}",
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
                                       )),
                                 ),
                               ),
@@ -150,6 +154,7 @@ class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
                                 onChanged: (value) {
                                   setState(() {
                                     _radioValue = value;
+                                    print(value);
                                   });
                                 },
                                 value: 2,
@@ -184,9 +189,11 @@ class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
                                                     Radius.circular(10),
                                                 bottomEnd: Radius.circular(10)),
                                       ),
-                                      child: const Text(
-                                        'w************9@gmail.com',
-                                        style: TextStyle(color: Colors.white),
+                                      child: Text(
+                                        "${CacheHelper.getData(key: 'email')}",
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
                                       )),
                                 ),
                               ),
@@ -210,29 +217,16 @@ class _GetPasswordResetCodeState extends State<GetPasswordResetCode> {
                             PaddingVertical: 0,
                             color: Colors.white,
                             OnTap: () {
-                               showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return DefaultDialog(
-                                          Child: Enter4Digit(
-                                            Validate: (p0) {
-                                              return null;
-                                            },
-                                            onTap: () {setState(() {
-                                              Navigator.pop(context);
-                                             showDialog(context: context, builder: (BuildContext context){
-                                              return DefaultDialog(
-                                                Child: ChangePasswordLoginScreen()
-                                                );});
-                                            });
-                                            
-                                             
-                                            },
-                                          ),
-                                        );
-                                },
-                              ); 
-                             
+                              if (_radioValue == 2) {
+                                navigateAndFinish(
+                                  context,
+                                  OtpForm2(
+                                    sendBy: _radioValue == 2
+                                        ? CacheHelper.getData(key: 'email')
+                                        : CacheHelper.getData(key: 'phone'),
+                                  ),
+                                );
+                              }
                             },
                           )
                         ],

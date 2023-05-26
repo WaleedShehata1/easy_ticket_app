@@ -50,4 +50,28 @@ class SignInCubit extends Cubit<SignInStates> {
       emit(SignInErrorState(error.toString()));
     });
   }
+
+  searchAccount({required String national_ID, context}) {
+    emit(SignInLoadingState());
+    DioHelper.postData(
+      url: search_account,
+      data: {
+        'national_ID': national_ID,
+      },
+    ).then((value) {
+      emit(SignInLoadingState());
+      print('Value == ${value.data}');
+      loginModel = SignInModel.fromJson(value.data);
+      CacheHelper.saveData(key: 'data', value: value.data);
+      CacheHelper.saveData(
+          key: 'userName',
+          value:
+              '${SignInCubit.get(context).loginModel!.data!.first_Name} ${SignInCubit.get(context).loginModel!.data!.last_Name}');
+
+      emit(SignInSuccessState(loginModel));
+    }).catchError((error) {
+      print("error=${error.toString()}");
+      emit(SignInErrorState(error.toString()));
+    });
+  }
 }

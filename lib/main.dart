@@ -2,13 +2,10 @@
 
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
-import 'package:easy_ticket_app/screen/otp_code.dart';
 import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc_observer.dart';
-import 'cubit/app/cubit/app_cubit.dart';
 import 'screen/bottom_bar.dart';
-
 import 'screen/notifications.dart';
 import 'screen/payment_method.dart';
 import 'screen/sign_up.dart';
@@ -64,7 +61,7 @@ class MyApp extends StatelessWidget {
             HomeScreen.routeName: (context) => const HomeScreen(),
             UserSettingsScreen.routeName: (context) =>
                 const UserSettingsScreen(),
-            EditProfileScreen.routeName: (context) => const EditProfileScreen(),
+            EditProfileScreen.routeName: (context) => EditProfileScreen(),
             GetPasswordResetCode.routeName: (context) =>
                 const GetPasswordResetCode(),
             NotificationsScreen.routeName: (context) => NotificationsScreen(),
@@ -72,7 +69,6 @@ class MyApp extends StatelessWidget {
                 const PaymentMethodScreen(),
             WalletProfile.routeName: (context) => WalletProfile(),
             BottomBar.routeName: (context) => const BottomBar(),
-            OtpForm.routeName: (context) => OtpForm(),
           },
         );
       },

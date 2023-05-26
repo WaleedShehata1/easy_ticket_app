@@ -3,6 +3,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/sign_up/sign_up_cubit.dart';
@@ -145,7 +146,10 @@ class _SignUpState extends State<SignUp> {
                               return null;
                             },
                             controller: NationalIDController,
-                            MaxLength: 14,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(14),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
                           ),
                           SizedBox(
                             height: 5.h,
@@ -229,7 +233,10 @@ class _SignUpState extends State<SignUp> {
                               }
                               return null;
                             },
-                            MaxLength: 11,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(11),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
                             controller: PhoneController,
                           ),
                           SizedBox(

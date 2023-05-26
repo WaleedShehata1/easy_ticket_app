@@ -3,15 +3,14 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/Pop_Up/search_account.dart';
 import 'package:easy_ticket_app/cubit/sign_in/sign_in_states.dart';
-import 'package:easy_ticket_app/screen/get_password_reset_code.dart';
 import 'package:easy_ticket_app/screen/otp_code.dart';
 import 'package:easy_ticket_app/screen/sign_up.dart';
 import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/sign_in/sign_in_cubit.dart';
-import '../model/sign_in_model.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
 import '../widget/dialog.dart';
@@ -25,8 +24,9 @@ class Sign_In extends StatelessWidget {
   static const String routeName = 'Sign_in';
   var NationalIDController = TextEditingController();
   var PasswordController = TextEditingController();
-  var searchAccountController = TextEditingController();
+
   var formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -46,7 +46,12 @@ class Sign_In extends StatelessWidget {
                     CacheHelper.saveData(
                         key: 'email', value: state.loginModel!.data!.email);
                     if (state.loginModel!.data!.email_verified_at == null) {
-                      Navigator.pushNamed(context, OtpForm.routeName);
+                      navigateAndFinish(
+                        context,
+                        OtpForm(
+                          sendBy: CacheHelper.getData(key: 'email'),
+                        ),
+                      );
                     } else {
                       navigateAndFinish(
                         context,
@@ -88,6 +93,10 @@ class Sign_In extends StatelessWidget {
                             height: 80.h,
                           ),
                           DefaultFormField(
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(14),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
                             prefixIcon: Padding(
                               padding: EdgeInsetsDirectional.only(
                                   start: 10.w, end: 10.w),
@@ -146,22 +155,7 @@ class Sign_In extends StatelessWidget {
                                     context: context,
                                     builder: (BuildContext context) {
                                       return DefaultDialog(
-                                        Child: SearchAccount(
-                                          userId: searchAccountController,
-                                          Validate: (value) {
-                                            if (value!.trim().isEmpty) {
-                                              return 'enter your National ID';
-                                            } else if (value.length < 14) {
-                                              return 'Enter the national number consisting of 14 digits';
-                                            }
-                                            return null;
-                                          },
-                                          onTap: () {
-                                            Navigator.pushReplacementNamed(
-                                                context,
-                                                GetPasswordResetCode.routeName);
-                                          },
-                                        ),
+                                        Child: SearchAccount(),
                                       );
                                     },
                                   );

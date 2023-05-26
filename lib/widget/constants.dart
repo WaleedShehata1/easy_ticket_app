@@ -1,9 +1,6 @@
-import 'package:easy_ticket_app/model/sign_in_model.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-
-import '../model/sign_in_model.dart';
 
 void showToast({
   required String text,
