@@ -13,8 +13,6 @@ import '../widget/text_Form_Field.dart';
 class EditProfileScreen extends StatelessWidget {
   static const String routeName = 'Edite profile';
 
-  EditProfileScreen({super.key});
-
   final TextEditingController phoneController = TextEditingController();
 
   final TextEditingController emailController = TextEditingController();
@@ -206,7 +204,6 @@ class EditProfileScreen extends StatelessWidget {
                                     }).toList(),
                                     onChanged: (value) {
                                       _Profession = value;
-                                      ;
                                     },
                                   ),
                                 ),
