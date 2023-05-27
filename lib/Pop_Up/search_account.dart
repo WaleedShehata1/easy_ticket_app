@@ -31,6 +31,9 @@ class SearchAccount extends StatelessWidget {
                 CacheHelper.saveData(
                     key: 'uid', value: state.loginModel!.data!.uid);
                 CacheHelper.saveData(
+                    key: 'national_ID',
+                    value: state.loginModel!.data!.national_ID);
+                CacheHelper.saveData(
                     key: 'phone', value: state.loginModel!.data!.phone);
                 Navigator.pushNamed(context, GetPasswordResetCode.routeName);
                 showToast(

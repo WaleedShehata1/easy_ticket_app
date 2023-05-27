@@ -9,7 +9,7 @@ class AppInitial extends AppState {}
 class LoadingState extends AppState {}
 
 class AppSuccessState extends AppState {
-  final getData? getResponsEmailVerrification;
+  final RegisterModel? getResponsEmailVerrification;
 
   AppSuccessState(this.getResponsEmailVerrification);
 }
@@ -31,7 +31,7 @@ class UpdateErrorState extends AppState {
 }
 
 class sendOtpResetSuccessState extends AppState {
-  final getData? getResponsReset;
+  final RegisterModel? getResponsReset;
   sendOtpResetSuccessState(
     this.getResponsReset,
   );

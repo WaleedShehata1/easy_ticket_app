@@ -41,6 +41,7 @@ class Sign_In extends StatelessWidget {
                   CacheHelper.saveData(
                           key: 'token', value: state.loginModel!.token)
                       .then((value) {
+                    print(state.loginModel!.token);
                     CacheHelper.saveData(
                         key: 'uid', value: state.loginModel!.data!.uid);
                     CacheHelper.saveData(
