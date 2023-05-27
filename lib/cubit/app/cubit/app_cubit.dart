@@ -41,8 +41,6 @@ class AppCubit extends Cubit<AppState> {
     DioHelper.getData(url: show, token: token!).then((value) {
       emit(LoadingState());
       userModel = SignInModel.fromJson(value.data);
-      print(
-          "user name = ${userModel!.data!.first_Name}${userModel!.data!.last_Name}");
       emit(ShowSuccessState(userModel));
     }).catchError((error) {
       print("error= ${error.toString()}");

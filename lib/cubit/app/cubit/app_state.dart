@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, must_be_immutable
 part of 'app_cubit.dart';
 
-@immutable
 abstract class AppState {}
 
 class AppInitial extends AppState {}
@@ -44,8 +43,8 @@ class sendOtpResetErrorState extends AppState {
 }
 
 class ShowSuccessState extends AppState {
-  SignInModel? userModel;
-  ShowSuccessState(userModel);
+  final SignInModel? loginModel;
+  ShowSuccessState(this.loginModel);
 }
 
 class ShowErrorState extends AppState {

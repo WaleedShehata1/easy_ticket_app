@@ -35,21 +35,34 @@ class EditProfileScreen extends StatelessWidget {
           if (state is LoadingState) const LinearProgressIndicator();
 
           if (state is ShowSuccessState) {
-            phoneController.text = state.userModel!.data!.phone!;
-            emailController.text = state.userModel!.data!.email!;
-            professionController.text = state.userModel!.data!.profession!;
-            healthstatusController.text = state.userModel!.data!.health_status!;
-            FirstName = state.userModel!.data!.first_Name!;
-            LastName = state.userModel!.data!.last_Name!;
-            DateofBirth = state.userModel!.data!.date_of_birth!;
-            NationaID = state.userModel!.data!.national_ID!;
-            Gender = state.userModel!.data!.gender!;
+            print(state.loginModel!.data!.email);
+            print(state.loginModel!.data!.phone);
+
+            phoneController.text = state.loginModel!.data!.phone!;
+            emailController.text = state.loginModel!.data!.email!;
+            professionController.text = state.loginModel!.data!.profession!;
+            healthstatusController.text =
+                state.loginModel!.data!.health_status!;
+            FirstName = state.loginModel!.data!.first_Name!;
+            LastName = state.loginModel!.data!.last_Name!;
+            DateofBirth = state.loginModel!.data!.date_of_birth!;
+            NationaID = state.loginModel!.data!.national_ID!;
+            Gender = state.loginModel!.data!.gender!;
           }
         },
-        // ConditionalBuilder(
-        //     condition: AppCubit.get(context).userModel != null,
-        //     builder: (context) =>
         builder: (context, state) {
+          // var model = AppCubit.get(context).userModel;
+          // emailController.text = model!.data!.email!;
+          // professionController.text = model!.data!.profession!;
+          // healthstatusController.text = model!.data!.health_status!;
+          // FirstName = model?.data!.first_Name!;
+          // LastName = model?.data!.last_Name!;
+          // DateofBirth = model?.data!.date_of_birth!;
+          // NationaID = model!.data!.national_ID!;
+          // Gender = model!.data!.gender!;
+          // ConditionalBuilder(
+          // condition: AppCubit.get(context).userModel != null,
+          // builder: (context) =>
           return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -262,7 +275,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
             ),
           );
-          //   fallback: (context) => CircularProgressIndicator(),
+          // fallback: (context) => CircularProgressIndicator(),
           // );
         },
       ),
