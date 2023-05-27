@@ -14,33 +14,22 @@ class EditProfileScreen extends StatelessWidget {
   static const String routeName = 'Edite profile';
 
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController healthstatusController = TextEditingController();
+  final TextEditingController professionController = TextEditingController();
 
   final TextEditingController emailController = TextEditingController();
 
   var formKey = GlobalKey<FormState>();
-
-  var _HealthStatusList = [
-    'heart disease',
-    'Diabetes',
-    'Pressure disease',
-    'Healthy'
-  ];
-
-  var _professionList = ['study', 'senior', 'Pressure disease', 'Healthy'];
-
-  var _HealthStatus;
-
-  var _Profession;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AppCubit(),
       child: BlocConsumer<AppCubit, AppState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (State is LoadingState) const LinearProgressIndicator();
+        },
         builder: (context, state) {
-          phoneController.text = '00000000000';
-          emailController.text = '******@***.com';
           return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -48,7 +37,6 @@ class EditProfileScreen extends StatelessWidget {
                 key: formKey,
                 child: Column(
                   children: [
-                    if (State is LoadingState) const LinearProgressIndicator(),
                     Container(
                       width: double.infinity,
                       height: 80.h,
@@ -136,10 +124,9 @@ class EditProfileScreen extends StatelessWidget {
                               label: 'Phone',
                               keyboardType: TextInputType.phone,
                               validate: (String? value) {
-                                if (value!.trim().isEmpty) {
+                                if (value!.trim().isEmpty ||
+                                    value.length < 11) {
                                   return 'Please enter your phone';
-                                } else if (value.length < 11) {
-                                  return 'Enter the phone number consisting of 11 digits';
                                 }
                                 return null;
                               },
@@ -151,60 +138,32 @@ class EditProfileScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Expanded(
-                                  child: DefaultDropdown(
-                                    labelText: 'Health Status',
-                                    labelStyle: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: PrimaryColour,
-                                        fontWeight: FontWeight.bold),
-                                    validator: (value) {
-                                      if (value == null) {
-                                        return 'Please enter your Health Status';
+                                  child: DefaultFormField(
+                                    label: 'Health Status',
+                                    keyboardType: TextInputType.text,
+                                    validate: (String? value) {
+                                      if (value!.trim().isEmpty) {
+                                        return 'Health status cannot be empty';
                                       }
                                       return null;
                                     },
-                                    value: _HealthStatus,
-                                    onChanged: (value) {
-                                      _HealthStatus = value;
-                                    },
-                                    items: _HealthStatusList.map<
-                                            DropdownMenuItem<String>>(
-                                        (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(value),
-                                      );
-                                    }).toList(),
+                                    controller: healthstatusController,
                                   ),
                                 ),
                                 SizedBox(
                                   width: 16.w,
                                 ),
                                 Expanded(
-                                  child: DefaultDropdown(
-                                    validator: (value) {
-                                      if (value == null) {
-                                        return 'Please select your Profession';
+                                  child: DefaultFormField(
+                                    label: 'Profession',
+                                    keyboardType: TextInputType.text,
+                                    validate: (String? value) {
+                                      if (value!.trim().isEmpty) {
+                                        return 'Profession cannot be empty';
                                       }
                                       return null;
                                     },
-                                    labelText: 'Profession',
-                                    labelStyle: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: PrimaryColour,
-                                        fontWeight: FontWeight.bold),
-                                    value: _Profession,
-                                    items: _HealthStatusList.map<
-                                            DropdownMenuItem<String>>(
-                                        (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(value),
-                                      );
-                                    }).toList(),
-                                    onChanged: (value) {
-                                      _Profession = value;
-                                    },
+                                    controller: professionController,
                                   ),
                                 ),
                               ],
@@ -266,10 +225,11 @@ class EditProfileScreen extends StatelessWidget {
                               OnTap: () {
                                 if (formKey.currentState!.validate()) {
                                   AppCubit.get(context).updateUserData(
-                                      profession: _Profession,
+                                      profession: professionController.text,
                                       email: emailController.text,
                                       phone: phoneController.text,
-                                      health_status: _HealthStatus);
+                                      health_status:
+                                          healthstatusController.text);
                                 }
                               },
                             ),

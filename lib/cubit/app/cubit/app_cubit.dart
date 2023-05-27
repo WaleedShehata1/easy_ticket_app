@@ -43,15 +43,14 @@ class AppCubit extends Cubit<AppState> {
       userModel = SignInModel.fromJson(value.data);
       print(
           "user name = ${userModel!.data!.first_Name}${userModel!.data!.last_Name}");
-      emit(UpdateSuccessState(userModel));
+      emit(ShowSuccessState(userModel));
     }).catchError((error) {
       print("error= ${error.toString()}");
-      emit(UpdateErrorState(error));
+      emit(ShowErrorState(error));
     });
   }
 
   //   Update Profile
-  SignInModel? updateUserModel;
   void updateUserData({
     required String profession,
     required String health_status,
@@ -70,9 +69,10 @@ class AppCubit extends Cubit<AppState> {
       print(userModel!.data!.first_Name);
       print(userModel!.message);
       print(userModel!.status);
+      print(userModel!.data!.email);
       emit(UpdateSuccessState(userModel));
     }).catchError((error) {
-      print("error=${error.toString()}");
+      print("error=/${error.toString()}");
       emit(UpdateErrorState(error.toString()));
     });
   }

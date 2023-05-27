@@ -20,7 +20,7 @@ class AppErrorState extends AppState {
 }
 
 class UpdateSuccessState extends AppState {
-  SignInModel? updateUserModel;
+  SignInModel? userModel;
   UpdateSuccessState(userModel);
 }
 
@@ -41,4 +41,15 @@ class sendOtpResetErrorState extends AppState {
   final String error;
 
   sendOtpResetErrorState(this.error);
+}
+
+class ShowSuccessState extends AppState {
+  SignInModel? userModel;
+  ShowSuccessState(userModel);
+}
+
+class ShowErrorState extends AppState {
+  final String error;
+
+  ShowErrorState(this.error);
 }
