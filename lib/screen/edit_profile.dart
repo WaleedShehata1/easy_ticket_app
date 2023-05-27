@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields, prefer_typing_uninitialized_variables
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/container.dart';
 import 'package:easy_ticket_app/widget/dialog.dart';
@@ -8,17 +9,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/change_password.dart';
 import '../cubit/app/cubit/app_cubit.dart';
 import '../widget/Buttom.dart';
-import '../widget/drop_down_list.dart';
 import '../widget/text_Form_Field.dart';
 
 class EditProfileScreen extends StatelessWidget {
   static const String routeName = 'Edite profile';
 
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController healthstatusController = TextEditingController();
-  final TextEditingController professionController = TextEditingController();
+  var phoneController = TextEditingController();
+  var healthstatusController = TextEditingController();
+  var professionController = TextEditingController();
+  var emailController = TextEditingController();
 
-  final TextEditingController emailController = TextEditingController();
+  var DateofBirth;
+  var FirstName;
+  var LastName;
+  var NationaID;
+  var Gender;
 
   var formKey = GlobalKey<FormState>();
 
@@ -28,9 +33,37 @@ class EditProfileScreen extends StatelessWidget {
       create: (context) => AppCubit(),
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {
-          if (State is LoadingState) const LinearProgressIndicator();
+          if (state is LoadingState) const LinearProgressIndicator();
+
+          if (state is ShowSuccessState) {
+            print(state.loginModel!.data!.email);
+            print(state.loginModel!.data!.phone);
+
+            phoneController.text = state.loginModel!.data!.phone!;
+            emailController.text = state.loginModel!.data!.email!;
+            professionController.text = state.loginModel!.data!.profession!;
+            healthstatusController.text =
+                state.loginModel!.data!.health_status!;
+            FirstName = state.loginModel!.data!.first_Name!;
+            LastName = state.loginModel!.data!.last_Name!;
+            DateofBirth = state.loginModel!.data!.date_of_birth!;
+            NationaID = state.loginModel!.data!.national_ID!;
+            Gender = state.loginModel!.data!.gender!;
+          }
         },
         builder: (context, state) {
+          // var model = AppCubit.get(context).userModel;
+          // emailController.text = model!.data!.email!;
+          // professionController.text = model!.data!.profession!;
+          // healthstatusController.text = model!.data!.health_status!;
+          // FirstName = model?.data!.first_Name!;
+          // LastName = model?.data!.last_Name!;
+          // DateofBirth = model?.data!.date_of_birth!;
+          // NationaID = model!.data!.national_ID!;
+          // Gender = model!.data!.gender!;
+          // ConditionalBuilder(
+          // condition: AppCubit.get(context).userModel != null,
+          // builder: (context) =>
           return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -91,28 +124,28 @@ class EditProfileScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Expanded(
-                                    child:
-                                        DefaultContaiiner(text: "first name")),
+                                Expanded(
+                                    child: DefaultContaiiner(
+                                        text: '${FirstName}')),
                                 SizedBox(width: 16.w),
-                                const Expanded(
+                                Expanded(
                                     child:
-                                        DefaultContaiiner(text: "last_Name")),
+                                        DefaultContaiiner(text: '${LastName}')),
                               ],
                             ),
                             SizedBox(height: 20.h),
-                            const DefaultContaiiner(text: "national_ID"),
+                            DefaultContaiiner(text: '${NationaID}'),
                             SizedBox(height: 20.w),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Expanded(
+                                Expanded(
                                   child:
-                                      DefaultContaiiner(text: "date_of_birth"),
+                                      DefaultContaiiner(text: '${DateofBirth}'),
                                 ),
                                 SizedBox(width: 16.w),
-                                const Expanded(
-                                  child: DefaultContaiiner(text: "gender"),
+                                Expanded(
+                                  child: DefaultContaiiner(text: '${Gender}'),
                                 ),
                               ],
                             ),
@@ -243,6 +276,8 @@ class EditProfileScreen extends StatelessWidget {
               ),
             ),
           );
+          // fallback: (context) => CircularProgressIndicator(),
+          // );
         },
       ),
     );
