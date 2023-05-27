@@ -46,226 +46,224 @@ class EditProfileScreen extends StatelessWidget {
             Gender = state.userModel!.data!.gender!;
           }
         },
+        // ConditionalBuilder(
+        //     condition: AppCubit.get(context).userModel != null,
+        //     builder: (context) =>
         builder: (context, state) {
-          return ConditionalBuilder(
-            condition: AppCubit.get(context).userModel != null,
-            builder: (context) => GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
-              child: Scaffold(
-                body: Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: 80.h,
-                        decoration: BoxDecoration(
-                          color: PrimaryColour,
-                          borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15))
-                              .r,
-                        ),
+          return GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Scaffold(
+              body: Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 80.h,
+                      decoration: BoxDecoration(
+                        color: PrimaryColour,
+                        borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15))
+                            .r,
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 25.h,
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: Colors.white,
+                                  size: 25.w,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 80.w,
+                              ),
+                              Text(
+                                'Edit Account',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 26.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.all(20.0).w,
                         child: Column(
                           children: [
-                            SizedBox(
-                              height: 25.h,
-                            ),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                IconButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  icon: Icon(
-                                    Icons.arrow_back_ios_new,
-                                    color: Colors.white,
-                                    size: 25.w,
+                                Expanded(
+                                    child: DefaultContaiiner(
+                                        text: '${FirstName}')),
+                                SizedBox(width: 16.w),
+                                Expanded(
+                                    child:
+                                        DefaultContaiiner(text: '${LastName}')),
+                              ],
+                            ),
+                            SizedBox(height: 20.h),
+                            DefaultContaiiner(text: '${NationaID}'),
+                            SizedBox(height: 20.w),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child:
+                                      DefaultContaiiner(text: '${DateofBirth}'),
+                                ),
+                                SizedBox(width: 16.w),
+                                Expanded(
+                                  child: DefaultContaiiner(text: '${Gender}'),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 16.h),
+                            DefaultFormField(
+                              prefixIcon: Icon(
+                                Icons.phone,
+                                size: 20.h,
+                              ),
+                              label: 'Phone',
+                              keyboardType: TextInputType.phone,
+                              validate: (String? value) {
+                                if (value!.trim().isEmpty ||
+                                    value.length < 11) {
+                                  return 'Please enter your phone';
+                                }
+                                return null;
+                              },
+                              MaxLength: 11,
+                              controller: phoneController,
+                            ),
+                            const SizedBox(height: 5.0),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: DefaultFormField(
+                                    label: 'Health Status',
+                                    keyboardType: TextInputType.text,
+                                    validate: (String? value) {
+                                      if (value!.trim().isEmpty) {
+                                        return 'Health status cannot be empty';
+                                      }
+                                      return null;
+                                    },
+                                    controller: healthstatusController,
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 80.w,
+                                  width: 16.w,
                                 ),
-                                Text(
-                                  'Edit Account',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 26.sp,
-                                      fontWeight: FontWeight.bold),
+                                Expanded(
+                                  child: DefaultFormField(
+                                    label: 'Profession',
+                                    keyboardType: TextInputType.text,
+                                    validate: (String? value) {
+                                      if (value!.trim().isEmpty) {
+                                        return 'Profession cannot be empty';
+                                      }
+                                      return null;
+                                    },
+                                    controller: professionController,
+                                  ),
                                 ),
                               ],
+                            ),
+                            const SizedBox(height: 16.0),
+                            DefaultFormField(
+                              prefixIcon: const Icon(Icons.email_outlined),
+                              label: 'Email',
+                              keyboardType: TextInputType.emailAddress,
+                              validate: (String? value) {
+                                if (value!.trim().isEmpty) {
+                                  return 'Please enter your email';
+                                }
+                                return null;
+                              },
+                              controller: emailController,
+                            ),
+                            SizedBox(height: 15.h),
+                            DefaultButtom(
+                              Child: Text(
+                                'Change Password',
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              Height: 35.h,
+                              Width: 150.w,
+                              PaddingHorizontal: 10.w,
+                              PaddingVertical: 10.h,
+                              radius: 15.r,
+                              OnTap: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return Dialog(
+                                      child: ChangePasswordScreen(),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            DefaultButtom(
+                              Child: Text(
+                                'Save Changes',
+                                style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              Height: 40.h,
+                              Width: 200.w,
+                              PaddingHorizontal: 10.w,
+                              PaddingVertical: 10.h,
+                              radius: 15.r,
+                              OnTap: () {
+                                if (formKey.currentState!.validate()) {
+                                  AppCubit.get(context).updateUserData(
+                                      profession: professionController.text,
+                                      email: emailController.text,
+                                      phone: phoneController.text,
+                                      health_status:
+                                          healthstatusController.text);
+                                }
+                              },
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          padding: const EdgeInsets.all(20.0).w,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                      child: DefaultContaiiner(
-                                          text: '${FirstName}')),
-                                  SizedBox(width: 16.w),
-                                  Expanded(
-                                      child: DefaultContaiiner(
-                                          text: '${LastName}')),
-                                ],
-                              ),
-                              SizedBox(height: 20.h),
-                              DefaultContaiiner(text: '${NationaID}'),
-                              SizedBox(height: 20.w),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: DefaultContaiiner(
-                                        text: '${DateofBirth}'),
-                                  ),
-                                  SizedBox(width: 16.w),
-                                  Expanded(
-                                    child: DefaultContaiiner(text: '${Gender}'),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 16.h),
-                              DefaultFormField(
-                                prefixIcon: Icon(
-                                  Icons.phone,
-                                  size: 20.h,
-                                ),
-                                label: 'Phone',
-                                keyboardType: TextInputType.phone,
-                                validate: (String? value) {
-                                  if (value!.trim().isEmpty ||
-                                      value.length < 11) {
-                                    return 'Please enter your phone';
-                                  }
-                                  return null;
-                                },
-                                MaxLength: 11,
-                                controller: phoneController,
-                              ),
-                              const SizedBox(height: 5.0),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: DefaultFormField(
-                                      label: 'Health Status',
-                                      keyboardType: TextInputType.text,
-                                      validate: (String? value) {
-                                        if (value!.trim().isEmpty) {
-                                          return 'Health status cannot be empty';
-                                        }
-                                        return null;
-                                      },
-                                      controller: healthstatusController,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 16.w,
-                                  ),
-                                  Expanded(
-                                    child: DefaultFormField(
-                                      label: 'Profession',
-                                      keyboardType: TextInputType.text,
-                                      validate: (String? value) {
-                                        if (value!.trim().isEmpty) {
-                                          return 'Profession cannot be empty';
-                                        }
-                                        return null;
-                                      },
-                                      controller: professionController,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 16.0),
-                              DefaultFormField(
-                                prefixIcon: const Icon(Icons.email_outlined),
-                                label: 'Email',
-                                keyboardType: TextInputType.emailAddress,
-                                validate: (String? value) {
-                                  if (value!.trim().isEmpty) {
-                                    return 'Please enter your email';
-                                  }
-                                  return null;
-                                },
-                                controller: emailController,
-                              ),
-                              SizedBox(height: 15.h),
-                              DefaultButtom(
-                                Child: Text(
-                                  'Change Password',
-                                  style: TextStyle(
-                                      fontSize: 16.sp,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                                Height: 35.h,
-                                Width: 150.w,
-                                PaddingHorizontal: 10.w,
-                                PaddingVertical: 10.h,
-                                radius: 15.r,
-                                OnTap: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Dialog(
-                                        child: ChangePasswordScreen(),
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                              SizedBox(
-                                height: 5.h,
-                              ),
-                              DefaultButtom(
-                                Child: Text(
-                                  'Save Changes',
-                                  style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                                Height: 40.h,
-                                Width: 200.w,
-                                PaddingHorizontal: 10.w,
-                                PaddingVertical: 10.h,
-                                radius: 15.r,
-                                OnTap: () {
-                                  if (formKey.currentState!.validate()) {
-                                    AppCubit.get(context).updateUserData(
-                                        profession: professionController.text,
-                                        email: emailController.text,
-                                        phone: phoneController.text,
-                                        health_status:
-                                            healthstatusController.text);
-                                  }
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            fallback: (context) => CircularProgressIndicator(),
           );
+          //   fallback: (context) => CircularProgressIndicator(),
+          // );
         },
       ),
     );
