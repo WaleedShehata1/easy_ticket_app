@@ -151,6 +151,7 @@ class WalletProfile extends StatelessWidget {
                               child: DefaultFormField(
                                 colorBorder: Colors.white,
                                 radius: 15,
+                                keyboardType: TextInputType.number,
                                 controller: walletController,
                                 label: "ادخل المبلغ",
                                 validate: (p0) {
