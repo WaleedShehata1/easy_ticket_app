@@ -33,17 +33,20 @@ class EditProfileScreen extends StatelessWidget {
       create: (context) => AppCubit(),
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {
-          if (state is LoadingState) const LinearProgressIndicator();
+          if (state is AppLoadingState) const LinearProgressIndicator();
 
           if (state is ShowSuccessState) {
             print(state.loginModel!.data!.email);
             print(state.loginModel!.data!.phone);
 
+            //Editable Fields
             phoneController.text = state.loginModel!.data!.phone!;
             emailController.text = state.loginModel!.data!.email!;
             professionController.text = state.loginModel!.data!.profession!;
             healthstatusController.text =
                 state.loginModel!.data!.health_status!;
+
+            //Non-Editable Fields
             FirstName = state.loginModel!.data!.first_Name!;
             LastName = state.loginModel!.data!.last_Name!;
             DateofBirth = state.loginModel!.data!.date_of_birth!;
@@ -61,10 +64,11 @@ class EditProfileScreen extends StatelessWidget {
           // DateofBirth = model?.data!.date_of_birth!;
           // NationaID = model!.data!.national_ID!;
           // Gender = model!.data!.gender!;
-          // ConditionalBuilder(
-          // condition: AppCubit.get(context).userModel != null,
-          // builder: (context) =>
-          return GestureDetector(
+          return
+              //  ConditionalBuilder(
+              //   condition: AppCubit.get(context).userModel != null,
+              //    builder: (context) =>
+              GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
               body: Form(

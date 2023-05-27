@@ -25,7 +25,7 @@ class AppCubit extends Cubit<AppState> {
     DioHelper.postData(
         url: emailverification,
         data: {'email': userEmail, 'otp': otp}).then((value) {
-      emit(LoadingState());
+      emit(AppLoadingState());
       getRespons = RegisterModel.fromJson(value.data);
       emit(AppSuccessState(getRespons));
     }).catchError((error) {
@@ -34,18 +34,21 @@ class AppCubit extends Cubit<AppState> {
     });
   }
 
-  //   show  user-data
+  //Show user-data
 
   SignInModel? userModel;
   void getUserData() {
-    emit(AppInitial());
+    emit(AppLoadingState());
     DioHelper.getData(url: show, token: token!).then((value) {
-      emit(LoadingState());
       userModel = SignInModel.fromJson(value.data);
+      print(userModel!.data!.first_Name);
+      print(userModel!.message);
+      print(userModel!.status);
+      print(userModel!.data!.email);
       emit(ShowSuccessState(userModel));
     }).catchError((error) {
-      print("error= ${error.toString()}");
-      emit(ShowErrorState(error));
+      print("error//= ${error.toString()}");
+      emit(AppErrorState(error));
     });
   }
 
@@ -56,7 +59,7 @@ class AppCubit extends Cubit<AppState> {
     required String email,
     required String phone,
   }) {
-    emit(LoadingState());
+    emit(AppLoadingState());
 
     DioHelper.putData(url: update, token: token, data: {
       'profession': profession,
@@ -65,10 +68,7 @@ class AppCubit extends Cubit<AppState> {
       'health_status': health_status,
     }).then((value) {
       userModel = SignInModel.fromJson(value.data);
-      print(userModel!.data!.first_Name);
-      print(userModel!.message);
-      print(userModel!.status);
-      print(userModel!.data!.email);
+
       emit(UpdateSuccessState(userModel));
     }).catchError((error) {
       print("error=/${error.toString()}");
@@ -86,7 +86,7 @@ class AppCubit extends Cubit<AppState> {
     DioHelper.postData(
         url: send_otp_forgotPassword,
         data: {'email': Email, 'otp': otpReset}).then((value) {
-      emit(LoadingState());
+      emit(AppLoadingState());
       print(value.data);
       getResponsReset = RegisterModel.fromJson(value.data);
       emit(sendOtpResetSuccessState(getResponsReset));
@@ -108,7 +108,7 @@ class AppCubit extends Cubit<AppState> {
             url: create_password,
             data: {'national_ID': national_ID, 'password': newPassword})
         .then((value) {
-      emit(LoadingState());
+      emit(AppLoadingState());
       print("value==${value.data}");
       responseCreatePassword = RegisterModel.fromJson(value.data);
       print('responseCreatePassword==${responseCreatePassword!.status}');
