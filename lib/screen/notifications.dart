@@ -123,7 +123,7 @@ class NotificationsScreen extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Text(
-                          'باقي$RemainingTime دقيقة علي وصول باص رقم $BusNumber الي المحطة المختارة برجاء الانتظار في المحطه',
+                          'باقي$RemainingTime دقيقة علي تحرك باص رقم $BusNumber من محطة البداية برجاء الانتظار في المحطه',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 16.sp,
@@ -131,7 +131,7 @@ class NotificationsScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      ElevatedButton(
+                      /*  ElevatedButton(
                         onPressed: () {
                           showDialog(
                             context: context,
@@ -153,7 +153,7 @@ class NotificationsScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 16.sp),
                         ),
-                      ),
+                      ), */
                     ],
                   ),
                 );

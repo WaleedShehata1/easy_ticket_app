@@ -53,3 +53,16 @@ class ShowErrorState extends AppState {
 
   ShowErrorState(this.error);
 }
+
+class createPassordSuccessState extends AppState {
+  final RegisterModel? responseCreatePassword;
+  createPassordSuccessState(
+    this.responseCreatePassword,
+  );
+}
+
+class createPassordErrorState extends AppState {
+  final String error;
+
+  createPassordErrorState(this.error);
+}

@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, non_constant_identifier_names, depend_on_referenced_packages
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
+import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -80,7 +81,7 @@ class AppCubit extends Cubit<AppState> {
   /// send otp & email for reset password
 
   RegisterModel? getResponsReset;
-  sendOtpResetPassord({required String? otpReset, required String? Email}) {
+  sendOtpResetPassord({required String otpReset, required String Email}) {
     emit(AppInitial());
     print('email= $Email');
     print('otp= $otpReset');
@@ -94,6 +95,29 @@ class AppCubit extends Cubit<AppState> {
     }).catchError((error) {
       print("error= ${error.toString()}");
       emit(sendOtpResetErrorState(error));
+    });
+  }
+
+  //// create new password
+  RegisterModel? responseCreatePassword;
+  createNewPassword({required String newPassword}) {
+    emit(AppInitial());
+    String? national_ID = CacheHelper.getData(key: 'national_ID');
+    print('national_ID= $national_ID');
+    print('password= $newPassword');
+
+    DioHelper.postData(
+            url: create_password,
+            data: {'national_ID': national_ID, 'password': newPassword})
+        .then((value) {
+      emit(LoadingState());
+      print("value==${value.data}");
+      responseCreatePassword = RegisterModel.fromJson(value.data);
+      print('responseCreatePassword==${responseCreatePassword!.status}');
+      emit(createPassordSuccessState(responseCreatePassword));
+    }).catchError((error) {
+      print("error= ${error.toString()}");
+      emit(createPassordErrorState(error));
     });
   }
 }

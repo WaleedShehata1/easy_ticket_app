@@ -4,6 +4,7 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../Pop_Up/visa.dart';
 import '../widget/Buttom.dart';
 import '../widget/dialog.dart';
 import '../widget/text_Form_Field.dart';
@@ -118,31 +119,6 @@ class WalletProfile extends StatelessWidget {
                             SizedBox(
                               height: 20.h,
                             ),
-
-                            /*  DefaultDropdown(
-                                items: const [
-                                DropdownMenuItem(child: Text(
-                                'اختر وسيلة الشحن',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 16,
-                                    color: Colors.black),
-                              ),
-                              ),
-                              ], 
-                              colorBorder: Colors.white,
-                              onChanged: (p0) {},
-                              radius: 15.r,
-                              hint:  Text(
-                                'اختر',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 18.sp,
-                                    color: Colors.black),
-                              ),
-                              height: 50.h,
-                              width: double.infinity,
-                            ),*/
                             SizedBox(
                               height: 10.h,
                             ),
@@ -163,7 +139,7 @@ class WalletProfile extends StatelessWidget {
                             ),
                             DefaultButtom(
                               Child: Text(
-                                'تأكيد',
+                                'شحن',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w900,
                                     fontSize: 22.sp,
@@ -178,116 +154,7 @@ class WalletProfile extends StatelessWidget {
                                     context: context,
                                     builder: (context) {
                                       return DefaultDialog(
-                                        Child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                IconButton(
-                                                    onPressed: () {
-                                                      Navigator.pop(context);
-                                                    },
-                                                    icon: Icon(
-                                                      Icons.close,
-                                                      size: 30.w,
-                                                    ))
-                                              ],
-                                            ),
-                                            Text('ادخل الرقم السري',
-                                                style: TextStyle(
-                                                  fontSize: 24.sp,
-                                                  fontWeight: FontWeight.w800,
-                                                )),
-                                            SizedBox(
-                                              height: 40.h,
-                                            ),
-                                            SizedBox(
-                                              height: 40.h,
-                                              child: DefaultFormField(
-                                                radius: 15,
-                                                controller: PasswordController,
-                                                label: null,
-                                                validate: (p0) {
-                                                  return null;
-                                                },
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 30.h,
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 40.w),
-                                              child: DefaultButtom(
-                                                Child: Text(
-                                                  'تاكيد',
-                                                  style: TextStyle(
-                                                      fontSize: 20.sp,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Height: 40,
-                                                Width: double.infinity,
-                                                PaddingHorizontal: 0,
-                                                PaddingVertical: 0,
-                                                OnTap: () {
-                                                  Navigator.pop(context);
-                                                  showDialog(
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return DefaultDialog(
-                                                          Child: Column(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .min,
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .end,
-                                                                  children: [
-                                                                    IconButton(
-                                                                        onPressed:
-                                                                            () {
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        },
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .close,
-                                                                          size:
-                                                                              30.w,
-                                                                        ))
-                                                                  ],
-                                                                ),
-                                                                Text(
-                                                                  'تم شحن المحفظه بنجاحه',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          30.w,
-                                                                      color: Colors
-                                                                          .black,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold),
-                                                                ),
-                                                              ]),
-                                                        );
-                                                      });
-                                                },
-                                              ),
-                                            )
-                                          ],
-                                        ),
+                                        Child: const VisaScreen(),
                                       );
                                     });
                               },

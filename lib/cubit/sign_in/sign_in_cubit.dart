@@ -52,7 +52,7 @@ class SignInCubit extends Cubit<SignInStates> {
   }
 
   searchAccount({required String national_ID, context}) {
-    emit(SignInLoadingState());
+    emit(SignInInitialState());
     DioHelper.postData(
       url: search_account,
       data: {

@@ -168,26 +168,6 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       ),
                     ),
                   ),
-                  /*  ListTile(
-                        minVerticalPadding: 15.h ,
-                        onTap: () {
-                          Navigator.pushNamed(context,CreditCard.routeName);
-                        },
-                        leading: Icon(
-                          Icons.credit_card,
-                          size: 35.w,
-                          color: theme.isDark?  Colors.white : Colors.black,
-                        ),
-                        title: Text(
-                          'Credit Card',
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.bold,
-                            color: theme.isDark?  Colors.white : Colors.black,
-                          ),
-                        ),
-                      ), */
-
                   ListTile(
                     minVerticalPadding: 15.h,
                     onTap: () {

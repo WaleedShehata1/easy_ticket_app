@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields, prefer_typing_uninitialized_variables
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/container.dart';
+import 'package:easy_ticket_app/widget/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -199,8 +200,8 @@ class EditProfileScreen extends StatelessWidget {
                                 showDialog(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    return Dialog(
-                                      child: ChangePasswordScreen(),
+                                    return DefaultDialog(
+                                      Child: ChangePasswordScreen(),
                                     );
                                   },
                                 );
