@@ -1,12 +1,11 @@
 // ignore_for_file: avoid_print, non_constant_identifier_names, depend_on_referenced_packages
-
-import 'package:easy_ticket_app/model/model.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../../model/sign_in_model.dart';
+import '../../../model/user_register_model.dart';
 import '../../../widget/constants.dart';
 
 part 'app_state.dart';
@@ -16,7 +15,7 @@ class AppCubit extends Cubit<AppState> {
 
   // emailverification
   static AppCubit get(context) => BlocProvider.of(context);
-  getData? getRespons;
+  RegisterModel? getRespons;
   getEmailVerification({required String? otp}) {
     emit(AppInitial());
     print('email= $userEmail');
@@ -26,10 +25,7 @@ class AppCubit extends Cubit<AppState> {
         url: emailverification,
         data: {'email': userEmail, 'otp': otp}).then((value) {
       emit(LoadingState());
-      getRespons = getData.fromJson(value.data);
-/*       print("value=${value.data}");
-      print('getResponse=${getRespons}');
-      print('data= ${value.data}'); */
+      getRespons = RegisterModel.fromJson(value.data);
       emit(AppSuccessState(getRespons));
     }).catchError((error) {
       print("error= ${error.toString()}");
@@ -70,6 +66,9 @@ class AppCubit extends Cubit<AppState> {
       'health_status': health_status,
     }).then((value) {
       userModel = SignInModel.fromJson(value.data);
+      print(userModel!.data!.first_Name);
+      print(userModel!.message);
+      print(userModel!.status);
       print(userModel!.data!.email);
       emit(UpdateSuccessState(userModel));
     }).catchError((error) {
@@ -80,7 +79,7 @@ class AppCubit extends Cubit<AppState> {
 
   /// send otp & email for reset password
 
-  getData? getResponsReset;
+  RegisterModel? getResponsReset;
   sendOtpResetPassord({required String? otpReset, required String? Email}) {
     emit(AppInitial());
     print('email= $Email');
@@ -90,7 +89,7 @@ class AppCubit extends Cubit<AppState> {
         data: {'email': Email, 'otp': otpReset}).then((value) {
       emit(LoadingState());
       print(value.data);
-      getResponsReset = getData.fromJson(value.data);
+      getResponsReset = RegisterModel.fromJson(value.data);
       emit(sendOtpResetSuccessState(getResponsReset));
     }).catchError((error) {
       print("error= ${error.toString()}");
