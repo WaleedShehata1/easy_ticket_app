@@ -5,7 +5,7 @@ abstract class AppState {}
 
 class AppInitial extends AppState {}
 
-class LoadingState extends AppState {}
+class AppLoadingState extends AppState {}
 
 class AppSuccessState extends AppState {
   final RegisterModel? getResponsEmailVerrification;
@@ -45,12 +45,6 @@ class sendOtpResetErrorState extends AppState {
 class ShowSuccessState extends AppState {
   final SignInModel? loginModel;
   ShowSuccessState(this.loginModel);
-}
-
-class ShowErrorState extends AppState {
-  final String error;
-
-  ShowErrorState(this.error);
 }
 
 class createPassordSuccessState extends AppState {
