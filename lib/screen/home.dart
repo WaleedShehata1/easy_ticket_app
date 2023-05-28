@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "asset/images/unsplash_nG3q_mlv8yI.png",
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 145.h,
+                height: 120.h,
               ),
               Positioned.fill(
                 child: BackdropFilter(
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 15.h,
                   ),
-                  DefaultButtom(
+                  /*  DefaultButtom(
                     alignment: Alignment.centerLeft,
                     Child: Text(
                       'Where do you want to go ?',
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     OnTap: () {
                       //  Navigator.pushNamed(context,Map2Screen.route);
                     },
-                  ),
+                  ), */
                 ],
               )
             ],
