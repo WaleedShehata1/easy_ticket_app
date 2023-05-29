@@ -356,7 +356,7 @@ class busTicket extends StatelessWidget {
                     DefaultButtom(
                       OnTap: ontap,
                       Child: Text(
-                        'Detiles',
+                        'Details',
                         style: TextStyle(
                             height: 1.4,
                             color: Colors.white,

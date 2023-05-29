@@ -54,7 +54,7 @@ class BuyBusTicket extends StatelessWidget {
                                   context: context,
                                   builder: (context) {
                                     return DefaultDialog(
-                                        Child: DetilesbusTicket(
+                                        Child: DetailsbusTicket(
                                       numberTicket: numberTicket,
                                       ontapAdd: ontapAdd,
                                       ontapMinus: ontapMinus,

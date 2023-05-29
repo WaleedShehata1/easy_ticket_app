@@ -8,9 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
 
-class busTicketDetiles extends StatelessWidget {
+class busTicketDetails extends StatelessWidget {
   Function()? ontap;
-  busTicketDetiles({
+  busTicketDetails({
     Key? key,
     this.ontap,
   }) : super(key: key);
