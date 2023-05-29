@@ -16,6 +16,7 @@ import '../widget/dialog.dart';
 import './edit_profile.dart';
 import './notifications.dart';
 import 'wallet_screen.dart';
+import './Aboutus.dart';
 
 class UserSettingsScreen extends StatefulWidget {
   static const String routeName = 'profile';
@@ -214,10 +215,10 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
             ListTile(
               minVerticalPadding: 15.h,
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => AboutusScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsScreen()),
+                );
               },
               leading: Icon(
                 Icons.contact_support_rounded,

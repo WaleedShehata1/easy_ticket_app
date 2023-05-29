@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           builder: (context) {
                             return DefaultDialog(
                                 paddingHorizontal: 15,
-                                Child: DetilesbusTicket(
+                                Child: DetailsbusTicket(
                                   numberTicket: _numberTicket,
                                   ontapAdd: () {
                                     setState(() {
