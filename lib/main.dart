@@ -60,8 +60,6 @@ class MyApp extends StatelessWidget {
               ThemeCubit theme =
                   BlocProvider.of<ThemeCubit>(context, listen: true);
               user = BlocProvider.of<AppCubit>(context, listen: true);
-              /*    CacheHelper.saveData(
-                  key: 'wallet', value: user.userModel?.data!.wallet); */
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme:

@@ -7,6 +7,7 @@ import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/components.dart';
+import '../widget/constants.dart';
 import 'bottom_bar.dart';
 
 class splash extends StatefulWidget {
@@ -28,7 +29,7 @@ class _splashState extends State<splash> {
     super.initState();
     Timer(const Duration(seconds: 5), () {
       if (FirstTime == true) {
-        if (token != null && uid != null) {
+        if (token != null && uid != null && user.userModel!.status != false) {
           Navigator.pushReplacementNamed(context, BottomBar.routeName);
         } else {
           Navigator.pushReplacementNamed(context, Sign_In.routeName);
