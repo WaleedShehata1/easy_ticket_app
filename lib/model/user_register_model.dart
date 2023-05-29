@@ -23,6 +23,7 @@ class UserCreate {
   String? email;
   String? profession;
   String? phone;
+  dynamic wallet;
 
   UserCreate.fromJson(Map<String, dynamic> json) {
     uid = json['id'].toString();
@@ -35,5 +36,6 @@ class UserCreate {
     date_of_birth = json['date_of_birth'];
     gender = json['gender'];
     profession = json['profession'];
+    wallet = json['wallet'];
   }
 }

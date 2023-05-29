@@ -83,7 +83,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                             ]),
                         width: 50.w,
                         child: Text(
-                          '\$70',
+                          '\$${CacheHelper.getData(key: 'wallet')}',
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w900,

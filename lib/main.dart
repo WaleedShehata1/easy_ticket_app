@@ -1,11 +1,12 @@
 // ignore_for_file: equal_keys_in_map
 
-import 'package:easy_ticket_app/cubit/app/cubit/app_cubit.dart';
+import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc_observer.dart';
+import 'cubit/app/app_state.dart';
 import 'screen/bottom_bar.dart';
 import 'screen/notifications.dart';
 import 'screen/payment_method.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
               create: (context) => AppCubit()..getUserData(),
             ),
             BlocProvider(
-              create: (context) => ThemeCubit()..changeTheme(),
+              create: (context) => ThemeCubit()..isDark,
             ),
           ],
           child: BlocConsumer<AppCubit, AppState>(
@@ -58,7 +59,9 @@ class MyApp extends StatelessWidget {
             builder: (context, state) {
               ThemeCubit theme =
                   BlocProvider.of<ThemeCubit>(context, listen: true);
-
+              user = BlocProvider.of<AppCubit>(context, listen: true);
+              /*    CacheHelper.saveData(
+                  key: 'wallet', value: user.userModel?.data!.wallet); */
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme:

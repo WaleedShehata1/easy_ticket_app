@@ -112,7 +112,7 @@ class WalletProfile extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              'تفاصيل الشحن',
+                              'charge details',
                               style: TextStyle(
                                   fontWeight: FontWeight.w900, fontSize: 22.sp),
                             ),
@@ -129,8 +129,11 @@ class WalletProfile extends StatelessWidget {
                                 radius: 15,
                                 keyboardType: TextInputType.number,
                                 controller: walletController,
-                                label: "ادخل المبلغ",
-                                validate: (p0) {
+                                label: "enter the amount",
+                                validate: (String? value) {
+                                  if (value!.trim().isEmpty) {
+                                    return 'Enter the wallet recharge balance';
+                                  }
                                   return null;
                                 },
                               ),
@@ -140,7 +143,7 @@ class WalletProfile extends StatelessWidget {
                             ),
                             DefaultButtom(
                               Child: Text(
-                                'شحن',
+                                'charge',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w900,
                                     fontSize: 22.sp,
@@ -151,13 +154,18 @@ class WalletProfile extends StatelessWidget {
                               PaddingHorizontal: 0,
                               PaddingVertical: 0,
                               OnTap: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return DefaultDialog(
-                                        Child: const VisaScreen(),
-                                      );
-                                    });
+                                if (formKey.currentState!.validate()) {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return DefaultDialog(
+                                          Child: VisaScreen(
+                                            cost: double.parse(
+                                                walletController.text),
+                                          ),
+                                        );
+                                      });
+                                }
                               },
                               radius: 15,
                             )

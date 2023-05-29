@@ -1,11 +1,12 @@
 // ignore_for_file: library_private_types_in_public_api, avoid_unnecessary_containers
 
-import 'package:easy_ticket_app/cubit/app/cubit/app_cubit.dart';
+import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../cubit/app/app_state.dart';
 import '../widget/Buttom.dart';
 import '../widget/constants.dart';
 import '../widget/text_Form_Field.dart';

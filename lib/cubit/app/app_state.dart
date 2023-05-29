@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, must_be_immutable
-part of 'app_cubit.dart';
+
+import '../../model/user_register_model.dart';
+import '../../model/wallet_charge_model.dart';
 
 abstract class AppState {}
 
@@ -19,8 +21,8 @@ class AppErrorState extends AppState {
 }
 
 class UpdateSuccessState extends AppState {
-  SignInModel? userModel;
-  UpdateSuccessState(userModel);
+  final RegisterModel? userModel2;
+  UpdateSuccessState(this.userModel2);
 }
 
 class UpdateErrorState extends AppState {
@@ -64,4 +66,30 @@ class createPassordErrorState extends AppState {
   final String error;
 
   createPassordErrorState(this.error);
+}
+
+class updatePassordSuccessState extends AppState {
+  final RegisterModel? responseUpdatePassword;
+  updatePassordSuccessState(
+    this.responseUpdatePassword,
+  );
+}
+
+class updatePassordErrorState extends AppState {
+  final String error;
+
+  updatePassordErrorState(this.error);
+}
+
+class chargeWalletSuccessState extends AppState {
+  final walletModel? chargeWallet;
+  chargeWalletSuccessState(
+    this.chargeWallet,
+  );
+}
+
+class chargeWalletErrorState extends AppState {
+  final String error;
+
+  chargeWalletErrorState(this.error);
 }

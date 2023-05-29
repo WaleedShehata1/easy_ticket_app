@@ -27,6 +27,7 @@ class UserData {
   String? phone;
   String? password;
   String? email_verified_at;
+  dynamic wallet;
   UserData.fromJson(Map<String, dynamic> json) {
     uid = json['id'].toString();
     national_ID = json['national_ID'].toString();
@@ -39,6 +40,7 @@ class UserData {
     gender = json['gender'];
     profession = json['profession'];
     email_verified_at = json['email_verified_at'];
+    wallet = json['wallet'];
   }
 }
 

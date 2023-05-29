@@ -2,6 +2,8 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 
+import '../cubit/app/app_cubit.dart';
+
 void showToast({
   required String text,
   required ToastStates state,
@@ -49,3 +51,4 @@ String? uid = CacheHelper.getData(key: 'uid');
 String? userEmail = CacheHelper.getData(key: 'email');
 String? userName = CacheHelper.getData(key: "userName");
 String? national_ID = CacheHelper.getData(key: "national_ID");
+late AppCubit user;

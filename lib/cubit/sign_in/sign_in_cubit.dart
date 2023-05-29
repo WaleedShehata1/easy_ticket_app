@@ -38,6 +38,7 @@ class SignInCubit extends Cubit<SignInStates> {
       emit(SignInLoadingState());
       print('Value == ${value.data}');
       loginModel = SignInModel.fromJson(value.data);
+      CacheHelper.saveData(key: 'wallet', value: loginModel!.data!.wallet);
       CacheHelper.saveData(
           key: 'userName',
           value:

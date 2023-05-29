@@ -1,15 +1,18 @@
 // ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields, prefer_typing_uninitialized_variables
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:easy_ticket_app/model/user_register_model.dart';
+
+import 'package:easy_ticket_app/screen/profile.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/container.dart';
 import 'package:easy_ticket_app/widget/dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/change_password.dart';
-import '../cubit/app/cubit/app_cubit.dart';
+import '../cubit/app/app_cubit.dart';
+import '../cubit/app/app_state.dart';
 import '../widget/Buttom.dart';
+import '../widget/constants.dart';
 import '../widget/text_Form_Field.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -30,30 +33,40 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppCubit user = BlocProvider.of<AppCubit>(context, listen: true);
-    //  RegisterModel? userData;
+    emailController.text = user.userModel!.data!.email!;
+    professionController.text = user.userModel!.data!.profession!;
+    healthstatusController.text = user.userModel!.data!.health_status!;
+    FirstName = user.userModel!.data!.first_Name!;
+    LastName = user.userModel!.data!.last_Name!;
+    phoneController.text = user.userModel!.data!.phone!;
+    DateofBirth = user.userModel!.data!.date_of_birth!;
+    NationaID = user.userModel!.data!.national_ID!;
+    Gender = user.userModel!.data!.gender;
     return BlocProvider(
-      create: (context) => AppCubit(),
+      create: (context) => AppCubit()..getUserData(),
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {
           if (state is AppLoadingState) const LinearProgressIndicator();
+          if (state is UpdateSuccessState) {
+            if (state.userModel2!.status != false) {
+              Navigator.pushNamed(context, UserSettingsScreen.routeName);
 
-          if (state is ShowSuccessState) {
-            print(state.loginModel!.data!.email);
-            print(state.loginModel!.data!.phone);
+              print(state.userModel2!.data!.email);
+              print(state.userModel2!.data!.phone);
+              showToast(
+                  text: state.userModel2!.message!, state: ToastStates.success);
+            } else if (state.userModel2!.status == false) {
+              showToast(
+                  text: state.userModel2!.message!, state: ToastStates.error);
+            } else {
+              showToast(
+                  text:
+                      'There is a problem connecting to the server or the Internet',
+                  state: ToastStates.warning);
+            }
           }
         },
         builder: (context, state) {
-          emailController.text = user.userModel!.data!.email!;
-          professionController.text = user.userModel!.data!.profession!;
-          healthstatusController.text = user.userModel!.data!.health_status!;
-          FirstName = user.userModel?.data?.first_Name!;
-          LastName = user.userModel?.data?.last_Name!;
-          phoneController.text = user.userModel!.data!.phone!;
-          DateofBirth = user.userModel?.data?.date_of_birth!;
-          NationaID = user.userModel?.data?.national_ID!;
-
-          Gender = user.userModel?.data?.gender;
           return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -154,10 +167,13 @@ class EditProfileScreen extends StatelessWidget {
                                 }
                                 return null;
                               },
-                              MaxLength: 11,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(11),
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
                               controller: phoneController,
                             ),
-                            const SizedBox(height: 5.0),
+                            const SizedBox(height: 16.0),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -266,8 +282,6 @@ class EditProfileScreen extends StatelessWidget {
               ),
             ),
           );
-          // fallback: (context) => CircularProgressIndicator(),
-          // );
         },
       ),
     );

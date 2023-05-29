@@ -13,3 +13,4 @@ const search_account = 'password/forget-password';
 const send_otp_forgotPassword = 'password/reset';
 const create_password = 'password/resetpassword';
 const update_password = 'password/updata';
+const charge_wallet = 'charge-wallet';

@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable, avoid_print
 
-import 'package:easy_ticket_app/cubit/app/cubit/app_cubit.dart';
+import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
 import 'package:easy_ticket_app/widget/Buttom.dart';
 import 'package:easy_ticket_app/widget/components.dart';
@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../cubit/app/app_state.dart';
 import 'change_passwword_login.dart';
 import '../widget/constants.dart';
 import '../widget/dialog.dart';

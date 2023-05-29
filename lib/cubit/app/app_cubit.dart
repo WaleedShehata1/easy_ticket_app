@@ -1,15 +1,17 @@
 // ignore_for_file: avoid_print, non_constant_identifier_names, depend_on_referenced_packages
+import 'dart:ffi';
+
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../../../model/sign_in_model.dart';
-import '../../../model/user_register_model.dart';
-import '../../../widget/constants.dart';
-
-part 'app_state.dart';
+import '../../model/sign_in_model.dart';
+import '../../model/user_register_model.dart';
+import '../../model/wallet_charge_model.dart';
+import '../../widget/constants.dart';
+import 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(AppInitial());
@@ -41,6 +43,7 @@ class AppCubit extends Cubit<AppState> {
     emit(AppLoadingState());
     DioHelper.getData(url: show, token: token!).then((value) {
       userModel = RegisterModel.fromJson(value.data);
+      CacheHelper.saveData(key: 'wallet', value: userModel!.data!.wallet);
       print(userModel!.data!.first_Name);
       print(userModel!.message);
       print(userModel!.status);
@@ -53,6 +56,7 @@ class AppCubit extends Cubit<AppState> {
   }
 
   //   Update Profile
+  RegisterModel? userModel2;
   void updateUserData({
     required String profession,
     required String health_status,
@@ -67,9 +71,12 @@ class AppCubit extends Cubit<AppState> {
       'email': email,
       'health_status': health_status,
     }).then((value) {
-      userModel = RegisterModel.fromJson(value.data);
-
-      emit(UpdateSuccessState(userModel));
+      emit(AppLoadingState());
+      print(CacheHelper.getData(key: 'token'));
+      print('value${value.data}');
+      userModel2 = RegisterModel.fromJson(value.data);
+      getUserData();
+      emit(UpdateSuccessState(userModel2));
     }).catchError((error) {
       print("error=/${error.toString()}");
       emit(UpdateErrorState(error.toString()));
@@ -116,6 +123,70 @@ class AppCubit extends Cubit<AppState> {
     }).catchError((error) {
       print("error= ${error.toString()}");
       emit(createPassordErrorState(error));
+    });
+  }
+
+  //// update password
+  RegisterModel? responseUpdatePassword;
+  UpdatePassword({
+    required String oldPassword,
+    required String newPassword,
+  }) {
+    emit(AppInitial());
+    String? national_ID = CacheHelper.getData(key: 'national_ID');
+    print('national_ID= $national_ID');
+    print('password= $newPassword');
+
+    DioHelper.postData(url: update_password, data: {
+      'national_ID': national_ID,
+      'password': oldPassword,
+      'password': newPassword
+    }).then((value) {
+      emit(AppLoadingState());
+      print("value==${value.data}");
+      responseUpdatePassword = RegisterModel.fromJson(value.data);
+      print('responseUpdatePassword==${responseUpdatePassword!.status}');
+      emit(updatePassordSuccessState(responseUpdatePassword));
+    }).catchError((error) {
+      print("error= ${error.toString()}");
+      emit(updatePassordErrorState(error));
+    });
+  }
+
+  //// Charge Wallet
+  walletModel? responseChargeWallet;
+  ChargeWallet({
+    required String visa_number,
+    required String expire,
+    required String The_owner_of_the_visa,
+    required int cvv,
+    required dynamic cost,
+  }) {
+    emit(AppInitial());
+    String? national_ID = CacheHelper.getData(key: 'national_ID');
+    print('national_ID= $national_ID');
+    print('visa_number= ${visa_number}');
+    print('cost= $cost');
+    print('expire= $expire');
+    print('The_owner_of_the_visa= $The_owner_of_the_visa');
+    print('cvv= $cvv');
+
+    DioHelper.postData(url: charge_wallet, data: {
+      'national_ID': national_ID,
+      'visa_number': visa_number,
+      'cost': cost,
+      'expire': expire,
+      'The_owner_of_the_visa': The_owner_of_the_visa,
+      'cvv': cvv,
+    }).then((value) {
+      emit(AppLoadingState());
+      print("value==${value.data}");
+      responseChargeWallet = walletModel.fromJson(value.data);
+      print('responseUpdatePassword==${responseChargeWallet!.status}');
+      emit(chargeWalletSuccessState(responseChargeWallet));
+    }).catchError((error) {
+      print("error= ${error.toString()}");
+      emit(chargeWalletErrorState(error));
     });
   }
 }
