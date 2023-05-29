@@ -17,7 +17,7 @@ class ticketModel {
   int? id;
   int? ticketModel_number;
   String? number_of_stations;
-  int? ticket_price;
+  dynamic? ticket_price;
   String? type;
   ticketModel.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -107,8 +107,8 @@ class metroModel {
   metroModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     metro_number = json['metro_number'];
-    lat = json['lat'];
-    long = json['long'];
+    lat = json['lat'] != null ? json['lat'] : null;
+    long = json['long'] != null ? json['long'] : null;
     metro_line_id = json['metro_line_id'];
     json['metro_timing'].forEach((element) {
       print(element);

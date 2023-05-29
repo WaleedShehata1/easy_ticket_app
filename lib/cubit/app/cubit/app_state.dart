@@ -43,8 +43,14 @@ class sendOtpResetErrorState extends AppState {
 }
 
 class ShowSuccessState extends AppState {
-  final SignInModel? loginModel;
+  final RegisterModel? loginModel;
   ShowSuccessState(this.loginModel);
+}
+
+class ShowErrorState extends AppState {
+  final String error;
+
+  ShowErrorState(this.error);
 }
 
 class createPassordSuccessState extends AppState {

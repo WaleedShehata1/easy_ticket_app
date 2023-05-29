@@ -36,11 +36,11 @@ class AppCubit extends Cubit<AppState> {
 
   //Show user-data
 
-  SignInModel? userModel;
+  RegisterModel? userModel;
   void getUserData() {
     emit(AppLoadingState());
     DioHelper.getData(url: show, token: token!).then((value) {
-      userModel = SignInModel.fromJson(value.data);
+      userModel = RegisterModel.fromJson(value.data);
       print(userModel!.data!.first_Name);
       print(userModel!.message);
       print(userModel!.status);
@@ -48,7 +48,7 @@ class AppCubit extends Cubit<AppState> {
       emit(ShowSuccessState(userModel));
     }).catchError((error) {
       print("error//= ${error.toString()}");
-      emit(AppErrorState(error));
+      emit(ShowErrorState(error));
     });
   }
 
@@ -67,7 +67,7 @@ class AppCubit extends Cubit<AppState> {
       'email': email,
       'health_status': health_status,
     }).then((value) {
-      userModel = SignInModel.fromJson(value.data);
+      userModel = RegisterModel.fromJson(value.data);
 
       emit(UpdateSuccessState(userModel));
     }).catchError((error) {

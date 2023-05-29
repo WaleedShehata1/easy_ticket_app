@@ -1,5 +1,6 @@
 // ignore_for_file: equal_keys_in_map
 
+import 'package:easy_ticket_app/cubit/app/cubit/app_cubit.dart';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/widget/theme.dart';
@@ -28,11 +29,7 @@ void main() async {
   await CacheHelper.init();
   token = CacheHelper.getData(key: 'token');
   runApp(
-    MultiBlocProvider(providers: [
-      BlocProvider(
-        create: (coontext) => ThemeCubit(),
-      )
-    ], child: const MyApp()),
+    const MyApp(),
   );
   Bloc.observer = MyBlocObserver();
 }
@@ -42,34 +39,53 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: true);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: theme.isDark ? ThemeClass.darkTheme : ThemeClass.lightTheme,
-          home: child,
-          routes: {
-            splash.routeName: (context) => const splash(),
-            onBoard.routeName: (context) => const onBoard(),
-            Sign_In.routeName: (context) => Sign_In(),
-            SignUp.routeName: (context) => SignUp(),
-            BottomBar.routeName: (context) => const BottomBar(),
-            HomeScreen.routeName: (context) => const HomeScreen(),
-            UserSettingsScreen.routeName: (context) =>
-                const UserSettingsScreen(),
-            EditProfileScreen.routeName: (context) => EditProfileScreen(),
-            GetPasswordResetCode.routeName: (context) =>
-                const GetPasswordResetCode(),
-            NotificationsScreen.routeName: (context) => NotificationsScreen(),
-            PaymentMethodScreen.routeName: (context) =>
-                const PaymentMethodScreen(),
-            WalletProfile.routeName: (context) => WalletProfile(),
-            BottomBar.routeName: (context) => const BottomBar(),
-          },
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => AppCubit()..getUserData(),
+            ),
+            BlocProvider(
+              create: (context) => ThemeCubit()..changeTheme(),
+            ),
+          ],
+          child: BlocConsumer<AppCubit, AppState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              ThemeCubit theme =
+                  BlocProvider.of<ThemeCubit>(context, listen: true);
+
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme:
+                    theme.isDark ? ThemeClass.darkTheme : ThemeClass.lightTheme,
+                home: child,
+                routes: {
+                  splash.routeName: (context) => const splash(),
+                  onBoard.routeName: (context) => const onBoard(),
+                  Sign_In.routeName: (context) => Sign_In(),
+                  SignUp.routeName: (context) => SignUp(),
+                  BottomBar.routeName: (context) => const BottomBar(),
+                  HomeScreen.routeName: (context) => const HomeScreen(),
+                  UserSettingsScreen.routeName: (context) =>
+                      const UserSettingsScreen(),
+                  EditProfileScreen.routeName: (context) => EditProfileScreen(),
+                  GetPasswordResetCode.routeName: (context) =>
+                      const GetPasswordResetCode(),
+                  NotificationsScreen.routeName: (context) =>
+                      NotificationsScreen(),
+                  PaymentMethodScreen.routeName: (context) =>
+                      const PaymentMethodScreen(),
+                  WalletProfile.routeName: (context) => WalletProfile(),
+                  BottomBar.routeName: (context) => const BottomBar(),
+                },
+              );
+            },
+          ),
         );
       },
       child: const splash(),

@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields, prefer_typing_uninitialized_variables
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:easy_ticket_app/model/user_register_model.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/container.dart';
 import 'package:easy_ticket_app/widget/dialog.dart';
@@ -29,6 +30,8 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppCubit user = BlocProvider.of<AppCubit>(context, listen: true);
+    //  RegisterModel? userData;
     return BlocProvider(
       create: (context) => AppCubit(),
       child: BlocConsumer<AppCubit, AppState>(
@@ -38,37 +41,20 @@ class EditProfileScreen extends StatelessWidget {
           if (state is ShowSuccessState) {
             print(state.loginModel!.data!.email);
             print(state.loginModel!.data!.phone);
-
-            //Editable Fields
-            phoneController.text = state.loginModel!.data!.phone!;
-            emailController.text = state.loginModel!.data!.email!;
-            professionController.text = state.loginModel!.data!.profession!;
-            healthstatusController.text =
-                state.loginModel!.data!.health_status!;
-
-            //Non-Editable Fields
-            FirstName = state.loginModel!.data!.first_Name!;
-            LastName = state.loginModel!.data!.last_Name!;
-            DateofBirth = state.loginModel!.data!.date_of_birth!;
-            NationaID = state.loginModel!.data!.national_ID!;
-            Gender = state.loginModel!.data!.gender!;
           }
         },
         builder: (context, state) {
-          // var model = AppCubit.get(context).userModel;
-          // emailController.text = model!.data!.email!;
-          // professionController.text = model!.data!.profession!;
-          // healthstatusController.text = model!.data!.health_status!;
-          // FirstName = model?.data!.first_Name!;
-          // LastName = model?.data!.last_Name!;
-          // DateofBirth = model?.data!.date_of_birth!;
-          // NationaID = model!.data!.national_ID!;
-          // Gender = model!.data!.gender!;
-          return
-              //  ConditionalBuilder(
-              //   condition: AppCubit.get(context).userModel != null,
-              //    builder: (context) =>
-              GestureDetector(
+          emailController.text = user.userModel!.data!.email!;
+          professionController.text = user.userModel!.data!.profession!;
+          healthstatusController.text = user.userModel!.data!.health_status!;
+          FirstName = user.userModel?.data?.first_Name!;
+          LastName = user.userModel?.data?.last_Name!;
+          phoneController.text = user.userModel!.data!.phone!;
+          DateofBirth = user.userModel?.data?.date_of_birth!;
+          NationaID = user.userModel?.data?.national_ID!;
+
+          Gender = user.userModel?.data?.gender;
+          return GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
               body: Form(
