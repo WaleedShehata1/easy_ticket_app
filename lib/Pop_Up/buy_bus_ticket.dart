@@ -19,12 +19,24 @@ class BuyBusTicket extends StatelessWidget {
   Function()? ontapMinus;
   Function()? ontapAdd;
   int numberTicket;
+
+  int? ticket_number;
+
+  String? type;
+
+  String? number_of_stations;
+
+  dynamic price;
   BuyBusTicket(
       {Key? key,
       required this.isBusTicket,
       this.ontapAdd,
       this.ontapMinus,
-      required this.numberTicket})
+      required this.numberTicket,
+      this.price,
+      this.number_of_stations,
+      this.ticket_number,
+      this.type})
       : super(key: key);
 
   @override
@@ -91,7 +103,7 @@ class BuyBusTicket extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(left: 20.w, top: 10.h),
                 child: Text(
-                  isBusTicket ? 'Bus 12' : 'Ticket 1',
+                  isBusTicket ? 'Bus 12' : 'Ticket $ticket_number',
                   style: TextStyle(
                       color: textColour,
                       fontSize: 24.sp,
@@ -230,11 +242,11 @@ class BuyBusTicket extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Metro',
+                              '$type',
                               style: TextStyle(
                                   color: PrimaryColour,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 22),
+                                  fontSize: 30),
                             ),
                             SizedBox(
                               height: 5.h,
@@ -249,16 +261,20 @@ class BuyBusTicket extends StatelessWidget {
                             ),
                             Container(
                               alignment: Alignment.center,
+                              padding: EdgeInsetsDirectional.all(3),
                               width: 70.w,
-                              height: 40.h,
+                              height: 45.h,
                               decoration: BoxDecoration(
                                   color: PrimaryColour,
                                   borderRadius: BorderRadius.circular(10).r),
                               child: Text(
-                                '7',
+                                '$number_of_stations',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 24.sp,
+                                    fontSize: number_of_stations!.length > 3
+                                        ? 17.sp
+                                        : 24.sp,
                                     fontWeight: FontWeight.bold),
                               ),
                             )
@@ -281,31 +297,36 @@ class BuyBusTicket extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 25.w),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: isBusTicket
+                      ? MainAxisAlignment.spaceBetween
+                      : MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '9:00 AM',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.sp,
-                              color: textColour),
-                        ),
-                        SizedBox(
-                          height: 3.h,
-                        ),
-                        Text(
-                          '9:00 AM',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.sp,
-                              color: textColour),
-                        ),
-                      ],
-                    ),
+                    isBusTicket
+                        ? Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '9:00 AM',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.sp,
+                                    color: textColour),
+                              ),
+                              SizedBox(
+                                height: 3.h,
+                              ),
+                              Text(
+                                '9:00 AM',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.sp,
+                                    color: textColour),
+                              ),
+                            ],
+                          )
+                        : SizedBox(),
+                    //
                     Row(
                       children: [
                         Text(
@@ -316,7 +337,7 @@ class BuyBusTicket extends StatelessWidget {
                               color: Colors.grey),
                         ),
                         Text(
-                          '\$23',
+                          '\$${price != null ? (numberTicket != 0 ? price * numberTicket : price) : 23}',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16.sp,

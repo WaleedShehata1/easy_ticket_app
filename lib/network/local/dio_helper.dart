@@ -20,7 +20,7 @@ class DioHelper {
     required String url,
     Map<String, dynamic>? query,
     String lang = 'en',
-    required String token,
+    String? token,
   }) async {
     dio?.options.headers = {
       'lang': lang,
@@ -44,6 +44,21 @@ class DioHelper {
     };
 
     return dio!.post(url, queryParameters: query, data: data);
+  }
+
+  static Future<Response> getDataTicket({
+    required String url,
+    String lang = 'en',
+  }) async {
+    dio?.options.headers = {
+      'lang': lang,
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json'
+    };
+
+    return dio!.get(
+      url,
+    );
   }
 
   static Future<Response> postToken({

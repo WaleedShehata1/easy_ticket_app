@@ -2,29 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-class metroTicket {
-  List<ticketModel> ticket = [];
+class MetroTicket {
+  List<Map<String, dynamic>> ticket = [];
 
-  metroTicket.fromJson(Map<String, dynamic> json) {
-    json['ticket'].forEach((element) {
-      print(element);
-      ticket.add(element);
-    });
-  }
-}
-
-class ticketModel {
-  int? id;
-  int? ticketModel_number;
-  String? number_of_stations;
-  dynamic? ticket_price;
-  String? type;
-  ticketModel.fromJson(Map<String, dynamic> json) {
-    id = json["id"];
-    ticketModel_number = json["ticket_number"];
-    number_of_stations = json["number_of_stations"];
-    ticket_price = json["ticket_price"];
-    type = json["type"];
+  MetroTicket.fromJson(Map<String, dynamic> json) {
+    var itemList = json["ticket"] as List;
+    ticket = itemList.map((e) => Map<String, dynamic>.from(e)).toList();
   }
 }
 

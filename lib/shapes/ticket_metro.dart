@@ -3,24 +3,32 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../cubit/theme/theme_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../cubit/theme/theme_cubit.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
 
 class metroTicket extends StatelessWidget {
   Function()? onTap;
+
+  String? number_of_stations;
+
+  int? ticket_number;
+  String? type;
+  dynamic price;
   metroTicket({
     Key? key,
     this.onTap,
+    this.number_of_stations,
+    this.ticket_number,
+    required this.price,
+    this.type,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
-
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -108,18 +116,21 @@ class metroTicket extends StatelessWidget {
                   height: 10.h,
                 ),
                 Container(
+                  padding: EdgeInsetsDirectional.all(2),
                   alignment: Alignment.center,
                   width: 65.w,
                   height: 40.h,
                   decoration: BoxDecoration(
                       color: PrimaryColour,
-                      borderRadius: BorderRadius.circular(15.r)),
+                      borderRadius: BorderRadius.circular(10.r)),
                   child: Text(
-                    "7",
+                    '$number_of_stations',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w900,
-                        fontSize: 26.sp),
+                        fontSize:
+                            number_of_stations!.length > 3 ? 16.sp : 26.sp),
                   ),
                 ),
                 SizedBox(
@@ -139,7 +150,7 @@ class metroTicket extends StatelessWidget {
                 padding: EdgeInsets.only(
                     right: 3.w, left: 1.w, bottom: 2.h, top: 2.h),
                 child: Text(
-                  'Me t r o',
+                  "${type == 'metro' ? 'Me t r o' : " L  R  T"}",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     height: 1,
@@ -305,7 +316,7 @@ class metroTicket extends StatelessWidget {
                   height: 5.h,
                 ),
                 Text(
-                  'Ticket 4',
+                  'Ticket $ticket_number',
                   style: TextStyle(
                       color: textColour,
                       fontWeight: FontWeight.bold,
@@ -342,7 +353,7 @@ class metroTicket extends StatelessWidget {
                           fontSize: 14.sp),
                     ),
                     Text(
-                      "\$70",
+                      "\$$price",
                       style: TextStyle(
                           color: PrimaryColour,
                           fontWeight: FontWeight.bold,

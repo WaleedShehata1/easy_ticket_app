@@ -8,6 +8,8 @@ import 'package:easy_ticket_app/Pop_Up/buy_bus_ticket.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/metro_date.dart';
+import '../cubit/metro/metro_cubit.dart';
+import '../model/metro.dart';
 import '../shapes/ticket_bus.dart';
 import '../shapes/ticket_dates.dart';
 import '../shapes/ticket_metro.dart';
@@ -26,7 +28,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool selectBottom = true;
   int _numberTicket = 0;
-  int i = 10;
+
+  int? i = 5;
   late Widget list;
   late bool buyTicket;
 
@@ -35,6 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
+    MetroCubit ticket = BlocProvider.of<MetroCubit>(context, listen: false);
+    MetroTicket? ticket_metro = ticket.ticket;
+    if (switshTicket == true) {
+      i = ticket_metro!.ticket.length;
+    } else {
+      i = 10;
+    }
     return Scaffold(
       backgroundColor: theme.isDark ? DarkColour : Colors.white,
       body: Column(children: [
@@ -209,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         DefaultButtom(
                           Child: Text(
-                            'Schedules',
+                            'Date',
                             style: TextStyle(
                                 color:
                                     switshTicket ? Colors.black : Colors.white,
@@ -231,9 +241,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Expanded(
                       child: ListView.separated(
-                        itemCount: 10,
+                        itemCount: i ?? 1,
                         itemBuilder: (ctx, index) {
                           if (switshTicket == false) {
+                            // metro line
                             return metroDate(
                               ontap: () {
                                 return showDialog(
@@ -247,6 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                             );
                           } else {
+                            //metro ticket
                             return metroTicket(
                               onTap: () {
                                 return showDialog(
@@ -254,6 +266,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                     builder: (context) {
                                       return DefaultDialog(
                                           Child: BuyBusTicket(
+                                        price: ticket_metro.ticket[index]
+                                            ['ticket_price'],
+                                        ticket_number:
+                                            ticket_metro.ticket[index]['id'],
+                                        number_of_stations:
+                                            ticket_metro.ticket[index]
+                                                ['number_of_stations'],
+                                        type: ticket_metro.ticket[index]
+                                            ['type'],
                                         ontapAdd: () {
                                           setState(() {
                                             _numberTicket++;
@@ -271,6 +292,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ));
                                     });
                               },
+                              price: ticket_metro!.ticket[index]
+                                  ['ticket_price'],
+                              ticket_number: ticket_metro.ticket[index]['id'],
+                              number_of_stations: ticket_metro.ticket[index]
+                                  ['number_of_stations'],
+                              type: ticket_metro.ticket[index]['type'],
                             );
                           }
                         },

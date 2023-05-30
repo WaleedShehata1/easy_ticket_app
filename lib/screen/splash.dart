@@ -29,7 +29,7 @@ class _splashState extends State<splash> {
     super.initState();
     Timer(const Duration(seconds: 5), () {
       if (FirstTime == true) {
-        if (token != null && uid != null && user.userModel!.status != false) {
+        if (token != null && uid != null) {
           Navigator.pushReplacementNamed(context, BottomBar.routeName);
         } else {
           Navigator.pushReplacementNamed(context, Sign_In.routeName);
