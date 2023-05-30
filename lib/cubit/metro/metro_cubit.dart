@@ -28,4 +28,17 @@ class MetroCubit extends Cubit<MetroState> {
       emit(MetroError(error));
     });
   }
+
+  metroData? metroLine_station;
+  void getMetroLineStations() {
+    emit(MetroLoading());
+    DioHelper.getDataTicket(url: metro_line_station).then((value) {
+      metroLine_station = metroData.fromJson(value.data);
+      print('metroLine=${value.data}');
+      emit(MetroLineSuccess(metroLine_station));
+    }).catchError((error) {
+      print('metro line_stations= ${error.toString()}');
+      emit(MetroLineError(error.toString()));
+    });
+  }
 }

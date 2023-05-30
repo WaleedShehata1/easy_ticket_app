@@ -28,13 +28,15 @@ class metroLine {
   String? starting_station;
   String? end_station;
   int? number_of_stations;
-  List<stationsModel> stations = [];
+  List<Map<String, dynamic>> stations = [];
   metroLine.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     line_number = json["line_number"];
     starting_station = json["starting_station"];
     end_station = json["end_station"];
     number_of_stations = json["number_of_stations"];
+    var itemList = json["stations"] as List;
+    stations = itemList.map((e) => Map<String, dynamic>.from(e)).toList();
     json["stations"].forEach((element) {
       stations.add(element);
     });

@@ -49,12 +49,14 @@ class MyApp extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => AppCubit()..getUserData(),
+              create: (context) => AppCubit(),
             ),
             BlocProvider(
                 create: (context) => MetroCubit()
                   ..getMetroTicet()
-                  ..ticket),
+                  ..ticket
+                  ..getMetroLineStations()
+                  ..metroLine_station),
             BlocProvider(
               create: (context) => ThemeCubit()..isDark,
             ),

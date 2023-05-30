@@ -27,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool selectBottom = true;
-  int _numberTicket = 0;
+  int _numberTicket = 1;
 
   int? i = 5;
   late Widget list;
@@ -172,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   },
                                   ontapMinus: () {
                                     setState(() {
-                                      if (_numberTicket > 0) {
+                                      if (_numberTicket > 1) {
                                         _numberTicket = _numberTicket - 1;
                                       }
                                     });
