@@ -13,13 +13,16 @@ class CounterCubit extends Cubit<CounterStates> {
   int counter = 1;
   increment() {
     counter++;
-    emit(CounterIncrementState(counter));
     ticketPrice = ticketPrice * counter;
+    emit(CounterIncrementState(counter));
   }
 
   decrement() {
-    if (counter > 1) counter--;
-    emit(CounterDecrementState(counter));
+    if (counter > 1) {
+      counter--;
+    }
     ticketPrice = ticketPrice * counter;
+    emit(CounterDecrementState(counter));
+    emit(Price(ticketPrice));
   }
 }
