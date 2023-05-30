@@ -1,13 +1,10 @@
 // ignore_for_file: avoid_print, non_constant_identifier_names, depend_on_referenced_packages
-import 'dart:ffi';
 
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
-import '../../model/sign_in_model.dart';
 import '../../model/user_register_model.dart';
 import '../../model/wallet_charge_model.dart';
 import '../../widget/constants.dart';
@@ -140,7 +137,7 @@ class AppCubit extends Cubit<AppState> {
     DioHelper.postData(url: update_password, data: {
       'national_ID': national_ID,
       'password': oldPassword,
-      'password': newPassword
+      'newpassword': newPassword
     }).then((value) {
       emit(AppLoadingState());
       print("value==${value.data}");
@@ -165,7 +162,7 @@ class AppCubit extends Cubit<AppState> {
     emit(AppInitial());
     String? national_ID = CacheHelper.getData(key: 'national_ID');
     print('national_ID= $national_ID');
-    print('visa_number= ${visa_number}');
+    print('visa_number= $visa_number');
     print('cost= $cost');
     print('expire= $expire');
     print('The_owner_of_the_visa= $The_owner_of_the_visa');

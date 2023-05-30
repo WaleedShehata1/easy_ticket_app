@@ -7,7 +7,6 @@ import 'package:easy_ticket_app/shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/components.dart';
-import '../widget/constants.dart';
 import 'bottom_bar.dart';
 
 class splash extends StatefulWidget {

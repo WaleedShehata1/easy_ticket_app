@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, avoid_unnecessary_containers
+// ignore_for_file: library_private_types_in_public_api, avoid_unnecessary_containers, avoid_print, must_be_immutable
 
 import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
@@ -56,7 +56,7 @@ class ChangePasswordLoginScreen extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 50,
                         ),
                         Row(
@@ -75,7 +75,7 @@ class ChangePasswordLoginScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 120,
                         ),
                         Padding(

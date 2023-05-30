@@ -1,6 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types
-
-import 'package:flutter/material.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, non_constant_identifier_names, avoid_print
 
 class MetroTicket {
   List<Map<String, dynamic>> ticket = [];
@@ -72,13 +70,11 @@ class pivot {
 ////////////////////////////////////////////////////////////////////////////////
 
 class metroAndTiming {
-  List<metroModel> metro = [];
+  List<Map<String, dynamic>> metro = [];
 
   metroAndTiming.fromJson(Map<String, dynamic> json) {
-    json['ticket'].forEach((element) {
-      print(element);
-      metro.add(element);
-    });
+    var itemList = json["metroTiming"] as List;
+    metro = itemList.map((e) => Map<String, dynamic>.from(e)).toList();
   }
 }
 
@@ -92,8 +88,8 @@ class metroModel {
   metroModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     metro_number = json['metro_number'];
-    lat = json['lat'] != null ? json['lat'] : null;
-    long = json['long'] != null ? json['long'] : null;
+    lat = json['lat'];
+    long = json['long'];
     metro_line_id = json['metro_line_id'];
     json['metro_timing'].forEach((element) {
       print(element);

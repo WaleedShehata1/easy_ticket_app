@@ -1,8 +1,9 @@
-// ignore_for_file: equal_keys_in_map
+// ignore_for_file: equal_keys_in_map, avoid_print
 
 import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
+import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc_observer.dart';
@@ -56,7 +57,9 @@ class MyApp extends StatelessWidget {
                   ..getMetroTicet()
                   ..ticket
                   ..getMetroLineStations()
-                  ..metroLine_station),
+                  ..metroLine_station
+                  ..metroTiming()
+                  ..metro_timing),
             BlocProvider(
               create: (context) => ThemeCubit()..isDark,
             ),

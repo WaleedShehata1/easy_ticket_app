@@ -1,8 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api, avoid_print
+// ignore_for_file: library_private_types_in_public_api, avoid_print, prefer_if_null_operators
 
 import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/cubit/app/app_state.dart';
-import 'package:easy_ticket_app/cubit/sign_in/sign_in_states.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
@@ -11,7 +10,6 @@ import 'package:easy_ticket_app/widget/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../cubit/sign_in/sign_in_cubit.dart';
 import '../cubit/theme/theme_cubit.dart';
 import '../widget/Buttom.dart';
 import '../widget/dialog.dart';
@@ -35,9 +33,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
     return BlocProvider(
       create: (context) => AppCubit()..getUserData(),
       child: BlocConsumer<AppCubit, AppState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           user = BlocProvider.of<AppCubit>(context, listen: true);
           CacheHelper.saveData(
@@ -239,7 +235,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => AboutUsScreen()),
+                            builder: (context) => const AboutUsScreen()),
                       );
                     },
                     leading: Icon(

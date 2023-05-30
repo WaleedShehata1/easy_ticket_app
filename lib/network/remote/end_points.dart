@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:easy_ticket_app/cubit/metro/metro_cubit.dart';
+
 import '../../widget/components.dart';
 
 const login = 'login';
@@ -16,3 +18,4 @@ const update_password = 'password/updata';
 const charge_wallet = 'charge-wallet';
 const metro_ticket = 'tickets';
 const metro_line_station = 'Metro_lineAndStatione';
+const metroTimes = 'metroAndTiming';

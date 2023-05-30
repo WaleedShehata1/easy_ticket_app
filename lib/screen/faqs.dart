@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class FaqModel {
@@ -9,6 +11,8 @@ class FaqModel {
 
 class FAQScreen extends StatefulWidget {
   static const String routeName = 'FAQ';
+
+  const FAQScreen({super.key});
 
   @override
   _FAQScreenState createState() => _FAQScreenState();
@@ -54,8 +58,8 @@ class _FAQScreenState extends State<FAQScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffF48265),
-        title: Text('FAQs'),
+        backgroundColor: const Color(0xffF48265),
+        title: const Text('FAQs'),
       ),
       body: ListView.builder(
         itemCount: faqs.length,
@@ -69,7 +73,8 @@ class _FAQScreenState extends State<FAQScreen> {
             //     ),
             //   ),
             // ),
-            padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
             child: GestureDetector(
               onTap: () {
                 setState(() {
@@ -81,12 +86,12 @@ class _FAQScreenState extends State<FAQScreen> {
                 children: [
                   Text(
                     faq.question,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   Visibility(
                     visible: _visibilityList![index],
                     child: Padding(
