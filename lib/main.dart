@@ -4,6 +4,7 @@ import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
+import 'package:easy_ticket_app/screen/faqs.dart';
 import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc_observer.dart';
@@ -92,6 +93,7 @@ class MyApp extends StatelessWidget {
                       const PaymentMethodScreen(),
                   WalletProfile.routeName: (context) => WalletProfile(),
                   BottomBar.routeName: (context) => const BottomBar(),
+                  FAQScreen.routeName: (context) => FAQScreen(),
                 },
               );
             },
