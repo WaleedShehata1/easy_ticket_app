@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 part of 'metro_cubit.dart';
 
 @immutable
@@ -25,4 +27,14 @@ class MetroLineSuccess extends MetroState {
 class MetroLineError extends MetroState {
   final String error;
   MetroLineError(this.error);
+}
+
+class MetroTimingSuccess extends MetroState {
+  final metroAndTiming? metro_timing;
+  MetroTimingSuccess(this.metro_timing);
+}
+
+class MetroTimingError extends MetroState {
+  final String error;
+  MetroTimingError(this.error);
 }

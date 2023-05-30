@@ -1,4 +1,5 @@
-import 'package:bloc/bloc.dart';
+// ignore_for_file: depend_on_referenced_packages, avoid_print, non_constant_identifier_names, unnecessary_brace_in_string_interps
+
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -29,6 +30,7 @@ class MetroCubit extends Cubit<MetroState> {
     });
   }
 
+  //// metro line & metro stations
   metroData? metroLine_station;
   void getMetroLineStations() {
     emit(MetroLoading());
@@ -39,6 +41,20 @@ class MetroCubit extends Cubit<MetroState> {
     }).catchError((error) {
       print('metro line_stations= ${error.toString()}');
       emit(MetroLineError(error.toString()));
+    });
+  }
+
+  ///// metro & timing
+  metroAndTiming? metro_timing;
+  void metroTiming() {
+    emit(MetroLoading());
+    DioHelper.getData(url: metroTimes).then((value) {
+      metro_timing = metroAndTiming.fromJson(value.data);
+      print("metro_timing=${value.data}");
+      emit(MetroTimingSuccess(metro_timing));
+    }).catchError((error) {
+      print('error metro_timing == ${error.toString()}');
+      emit(MetroTimingError(error));
     });
   }
 }

@@ -1,13 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first, avoid_print, unnecessary_brace_in_string_interps, must_be_immutable
 // ignore_for_file: avoid_unnecessary_containers, library_private_types_in_public_api, non_constant_identifier_names, unused_field, prefer_final_fields, prefer_typing_uninitialized_variables
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:easy_ticket_app/screen/profile.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/container.dart';
 import 'package:easy_ticket_app/widget/dialog.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../Pop_Up/change_password.dart';
 import '../cubit/app/app_cubit.dart';
 import '../cubit/app/app_state.dart';
@@ -30,6 +33,9 @@ class EditProfileScreen extends StatelessWidget {
   var Gender;
 
   var formKey = GlobalKey<FormState>();
+  EditProfileScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

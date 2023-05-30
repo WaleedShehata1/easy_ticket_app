@@ -12,7 +12,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/app/app_state.dart';
 import 'change_passwword_login.dart';
 import '../widget/constants.dart';
-import '../widget/dialog.dart';
 import '../widget/text_Form_Field.dart';
 
 class OtpForm2 extends StatelessWidget {
