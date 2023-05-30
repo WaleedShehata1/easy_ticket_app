@@ -18,7 +18,7 @@ class BuyBusTicket extends StatelessWidget {
   late bool isBusTicket;
   Function()? ontapMinus;
   Function()? ontapAdd;
-  int numberTicket;
+  int? numberTicket;
 
   int? ticket_number;
 
@@ -68,8 +68,6 @@ class BuyBusTicket extends StatelessWidget {
                                     return DefaultDialog(
                                         Child: DetailsbusTicket(
                                       numberTicket: numberTicket,
-                                      ontapAdd: ontapAdd,
-                                      ontapMinus: ontapMinus,
                                     ));
                                   });
                             },
@@ -337,7 +335,7 @@ class BuyBusTicket extends StatelessWidget {
                               color: Colors.grey),
                         ),
                         Text(
-                          '\$${price != null ? (numberTicket != 0 ? price * numberTicket : price) : 23}',
+                          '\$${price != null ? (price! * numberTicket!) : 23}',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16.sp,

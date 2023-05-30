@@ -11,3 +11,8 @@ class CounterDecrementState extends CounterStates {
   final int counter;
   CounterDecrementState(this.counter);
 }
+
+class Price extends CounterStates {
+  final double ticketPrice;
+  Price(this.ticketPrice);
+}

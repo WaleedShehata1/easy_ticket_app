@@ -165,18 +165,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 paddingHorizontal: 15,
                                 Child: DetailsbusTicket(
                                   numberTicket: _numberTicket,
-                                  ontapAdd: () {
-                                    setState(() {
-                                      _numberTicket++;
-                                    });
-                                  },
-                                  ontapMinus: () {
-                                    setState(() {
-                                      if (_numberTicket > 1) {
-                                        _numberTicket = _numberTicket - 1;
-                                      }
-                                    });
-                                  },
                                 ));
                           },
                         );
