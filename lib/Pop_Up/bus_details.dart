@@ -10,14 +10,11 @@ import 'buy_bus_ticket.dart';
 
 class DetailsbusTicket extends StatelessWidget {
   static const String routeName = 'Details bus Ticket';
-  int numberTicket;
-  Function()? ontapAdd;
-  Function()? ontapMinus;
+  int? numberTicket;
+
   DetailsbusTicket({
     Key? key,
     required this.numberTicket,
-    this.ontapAdd,
-    this.ontapMinus,
   }) : super(key: key);
 
   @override
@@ -51,8 +48,6 @@ class DetailsbusTicket extends StatelessWidget {
                         builder: (ctx) {
                           return DefaultDialog(
                             Child: BuyBusTicket(
-                              ontapAdd: ontapAdd,
-                              ontapMinus: ontapMinus,
                               numberTicket: numberTicket,
                               isBusTicket: true,
                             ),
