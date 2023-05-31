@@ -66,7 +66,7 @@ class MetroDateTicket extends StatelessWidget {
                       ['start_time'],
                   idMetro: ((time_metro.metro[index]['metro_timing'][0]
                           ['metro_id']) +
-                      6),
+                      12),
                   startStation: time_metro.metro[index]['metro_timing'][0]
                               ['directione'] ==
                           'true'
