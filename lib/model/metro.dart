@@ -78,23 +78,21 @@ class metroAndTiming {
   }
 }
 
-/* class metroModel {
+class metroModel {
   int? id;
   int? metro_number;
   String? lat;
   String? long;
   int? metro_line_id;
-  List<metroTiming> metro_timing = [];
+  List<Map<String, dynamic>> metro_timing = [];
   metroModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     metro_number = json['metro_number'];
     lat = json['lat'];
     long = json['long'];
     metro_line_id = json['metro_line_id'];
-    json['metro_timing'].forEach((element) {
-      print(element);
-      metro_timing.add(element);
-    });
+    var itemList = json["metro_timing"] as List;
+    metro_timing = itemList.map((e) => Map<String, dynamic>.from(e)).toList();
   }
 }
 
@@ -112,5 +110,5 @@ class metroTiming {
     waiting = json['waiting'];
     directione = json['directione'];
     metro_id = json['metro_id'];
-  } 
-}*/
+  }
+}

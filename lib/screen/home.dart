@@ -41,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
     MetroCubit metro = BlocProvider.of<MetroCubit>(context, listen: false);
     MetroTicket? ticket_metro = metro.ticket;
     metroData? line_metro = metro.metroLine_station;
+    metroAndTiming? time_metro = metro.metro_timing;
+    //List<Map<String,dynamic>> time= line_metro.
     if (switshTicket == true) {
       i = ticket_metro!.ticket.length;
     } else if (switshTicket == false) {
@@ -259,7 +261,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         return DefaultDialog(
                                           paddingHorizontal: 10.w,
                                           Child: MetroDateTicket(
-                                              metroData: line_metro.Line_2),
+                                            metroData: line_metro.Line_2,
+                                          ),
                                         );
                                       });
                                 },

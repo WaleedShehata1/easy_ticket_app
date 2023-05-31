@@ -8,8 +8,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/components.dart';
 
 class dateMetroTicket extends StatelessWidget {
-  const dateMetroTicket({
+  String time;
+  var startStation;
+  var nowStation;
+  var endStation;
+  var waitting;
+  var idMetro;
+  dateMetroTicket({
     Key? key,
+    required this.time,
+    required this.startStation,
+    required this.nowStation,
+    required this.endStation,
+    required this.idMetro,
+    required this.waitting,
   }) : super(key: key);
 
   @override
@@ -114,10 +126,13 @@ class dateMetroTicket extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  'Elshuhada',
+                                  '$startStation',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16.sp),
+                                      fontSize:
+                                          startStation.toString().length > 10
+                                              ? 13.sp
+                                              : 16.sp),
                                 )
                               ],
                             ),
@@ -150,11 +165,14 @@ class dateMetroTicket extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  'girls school',
+                                  '$nowStation',
                                   style: TextStyle(
                                       color: PrimaryColour,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16.sp),
+                                      fontSize:
+                                          nowStation.toString().length > 10
+                                              ? 13.sp
+                                              : 16.sp),
                                 )
                               ],
                             ),
@@ -184,17 +202,20 @@ class dateMetroTicket extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  'Adly Mansour',
+                                  '$endStation',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16.sp),
+                                      fontSize:
+                                          endStation.toString().length > 10
+                                              ? 13.sp
+                                              : 16.sp),
                                 )
                               ],
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 17.w),
                               child: Text(
-                                'waiting : one minute',
+                                'waiting : ${waitting.substring(4, 5).toString()} minute',
                                 style: TextStyle(
                                     color: Colors.black54,
                                     fontWeight: FontWeight.bold,
@@ -362,7 +383,7 @@ class dateMetroTicket extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
-                              height: 10.h,
+                              height: 5.h,
                             ),
                             Text(
                               'Metro',
@@ -375,7 +396,7 @@ class dateMetroTicket extends StatelessWidget {
                               height: 10.h,
                             ),
                             Text(
-                              '1258',
+                              '12${idMetro}',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -385,7 +406,7 @@ class dateMetroTicket extends StatelessWidget {
                               height: 15.h,
                             ),
                             Text(
-                              '9:55pm',
+                              '${time.substring(1, 5).toString()}pm',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
