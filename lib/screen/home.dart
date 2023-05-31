@@ -38,12 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
-    MetroCubit ticket = BlocProvider.of<MetroCubit>(context, listen: false);
-    MetroTicket? ticket_metro = ticket.ticket;
+    MetroCubit metro = BlocProvider.of<MetroCubit>(context, listen: false);
+    MetroTicket? ticket_metro = metro.ticket;
+    metroData? line_metro = metro.metroLine_station;
     if (switshTicket == true) {
       i = ticket_metro!.ticket.length;
-    } else {
-      i = 10;
+    } else if (switshTicket == false) {
+      i = 2;
     }
     return Scaffold(
       backgroundColor: theme.isDark ? DarkColour : Colors.white,
@@ -164,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             return DefaultDialog(
                                 paddingHorizontal: 15,
                                 Child: DetailsbusTicket(
-                                  numberTicket: _numberTicket,
+                                  lineNumber: _numberTicket,
                                 ));
                           },
                         );
@@ -232,19 +233,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: i ?? 1,
                         itemBuilder: (ctx, index) {
                           if (switshTicket == false) {
-                            // metro line
-                            return metroDate(
-                              ontap: () {
-                                return showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return DefaultDialog(
-                                        paddingHorizontal: 10.w,
-                                        Child: const MetroDateTicket(),
-                                      );
-                                    });
-                              },
-                            );
+                            if (index == 0) {
+                              // metro line
+                              return metroDate(
+                                metroData: line_metro!.Line_1,
+                                ontap: () {
+                                  return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return DefaultDialog(
+                                          paddingHorizontal: 10.w,
+                                          Child: MetroDateTicket(
+                                              metroData: line_metro.Line_1),
+                                        );
+                                      });
+                                },
+                              );
+                            } else if (index == 1) {
+                              return metroDate(
+                                metroData: line_metro!.Line_2,
+                                ontap: () {
+                                  return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return DefaultDialog(
+                                          paddingHorizontal: 10.w,
+                                          Child: MetroDateTicket(
+                                              metroData: line_metro.Line_2),
+                                        );
+                                      });
+                                },
+                              );
+                            }
                           } else {
                             //metro ticket
                             return metroTicket(
@@ -263,19 +283,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ['number_of_stations'],
                                         type: ticket_metro.ticket[index]
                                             ['type'],
-                                        ontapAdd: () {
+                                        /*       ontapAdd: () {
                                           setState(() {
                                             _numberTicket++;
                                           });
                                         },
                                         ontapMinus: () {
                                           setState(() {
-                                            if (_numberTicket > 0) {
+                                            if (_numberTicket > 1) {
                                               _numberTicket--;
                                             }
                                           });
-                                        },
-                                        numberTicket: _numberTicket,
+                                        }, */
+                                        lineNumber: _numberTicket,
                                         isBusTicket: false,
                                       ));
                                     });

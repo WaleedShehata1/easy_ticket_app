@@ -7,14 +7,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/theme/theme_cubit.dart';
 
+import '../model/metro.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
 
 class metroDate extends StatelessWidget {
   Function()? ontap;
+  metroLine? metroData;
+
   metroDate({
     Key? key,
     this.ontap,
+    this.metroData,
   }) : super(key: key);
 
   @override
@@ -95,7 +99,7 @@ class metroDate extends StatelessWidget {
                 child: Center(
                   child: Text(
                     textAlign: TextAlign.center,
-                    'First Line',
+                    '${metroData!.line_number}',
                     maxLines: 2,
                     style: TextStyle(
                       fontSize: 32.sp,

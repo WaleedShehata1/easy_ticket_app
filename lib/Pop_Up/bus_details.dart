@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../shapes/ticket_bus_details.dart';
@@ -10,11 +9,11 @@ import 'buy_bus_ticket.dart';
 
 class DetailsbusTicket extends StatelessWidget {
   static const String routeName = 'Details bus Ticket';
-  int? numberTicket;
+  int? lineNumber;
 
   DetailsbusTicket({
     Key? key,
-    required this.numberTicket,
+    this.lineNumber,
   }) : super(key: key);
 
   @override
@@ -48,7 +47,6 @@ class DetailsbusTicket extends StatelessWidget {
                         builder: (ctx) {
                           return DefaultDialog(
                             Child: BuyBusTicket(
-                              numberTicket: numberTicket,
                               isBusTicket: true,
                             ),
                           );

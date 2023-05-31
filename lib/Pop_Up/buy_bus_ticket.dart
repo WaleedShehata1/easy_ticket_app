@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:easy_ticket_app/Pop_Up/bus_details.dart';
 import 'package:easy_ticket_app/widget/components.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../screen/payment_method.dart';
 import '../widget/Buttom.dart';
 import '../widget/dialog.dart';
@@ -16,8 +14,8 @@ class BuyBusTicket extends StatefulWidget {
   late bool isBusTicket;
   Function()? ontapMinus;
   Function()? ontapAdd;
-  int? numberTicket;
 
+  int? lineNumber;
   int? ticket_number;
 
   String? type;
@@ -28,12 +26,12 @@ class BuyBusTicket extends StatefulWidget {
   BuyBusTicket(
       {Key? key,
       required this.isBusTicket,
+      this.lineNumber,
       this.ontapAdd,
       this.ontapMinus,
-      required this.numberTicket,
+      this.ticket_number,
       this.price,
       this.number_of_stations,
-      this.ticket_number,
       this.type})
       : super(key: key);
 
@@ -62,7 +60,7 @@ class _BuyBusTicketState extends State<BuyBusTicket> {
                             builder: (context) {
                               return DefaultDialog(
                                   Child: DetailsbusTicket(
-                                numberTicket: widget.numberTicket,
+                                lineNumber: widget.lineNumber,
                               ));
                             });
                       },
@@ -72,7 +70,11 @@ class _BuyBusTicketState extends State<BuyBusTicket> {
                       )),
                   IconButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        setState(() {
+                          Navigator.pop(context);
+
+                          if (counter != 1) counter = 1;
+                        });
                       },
                       icon: Icon(
                         Icons.close_outlined,
@@ -86,6 +88,7 @@ class _BuyBusTicketState extends State<BuyBusTicket> {
                   IconButton(
                       onPressed: () {
                         Navigator.pop(context);
+                        counter = 1;
                       },
                       icon: Icon(
                         Icons.close_outlined,
@@ -330,7 +333,7 @@ class _BuyBusTicketState extends State<BuyBusTicket> {
                         color: Colors.grey),
                   ),
                   Text(
-                    '\$${widget.price != null ? (widget.price! * widget.numberTicket!) : 23}',
+                    '\$${widget.price != null ? widget.price : 23}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.sp,

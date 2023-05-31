@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../model/metro.dart';
 import '../shapes/ticket_metro_date.dart';
 
 class MetroDateTicket extends StatelessWidget {
-  const MetroDateTicket({super.key});
+  metroAndTiming? metroTimes;
+  metroLine? metroData;
+  MetroDateTicket({super.key, this.metroData});
 
   @override
   Widget build(BuildContext context) {

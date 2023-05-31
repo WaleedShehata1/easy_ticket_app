@@ -12,11 +12,11 @@ class MetroTicket {
 ///////////////////////////////////////////////////////////////
 
 class metroData {
-  metroLine? firstLine;
-  metroLine? secondLine;
+  metroLine? Line_1;
+  metroLine? Line_2;
   metroData.fromJson(Map<String, dynamic> json) {
-    firstLine = metroLine.fromJson(json['first_line']);
-    secondLine = metroLine.fromJson(json['second_line']);
+    Line_1 = metroLine.fromJson(json['line_1']);
+    Line_2 = metroLine.fromJson(json['line_2']);
   }
 }
 
@@ -78,7 +78,7 @@ class metroAndTiming {
   }
 }
 
-class metroModel {
+/* class metroModel {
   int? id;
   int? metro_number;
   String? lat;
@@ -112,5 +112,5 @@ class metroTiming {
     waiting = json['waiting'];
     directione = json['directione'];
     metro_id = json['metro_id'];
-  }
-}
+  } 
+}*/
