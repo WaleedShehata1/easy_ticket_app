@@ -5,6 +5,7 @@ import 'package:easy_ticket_app/cubit/app/app_state.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/screen/sign_in.dart';
+import 'package:easy_ticket_app/screen/team_members.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/constants.dart';
 import 'package:flutter/material.dart';
@@ -255,10 +256,11 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                   ListTile(
                     minVerticalPadding: 15.h,
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => TeamMembersScreen()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TeamMembersScreen()),
+                      );
                     },
                     leading: Icon(
                       Icons.person_3_rounded,
