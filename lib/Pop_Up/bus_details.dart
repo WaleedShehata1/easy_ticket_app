@@ -47,6 +47,7 @@ class DetailsbusTicket extends StatelessWidget {
                         builder: (ctx) {
                           return DefaultDialog(
                             Child: BuyBusTicket(
+                              numberTicket: lineNumber,
                               isBusTicket: true,
                             ),
                           );

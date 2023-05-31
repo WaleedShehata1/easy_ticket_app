@@ -298,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             }
                                           });
                                         }, */
-                                        lineNumber: _numberTicket,
+                                        numberTicket: _numberTicket,
                                         isBusTicket: false,
                                       ));
                                     });
