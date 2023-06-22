@@ -18,7 +18,6 @@ class MetroCubit extends Cubit<MetroState> {
     emit(MetroLoading());
     DioHelper.getDataTicket(url: metro_ticket).then((value) {
       ticket = MetroTicket.fromJson(value.data);
-      print(ticket!.ticket);
       final Pattern = RegExp(',{1.800}');
       Pattern.allMatches("${value}").forEach(
         (element) => print(element.group(1)),
@@ -36,7 +35,6 @@ class MetroCubit extends Cubit<MetroState> {
     emit(MetroLoading());
     DioHelper.getDataTicket(url: metro_line_station).then((value) {
       metroLine_station = metroData.fromJson(value.data);
-      print('metroLine=${value.data}');
       emit(MetroLineSuccess(metroLine_station));
     }).catchError((error) {
       print('metro line_stations= ${error.toString()}');
@@ -50,7 +48,6 @@ class MetroCubit extends Cubit<MetroState> {
     emit(MetroLoading());
     DioHelper.getData(url: metroTimes).then((value) {
       metro_timing = metroAndTiming.fromJson(value.data);
-      print("metro_timing=${value.data}");
       emit(MetroTimingSuccess(metro_timing));
     }).catchError((error) {
       print('error metro_timing == ${error.toString()}');

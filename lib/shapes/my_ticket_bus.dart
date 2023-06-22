@@ -13,13 +13,12 @@ import '../widget/components.dart';
 class myTicketBus extends StatelessWidget {
   Function()? onTap;
   Function()? onTapDelete;
-  Function()? onTapEdit;
+
   Function()? onTapQR;
   myTicketBus({
     Key? key,
     this.onTap,
     this.onTapDelete,
-    this.onTapEdit,
     this.onTapQR,
   }) : super(key: key);
 
@@ -39,7 +38,7 @@ class myTicketBus extends StatelessWidget {
                 offset: const Offset(0, 0),
                 color: theme.isDark
                     ? Colors.white.withOpacity(0.3)
-                    : Colors.grey.withOpacity(0.3),
+                    : Colors.grey.withOpacity(1),
                 spreadRadius: 1.r,
                 blurRadius: 2.r,
               ),
@@ -146,19 +145,18 @@ class myTicketBus extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "Cairo",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 14.sp),
+                                    Container(
+                                      width: 75,
+                                      child: Text(
+                                        "Cairo",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14.sp),
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 2.h,
                                     ),
-                                    Text(
-                                      "15-Dec-2022",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13.sp),
-                                    )
                                   ],
                                 )
                               ],
@@ -187,19 +185,18 @@ class myTicketBus extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "Qena",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 14.sp),
+                                    Container(
+                                      width: 75,
+                                      child: Text(
+                                        "Qena",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14.sp),
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 2.h,
                                     ),
-                                    Text(
-                                      "15-Dec-2022",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13.sp),
-                                    )
                                   ],
                                 )
                               ],
@@ -384,31 +381,25 @@ class myTicketBus extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              '10:10 AM',
-                              style: TextStyle(
-                                  color: textColour,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16.sp),
-                            ),
                             SizedBox(
                               height: 10.h,
                             ),
-                            DefaultButtom(
-                              OnTap: onTap,
-                              Child: Text(
-                                'Tracking',
+                            Container(
+                              alignment: Alignment.center,
+                              height: 30.h,
+                              width: 70.w,
+                              decoration: BoxDecoration(
+                                  color: PrimaryColour,
+                                  borderRadius: BorderRadius.circular(8).r),
+                              child: Text(
+                                'BUS',
+                                maxLines: 1,
+                                softWrap: false,
                                 style: TextStyle(
-                                    height: 1.2,
                                     color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14.sp),
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold),
                               ),
-                              Height: 25,
-                              Width: 55,
-                              PaddingHorizontal: 0,
-                              PaddingVertical: 0,
-                              radius: 7,
                             ),
                             SizedBox(
                               height: 10.h,
@@ -455,20 +446,6 @@ class myTicketBus extends StatelessWidget {
                   Width: 30,
                   PaddingHorizontal: 0,
                   PaddingVertical: 15,
-                ),
-                DefaultButtom(
-                  color: Colors.white,
-                  Child: Icon(
-                    Icons.edit,
-                    color: Colors.black,
-                    size: 30.w,
-                  ),
-                  radius: 10,
-                  Height: 40,
-                  Width: 30,
-                  PaddingHorizontal: 0,
-                  PaddingVertical: 15,
-                  OnTap: onTapEdit,
                 ),
                 DefaultButtom(
                   OnTap: onTapQR,

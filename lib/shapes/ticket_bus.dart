@@ -6,20 +6,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../Pop_Up/bus_details.dart';
 import '../cubit/theme/theme_cubit.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
+import '../widget/dialog.dart';
 
 class busTicket extends StatelessWidget {
-  Function()? ontap;
+  Map<String, dynamic>? busData;
   busTicket({
     Key? key,
-    this.ontap,
+    this.busData,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
+    int? inex_start = (busData!['starting_station']).toString().length;
+    int? inex_end = (busData!['end_station']).toString().length;
+    int _numberTicket = 1;
+
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -92,50 +98,57 @@ class busTicket extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                      "Bus 12",
-                      style: TextStyle(
-                          color: textColour,
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Row(
+                    Column(
                       children: [
-                        Container(
-                          width: 30.w,
-                          height: 30.h,
-                          decoration: BoxDecoration(
-                              color: PrimaryColour,
-                              borderRadius: BorderRadius.circular(10).r),
-                          child: const Icon(
-                            Icons.near_me_outlined,
-                            color: Colors.white,
-                          ),
+                        Text(
+                          "${busData!['bus_number']}",
+                          style: TextStyle(
+                              color: textColour,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
-                          width: 10.w,
+                          height: 10.h,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
                           children: [
-                            Text(
-                              "Cairo",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 14.sp),
+                            Container(
+                              width: 30.w,
+                              height: 30.h,
+                              decoration: BoxDecoration(
+                                  color: PrimaryColour,
+                                  borderRadius: BorderRadius.circular(10).r),
+                              child: const Icon(
+                                Icons.near_me_outlined,
+                                color: Colors.white,
+                              ),
                             ),
                             SizedBox(
-                              height: 2.h,
+                              width: 10.w,
                             ),
-                            Text(
-                              "15-Dec-2022",
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 13.sp),
+                            Column(
+                              children: [
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  width: 90,
+                                  child: Text(
+                                    "${busData!['starting_station']}",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w800),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 15.w,
                             )
                           ],
-                        )
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -158,29 +171,32 @@ class busTicket extends StatelessWidget {
                           width: 10.w,
                         ),
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Qena",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 14.sp),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              width: 90,
+                              child: Text(
+                                "${busData!['end_station']}",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
                             SizedBox(
                               height: 2.h,
                             ),
-                            Text(
-                              "15-Dec-2022",
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 13.sp),
-                            )
                           ],
-                        )
+                        ),
+                        SizedBox(
+                          width: 15.w,
+                        ),
                       ],
                     )
                   ],
                 ),
                 SizedBox(
-                  width: 25.w,
+                  height: 10,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -354,7 +370,19 @@ class busTicket extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     DefaultButtom(
-                      OnTap: ontap,
+                      OnTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return DefaultDialog(
+                                paddingHorizontal: 15,
+                                Child: DetailsbusTicket(
+                                  busData: busData,
+                                  lineNumber: _numberTicket,
+                                ));
+                          },
+                        );
+                      },
                       Child: Text(
                         'Details',
                         style: TextStyle(
@@ -382,7 +410,7 @@ class busTicket extends StatelessWidget {
                               fontSize: 12.sp),
                         ),
                         Text(
-                          "\$70",
+                          "\$${busData?["Ticket_price"]}",
                           style: TextStyle(
                               color: PrimaryColour,
                               fontWeight: FontWeight.bold,

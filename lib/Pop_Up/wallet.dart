@@ -60,7 +60,7 @@ class WalletScreen extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
               ),
               Text(
-                '\$80',
+                '\$10',
                 style: TextStyle(
                   color: PrimaryColour,
                   fontSize: 20.sp,

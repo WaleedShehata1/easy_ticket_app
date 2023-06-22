@@ -10,9 +10,24 @@ import '../widget/components.dart';
 
 class busTicketDetails extends StatelessWidget {
   Function()? ontap;
+
+  int price;
+
+  Map<String, dynamic> time;
+
+  String end_station;
+
+  String start_station;
+
+  String bus;
   busTicketDetails({
     Key? key,
     this.ontap,
+    required this.bus,
+    required this.start_station,
+    required this.end_station,
+    required this.price,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -72,14 +87,14 @@ class busTicketDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Bus 12",
+                      bus,
                       style: TextStyle(
                           color: textColour,
                           fontSize: 18.sp,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w900),
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 8.h,
                     ),
                     Row(
                       children: [
@@ -101,19 +116,19 @@ class busTicketDetails extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Cairo",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 14.sp),
+                            Container(
+                              width: 80,
+                              child: Text(
+                                start_station,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w800),
+                              ),
                             ),
                             SizedBox(
                               height: 2.h,
                             ),
-                            Text(
-                              "15-Dec-2022",
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 13.sp),
-                            )
                           ],
                         )
                       ],
@@ -141,21 +156,21 @@ class busTicketDetails extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Qena",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 14.sp),
+                            Container(
+                              width: 80,
+                              child: Text(
+                                end_station,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w800),
+                              ),
                             ),
                             SizedBox(
                               height: 2.h,
                             ),
-                            Text(
-                              "15-Dec-2022",
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 13.sp),
-                            )
                           ],
-                        )
+                        ),
                       ],
                     )
                   ],
@@ -321,7 +336,7 @@ class busTicketDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '8:50 AM',
+                      '${time["start_time"].substring(0, 5).toString()} AM',
                       style: TextStyle(
                           height: 1,
                           color: textColour,
@@ -361,7 +376,7 @@ class busTicketDetails extends StatelessWidget {
                               fontSize: 14.sp),
                         ),
                         Text(
-                          "\$70",
+                          "\$$price",
                           style: TextStyle(
                               color: PrimaryColour,
                               fontWeight: FontWeight.bold,

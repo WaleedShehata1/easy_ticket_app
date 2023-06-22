@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types, must_be_immutable
 
+import 'package:easy_ticket_app/model/metro.dart';
+
 import '../../model/user_register_model.dart';
 import '../../model/wallet_charge_model.dart';
 
@@ -18,6 +20,16 @@ class AppSuccessState extends AppState {
 class AppErrorState extends AppState {
   final String? error;
   AppErrorState(this.error);
+}
+
+class AppSuccess extends AppState {
+  final BusTicket? busTicket;
+  AppSuccess(this.busTicket);
+}
+
+class AppError extends AppState {
+  final String? error;
+  AppError(this.error);
 }
 
 class UpdateSuccessState extends AppState {

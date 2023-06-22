@@ -50,7 +50,9 @@ class MyApp extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => AppCubit(),
+              create: (context) => AppCubit()
+                ..getMetroTicet()
+                ..bus,
             ),
             BlocProvider(
                 create: (context) => MetroCubit()
@@ -69,6 +71,8 @@ class MyApp extends StatelessWidget {
             builder: (context, state) {
               ThemeCubit theme =
                   BlocProvider.of<ThemeCubit>(context, listen: true);
+              AppCubit bus = BlocProvider.of<AppCubit>(context, listen: false);
+              print(bus);
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme:

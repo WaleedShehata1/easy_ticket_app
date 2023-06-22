@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Pop_Up/QR.dart';
+import '../Pop_Up/delete.dart';
 import '../cubit/theme/theme_cubit.dart';
 import '../shapes/my_ticket_bus.dart';
 import '../shapes/my_ticket_metro.dart';
@@ -21,7 +22,7 @@ class myTicket extends StatefulWidget {
 
 class _myTicketState extends State<myTicket> {
   bool selectBottom = true;
-  int i = 10;
+  int i = 1;
   late Widget list;
   late bool buyTicket;
 
@@ -119,17 +120,14 @@ class _myTicketState extends State<myTicket> {
         Expanded(
           child: list = selectBottom
               ? ListView.separated(
-                  itemCount: 10,
+                  itemCount: i,
                   itemBuilder: (ctx, index) {
                     return myTicketBus(
-                      onTap: () {},
-                      onTapDelete: () {},
-                      onTapEdit: () {
+                      onTapDelete: () {
                         return showDialog(
                             context: context,
                             builder: (context) {
-                              return DefaultDialog(
-                                  Child: const TicketModificationScreen());
+                              return DefaultDialog(Child: DeleteScreen());
                             });
                       },
                       onTapQR: () {
@@ -150,11 +148,16 @@ class _myTicketState extends State<myTicket> {
                   },
                 )
               : ListView.separated(
-                  itemCount: 10,
+                  itemCount: i,
                   itemBuilder: (ctx, index) {
                     return myTicketMetro(
-                      onTap: () {},
-                      onTapDelete: () {},
+                      onTapDelete: () {
+                        return showDialog(
+                            context: context,
+                            builder: (context) {
+                              return DefaultDialog(Child: DeleteScreen());
+                            });
+                      },
                       onTapQR: () {
                         return showDialog(
                             context: context,

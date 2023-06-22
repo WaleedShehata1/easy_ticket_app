@@ -5,6 +5,7 @@ import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../model/metro.dart';
 import '../../model/user_register_model.dart';
 import '../../model/wallet_charge_model.dart';
 import '../../widget/constants.dart';
@@ -30,6 +31,23 @@ class AppCubit extends Cubit<AppState> {
     }).catchError((error) {
       print("error= ${error.toString()}");
       emit(AppErrorState(error));
+    });
+  }
+
+  BusTicket? bus;
+  void getMetroTicet() {
+    emit(AppLoadingState());
+    DioHelper.getDataTicket(url: bus_ticket).then((value) {
+      bus = BusTicket.fromJson(value.data);
+      final Pattern = RegExp(',{1.800}');
+      Pattern.allMatches("${value}").forEach(
+        (element) => print(element.group(1)),
+      );
+      print("bus == $value");
+      emit(AppSuccess(bus));
+    }).catchError((error) {
+      print('error ticket metro = ${error.toString()}');
+      emit(AppError(error));
     });
   }
 

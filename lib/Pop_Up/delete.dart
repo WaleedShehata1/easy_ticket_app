@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/dialog.dart';
 import 'QR.dart';
 
-class MessageWalletScreen extends StatelessWidget {
-  const MessageWalletScreen({super.key});
+class DeleteScreen extends StatelessWidget {
+  const DeleteScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,40 +31,19 @@ class MessageWalletScreen extends StatelessWidget {
                 ))
           ],
         ),
-        Container(
-          decoration: BoxDecoration(
-              color: Colors.red, borderRadius: BorderRadius.circular(50)),
-          child: Icon(
-            Icons.close,
-            size: 70.w,
-            color: Colors.white,
-          ),
-        ),
         SizedBox(
           height: 30.h,
           width: double.infinity,
         ),
         Text(
-          'Insufficient balance',
+          'Delete Ticket ?',
           style: TextStyle(
               color: Colors.black,
               fontSize: 28.sp,
               fontWeight: FontWeight.bold),
         ),
-        Container(
-          alignment: Alignment.center,
-          width: 220,
-          child: Text(
-            'Do you want to advance the rest and pay upon shipment?',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: PrimaryColour,
-                fontSize: 26.sp,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
         SizedBox(
-          height: 20.h,
+          height: 50.h,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

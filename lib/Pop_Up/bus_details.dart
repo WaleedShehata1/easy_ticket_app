@@ -10,10 +10,12 @@ import 'buy_bus_ticket.dart';
 class DetailsbusTicket extends StatelessWidget {
   static const String routeName = 'Details bus Ticket';
   int? lineNumber;
+  Map<String, dynamic>? busData;
 
   DetailsbusTicket({
     Key? key,
     this.lineNumber,
+    this.busData,
   }) : super(key: key);
 
   @override
@@ -35,11 +37,16 @@ class DetailsbusTicket extends StatelessWidget {
         ),
         Expanded(
           child: ListView.separated(
-            itemCount: 10,
+            itemCount: busData!["bus_timings"].length,
             itemBuilder: (ctx, index) {
               return Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h),
                 child: busTicketDetails(
+                  bus: busData!["bus_number"],
+                  start_station: busData!["starting_station"],
+                  end_station: busData!["end_station"],
+                  time: busData!["bus_timings"][index],
+                  price: busData!["Ticket_price"],
                   ontap: () {
                     Navigator.pop(context);
                     showDialog(
@@ -47,6 +54,15 @@ class DetailsbusTicket extends StatelessWidget {
                         builder: (ctx) {
                           return DefaultDialog(
                             Child: BuyBusTicket(
+                              priceBus: busData!["Ticket_price"],
+                              bus: busData!["bus_number"],
+                              startStation: busData!["starting_station"],
+                              endStation: busData!["end_station"],
+                              nowStation: busData!["Now_station"],
+                              startTime: busData!["bus_timings"][index]
+                                  ["start_time"],
+                              endTime: busData!["bus_timings"][index]
+                                  ["end_time"],
                               numberTicket: lineNumber,
                               isBusTicket: true,
                             ),

@@ -55,7 +55,7 @@ class EditProfileScreen extends StatelessWidget {
           if (state is AppLoadingState) const LinearProgressIndicator();
           if (state is UpdateSuccessState) {
             if (state.userModel2!.status != false) {
-              Navigator.pushNamed(context, UserSettingsScreen.routeName);
+              Navigator.pop(context);
 
               print(state.userModel2!.data!.email);
               print(state.userModel2!.data!.phone);

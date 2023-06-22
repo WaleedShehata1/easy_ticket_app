@@ -19,3 +19,4 @@ const charge_wallet = 'charge-wallet';
 const metro_ticket = 'tickets';
 const metro_line_station = 'Metro_lineAndStatione';
 const metroTimes = 'metroAndTiming';
+const bus_ticket = 'BusAndTiming';

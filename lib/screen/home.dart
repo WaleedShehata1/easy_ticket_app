@@ -1,6 +1,7 @@
 // ignore: implementation_imports
 
 import 'dart:ui';
+import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_ticket_app/Pop_Up/bus_details.dart';
@@ -39,10 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: false);
     MetroCubit metro = BlocProvider.of<MetroCubit>(context, listen: false);
+    AppCubit bus = BlocProvider.of<AppCubit>(context, listen: false);
     MetroTicket? ticket_metro = metro.ticket;
     metroData? line_metro = metro.metroLine_station;
     metroAndTiming? time_metro = metro.metro_timing;
-    //List<Map<String,dynamic>> time= line_metro.
+    BusTicket? bus_ticet = bus.bus;
     if (switshTicket == true) {
       i = ticket_metro!.ticket.length;
     } else if (switshTicket == false) {
@@ -88,26 +90,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 15.h,
                   ),
-                  /*  DefaultButtom(
-                    alignment: Alignment.centerLeft,
-                    Child: Text(
-                      'Where do you want to go ?',
-                      style: TextStyle(
-                          fontSize: 16.sp,
-                          wordSpacing: 1,
-                          letterSpacing: 0.5,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    Height: 30,
-                    Width: 270,
-                    PaddingHorizontal: 20,
-                    PaddingVertical: 10,
-                    radius: 10,
-                    OnTap: () {
-                      //  Navigator.pushNamed(context,Map2Screen.route);
-                    },
-                  ), */
                 ],
               )
             ],
@@ -157,21 +139,11 @@ class _HomeScreenState extends State<HomeScreen> {
         Expanded(
           child: list = selectBottom
               ? ListView.separated(
-                  itemCount: 10,
+                  itemCount: bus_ticet!.bus.length ?? 10,
+                  // itemCount: 10,
                   itemBuilder: (ctx, index) {
                     return busTicket(
-                      ontap: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return DefaultDialog(
-                                paddingHorizontal: 15,
-                                Child: DetailsbusTicket(
-                                  lineNumber: _numberTicket,
-                                ));
-                          },
-                        );
-                      },
+                      busData: bus_ticet.bus[index],
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
@@ -286,18 +258,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ['number_of_stations'],
                                         type: ticket_metro.ticket[index]
                                             ['type'],
-                                        /*       ontapAdd: () {
-                                          setState(() {
-                                            _numberTicket++;
-                                          });
-                                        },
-                                        ontapMinus: () {
-                                          setState(() {
-                                            if (_numberTicket > 1) {
-                                              _numberTicket--;
-                                            }
-                                          });
-                                        }, */
                                         numberTicket: _numberTicket,
                                         isBusTicket: false,
                                       ));

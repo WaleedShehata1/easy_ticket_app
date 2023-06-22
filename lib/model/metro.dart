@@ -9,6 +9,14 @@ class MetroTicket {
   }
 }
 
+class BusTicket {
+  List<Map<String, dynamic>> bus = [];
+
+  BusTicket.fromJson(Map<String, dynamic> json) {
+    var itemList = json["bus"] as List;
+    bus = itemList.map((e) => Map<String, dynamic>.from(e)).toList();
+  }
+}
 ///////////////////////////////////////////////////////////////
 
 class metroData {
