@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sized_box_for_whitespace, avoid_print
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sized_box_for_whitespace, avoid_print, non_constant_identifier_names, prefer_typing_uninitialized_variables
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:easy_ticket_app/cubit/counter/counter_cubit.dart';
+import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:flutter/material.dart';
 
-import 'package:easy_ticket_app/Pop_Up/bus_details.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,40 +12,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/counter/counter_states.dart';
 import '../screen/payment_method.dart';
 import '../widget/Buttom.dart';
-import '../widget/dialog.dart';
 
 class BuyBusTicket extends StatelessWidget {
+  var id;
   late bool isBusTicket;
-  Function()? ontapMinus;
-  Function()? ontapAdd;
   int? numberTicket;
-
   int? ticket_number;
-
   String? type;
-
   String? number_of_stations;
 
-  dynamic price;
-
   String? bus;
-
+  var id_ticket;
   int? priceBus;
-
   var startTime;
-
   var endStation;
-
   var startStation;
   var endTime;
   var nowStation;
   BuyBusTicket(
       {Key? key,
+      required this.id,
       required this.isBusTicket,
-      this.ontapAdd,
-      this.ontapMinus,
       required this.numberTicket,
-      this.price,
       this.number_of_stations,
       this.ticket_number,
       this.type,
@@ -55,7 +43,8 @@ class BuyBusTicket extends StatelessWidget {
       this.startStation,
       this.priceBus,
       this.endTime,
-      this.startTime})
+      this.startTime,
+      this.id_ticket})
       : super(key: key);
 
   @override
@@ -234,7 +223,7 @@ class BuyBusTicket extends StatelessWidget {
                             ),
                             Container(
                               alignment: Alignment.center,
-                              padding: EdgeInsetsDirectional.all(3),
+                              padding: const EdgeInsetsDirectional.all(3),
                               width: 70.w,
                               height: 45.h,
                               decoration: BoxDecoration(
@@ -298,7 +287,7 @@ class BuyBusTicket extends StatelessWidget {
                               ),
                             ],
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                     //
                     Row(
                       children: [
@@ -310,7 +299,7 @@ class BuyBusTicket extends StatelessWidget {
                               color: Colors.grey),
                         ),
                         Text(
-                          '\$${price != null ? (price! * numberTicket!) : priceBus}',
+                          '\$${priceBus}',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16.sp,
@@ -383,6 +372,14 @@ class BuyBusTicket extends StatelessWidget {
               ),
               DefaultButtom(
                   OnTap: () {
+                    ticketDetails = {
+                      'id': id,
+                      "ticket_type": type ?? "bus",
+                      "totalprice":
+                          ((CounterCubit.get(context).counter) * priceBus!),
+                      "count": CounterCubit.get(context).counter,
+                    };
+
                     Navigator.pushNamed(context, PaymentMethodScreen.routeName);
                   },
                   Child: Text(

@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, must_be_immutable
 
 import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
+import 'package:easy_ticket_app/network/remote/end_points.dart';
 import 'package:easy_ticket_app/widget/components.dart';
 import 'package:easy_ticket_app/widget/constants.dart';
 import 'package:flutter/material.dart';
@@ -12,19 +13,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../cubit/app/app_state.dart';
 import '../widget/Buttom.dart';
 
-class VisaScreen extends StatelessWidget {
-  VisaScreen({super.key, this.cost});
+class VisaScreen extends StatefulWidget {
+  VisaScreen({super.key, this.cost, required this.isWallet});
   dynamic cost = 0.0;
+  bool isWallet = false;
+  @override
+  State<VisaScreen> createState() => _VisaScreenState();
+}
+
+class _VisaScreenState extends State<VisaScreen> {
   String cardNumber = '';
-
   String expiryDate = '';
-
   String cardHolderName = '';
-
   String cvvCode = '';
-
   bool isCvvFocused = false;
-
+  Map<String, dynamic>? ticket;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -71,6 +74,22 @@ class VisaScreen extends StatelessWidget {
                           size: 30.w,
                         ))
                   ],
+                ),
+                Container(
+                  margin: EdgeInsetsDirectional.all(15.w),
+                  width: double.infinity,
+                  padding: EdgeInsetsDirectional.all(3.w),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: PrimaryColour,
+                  ),
+                  child: Text(
+                      "Total : ${widget.isWallet ? widget.cost : (ticketDetails!["totalprice"])} EL",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white)),
                 ),
                 CreditCardWidget(
                   height: 160.h,
@@ -134,62 +153,62 @@ class VisaScreen extends StatelessWidget {
                         ),
                       ),
                       expiryDateDecoration: InputDecoration(
-                        labelStyle: TextStyle(fontSize: 16.sp),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide: BorderSide(
-                            color: PrimaryColour.withOpacity(0.7),
-                            width: 2.0,
+                          labelStyle: TextStyle(fontSize: 16.sp),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide: BorderSide(
+                              color: PrimaryColour.withOpacity(0.7),
+                              width: 2.0,
+                            ),
                           ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide: BorderSide(
-                            color: PrimaryColour.withOpacity(0.7),
-                            width: 2.0,
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide: BorderSide(
+                              color: PrimaryColour.withOpacity(0.7),
+                              width: 2.0,
+                            ),
                           ),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide:
-                              const BorderSide(width: 2.0, color: Colors.red),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide:
-                              const BorderSide(width: 2.0, color: Colors.red),
-                        ),
-                        labelText: 'Expire Date',
-                        hintText: 'XX/XX',
-                      ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide:
+                                const BorderSide(width: 2.0, color: Colors.red),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide:
+                                const BorderSide(width: 2.0, color: Colors.red),
+                          ),
+                          labelText: 'Expire Date',
+                          hintText: 'XX/XX',
+                          errorMaxLines: 2),
                       cvvCodeDecoration: InputDecoration(
-                        errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide:
-                              const BorderSide(width: 2.0, color: Colors.red),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide: BorderSide(
-                            color: PrimaryColour.withOpacity(0.7),
-                            width: 2.0,
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide:
+                                const BorderSide(width: 2.0, color: Colors.red),
                           ),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide:
-                              const BorderSide(width: 2.0, color: Colors.red),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15).r,
-                          borderSide: BorderSide(
-                            color: PrimaryColour.withOpacity(0.7),
-                            width: 2.0,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide: BorderSide(
+                              color: PrimaryColour.withOpacity(0.7),
+                              width: 2.0,
+                            ),
                           ),
-                        ),
-                        labelText: 'CVV',
-                        hintText: 'XXX',
-                      ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide:
+                                const BorderSide(width: 2.0, color: Colors.red),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15).r,
+                            borderSide: BorderSide(
+                              color: PrimaryColour.withOpacity(0.7),
+                              width: 2.0,
+                            ),
+                          ),
+                          labelText: 'CVV',
+                          hintText: 'XXX',
+                          errorMaxLines: 2),
                       cardHolderDecoration: InputDecoration(
                         focusedErrorBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15).r,
@@ -218,11 +237,13 @@ class VisaScreen extends StatelessWidget {
                         labelText: 'Card Holder',
                       ),
                       onCreditCardModelChange: (creditCardModel) {
-                        cardNumber = creditCardModel.cardNumber;
-                        expiryDate = creditCardModel.expiryDate;
-                        cardHolderName = creditCardModel.cardHolderName;
-                        cvvCode = creditCardModel.cvvCode;
-                        isCvvFocused = creditCardModel.isCvvFocused;
+                        setState(() {
+                          cardNumber = creditCardModel.cardNumber;
+                          expiryDate = creditCardModel.expiryDate;
+                          cardHolderName = creditCardModel.cardHolderName;
+                          cvvCode = creditCardModel.cvvCode;
+                          isCvvFocused = creditCardModel.isCvvFocused;
+                        });
                       },
                     ),
                     DefaultButtom(
@@ -244,7 +265,7 @@ class VisaScreen extends StatelessWidget {
                           AppCubit.get(context).ChargeWallet(
                             visa_number: cardNumber,
                             The_owner_of_the_visa: cardHolderName,
-                            cost: cost,
+                            cost: widget.cost,
                             cvv: int.parse(cvvCode),
                             expire: expiryDate,
                           );

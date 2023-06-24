@@ -1,7 +1,6 @@
-// ignore_for_file: constant_identifier_names
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names, prefer_typing_uninitialized_variables
 
-import 'package:easy_ticket_app/cubit/metro/metro_cubit.dart';
-
+import '../../model/metro.dart';
 import '../../widget/components.dart';
 
 const login = 'login';
@@ -20,3 +19,4 @@ const metro_ticket = 'tickets';
 const metro_line_station = 'Metro_lineAndStatione';
 const metroTimes = 'metroAndTiming';
 const bus_ticket = 'BusAndTiming';
+Map<String, dynamic>? ticketDetails;

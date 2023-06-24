@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, non_constant_identifier_names, depend_on_referenced_packages
+// ignore_for_file: avoid_print, non_constant_identifier_names, depend_on_referenced_packages, unnecessary_brace_in_string_interps
 
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
 import 'package:easy_ticket_app/network/remote/end_points.dart';
@@ -43,7 +43,6 @@ class AppCubit extends Cubit<AppState> {
       Pattern.allMatches("${value}").forEach(
         (element) => print(element.group(1)),
       );
-      print("bus == $value");
       emit(AppSuccess(bus));
     }).catchError((error) {
       print('error ticket metro = ${error.toString()}');

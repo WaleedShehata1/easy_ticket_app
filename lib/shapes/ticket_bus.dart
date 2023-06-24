@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, unused_local_variable, non_constant_identifier_names, no_leading_underscores_for_local_identifiers
 // ignore_for_file: camel_case_types, sort_child_properties_last
 
 import 'package:dotted_border/dotted_border.dart';
@@ -195,7 +195,7 @@ class busTicket extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Column(

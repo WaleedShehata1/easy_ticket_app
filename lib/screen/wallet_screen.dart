@@ -160,6 +160,7 @@ class WalletProfile extends StatelessWidget {
                                       builder: (context) {
                                         return DefaultDialog(
                                           Child: VisaScreen(
+                                            isWallet: true,
                                             cost: double.parse(
                                                 walletController.text),
                                           ),

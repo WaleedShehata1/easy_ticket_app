@@ -70,7 +70,7 @@ class MessageWalletScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             DefaultButtom(
-                Child: Text(
+                Child: const Text(
                   'Yes',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
                 ),
@@ -81,7 +81,7 @@ class MessageWalletScreen extends StatelessWidget {
                 PaddingHorizontal: 0,
                 PaddingVertical: 0),
             DefaultButtom(
-                Child: Text(
+                Child: const Text(
                   'No',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
                 ),

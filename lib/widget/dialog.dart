@@ -1,6 +1,5 @@
 // ignore_for_file: non_constant_identifier_names, must_be_immutable
 
-import 'package:easy_ticket_app/Pop_Up/change_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

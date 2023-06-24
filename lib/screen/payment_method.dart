@@ -48,7 +48,9 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                         context: context,
                         builder: (context) {
                           return DefaultDialog(
-                            Child: VisaScreen(),
+                            Child: VisaScreen(
+                              isWallet: false,
+                            ),
                           );
                         });
                   },

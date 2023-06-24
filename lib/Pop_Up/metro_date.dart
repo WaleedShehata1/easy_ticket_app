@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,6 +88,7 @@ class MetroDateTicket extends StatelessWidget {
                       ['waiting'],
                 );
               }
+              return null;
             },
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(

@@ -1,5 +1,4 @@
 import 'package:easy_ticket_app/widget/Buttom.dart';
-import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,7 +48,7 @@ class DeleteScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             DefaultButtom(
-                Child: Text(
+                Child: const Text(
                   'Yes',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
                 ),
@@ -60,7 +59,7 @@ class DeleteScreen extends StatelessWidget {
                 PaddingHorizontal: 0,
                 PaddingVertical: 0),
             DefaultButtom(
-                Child: Text(
+                Child: const Text(
                   'No',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
                 ),

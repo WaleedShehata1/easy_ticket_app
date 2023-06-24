@@ -259,7 +259,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => TeamMembersScreen()),
+                            builder: (context) => const TeamMembersScreen()),
                       );
                     },
                     leading: Icon(

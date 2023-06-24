@@ -54,6 +54,7 @@ class DetailsbusTicket extends StatelessWidget {
                         builder: (ctx) {
                           return DefaultDialog(
                             Child: BuyBusTicket(
+                              id: busData!['id'],
                               priceBus: busData!["Ticket_price"],
                               bus: busData!["bus_number"],
                               startStation: busData!["starting_station"],

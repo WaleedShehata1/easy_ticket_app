@@ -11,7 +11,6 @@ import '../shapes/my_ticket_bus.dart';
 import '../shapes/my_ticket_metro.dart';
 import '../widget/Buttom.dart';
 import '../widget/components.dart';
-import '../Pop_Up/ticket_modification.dart';
 import '../widget/dialog.dart';
 
 class myTicket extends StatefulWidget {
@@ -127,7 +126,7 @@ class _myTicketState extends State<myTicket> {
                         return showDialog(
                             context: context,
                             builder: (context) {
-                              return DefaultDialog(Child: DeleteScreen());
+                              return DefaultDialog(Child: const DeleteScreen());
                             });
                       },
                       onTapQR: () {
@@ -155,7 +154,7 @@ class _myTicketState extends State<myTicket> {
                         return showDialog(
                             context: context,
                             builder: (context) {
-                              return DefaultDialog(Child: DeleteScreen());
+                              return DefaultDialog(Child: const DeleteScreen());
                             });
                       },
                       onTapQR: () {

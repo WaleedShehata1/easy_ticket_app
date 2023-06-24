@@ -1,6 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class TeamMembersScreen extends StatefulWidget {
+  const TeamMembersScreen({super.key});
+
   @override
   _TeamMembersScreenState createState() => _TeamMembersScreenState();
 }
@@ -21,8 +25,8 @@ class _TeamMembersScreenState extends State<TeamMembersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffF48265),
-        title: Text('Team Members'),
+        backgroundColor: const Color(0xffF48265),
+        title: const Text('Team Members'),
       ),
       body: ListView.builder(
         itemCount: designTeamMembers.length,
@@ -34,9 +38,9 @@ class _TeamMembersScreenState extends State<TeamMembersScreen> {
               });
             },
             child: Container(
-              margin: EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
               child: Card(
-                color: Color(0xffF48265),
+                color: const Color(0xffF48265),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -47,7 +51,7 @@ class _TeamMembersScreenState extends State<TeamMembersScreen> {
                       ListTile(
                         title: Text(
                           designTeamMembers[index].name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -57,11 +61,11 @@ class _TeamMembersScreenState extends State<TeamMembersScreen> {
                         ListTile(
                           title: Text(
                             designTeamMembers[index].role,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                           subtitle: Text(
                             designTeamMembers[index].description,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                     ],
@@ -90,15 +94,16 @@ class DesignTeamMember {
 
 final List<DesignTeamMember> designTeamMembers = [
   DesignTeamMember(
-    name: 'Abdulhamed Ashry',
-    role: 'Flutter Dev',
-    description: '....',
-  ),
-  DesignTeamMember(
     name: 'Waleed Muhammad',
     role: 'Flutter Dev',
     description: '...',
   ),
+  DesignTeamMember(
+    name: 'Abdulhamed Ashry',
+    role: 'Flutter Dev',
+    description: '....',
+  ),
+
   DesignTeamMember(
     name: 'Abdulrahman ',
     role: 'Back-end dev',

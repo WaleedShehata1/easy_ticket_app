@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_typing_uninitialized_variables, must_be_immutable, unnecessary_brace_in_string_interps
 // ignore_for_file: camel_case_types
 
 import 'package:dotted_border/dotted_border.dart';

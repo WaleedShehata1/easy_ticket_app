@@ -5,6 +5,7 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../network/remote/end_points.dart';
 import '../widget/Buttom.dart';
 import '../widget/dialog.dart';
 import '../widget/text_Form_Field.dart';
@@ -46,7 +47,7 @@ class WalletScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10)),
             child: Text(
               'Wallet',
-              style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w800),
             ),
           ),
           SizedBox(
@@ -56,14 +57,15 @@ class WalletScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Total: ',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
+                'Total : ',
+                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20.sp),
               ),
               Text(
-                '\$10',
+                "${(ticketDetails!["totalprice"])} EL",
                 style: TextStyle(
                   color: PrimaryColour,
                   fontSize: 20.sp,
+                  fontWeight: FontWeight.w800,
                 ),
               )
             ],
@@ -85,7 +87,10 @@ class WalletScreen extends StatelessWidget {
             height: 50.h,
           ),
           DefaultButtom(
-            Child: const Text('Pay with wallet'),
+            Child: Text(
+              'Pay with wallet',
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp),
+            ),
             Height: 40.h,
             Width: 220.w,
             PaddingHorizontal: 15.w,

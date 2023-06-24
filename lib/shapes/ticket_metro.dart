@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, non_constant_identifier_names, unnecessary_string_interpolations
 // ignore_for_file: camel_case_types
 
 import 'package:dotted_border/dotted_border.dart';
@@ -116,7 +116,7 @@ class metroTicket extends StatelessWidget {
                   height: 10.h,
                 ),
                 Container(
-                  padding: EdgeInsetsDirectional.all(2),
+                  padding: const EdgeInsetsDirectional.all(2),
                   alignment: Alignment.center,
                   width: 65.w,
                   height: 40.h,
