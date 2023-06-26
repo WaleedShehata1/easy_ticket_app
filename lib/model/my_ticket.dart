@@ -2,26 +2,11 @@
 import 'dart:convert';
 
 class showTicketModel {
-  List<Transaction> data = [];
+  List<Map<String, dynamic>> data = [];
 
   showTicketModel.fromJson(Map<String, dynamic> json) {
-    var itemList = json["data"];
-
-    data = itemList.map((e) {
-      return Transaction(
-        id: e["id"],
-        value_price: e["value_price"],
-        bus_id: e["bus_id"],
-        date_of_use: e["date_of_use"],
-        ticket_id: e["ticket_id"],
-        Entry_station: e["Entry_station"],
-        Exit_station: e["Exit_station"],
-        Date_of_entry: e["Date_of_entry"],
-        time_of_Entry: e["time_of_Entry"],
-        tickets_status: e["tickets_status"],
-        time_of_out: e["time_of_out"],
-      );
-    });
+    var itemList = json["data"] as List;
+    data = itemList.map((e) => Map<String, dynamic>.from(e)).toList();
   }
 }
 

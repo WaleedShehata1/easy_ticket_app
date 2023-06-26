@@ -29,6 +29,16 @@ class WalletScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is PayWalletSuccessState) {
             if (state.payWallet!.status != false) {
+              if (state.payWallet!.message ==
+                  'Do you want to advance the rest and pay upon shipment?') {
+                Navigator.pop(context);
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return DefaultDialog(
+                          paddingHorizontal: 5, Child: MessageWalletScreen());
+                    });
+              }
               print("valueScreen==${state.payWallet}");
               Navigator.pop(context);
               showDialog(
@@ -99,7 +109,7 @@ class WalletScreen extends StatelessWidget {
                             fontWeight: FontWeight.w800, fontSize: 20.sp),
                       ),
                       Text(
-                        "${(ticketDetails!["totalprice"])} EL",
+                        "${(ticketDetails!["totalprice"])} LE",
                         style: TextStyle(
                           color: PrimaryColour,
                           fontSize: 20.sp,

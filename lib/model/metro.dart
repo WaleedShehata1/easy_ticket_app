@@ -23,8 +23,8 @@ class metroData {
   metroLine? Line_1;
   metroLine? Line_2;
   metroData.fromJson(Map<String, dynamic> json) {
-    Line_1 = metroLine.fromJson(json['line_1']);
-    Line_2 = metroLine.fromJson(json['line_2']);
+    Line_1 = metroLine.fromJson(json['first_line']);
+    Line_2 = metroLine.fromJson(json['second_line']);
   }
 }
 

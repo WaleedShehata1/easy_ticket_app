@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../model/my_ticket.dart';
@@ -10,6 +11,7 @@ part 'my_ticket_state.dart';
 
 class MyTicketCubit extends Cubit<MyTicketState> {
   MyTicketCubit() : super(MyTicketInitial());
+  static MyTicketCubit get(context) => BlocProvider.of(context);
 
   /// show my ticket
   showTicketModel? myTicket;

@@ -1,12 +1,15 @@
-import 'package:easy_ticket_app/widget/Buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:easy_ticket_app/widget/Buttom.dart';
+
 import '../../widget/dialog.dart';
+import '../screen/home.dart';
 import 'QR.dart';
 
 class DeleteScreen extends StatelessWidget {
-  const DeleteScreen({super.key});
+  DeleteScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -53,7 +56,9 @@ class DeleteScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
                 ),
                 radius: 15,
-                OnTap: () {},
+                OnTap: () {
+                  Navigator.pop(context);
+                },
                 Height: 40,
                 Width: 50,
                 PaddingHorizontal: 0,
@@ -65,7 +70,10 @@ class DeleteScreen extends StatelessWidget {
                 ),
                 Height: 40,
                 radius: 15,
-                OnTap: () {},
+                OnTap: () {
+                  Navigator.push(
+                      context, HomeScreen.routeName as Route<Object?>);
+                },
                 Width: 50,
                 PaddingHorizontal: 0,
                 PaddingVertical: 0),

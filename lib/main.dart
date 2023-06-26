@@ -3,34 +3,35 @@
 import 'package:easy_ticket_app/cubit/app/app_cubit.dart';
 import 'package:easy_ticket_app/cubit/theme/theme_cubit.dart';
 import 'package:easy_ticket_app/network/local/dio_helper.dart';
-import 'package:easy_ticket_app/screen/faqs.dart';
+import 'package:easy_ticket_app/view/screen/faqs.dart';
 import 'package:easy_ticket_app/widget/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc_observer.dart';
 import 'cubit/app/app_state.dart';
 import 'cubit/metro/metro_cubit.dart';
-import 'screen/bottom_bar.dart';
-import 'screen/notifications.dart';
-import 'screen/payment_method.dart';
-import 'screen/sign_up.dart';
-import 'screen/edit_profile.dart';
-import 'screen/get_password_reset_code.dart';
-import 'screen/home.dart';
-import 'screen/onBoard.dart';
-import 'screen/profile.dart';
-import 'screen/sign_in.dart';
-import 'screen/splash.dart';
+import 'view/screen/bottom_bar.dart';
+import 'view/screen/notifications.dart';
+import 'view/screen/payment_method.dart';
+import 'view/screen/sign_up.dart';
+import 'view/screen/edit_profile.dart';
+import 'view/screen/get_password_reset_code.dart';
+import 'view/screen/home.dart';
+import 'view/screen/onBoard.dart';
+import 'view/screen/profile.dart';
+import 'view/screen/sign_in.dart';
+import 'view/screen/splash.dart';
 import 'widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widget/constants.dart';
-import 'screen/wallet_screen.dart';
+import 'view/screen/wallet_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
   await CacheHelper.init();
   token = CacheHelper.getData(key: 'token');
+  print(token);
   runApp(
     const MyApp(),
   );

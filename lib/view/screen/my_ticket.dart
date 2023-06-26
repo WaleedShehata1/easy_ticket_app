@@ -135,8 +135,7 @@ class _myTicketState extends State<myTicket> {
                               return showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return DefaultDialog(
-                                        Child: const DeleteScreen());
+                                    return DefaultDialog(Child: DeleteScreen());
                                   });
                             },
                             onTapQR: () {
@@ -164,8 +163,7 @@ class _myTicketState extends State<myTicket> {
                               return showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return DefaultDialog(
-                                        Child: const DeleteScreen());
+                                    return DefaultDialog(Child: DeleteScreen());
                                   });
                             },
                             onTapQR: () {

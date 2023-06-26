@@ -66,7 +66,7 @@ class AppCubit extends Cubit<AppState> {
       print(userModel!.data!.email);
       emit(ShowSuccessState(userModel));
     }).catchError((error) {
-      print("error//= ${error.toString()}");
+      print("error show user= ${error.toString()}");
       emit(ShowErrorState(error));
     });
   }

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_ticket_app/view/Pop_Up/buy_bus_ticket.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../cubit/my_ticket/my_ticket_cubit.dart';
 import '../Pop_Up/metro_date.dart';
 import '../../cubit/app/app_state.dart';
 import '../../cubit/metro/metro_cubit.dart';
@@ -52,10 +53,19 @@ class _HomeScreenState extends State<HomeScreen> {
     } else if (switshTicket == false) {
       i = 2;
     }
-    return BlocProvider(
-      create: (context) => AppCubit()
-        ..getUserData()
-        ..userModel,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AppCubit()
+            ..getUserData()
+            ..userModel,
+        ),
+        BlocProvider(
+          create: (context) => MyTicketCubit()
+            ..getMyTicketData()
+            ..myTicket,
+        ),
+      ],
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {
           // TODO: implement listener

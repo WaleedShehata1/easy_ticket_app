@@ -3,7 +3,9 @@ import 'package:easy_ticket_app/widget/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../widget/constants.dart';
 import '../../widget/dialog.dart';
+import '../screen/bottom_bar.dart';
 import 'QR.dart';
 
 class MessageWalletScreen extends StatelessWidget {
@@ -87,7 +89,12 @@ class MessageWalletScreen extends StatelessWidget {
                 ),
                 Height: 40,
                 radius: 15,
-                OnTap: () {},
+                OnTap: () {
+                  navigateAndFinish(
+                    context,
+                    BottomBar(),
+                  );
+                },
                 Width: 50,
                 PaddingHorizontal: 0,
                 PaddingVertical: 0),
