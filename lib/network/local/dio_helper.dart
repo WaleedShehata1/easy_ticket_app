@@ -19,6 +19,7 @@ class DioHelper {
   static Future<Response> getData({
     required String url,
     Map<String, dynamic>? query,
+    Map<String, dynamic>? data,
     String lang = 'en',
     String? token,
   }) async {
@@ -27,6 +28,16 @@ class DioHelper {
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json'
     };
+    return await dio!.get(url, queryParameters: query);
+  }
+
+  static Future<Response> getTicket({
+    required String url,
+    Map<String, dynamic>? query,
+    Map<String, dynamic>? data,
+    String lang = 'en',
+  }) async {
+    dio?.options.headers = {'lang': lang, 'Content-Type': 'application/json'};
     return await dio!.get(url, queryParameters: query);
   }
 
@@ -48,6 +59,7 @@ class DioHelper {
 
   static Future<Response> getDataTicket({
     required String url,
+    Map<String, dynamic>? data,
     String lang = 'en',
   }) async {
     dio?.options.headers = {

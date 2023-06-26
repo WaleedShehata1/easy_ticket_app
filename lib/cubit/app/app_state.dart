@@ -2,6 +2,7 @@
 
 import 'package:easy_ticket_app/model/metro.dart';
 
+import '../../model/my_ticket.dart';
 import '../../model/user_register_model.dart';
 import '../../model/wallet_charge_model.dart';
 
@@ -104,4 +105,30 @@ class chargeWalletErrorState extends AppState {
   final String error;
 
   chargeWalletErrorState(this.error);
+}
+
+class PayVisaSuccessState extends AppState {
+  final Model? payVisa;
+  PayVisaSuccessState(
+    this.payVisa,
+  );
+}
+
+class PayVisaErrorState extends AppState {
+  final String error;
+
+  PayVisaErrorState(this.error);
+}
+
+class PayWalletSuccessState extends AppState {
+  final Model? payWallet;
+  PayWalletSuccessState(
+    this.payWallet,
+  );
+}
+
+class PayWalletErrorState extends AppState {
+  final String error;
+
+  PayWalletErrorState(this.error);
 }

@@ -10,3 +10,12 @@ class walletModel {
     wallet = json['wallet'] != null ? json['wallet'] : 0;
   }
 }
+
+class Model {
+  String? message;
+  bool? status;
+  Model.fromJson(Map<String, dynamic> json) {
+    message = json['message'];
+    status = json['status'];
+  }
+}

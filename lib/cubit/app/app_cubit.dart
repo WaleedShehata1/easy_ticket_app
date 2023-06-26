@@ -58,7 +58,9 @@ class AppCubit extends Cubit<AppState> {
     DioHelper.getData(url: show, token: token!).then((value) {
       userModel = RegisterModel.fromJson(value.data);
       CacheHelper.saveData(key: 'wallet', value: userModel!.data!.wallet);
+      CacheHelper.saveData(key: 'id', value: userModel!.data!.uid);
       print(userModel!.data!.first_Name);
+      print(userModel!.data!.uid);
       print(userModel!.message);
       print(userModel!.status);
       print(userModel!.data!.email);
@@ -170,7 +172,7 @@ class AppCubit extends Cubit<AppState> {
   //// Charge Wallet
   walletModel? responseChargeWallet;
   ChargeWallet({
-    required String visa_number,
+    required int visa_number,
     required String expire,
     required String The_owner_of_the_visa,
     required int cvv,
@@ -194,6 +196,7 @@ class AppCubit extends Cubit<AppState> {
       'cvv': cvv,
     }).then((value) {
       emit(AppLoadingState());
+      getUserData();
       print("value==${value.data}");
       responseChargeWallet = walletModel.fromJson(value.data);
       print('responseUpdatePassword==${responseChargeWallet!.status}');
@@ -201,6 +204,77 @@ class AppCubit extends Cubit<AppState> {
     }).catchError((error) {
       print("error= ${error.toString()}");
       emit(chargeWalletErrorState(error));
+    });
+  }
+
+  ////payment visa
+  Model? responsePayvisa;
+  payvisa({
+    required int visa_number,
+    required String expire,
+    required String The_owner_of_the_visa,
+    required int cvv,
+    required var totalprice,
+    required var count,
+    required int? bus_id,
+    required int? ticket_id,
+    required String ticket_type,
+  }) {
+    emit(AppInitial());
+    String? user_ID = CacheHelper.getData(key: 'id');
+    DioHelper.postData(url: ticket_pay_visa, data: {
+      'visa_number': visa_number,
+      'expire': expire,
+      'The_owner_of_the_visa': The_owner_of_the_visa,
+      'cvv': cvv,
+      "totalprice": totalprice,
+      "count": count,
+      'user_id': int.parse(user_ID!),
+      "bus_id": bus_id == 0 ? null : bus_id,
+      "ticket_id": ticket_id == 0 ? null : ticket_id,
+      "ticket_type": ticket_type,
+    }).then((value) {
+      emit(AppLoadingState());
+      print("value==${value.data}");
+      responsePayvisa = Model.fromJson(value.data);
+      print('response pay visa ==${responsePayvisa!.message}');
+      emit(PayVisaSuccessState(responsePayvisa));
+    }).catchError((error) {
+      print("error= ${error.toString()}");
+      emit(PayVisaErrorState(error));
+    });
+  }
+
+//////payment wallet
+
+  Model? responsePayWallet;
+  payWallet({
+    required var totalprice,
+    required var count,
+    required int? bus_id,
+    required var ticket_id,
+    required String ticket_type,
+    required String password,
+  }) {
+    emit(AppInitial());
+    String? user_ID = CacheHelper.getData(key: 'id');
+    DioHelper.postData(url: ticket_pay_wallet, data: {
+      "totalPrice": totalprice,
+      "count": count,
+      'user_id': int.parse(user_ID!),
+      "bus_id": bus_id == 0 ? null : bus_id,
+      "ticket_id": ticket_id == 0 ? null : ticket_id,
+      "ticket_type": ticket_type,
+      'password': password,
+    }).then((value) {
+      emit(AppLoadingState());
+      print("value==${value.data}");
+      responsePayWallet = Model.fromJson(value.data);
+      print('response pay wallet ==${responsePayWallet!.message}');
+      emit(PayWalletSuccessState(responsePayWallet));
+    }).catchError((error) {
+      print("error= ${error.toString()}");
+      emit(PayWalletErrorState(error));
     });
   }
 }
