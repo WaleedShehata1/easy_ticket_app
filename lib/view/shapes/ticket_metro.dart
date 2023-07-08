@@ -84,7 +84,7 @@ class metroTicket extends StatelessWidget {
         ),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 5.w),
-          width: 270.w,
+          width: 271.w,
           height: 122.h,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
@@ -335,7 +335,7 @@ class metroTicket extends StatelessWidget {
                   ),
                   PaddingVerticalText: 6,
                   Height: 30,
-                  Width: 75,
+                  Width: 74,
                   PaddingHorizontal: 0,
                   PaddingVertical: 0,
                   radius: 10,

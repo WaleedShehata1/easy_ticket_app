@@ -34,7 +34,7 @@ class busTicket extends StatelessWidget {
           children: [
             Container(
               height: 120.h,
-              width: 145.w,
+              width: 153.w,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
@@ -59,7 +59,7 @@ class busTicket extends StatelessWidget {
                   ]),
             ),
             SizedBox(
-              width: 28.w,
+              width: 25.w,
             ),
             Container(
               decoration: BoxDecoration(
@@ -85,7 +85,7 @@ class busTicket extends StatelessWidget {
                         blurRadius: 2.r),
                   ]),
               height: 120.h,
-              width: 95.w,
+              width: 94.w,
             ),
           ],
         ),
@@ -392,7 +392,7 @@ class busTicket extends StatelessWidget {
                             fontSize: 16.sp),
                       ),
                       Height: 30,
-                      Width: 75,
+                      Width: 70,
                       PaddingHorizontal: 0,
                       PaddingVertical: 0,
                       radius: 10,
@@ -423,7 +423,7 @@ class busTicket extends StatelessWidget {
               ],
             ),
           ),
-          width: 270.w,
+          width: 271.w,
           height: 122.h,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(10).r),

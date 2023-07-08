@@ -59,6 +59,8 @@ class AppCubit extends Cubit<AppState> {
       userModel = RegisterModel.fromJson(value.data);
       CacheHelper.saveData(key: 'wallet', value: userModel!.data!.wallet);
       CacheHelper.saveData(key: 'id', value: userModel!.data!.uid);
+      CacheHelper.saveData(
+          key: 'national_ID', value: userModel!.data!.national_ID);
       print(userModel!.data!.first_Name);
       print(userModel!.data!.uid);
       print(userModel!.message);
